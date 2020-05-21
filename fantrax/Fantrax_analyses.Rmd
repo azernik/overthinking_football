@@ -1,0 +1,299 @@
+---
+title: "fantrax_analysis"
+author: "Christopher Adams"
+date: "5/16/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library('tidyverse')
+library('ggrepel')
+library('ggplot2')
+library(car)
+
+weekly_data_csv = "~/Documents/GitHub/soccer_analytics/data/fantrax_data/weekly.all_data_combined.csv"
+yearly_data_csv = "~/Documents/GitHub/soccer_analytics/data/fantrax_data/yearly.all_data_combined.csv"
+
+weekly_data_df <- read_csv(file = weekly_data_csv, col_names = TRUE)
+yearly_data_df <- read_csv(file = yearly_data_csv, col_names = TRUE)
+
+# add per 90 data for every relevant stat
+per90_fun <- function(var, minutes){
+  (var / minutes) * 90
+}
+
+
+non_scoring_stats <- c('GOF','A2','ABS','AFKG','AHW','AOG','APL','APKG','AR','ASOP','S','SA','SOP','SB','TLM','PLC','FC','FS','ErS','ErG','HB','Pen','DP','6S','Off','PA','AP','SFTP','C','CK','CIB','CF','CC','FKS','IntB','CLRA','CoA','CoSF','BC','BS','DW','DL','AERL','BCC','BCM','BCS','BR','FKG','FKM','PL','LB','LBA','SubOn','SubOff','PKG','PKA','PKM','PKD','MCS')
+scoring_stats <- c("G","KP","AT","SOT","TkW","DIS","YC","SYC","RC","ACNC","Int","CLR","CoS","AER","OG","GAD","CS")
+
+per_90_relevant_stats <- c('FPts','GP','G','GOF','A2','KP','ABS','AFKG','AHW','AOG','APL','APKG','AR','ASOP','AT','S','SOT','SA','SOP','SB','TkW','TLM','DIS','PLC','FC','FS','ErS','ErG','YC','SYC','RC','HB','Pen','DP','6S','Off','PA','AP','SFTP','C','ACNC','CF','CK','CIB','CC','FKS','Int','IntB','CLRA','CLR','CoA','CoS','CoSF','BC','BS','DW','DL','AER','AERL','BCC','BCM','BCS','BR','FKG','FKM','PL','LB','LBA','SubOn','SubOff','PKG','PKA','PKM','PKD','OG','GAD','CS','MCS')
+
+
+```
+
+## Summary statistics
+
+
+```{r summary_all_pos}
+
+summary_data_df <- yearly_data_df %>% 
+  mutate_at(per_90_relevant_stats, per90_fun, yearly_data_df$Min)
+
+def_summary_data_df <- yearly_data_df[which(yearly_data_df$Position == 'D' | yearly_data_df$Position == 'D,M'),] %>% 
+  mutate_at(per_90_relevant_stats, per90_fun, yearly_data_df[which(yearly_data_df$Position == 'D'| yearly_data_df$Position == 'D,M'),]$Min)
+
+mid_summary_data_df <- yearly_data_df[which(yearly_data_df$Position == 'M'),] %>% 
+  mutate_at(per_90_relevant_stats, per90_fun, yearly_data_df[which(yearly_data_df$Position == 'M'),]$Min)
+
+for_summary_data_df <- yearly_data_df[which(yearly_data_df$Position == 'F'),] %>% 
+  mutate_at(per_90_relevant_stats, per90_fun, yearly_data_df[which(yearly_data_df$Position == 'F'),]$Min)
+
+# played at least 900 minutes
+min_900_min_summary_df <- summary_data_df[which(summary_data_df$Min >= 900), ]
+
+
+ggplot(data = min_900_min_summary_df, aes(x=G, y = AT)) + 
+  geom_point(aes(size=Min)) +
+  xlab('Goals / 90') +
+  ylab('Assists / 90') +
+  geom_text_repel(
+    data = subset(min_900_min_summary_df, G + AT >0.7),
+    aes(label = Player),
+    size = 3,
+    box.padding = unit(0.35, "lines"),
+    point.padding = unit(0.3, "lines")
+  )
+
+ns_summary_data_df <- yearly_data_df %>% 
+  subset(select = c('FPts', 'Min', non_scoring_stats))
+
+scoring_summary_data_df <- yearly_data_df %>%
+  subset(select = c('FPts', 'Min', scoring_stats))
+
+# multiple regression non scoring categories on fpts
+scoring_regression <- lm(data = scoring_summary_data_df, FPts ~ .)
+summary(scoring_regression)
+
+```
+
+```{r summary_def}
+
+
+# played at least 900 minutes
+def_min_900_min_summary_df <- def_summary_data_df[which(def_summary_data_df$Min >= 900), ]
+
+
+ggplot(data = def_min_900_min_summary_df, aes(x=G, y = AT)) + 
+  geom_point(aes(size=Min,color=FPts)) +
+  xlab('Goals / 90') +
+  ylab('Assists / 90') +
+  ggtitle("Defenders (greater than 900 min)") +
+  geom_text_repel(
+    data = subset(def_min_900_min_summary_df, G + AT >0.2),
+    aes(label = Player),
+    size = 3,
+    box.padding = unit(0.35, "lines"),
+    point.padding = unit(0.3, "lines")
+  ) +
+  scale_color_gradient(name = 'FPts')
+
+
+ns_summary_data_df <- def_min_900_min_summary_df %>%
+  subset(select = c('FPts', 'Min', non_scoring_stats))
+  
+scoring_summary_data_df <- def_min_900_min_summary_df %>% 
+  subset(select = c('FPts', 'Min', scoring_stats))
+
+# multiple regression non scoring categories on fpts
+ns_regression <- lm(data = ns_summary_data_df, FPts ~ .)
+summary(ns_regression)
+
+
+scoring_regression <- lm(data = scoring_summary_data_df, FPts ~ .)
+plot(scoring_regression)
+summary(scoring_regression)
+
+```
+
+
+
+```{r summary_mid}
+
+
+# played at least 900 minutes
+mid_min_900_min_summary_df <- mid_summary_data_df[which(mid_summary_data_df$Min >= 900), ]
+
+
+ggplot(data = mid_min_900_min_summary_df, aes(x=G, y = AT)) + 
+  geom_point(aes(size=Min,color=FPts)) +
+  xlab('Goals / 90') +
+  ylab('Assists / 90') +
+  ggtitle("Midfielders (greater than 900 min)") +
+  geom_text_repel(
+    data = subset(mid_min_900_min_summary_df, G + AT >0.4),
+    aes(label = Player),
+    size = 3,
+    box.padding = unit(0.35, "lines"),
+    point.padding = unit(0.3, "lines")
+  ) +
+  scale_color_gradient(name = 'FPts')
+
+
+ns_summary_data_df <- mid_min_900_min_summary_df %>%
+  subset(select = c('FPts', 'Min', non_scoring_stats))
+  
+scoring_summary_data_df <- mid_min_900_min_summary_df %>% 
+  subset(select = c('FPts', 'Min', scoring_stats))
+
+# multiple regression non scoring categories on fpts
+ns_regression <- lm(data = ns_summary_data_df, FPts ~ .)
+plot(ns_regression)
+summary(ns_regression)
+
+
+scoring_regression <- lm(data = scoring_summary_data_df, FPts ~ .)
+plot(scoring_regression)
+summary(scoring_regression)
+
+```
+
+```{r summary_for}
+
+
+# played at least 900 minutes
+for_min_900_min_summary_df <- for_summary_data_df[which(mid_summary_data_df$Min >= 900), ]
+
+
+ggplot(data = for_min_900_min_summary_df, aes(x=G, y = AT)) + 
+  geom_point(aes(size=Min,color=FPts)) +
+  xlab('Goals / 90') +
+  ylab('Assists / 90') +
+  ggtitle("Forwards (greater than 900 min)") +
+  geom_text_repel(
+    data = subset(for_min_900_min_summary_df, G + AT >0.5),
+    aes(label = Player),
+    size = 3,
+    box.padding = unit(0.35, "lines"),
+    point.padding = unit(0.3, "lines")
+  ) +
+  scale_color_gradient(name = 'FPts')
+
+
+ns_summary_data_df <- for_min_900_min_summary_df %>%
+  subset(select = c('FPts', 'Min', non_scoring_stats))
+  
+scoring_summary_data_df <- for_min_900_min_summary_df %>% 
+  subset(select = c('FPts', 'Min', scoring_stats))
+
+# multiple regression non scoring categories on fpts
+ns_regression <- lm(data = ns_summary_data_df, FPts ~ .)
+summary(ns_regression)
+
+
+scoring_regression <- lm(data = scoring_summary_data_df, FPts ~ .)
+plot(scoring_regression)
+summary(scoring_regression)
+
+
+plot(x= scoring_summary_data_df$CS, y = scoring_summary_data_df$FPts)
+```
+
+## Substitution analysis
+
+```{r sub_group_analysis}
+
+games_played_data_df <- weekly_data_df[which(weekly_data_df$GP == 1), ]
+
+sub_analysis_df <- data.frame("Player" = games_played_data_df$Player,
+                              "Sub" = rep(0, length(games_played_data_df$Player)),
+                              "Min" = games_played_data_df$Min,
+                              "FPts" = games_played_data_df$FPts,
+                              "FPts_p_min" = games_played_data_df$FPts / games_played_data_df$Min,
+                              "Pos" = games_played_data_df$Position)
+sub_analysis_df[which(games_played_data_df$Min < 45),"Sub"] <- 1
+sub_analysis_df$Sub <- as.factor(sub_analysis_df$Sub)
+ggplot(data = sub_analysis_df, aes(FPts_p_min, colour = Sub)) +
+  geom_density() +
+  ggtitle("Outfielders")
+ggplot(data = sub_analysis_df, aes(FPts, colour = Sub)) +
+  geom_density() +
+  ggtitle("Outfielders")
+paste0("Outfielder sub mean ppm: ", mean(subset(sub_analysis_df, Sub == 1)$FPts_p_min))
+paste0("Outfielder sub mean min: ", mean(subset(sub_analysis_df, Sub == 1)$Min))
+paste0("Outfielder starter mean ppm: ", mean(subset(sub_analysis_df, Sub == 0)$FPts_p_min))
+
+ggplot(subset(sub_analysis_df, Sub == 1), aes(x=Min, y = FPts,colour = Pos)) +
+  geom_point() +
+  ggtitle("Outfielder substitutes points versus minutes played")
+
+ggplot(subset(sub_analysis_df, Sub == 0), aes(x=Min, y = FPts,colour = Pos)) +
+  geom_point() +
+  ggtitle("Outfielder starters points versus minutes played")
+
+ggplot(subset(sub_analysis_df, Sub == 1), aes(x=Min, y = FPts_p_min,colour = Pos)) +
+  geom_point() +
+  ggtitle("Outfielder substitutes points per minute versus minutes played")
+
+ggplot(subset(sub_analysis_df, Sub == 0), aes(x=Min, y = FPts_p_min,colour = Pos)) +
+  geom_point() +
+  ggtitle("Outfielder starters points per minute versus minutes played")
+
+
+# breakdown into position groups:
+### Defense
+ggplot(data = subset(sub_analysis_df, Pos == 'D'), aes(FPts_p_min, colour = Sub)) +
+  geom_density() +
+  ggtitle("Defenders")
+
+ggplot(data = subset(sub_analysis_df, Pos == 'D'), aes(FPts, colour = Sub)) +
+  geom_density() +
+  ggtitle("Defenders")
+
+paste0("Defender sub mean ppm: ", mean(subset(sub_analysis_df, Pos == 'D' & Sub == 1)$FPts_p_min))
+paste0("Defender sub mean min: ", mean(subset(sub_analysis_df, Pos == 'D' & Sub == 1)$Min))
+paste0("Defender starter mean ppm: ", mean(subset(sub_analysis_df, Pos == 'D' & Sub == 0)$FPts_p_min))
+
+### Midfielders
+ggplot(data = subset(sub_analysis_df, Pos == 'M'), aes(FPts_p_min, colour = Sub)) +
+  geom_density() +
+  ggtitle("Midfielders")
+
+ggplot(data = subset(sub_analysis_df, Pos == 'M'), aes(FPts, colour = Sub)) +
+  geom_density() +
+  ggtitle("Midfielders")
+
+paste0("Midfielders sub mean ppm: ", mean(subset(sub_analysis_df, Pos == 'M' & Sub == 1)$FPts_p_min))
+paste0("Midfielders sub mean min: ", mean(subset(sub_analysis_df, Pos == 'M' & Sub == 1)$Min))
+paste0("Midfielders starter mean ppm: ", mean(subset(sub_analysis_df, Pos == 'M' & Sub == 0)$FPts_p_min))
+
+### Forwards
+ggplot(data = subset(sub_analysis_df, Pos == 'F'), aes(FPts_p_min, colour = Sub)) +
+  geom_density() +
+  ggtitle("Forwards")
+
+ggplot(data = subset(sub_analysis_df, Pos == 'F'), aes(FPts, colour = Sub)) +
+  geom_density() +
+  ggtitle("Forwards")
+
+paste0("Forwards sub mean ppm: ", mean(subset(sub_analysis_df, Pos == 'F' & Sub == 1)$FPts_p_min))
+paste0("Forwards sub mean min: ", mean(subset(sub_analysis_df, Pos == 'F' & Sub == 1)$Min))
+paste0("Forwards starter mean ppm: ", mean(subset(sub_analysis_df, Pos == 'F' & Sub == 0)$FPts_p_min))
+
+
+```
+
+
+
+```{r sub_player_analysis}
+
+nrow(sub_analysis_df)
+summary_sub_analysis_df <- sub_analysis_df %>%
+  group_by(Player,Sub) %>%
+  summarize(n(), mean(FPts_p_min),sd(FPts_p_min), mean(Min), sd(Min))
+
+ggplot(subset(summary_sub_analysis_df, Sub == 0), aes(x='mean(FPts_p_min)', y = 'mean(Min)')) + 
+  geom_point()
+
+
+```
