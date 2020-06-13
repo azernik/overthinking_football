@@ -210,7 +210,11 @@ sub_analysis_df <- data.frame("Player" = games_played_data_df$Player,
                               "Min" = games_played_data_df$Min,
                               "FPts" = games_played_data_df$FPts,
                               "FPts_p_min" = games_played_data_df$FPts / games_played_data_df$Min,
-                              "Pos" = games_played_data_df$Position)
+                              "Pos" = games_played_data_df$Position,
+                              "Goals" = games_played_data_df$G,
+                              "Assists" = games_played_data_df$A2,
+                              'G_plus_A' = games_played_data_df$G + games_played_data_df$A2,
+                              'Team' = games_played_data_df$Team)
 sub_analysis_df[which(games_played_data_df$Min < 45),"Sub"] <- 1
 sub_analysis_df$Sub <- as.factor(sub_analysis_df$Sub)
 ggplot(data = sub_analysis_df, aes(FPts_p_min, colour = Sub)) +
@@ -289,11 +293,663 @@ paste0("Forwards starter mean ppm: ", mean(subset(sub_analysis_df, Pos == 'F' & 
 
 nrow(sub_analysis_df)
 summary_sub_analysis_df <- sub_analysis_df %>%
-  group_by(Player,Sub) %>%
-  summarize(n(), mean(FPts_p_min),sd(FPts_p_min), mean(Min), sd(Min))
+  group_by(Player,Sub, Team) %>%
+  summarize(n = n(), mean_fpts = mean(FPts), sd_fpts = sd(FPts), mean_fpts_p_min = mean(FPts_p_min),sd_fpts_p_min = sd(FPts_p_min), mean_min = mean(Min), sd_min = sd(Min), mean_goals = mean(Goals), mean_assists = mean(Assists), mean_g_a = mean(G_plus_A), min_total = sum(Min))
 
-ggplot(subset(summary_sub_analysis_df, Sub == 0), aes(x='mean(FPts_p_min)', y = 'mean(Min)')) + 
-  geom_point()
+high_average_subs <- subset(summary_sub_analysis_df, mean_fpts > 4 & Sub == 1 & n > 5)
+
+ggplot(summary_sub_analysis_df, aes(x=mean_fpts, y = mean_min)) + 
+  geom_point(aes(color=Sub)) +
+  geom_text_repel(
+    data = subset(summary_sub_analysis_df, mean_fpts > 7.5 & Sub == 1 ),
+    aes(label = Player),
+    size = 3,
+    box.padding = unit(0.35, "lines"),
+    point.padding = unit(0.3, "lines")
+  ) +
+  geom_text_repel(
+    data = subset(summary_sub_analysis_df, mean_fpts > 14 & Sub == 0 ),
+    aes(label = Player),
+    size = 3,
+    box.padding = unit(0.35, "lines"),
+    point.padding = unit(0.3, "lines")
+  ) 
 
 
+
+player_wise_summary <- summary_sub_analysis_df %>%
+  spread%>%
+  summarize(n = n(), mean_fpts_p_min = mean(FPts_p_min),sd_fpts_p_min = sd(FPts_p_min), mean_min = mean(Min), sd_min = sd(Min), mean_goals = mean(Goals), mean_assists = mean(Assists), mean_g_a = mean(G_plus_A))
+
+```
+
+
+## Derive variance of each position group for each player
+
+
+
+```{r MCMC_code}
+
+run_mcmc <- function(player_group_df, player_group_summary_df, mu0_start, tausq_start, numsamp) {
+  player_list <- player_group_summary_df$Player
+  
+  
+  # set up samples
+  n_players = length(player_list)
+  mu0.samp <- rep(NA,numsamp)
+  mu_player.samp <- matrix(NA,nrow=numsamp,ncol=n_players)
+  tausq.samp <- rep(NA,numsamp)
+  
+  # starting points
+  mu0 <- mu0_start
+  tausq <- tausq_start
+
+  mu_player <- rep(0, n_players)
+  
+  for (i in 1:numsamp){
+    player_index <- 0
+    for (p in player_list){
+      player_index <- player_index + 1
+      player_summary_row <- player_group_summary_df[player_group_summary_df$Player == p,]
+      mean_player <- player_summary_row$mean
+      sigmasq_player <- (player_summary_row$sd)^2
+      n_samples_player <- player_summary_row$n
+      curvar <- 1/(n_samples_player/sigmasq_player + 1/tausq)
+      curmean <- (n_samples_player/sigmasq_player * mean_player + mu0/tausq)*curvar
+      mu_player[player_index] <- rnorm(1,mean=curmean,sd=sqrt(curvar))
+    }
+
+    # sampling mu0
+    mu0 <- rnorm(1,mean=(sum(mu_player)/n_players),sd=sqrt(tausq/n_players))
+    #print(mu0)
+    
+    # sampling tausq
+    shape_param <- (n_players - 1)/2
+    rate_param <- sum((mu_player - mu0)^2) / 2
+    tausq <- 1 / rgamma(n = 1, shape_param, rate = rate_param)
+    #print(tausq) 
+    
+    # storing sampled values
+    mu_player.samp[i,] <- mu_player
+    mu0.samp[i] <- mu0
+    
+    tausq.samp[i] <- tausq
+    
+  }
+  results = list('mu_player.samp' = mu_player.samp, 'mu0.samp' = mu0.samp, 'tausq.samp' = tausq.samp)
+}
+
+
+
+```
+
+
+```{r hierarchical_model_setup}
+
+## first get only weeks where players played at least 60 min
+nrow(weekly_data_df)
+min_60_min_df <- weekly_data_df[weekly_data_df$Min > 59,]
+nrow(min_60_min_df)
+
+## next get players that have played at least 600 minutes
+summary_min_60_df <- min_60_min_df %>% 
+  group_by(Player, Team, Position) %>%
+  summarize(n = n(), min_total = sum(Min), sd = sd(FPts), mean = mean(FPts), total_fpts = sum(FPts), mean_minutes = mean(Min))
+players_more_than_600_min <- summary_min_60_df[summary_min_60_df$min_total > 600,]
+
+nrow(players_more_than_600_min)
+a = min_60_min_df[min_60_min_df$Player == 'Aaron Cresswell',]
+player_list = players_more_than_600_min$Player
+
+player_min_600_min_df <- min_60_min_df %>%
+  filter(Player %in% player_list)
+nrow(player_min_600_min_df)
+
+index <- with(players_more_than_600_min, order(sd))
+players_more_than_600_min[index,]
+```
+
+
+
+```{r defenders_hierarchical_model}
+players_more_than_600_min.defenders = players_more_than_600_min[players_more_than_600_min$Position == 'D',]
+nrow(players_more_than_600_min.defenders)
+def_player_list <- players_more_than_600_min.defenders$Player
+
+player_min_600_min_df <- min_60_min_df %>%
+  filter(Player %in% def_player_list)
+nrow(player_min_600_min_df)
+
+numsamp <- 2000
+set.seed(14)
+chain_1.results <- run_mcmc(player_min_600_min_df, players_more_than_600_min.defenders, mu0_start = 10, tausq_start = 2, numsamp = numsamp)
+mu0.samp <- chain_1.results$mu0.samp
+mu_player.samp <- chain_1.results$mu_player.samp
+tausq.samp <- chain_1.results$tausq.samp
+set.seed(18)
+chain_2.results <- run_mcmc(player_min_600_min_df, players_more_than_600_min.defenders, mu0_start = 2, tausq_start = 8, numsamp = numsamp)
+mu0.samp2 <- chain_2.results$mu0.samp
+mu_player.samp2 <- chain_2.results$mu_player.samp
+tausq.samp2 <- chain_2.results$tausq.samp
+
+#tausq.samp <- sqrt(tausq.samp)
+#tausq.samp2 <- sqrt(tausq.samp2)
+### checking convergence 
+par(mfrow=c(2,2))
+ymin <- min(mu0.samp,mu0.samp2)
+ymax <- max(mu0.samp,mu0.samp2)
+plot(1:numsamp,mu0.samp,type="l",main="mu0" ,ylim=c(ymin,ymax))
+lines(1:numsamp,mu0.samp2,col=2)
+
+### checking convergence 
+#par(mfrow=c(2,2))
+ymin <- min(tausq.samp,tausq.samp2)
+ymax <- max(tausq.samp,tausq.samp2)
+plot(1:numsamp,tausq.samp,type="l",main="tausq" ,ylim=c(ymin,ymax))
+lines(1:numsamp,tausq.samp2,col=2)
+
+### checking convergence 
+#par(mfrow=c(2,2))
+ymin <- min(mu_player.samp[,2],mu_player.samp2[,2])
+ymax <- max(mu_player.samp[,2],mu_player.samp2[,2])
+plot(1:numsamp,mu_player.samp[,2],type="l",main="mu_player_2" ,ylim=c(ymin,ymax))
+lines(1:numsamp,mu_player.samp2[,2],col=2)
+
+### checking convergence 
+par(mfrow=c(2,2))
+ymin <- min(mu0.samp[1:500],mu0.samp2[1:500])
+ymax <- max(mu0.samp[1:500],mu0.samp2[1:500])
+plot(1:500,mu0.samp[1:500],type="l",main="mu0" ,ylim=c(ymin,ymax))
+lines(1:500,mu0.samp2[1:500],col=2)
+
+### checking convergence 
+#par(mfrow=c(2,2))
+ymin <- min(tausq.samp[1:500],tausq.samp2[1:500])
+ymax <- max(tausq.samp[1:500],tausq.samp2[1:500])
+plot(1:500,tausq.samp[1:500],type="l",main="tausq" ,ylim=c(ymin,ymax))
+lines(1:500,tausq.samp2[1:500],col=2)
+
+## remove first 100 as burn-in
+### throwing away first 100 as burn-in 
+mu0.samp <- mu0.samp[101:numsamp]
+mu0.samp2 <- mu0.samp2[101:numsamp]
+mu_player.samp <- mu_player.samp[101:numsamp,]
+mu_player.samp2 <- mu_player.samp2[101:numsamp,]
+tausq.samp <- tausq.samp[101:numsamp]
+tausq.samp2 <- tausq.samp2[101:numsamp]
+
+numpostburn <- length(mu0.samp)
+numpostburn
+
+### autocorrelation of draws
+par(mfrow=c(2,2))
+acf(mu0.samp,main="mu0")
+#acf(mu0.samp2,main="mu0")
+acf(tausq.samp,main="tausq")
+acf(mu_player.samp[,2], main='mu_player_2')
+#acf(tausq.samp2,main="tausq")
+
+### thinning chains (every 10th iteration) and checking acf
+
+temp <- 10*c(1:(numpostburn/10))
+mu0.samp.thinned <- mu0.samp[temp]
+mu0.samp2.thinned <- mu0.samp2[temp]
+tausq.samp.thinned <- tausq.samp[temp]
+tausq.samp2.thinned <- tausq.samp2[temp]
+mu_player.samp.thinned <- mu_player.samp[temp,]
+mu_player.samp2.thinned <- mu_player.samp2[temp,]
+
+par(mfrow=c(2,2))
+acf(mu0.samp.thinned,main="mu0")
+acf(mu0.samp2.thinned,main="mu0")
+acf(tausq.samp.thinned,main="tausq")
+acf(tausq.samp2.thinned,main="tausq")
+
+### combining chains
+
+mu_player.final <- rbind(mu_player.samp.thinned,mu_player.samp2.thinned)
+mu0.final <- c(mu0.samp.thinned,mu0.samp2.thinned)
+tausq.final <- c(tausq.samp.thinned,tausq.samp2.thinned)
+
+length(mu0.final)
+mu0.postmean <- mean(mu0.final)
+mu_player.postmean <- apply(mu_player.final, 2, mean)
+tausq.postmean <- mean(tausq.final)
+### Examining Shrinkage
+par(mfrow=c(1,1))
+plot(1:length(def_player_list),players_more_than_600_min.defenders$mean,main="Shrinkage of Normal Means",pch=19)
+abline(h=mu0.postmean,col=4,lwd=2)
+points(1:length(def_player_list),mu_player.postmean,pch=19,col=2)
+legend("topleft",c("Data Mean","Theta PostMean","Mu0 PostMean"),pch=19,col=c(1,2,4))
+
+print(mu0.postmean)
+
+def_results_df <- data.frame('Player' = def_player_list, 
+                         'empirical_mean' = players_more_than_600_min.defenders$mean,
+                         'posterior_mean' = mu_player.postmean,
+                         'standard_deviation' = players_more_than_600_min.defenders$sd)
+
+print(def_results_df)
+
+def_mu0 <- mu0.final
+def_tausq <- tausq.final
+
+def.mu_player <- data.frame(mu_player.final)
+colnames(def.mu_player) <- def_player_list
+
+```
+
+
+```{r midfielders_hierarchical_model}
+players_more_than_600_min.midfielders = players_more_than_600_min[players_more_than_600_min$Position == 'M',]
+nrow(players_more_than_600_min.midfielders)
+mid_player_list <- players_more_than_600_min.midfielders$Player
+
+player_min_600_min_df.midfielders <- min_60_min_df %>%
+  filter(Player %in% mid_player_list)
+nrow(player_min_600_min_df)
+
+numsamp <- 2000
+set.seed(14)
+chain_1.results <- run_mcmc(player_min_600_min_df.midfielders, players_more_than_600_min.midfielders, mu0_start = 10, tausq_start = 2, numsamp = numsamp)
+mu0.samp <- chain_1.results$mu0.samp
+mu_player.samp <- chain_1.results$mu_player.samp
+tausq.samp <- chain_1.results$tausq.samp
+set.seed(18)
+chain_2.results <- run_mcmc(player_min_600_min_df.midfielders, players_more_than_600_min.midfielders, mu0_start = 2, tausq_start = 8, numsamp = numsamp)
+mu0.samp2 <- chain_2.results$mu0.samp
+mu_player.samp2 <- chain_2.results$mu_player.samp
+tausq.samp2 <- chain_2.results$tausq.samp
+
+#tausq.samp <- sqrt(tausq.samp)
+#tausq.samp2 <- sqrt(tausq.samp2)
+### checking convergence 
+par(mfrow=c(2,2))
+ymin <- min(mu0.samp,mu0.samp2)
+ymax <- max(mu0.samp,mu0.samp2)
+plot(1:numsamp,mu0.samp,type="l",main="mu0" ,ylim=c(ymin,ymax))
+lines(1:numsamp,mu0.samp2,col=2)
+
+### checking convergence 
+#par(mfrow=c(2,2))
+ymin <- min(tausq.samp,tausq.samp2)
+ymax <- max(tausq.samp,tausq.samp2)
+plot(1:numsamp,tausq.samp,type="l",main="tausq" ,ylim=c(ymin,ymax))
+lines(1:numsamp,tausq.samp2,col=2)
+
+### checking convergence 
+#par(mfrow=c(2,2))
+ymin <- min(mu_player.samp[,2],mu_player.samp2[,2])
+ymax <- max(mu_player.samp[,2],mu_player.samp2[,2])
+plot(1:numsamp,mu_player.samp[,2],type="l",main="mu_player_2" ,ylim=c(ymin,ymax))
+lines(1:numsamp,mu_player.samp2[,2],col=2)
+
+### checking convergence 
+par(mfrow=c(2,2))
+ymin <- min(mu0.samp[1:500],mu0.samp2[1:500])
+ymax <- max(mu0.samp[1:500],mu0.samp2[1:500])
+plot(1:500,mu0.samp[1:500],type="l",main="mu0" ,ylim=c(ymin,ymax))
+lines(1:500,mu0.samp2[1:500],col=2)
+
+### checking convergence 
+#par(mfrow=c(2,2))
+ymin <- min(tausq.samp[1:500],tausq.samp2[1:500])
+ymax <- max(tausq.samp[1:500],tausq.samp2[1:500])
+plot(1:500,tausq.samp[1:500],type="l",main="tausq" ,ylim=c(ymin,ymax))
+lines(1:500,tausq.samp2[1:500],col=2)
+
+## remove first 100 as burn-in
+### throwing away first 100 as burn-in 
+mu0.samp <- mu0.samp[101:numsamp]
+mu0.samp2 <- mu0.samp2[101:numsamp]
+mu_player.samp <- mu_player.samp[101:numsamp,]
+mu_player.samp2 <- mu_player.samp2[101:numsamp,]
+tausq.samp <- tausq.samp[101:numsamp]
+tausq.samp2 <- tausq.samp2[101:numsamp]
+
+numpostburn <- length(mu0.samp)
+numpostburn
+
+### autocorrelation of draws
+par(mfrow=c(2,2))
+acf(mu0.samp,main="mu0")
+#acf(mu0.samp2,main="mu0")
+acf(tausq.samp,main="tausq")
+acf(mu_player.samp[,2], main='mu_player_2')
+#acf(tausq.samp2,main="tausq")
+
+### thinning chains (every 5th iteration) and checking acf
+
+temp <- 5*c(1:(numpostburn/5))
+mu0.samp.thinned <- mu0.samp[temp]
+mu0.samp2.thinned <- mu0.samp2[temp]
+tausq.samp.thinned <- tausq.samp[temp]
+tausq.samp2.thinned <- tausq.samp2[temp]
+mu_player.samp.thinned <- mu_player.samp[temp,]
+mu_player.samp2.thinned <- mu_player.samp2[temp,]
+
+par(mfrow=c(2,2))
+acf(mu0.samp.thinned,main="mu0")
+acf(mu0.samp2.thinned,main="mu0")
+acf(tausq.samp.thinned,main="tausq")
+acf(tausq.samp2.thinned,main="tausq")
+
+### combining chains
+
+mu_player.final <- rbind(mu_player.samp.thinned,mu_player.samp2.thinned)
+mu0.final <- c(mu0.samp.thinned,mu0.samp2.thinned)
+tausq.final <- c(tausq.samp.thinned,tausq.samp2.thinned)
+
+length(mu0.final)
+mu0.postmean <- mean(mu0.final)
+mu_player.postmean <- apply(mu_player.final, 2, mean)
+tausq.postmean <- mean(tausq.final)
+### Examining Shrinkage
+par(mfrow=c(1,1))
+plot(1:length(mid_player_list),players_more_than_600_min.midfielders$mean,main="Shrinkage of Normal Means",pch=19)
+abline(h=mu0.postmean,col=4,lwd=2)
+points(1:length(mid_player_list),mu_player.postmean,pch=19,col=2)
+legend("topleft",c("Data Mean","Theta PostMean","Mu0 PostMean"),pch=19,col=c(1,2,4))
+
+print(mu0.postmean)
+
+mid_results_df <- data.frame('Player' = mid_player_list, 
+                         'empirical_mean' = players_more_than_600_min.midfielders$mean,
+                         'posterior_mean' = mu_player.postmean,
+                         'standard_deviation' = players_more_than_600_min.midfielders$sd)
+
+print(mid_results_df)
+mid_mu0 <- mu0.final
+mid_tausq <- tausq.final
+mid.mu_player <- data.frame(mu_player.final)
+colnames(mid.mu_player) <- mid_player_list
+```
+
+
+
+```{r forwards_hierarchical_model}
+players_more_than_600_min.forwards = players_more_than_600_min[players_more_than_600_min$Position == 'F',]
+nrow(players_more_than_600_min.forwards)
+for_player_list <- players_more_than_600_min.forwards$Player
+
+player_min_600_min_df.forwards <- min_60_min_df %>%
+  filter(Player %in% for_player_list)
+nrow(player_min_600_min_df)
+
+numsamp <- 2000
+set.seed(14)
+chain_1.results <- run_mcmc(player_min_600_min_df.forwards, players_more_than_600_min.forwards, mu0_start = 10, tausq_start = 2, numsamp = numsamp)
+mu0.samp <- chain_1.results$mu0.samp
+mu_player.samp <- chain_1.results$mu_player.samp
+tausq.samp <- chain_1.results$tausq.samp
+set.seed(18)
+chain_2.results <- run_mcmc(player_min_600_min_df.forwards, players_more_than_600_min.forwards, mu0_start = 2, tausq_start = 8, numsamp = numsamp)
+mu0.samp2 <- chain_2.results$mu0.samp
+mu_player.samp2 <- chain_2.results$mu_player.samp
+tausq.samp2 <- chain_2.results$tausq.samp
+
+#tausq.samp <- sqrt(tausq.samp)
+#tausq.samp2 <- sqrt(tausq.samp2)
+### checking convergence 
+par(mfrow=c(2,2))
+ymin <- min(mu0.samp,mu0.samp2)
+ymax <- max(mu0.samp,mu0.samp2)
+plot(1:numsamp,mu0.samp,type="l",main="mu0" ,ylim=c(ymin,ymax))
+lines(1:numsamp,mu0.samp2,col=2)
+
+### checking convergence 
+#par(mfrow=c(2,2))
+ymin <- min(tausq.samp,tausq.samp2)
+ymax <- max(tausq.samp,tausq.samp2)
+plot(1:numsamp,tausq.samp,type="l",main="tausq" ,ylim=c(ymin,ymax))
+lines(1:numsamp,tausq.samp2,col=2)
+
+### checking convergence 
+#par(mfrow=c(2,2))
+ymin <- min(mu_player.samp[,2],mu_player.samp2[,2])
+ymax <- max(mu_player.samp[,2],mu_player.samp2[,2])
+plot(1:numsamp,mu_player.samp[,2],type="l",main="mu_player_2" ,ylim=c(ymin,ymax))
+lines(1:numsamp,mu_player.samp2[,2],col=2)
+
+### checking convergence 
+par(mfrow=c(2,2))
+ymin <- min(mu0.samp[1:500],mu0.samp2[1:500])
+ymax <- max(mu0.samp[1:500],mu0.samp2[1:500])
+plot(1:500,mu0.samp[1:500],type="l",main="mu0" ,ylim=c(ymin,ymax))
+lines(1:500,mu0.samp2[1:500],col=2)
+
+### checking convergence 
+#par(mfrow=c(2,2))
+ymin <- min(tausq.samp[1:500],tausq.samp2[1:500])
+ymax <- max(tausq.samp[1:500],tausq.samp2[1:500])
+plot(1:500,tausq.samp[1:500],type="l",main="tausq" ,ylim=c(ymin,ymax))
+lines(1:500,tausq.samp2[1:500],col=2)
+
+## remove first 100 as burn-in
+### throwing away first 100 as burn-in 
+mu0.samp <- mu0.samp[101:numsamp]
+mu0.samp2 <- mu0.samp2[101:numsamp]
+mu_player.samp <- mu_player.samp[101:numsamp,]
+mu_player.samp2 <- mu_player.samp2[101:numsamp,]
+tausq.samp <- tausq.samp[101:numsamp]
+tausq.samp2 <- tausq.samp2[101:numsamp]
+
+numpostburn <- length(mu0.samp)
+numpostburn
+
+### autocorrelation of draws
+par(mfrow=c(2,2))
+acf(mu0.samp,main="mu0")
+#acf(mu0.samp2,main="mu0")
+acf(tausq.samp,main="tausq")
+acf(mu_player.samp[,2], main='mu_player_2')
+#acf(tausq.samp2,main="tausq")
+
+### thinning chains (every 5th iteration) and checking acf
+
+temp <- 5*c(1:(numpostburn/5))
+mu0.samp.thinned <- mu0.samp[temp]
+mu0.samp2.thinned <- mu0.samp2[temp]
+tausq.samp.thinned <- tausq.samp[temp]
+tausq.samp2.thinned <- tausq.samp2[temp]
+mu_player.samp.thinned <- mu_player.samp[temp,]
+mu_player.samp2.thinned <- mu_player.samp2[temp,]
+
+par(mfrow=c(2,2))
+acf(mu0.samp.thinned,main="mu0")
+acf(mu0.samp2.thinned,main="mu0")
+acf(tausq.samp.thinned,main="tausq")
+acf(tausq.samp2.thinned,main="tausq")
+
+### combining chains
+
+mu_player.final <- rbind(mu_player.samp.thinned,mu_player.samp2.thinned)
+mu0.final <- c(mu0.samp.thinned,mu0.samp2.thinned)
+tausq.final <- c(tausq.samp.thinned,tausq.samp2.thinned)
+
+length(mu0.final)
+mu0.postmean <- mean(mu0.final)
+mu_player.postmean <- apply(mu_player.final, 2, mean)
+tausq.postmean <- mean(tausq.final)
+### Examining Shrinkage
+par(mfrow=c(1,1))
+plot(1:length(for_player_list),players_more_than_600_min.forwards$mean,main="Shrinkage of Normal Means",pch=19)
+abline(h=mu0.postmean,col=4,lwd=2)
+points(1:length(for_player_list),mu_player.postmean,pch=19,col=2)
+legend("topleft",c("Data Mean","Theta PostMean","Mu0 PostMean"),pch=19,col=c(1,2,4))
+
+print(mu0.postmean)
+
+for_results_df <- data.frame('Player' = for_player_list, 
+                         'empirical_mean' = players_more_than_600_min.forwards$mean,
+                         'posterior_mean' = mu_player.postmean,
+                         'standard_deviation' = players_more_than_600_min.forwards$sd)
+
+print(for_results_df)
+
+for_mu0 <- mu0.final
+for_tausq <- tausq.final
+for.mu_player <- data.frame(mu_player.final)
+colnames(for.mu_player) <- for_player_list
+```
+
+
+
+```{r summary_hierarchical_model}
+nrow(def_results_df)
+nrow(mid_results_df)
+nrow(for_results_df)
+
+mean(def_mu0)
+def_mu0[50]
+def_mu0[150]
+mean(mid_mu0)
+mean(for_mu0)
+
+mean(def_tausq)
+mean(mid_tausq)
+mean(for_tausq)
+
+sd(def_results_df$posterior_mean)
+sd(mid_results_df$posterior_mean)
+sd(for_results_df$posterior_mean)
+
+median(def_results_df$standard_deviation)
+median(mid_results_df$standard_deviation)
+median(for_results_df$standard_deviation)
+
+mean(def_results_df$standard_deviation)
+mean(mid_results_df$standard_deviation)
+mean(for_results_df$standard_deviation)
+
+
+all_df <- rbind(def_results_df, mid_results_df, for_results_df)
+all_df$pos <- c(rep('D', nrow(def_results_df)), rep('M', nrow(mid_results_df)),rep('F', nrow(for_results_df)))
+all_df$n <- c(players_more_than_600_min.defenders$n, players_more_than_600_min.midfielders$n,players_more_than_600_min.forwards$n)
+ggplot(data = all_df, aes(x=posterior_mean, y = standard_deviation, color = pos)) + 
+  geom_point() +
+  xlab('posterior mean points') +
+  ylab('sd') +
+  ggtitle("All players") +
+  geom_text_repel(
+    data = subset(all_df, posterior_mean > 12),
+    aes(label = Player),
+    size = 3,
+    box.padding = unit(0.35, "lines"),
+    point.padding = unit(0.3, "lines")
+  )
+
+
+
+def_df <- all_df[all_df$pos == 'D',]
+ggplot(data = def_df, aes(x=posterior_mean, y = standard_deviation)) + 
+  geom_point() +
+  xlab('posterior mean points') +
+  ylab('sd') +
+  ggtitle("All players") +
+  geom_text_repel(
+    data = subset(def_df, posterior_mean > 9),
+    aes(label = Player),
+    size = 3,
+    box.padding = unit(0.35, "lines"),
+    point.padding = unit(0.3, "lines")
+  )
+
+mid_df <- all_df[all_df$pos == 'M',]
+ggplot(data = mid_df, aes(x=posterior_mean, y = standard_deviation)) + 
+  geom_point() +
+  xlab('posterior mean points') +
+  ylab('sd') +
+  ggtitle("All players") +
+  geom_text_repel(
+    data = subset(mid_df, posterior_mean > 10),
+    aes(label = Player),
+    size = 3,
+    box.padding = unit(0.35, "lines"),
+    point.padding = unit(0.3, "lines")
+  )
+
+for_df <- all_df[all_df$pos == 'F',]
+ggplot(data = for_df, aes(x=posterior_mean, y = standard_deviation)) + 
+  geom_point() +
+  xlab('posterior mean points') +
+  ylab('sd') +
+  ggtitle("All players") +
+  geom_text_repel(
+    data = subset(for_df, posterior_mean > 12),
+    aes(label = Player),
+    size = 3,
+    box.padding = unit(0.35, "lines"),
+    point.padding = unit(0.3, "lines")
+  )
+```
+
+
+```{r boxplots_position_group}
+options(stringsAsFactors = FALSE)
+get_max_interval <- function (posterior_vec) {
+  total <- length(posterior_vec)
+  index <- as.numeric(0.75 * total)
+  num <- sort(posterior_vec)[index]
+}
+get_min_interval <- function (posterior_vec) {
+  total <- length(posterior_vec)
+  index <- as.numeric(0.25 * total)
+  num <- sort(posterior_vec)[index]
+}
+## DEFENSE
+boxplot_def_df <- data.frame(Player = as.character(def_results_df$Player), sd = def_results_df$standard_deviation, max.value = apply(def.mu_player, 2, get_max_interval), min.value = apply(def.mu_player, 2, get_min_interval), mean = def_results_df$posterior_mean)
+boxplot_def_df$potential_ceiling <- boxplot_def_df$max.value + boxplot_def_df$sd
+correct_player_order = 
+#index <- with(boxplot_def_df, order(potential_ceiling))
+index <- with(boxplot_def_df, order(mean))
+sorted_boxplot_def_df <- boxplot_def_df[index,]
+
+correct_player_order = sorted_boxplot_def_df$Player
+sorted_boxplot_def_df$Player <- factor(sorted_boxplot_def_df$Player, levels = correct_player_order)
+
+
+defense_plot <- ggplot(data = sorted_boxplot_def_df,aes(y = Player, mean)) +
+  geom_crossbar(aes(xmin = min.value, xmax = max.value), width = 1) +
+  geom_errorbar(aes(xmin = min.value - sd, xmax = max.value + sd))
+
+ggsave("~/Desktop/Overthinking_Football/defense_plot.png", plot = defense_plot, height = 12)
+
+
+## MIDS
+boxplot_mid_df <- data.frame(Player = as.character(mid_results_df$Player), sd = mid_results_df$standard_deviation, max.value = apply(mid.mu_player, 2, get_max_interval), min.value = apply(mid.mu_player, 2, get_min_interval), mean = mid_results_df$posterior_mean)
+boxplot_mid_df$potential_ceiling <- boxplot_mid_df$max.value + boxplot_mid_df$sd
+correct_player_order = 
+#index <- with(boxplot_for_df, order(potential_ceiling))
+index <- with(boxplot_mid_df, order(mean))
+sorted_boxplot_mid_df <- boxplot_mid_df[index,]
+
+correct_player_order = sorted_boxplot_mid_df$Player
+sorted_boxplot_mid_df$Player <- factor(sorted_boxplot_mid_df$Player, levels = correct_player_order)
+
+
+mid_plot <- ggplot(data = sorted_boxplot_mid_df,aes(y = Player, mean)) +
+  geom_crossbar(aes(xmin = min.value, xmax = max.value), width = 1) +
+  geom_errorbar(aes(xmin = min.value - sd, xmax = max.value + sd))
+
+ggsave("~/Desktop/Overthinking_Football/mid_plot.png", plot = mid_plot, height=12)
+
+
+## FORWARDS
+boxplot_for_df <- data.frame(Player = as.character(for_results_df$Player), sd = for_results_df$standard_deviation, max.value = apply(for.mu_player, 2, get_max_interval), min.value = apply(for.mu_player, 2, get_min_interval), mean = for_results_df$posterior_mean)
+boxplot_for_df$potential_ceiling <- boxplot_for_df$max.value + boxplot_for_df$sd
+correct_player_order = 
+#index <- with(boxplot_for_df, order(potential_ceiling))
+index <- with(boxplot_for_df, order(mean))
+sorted_boxplot_for_df <- boxplot_for_df[index,]
+
+correct_player_order = sorted_boxplot_for_df$Player
+sorted_boxplot_for_df$Player <- factor(sorted_boxplot_for_df$Player, levels = correct_player_order)
+
+
+forward_plot <- ggplot(data = sorted_boxplot_for_df,aes(y = Player, mean)) +
+  geom_crossbar(aes(xmin = min.value, xmax = max.value), width = 1) +
+  geom_errorbar(aes(xmin = min.value - sd, xmax = max.value + sd))
+
+ggsave("~/Desktop/Overthinking_Football/forward_plot.png", plot = forward_plot)
 ```
