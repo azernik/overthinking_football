@@ -7,6 +7,9 @@ output: html_document
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+library(ggplot2)
+library(ggrepel)
 ```
 
 ## Data setup
@@ -53,9 +56,9 @@ all_cs_data_df <- data.frame('Squad' = c(cs_df$Home, cs_df$Away), 'xG_against' =
 
 defenders_min60_merged_cs_df <- merge(defenders_min60_merged_df, all_cs_data_df, by=c('Squad', 'game_week'))
 
-defenders_min60_merged_cs_df$GAD_against <- ifelse(defenders_min60_merged_cs_df$xG_against - 0.5 < 0, 0, defenders_min60_merged_cs_df$xG_against - 0.5)
+defenders_min60_merged_cs_df$GAD_against <- ifelse(defenders_min60_merged_cs_df$xG_against - 0.25 < 0, 0, defenders_min60_merged_cs_df$xG_against - 0.25)
 
-defenders_min60_merged_cs_df$normed_xg_against <- ifelse(defenders_min60_merged_cs_df$GAD_against <= 1.5, 1 - defenders_min60_merged_cs_df$xG_against/1.5, 0)
+defenders_min60_merged_cs_df$normed_xg_against <- ifelse(defenders_min60_merged_cs_df$GAD_against <= 1.25, 1 - defenders_min60_merged_cs_df$GAD_against/1.25, 0)
 
 defenders_min60_min600_merged_df <- defenders_min60_merged_cs_df %>%
   filter(Player %in% def_player_list)
