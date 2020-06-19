@@ -44,7 +44,7 @@ nrow(player_min_5_starts_weekly_df)
 players_min_starts.defenders = players_min_5_starts_summary_df[players_min_5_starts_summary_df$Position == 'D',]
 nrow(players_min_starts.defenders)
 def_player_list <- players_min_starts.defenders$Player
-
+length(def_player_list)
 defenders_fbref_df <- read_csv('~/Desktop/Overthinking_Football/player_fbref_match_csvs/Def_min5starts.csv')
 cs_df <- read_csv('~/Desktop/Overthinking_Football/player_fbref_match_csvs/game_results.csv')
 defenders_fbref_df$game_week <- sapply(strsplit(defenders_fbref_df$Round, " "), function(x) (x[2]))
@@ -120,7 +120,7 @@ defense_plot <- ggplot(data = sorted_boxplot_def_df,aes(y = Player, mean)) +
   ggtitle('xFpt ranges for Defenders') +
   theme_light() +
   theme(plot.title = element_text(hjust = 0.5))
-ggsave("~/Desktop/Overthinking_Football/defense_plot.png", plot = defense_plot, height = 12)
+ggsave("~/Desktop/Overthinking_Football/defense_plot.png", plot = defense_plot, height = 14)
 
 ```
 
@@ -191,7 +191,7 @@ mid_plot <- ggplot(data = sorted_boxplot_mid_df,aes(y = Player, mean)) +
   ggtitle('xFpt ranges for Midfielders') +
   theme_light() +
   theme(plot.title = element_text(hjust = 0.5))
-ggsave("~/Desktop/Overthinking_Football/mid_plot.png", plot = mid_plot, height = 12)
+ggsave("~/Desktop/Overthinking_Football/mid_plot.png", plot = mid_plot, height = 15)
 
 ```
 
