@@ -1,0 +1,33 @@
+﻿Date,Time,Round,Day,Venue,Result,GF,GA,Opponent,xG,xGA,Poss,Attendance,Captain,Formation,Referee,Match Report,SCA,PassLive_sca,PassDead_sca,Drib_sca,Sh_sca,Fld_sca,GCA,PassLive_gca,PassDead_gca,Drib_gca,Sh_gca,Fld_gca,OG_gca
+8/11/19,14:00 (09:00),Matchweek 1,Sun,Home,D,0,0,Wolves,0.6,0.6,69,32015,Kasper Schmeichel,4-1-4-1,Andre Marriner,Match Report,19,14,3,1,0,1,0,0,0,0,0,0,0
+8/18/19,16:30 (11:30),Matchweek 2,Sun,Away,D,1,1,Chelsea,0.7,1.3,50,40629,Kasper Schmeichel,4-1-4-1,Oliver Langford,Match Report,16,10,2,2,1,1,2,1,1,0,0,0,0
+8/24/19,15:00 (10:00),Matchweek 3,Sat,Away,W,2,1,Sheffield Utd,0.8,0.8,51,30079,Kasper Schmeichel,4-4-2◆,Andy Madley,Match Report,23,17,2,2,0,2,3,2,1,0,0,0,0
+8/31/19,15:00 (10:00),Matchweek 4,Sat,Home,W,3,1,Bournemouth,1.9,0.8,56,31613,Kasper Schmeichel,4-1-4-1,Peter Bankes,Match Report,23,20,2,0,0,1,4,4,0,0,0,0,0
+9/14/19,15:00 (10:00),Matchweek 5,Sat,Away,L,0,1,Manchester Utd,0.4,1.1,57,73689,Kasper Schmeichel,4-1-4-1,Martin Atkinson,Match Report,10,6,1,2,0,1,0,0,0,0,0,0,0
+9/21/19,12:30 (07:30),Matchweek 6,Sat,Home,W,2,1,Tottenham,1.5,1.3,44,32129,Kasper Schmeichel,4-1-4-1,Paul Tierney,Match Report,24,17,0,5,1,1,3,3,0,0,0,0,0
+9/29/19,16:30 (11:30),Matchweek 7,Sun,Home,W,5,0,Newcastle Utd,1.1,0.1,69,32168,Kasper Schmeichel,4-1-4-1,Craig Pawson,Match Report,26,22,0,2,0,1,9,7,0,0,0,1,1
+10/5/19,15:00 (10:00),Matchweek 8,Sat,Away,L,1,2,Liverpool,0.2,2.8,47,53322,Kasper Schmeichel,4-1-4-1,Chris Kavanagh,Match Report,2,2,0,0,0,0,2,2,0,0,0,0,0
+10/19/19,15:00 (10:00),Matchweek 9,Sat,Home,W,2,1,Burnley,1.3,1.5,62,32105,Kasper Schmeichel,4-1-4-1,Jonathan Moss,Match Report,31,24,4,1,1,1,4,3,0,1,0,0,0
+10/25/19,20:00 (15:00),Matchweek 10,Fri,Away,W,9,0,Southampton,3.6,0.4,71,28762,Kasper Schmeichel,4-1-4-1,Andre Marriner,Match Report,37,30,0,3,2,2,14,10,0,1,1,2,0
+11/3/19,14:00 (09:00),Matchweek 11,Sun,Away,W,2,0,Crystal Palace,1.4,0.4,56,25480,Kasper Schmeichel,4-1-4-1,Paul Tierney,Match Report,25,9,8,1,2,5,2,2,0,0,0,0,0
+11/9/19,17:30 (12:30),Matchweek 12,Sat,Home,W,2,0,Arsenal,1.7,0.8,50,32209,Kasper Schmeichel,4-1-4-1,Chris Kavanagh,Match Report,30,25,2,2,0,1,4,4,0,0,0,0,0
+11/23/19,15:00 (10:00),Matchweek 13,Sat,Away,W,2,0,Brighton,3.4,0.9,46,30640,Kasper Schmeichel,4-1-4-1,Mike Dean,Match Report,30,22,2,2,1,3,3,2,0,0,0,1,0
+12/1/19,16:30 (11:30),Matchweek 14,Sun,Home,W,2,1,Everton,2.3,0.9,70,32144,Kasper Schmeichel,4/5/01,Graham Scott,Match Report,22,19,2,1,0,0,4,4,0,0,0,0,0
+12/4/19,19:30 (14:30),Matchweek 15,Wed,Home,W,2,0,Watford,2.8,0.3,61,31763,Kasper Schmeichel,4-1-4-1,Craig Pawson,Match Report,19,13,1,3,1,1,4,2,0,1,0,1,0
+12/8/19,14:00 (09:00),Matchweek 16,Sun,Away,W,4,1,Aston Villa,4.4,1.1,58,41908,Kasper Schmeichel,4-4-2◆,Michael Oliver,Match Report,40,24,5,4,4,3,6,3,1,1,1,0,0
+12/14/19,15:00 (10:00),Matchweek 17,Sat,Home,D,1,1,Norwich City,1.4,1.8,56,32101,Kasper Schmeichel,4-4-2◆,Andy Madley,Match Report,26,15,6,2,2,0,2,0,1,0,0,0,1
+12/21/19,17:30 (12:30),Matchweek 18,Sat,Away,L,1,3,Manchester City,0.9,3.3,38,54415,Kasper Schmeichel,4-1-4-1,Mike Dean,Match Report,10,9,0,1,0,0,2,2,0,0,0,0,0
+12/26/19,20:00 (15:00),Matchweek 19,Thu,Home,L,0,4,Liverpool,0.1,3.1,41,32211,Kasper Schmeichel,4-1-4-1,Michael Oliver,Match Report,4,4,0,0,0,0,0,0,0,0,0,0,0
+12/28/19,17:30 (12:30),Matchweek 20,Sat,Away,W,2,1,West Ham,2.2,1,57,59919,Wes Morgan,4-4-1-1,David Coote,Match Report,22,13,1,4,1,3,4,3,0,0,0,1,0
+1/1/20,15:00 (10:00),Matchweek 21,Wed,Away,W,3,0,Newcastle Utd,1.6,0.8,76,52178,Kasper Schmeichel,3/5/02,Martin Atkinson,Match Report,26,17,3,1,3,2,5,4,0,1,0,0,0
+1/11/20,15:00 (10:00),Matchweek 22,Sat,Home,L,1,2,Southampton,0.8,2.3,57,32115,Kasper Schmeichel,4-1-4-1,Lee Mason,Match Report,8,6,2,0,0,0,2,1,1,0,0,0,0
+1/19/20,14:00 (09:00),Matchweek 23,Sun,Away,L,1,2,Burnley,2.2,1.3,56,19788,Kasper Schmeichel,4-1-4-1,Anthony Taylor,Match Report,29,21,2,1,3,2,0,0,0,0,0,0,0
+1/22/20,19:30 (14:30),Matchweek 24,Wed,Home,W,4,1,West Ham,2.9,1.6,67,31968,Kasper Schmeichel,4-1-4-1,David Coote,Match Report,33,23,3,3,2,2,8,6,0,1,0,1,0
+2/1/20,12:30 (07:30),Matchweek 25,Sat,Home,D,2,2,Chelsea,1.5,0.5,49,32186,Kasper Schmeichel,4-1-4-1,Lee Mason,Match Report,26,19,3,0,2,2,4,4,0,0,0,0,0
+2/14/20,20:00 (15:00),Matchweek 26,Fri,Away,D,0,0,Wolves,0.7,1,57,31682,Kasper Schmeichel,4-1-4-1,Mike Dean,Match Report,15,7,3,1,1,3,0,0,0,0,0,0,0
+2/22/20,17:30 (12:30),Matchweek 27,Sat,Home,L,0,1,Manchester City,1.1,2.3,33,32068,Kasper Schmeichel,3/5/02,Paul Tierney,Match Report,15,12,0,1,0,2,0,0,0,0,0,0,0
+2/28/20,20:00 (15:00),Matchweek 28,Fri,Away,L,0,1,Norwich City,1.4,0.9,58,27010,Kasper Schmeichel,4-1-4-1,Craig Pawson,Match Report,30,24,3,2,1,0,0,0,0,0,0,0,0
+3/9/20,20:00 (16:00),Matchweek 29,Mon,Home,W,4,0,Aston Villa,2.3,0.5,64,32125,Kasper Schmeichel,4-1-4-1,Michael Oliver,Match Report,23,16,4,1,1,1,6,5,0,1,0,0,0
+6/20/20,12:30 (07:30),Matchweek 30,Sat,Away,D,1,1,Watford,0.8,0.9,67,,Kasper Schmeichel,4-1-4-1,Craig Pawson,Match Report,24,19,1,1,1,2,2,2,0,0,0,0,0
+6/23/20,18:00 (13:00),Matchweek 31,Tue,Home,D,0,0,Brighton,0.7,1.2,67,,Kasper Schmeichel,4/4/02,Lee Mason,Match Report,17,12,1,0,2,2,0,0,0,0,0,0,0
+7/1/20,18:00 (13:00),Matchweek 32,Wed,Away,L,1,2,Everton,1.7,1.2,65,,Kasper Schmeichel,4-1-4-1,David Coote,Match Report,21,11,1,6,3,0,0,0,0,0,0,0,0
