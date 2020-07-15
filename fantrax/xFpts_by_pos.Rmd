@@ -301,3 +301,137 @@ dim(team_pos_players_same_for_df)
 ggplot(team_pos_players_same_for_df, aes(x = reorder(Team_Pos, xPts, FUN = median ), y = xPts)) + geom_boxplot()  + theme_minimal() + theme(axis.text.x = element_text(angle = 90)) +ggtitle("Forwards xFpts for Team Positions with no stat difference btw players")
 ```
 
+#Look into the statistically different team positions
+```{r}
+
+team_pos_vec[sigKWTestVec]
+# [1] "ARS_RB" "CRY_CM" "MCI_CB" "MUN_CB" "NOR_CB" "WOL_CB" "WOL_WB" "NEW_CM" "NEW_AM" "WHU_CM" "LEI_CM" "CRY_FW" "SOU_FW" "BUR_CM" "BOU_CM"
+#[16] "MUN_LW" "MUN_AM" "MCI_CM" "WOL_DM" "CHE_DM" "NOR_AM"
+
+#look at ARS RBs
+ARS_RB_data <- as.data.frame(all_combined_Team_Pos_min_10_players_2[all_combined_Team_Pos_min_10_players_2$Team_Pos == "ARS_RB",])
+
+ggplot(ARS_RB_data, aes(Player, xPts)) + geom_boxplot(aes(colour = Player), outlier.shape = NA) + geom_jitter(width = 0.2, aes(colour = ARS_RB_data$Player)) + theme_minimal() + theme(axis.text.x = element_text(angle = 45)) +ggtitle("Arsenal RB xFpt for each player")
+
+#CRY_CM
+CRY_CM_data <- as.data.frame(all_combined_Team_Pos_min_10_players_2[all_combined_Team_Pos_min_10_players_2$Team_Pos == "CRY_CM",])
+
+ggplot(CRY_CM_data, aes(Player, xPts)) + geom_boxplot(aes(colour = Player), outlier.shape = NA) + geom_jitter(width = 0.2, aes(colour = CRY_CM_data$Player)) + theme_minimal() + theme(axis.text.x = element_text(angle = 45)) +ggtitle("CRY_CM xFpt for each player")
+#Wilf Zaha is good, maybe some other stuff
+
+
+#MCI_CB
+MCI_CB_data <- as.data.frame(all_combined_Team_Pos_min_10_players_2[all_combined_Team_Pos_min_10_players_2$Team_Pos == "MCI_CB",])
+
+ggplot(MCI_CB_data, aes(Player, xPts)) + geom_boxplot(aes(colour = Player), outlier.shape = NA) + geom_jitter(width = 0.2, aes(colour = MCI_CB_data$Player)) + theme_minimal() + theme(axis.text.x = element_text(angle = 45)) +ggtitle("MCI_CB xFpt for each player")
+#Fernandinho is no good
+
+#MUN_CB
+MUN_CB_data <- as.data.frame(all_combined_Team_Pos_min_10_players_2[all_combined_Team_Pos_min_10_players_2$Team_Pos == "MUN_CB",])
+
+ggplot(MUN_CB_data, aes(Player, xPts)) + geom_boxplot(aes(colour = Player), outlier.shape = NA) + geom_jitter(width = 0.2, aes(colour = MUN_CB_data$Player)) + theme_minimal() + theme(axis.text.x = element_text(angle = 45)) +ggtitle("MUN_CB xFpt for each player")
+#Victor Lidelof is worse than Slabhead
+
+#NOR_CB
+NOR_CB_data <- as.data.frame(all_combined_Team_Pos_min_10_players_2[all_combined_Team_Pos_min_10_players_2$Team_Pos == "NOR_CB",])
+
+ggplot(NOR_CB_data, aes(Player, xPts)) + geom_boxplot(aes(colour = Player), outlier.shape = NA) + geom_jitter(width = 0.2, aes(colour = NOR_CB_data$Player)) + theme_minimal() + theme(axis.text.x = element_text(angle = 45)) +ggtitle("NOR_CB xFpt for each player")
+# Tettey and Godfrey are worse than Zimmerman and Hanley
+
+#WOL_CB
+WOL_CB_data <- as.data.frame(all_combined_Team_Pos_min_10_players_2[all_combined_Team_Pos_min_10_players_2$Team_Pos == "WOL_CB",])
+
+ggplot(WOL_CB_data, aes(Player, xPts)) + geom_boxplot(aes(colour = Player), outlier.shape = NA) + geom_jitter(width = 0.2, aes(colour = WOL_CB_data$Player)) + theme_minimal() + theme(axis.text.x = element_text(angle = 45)) +ggtitle("WOL_CB xFpt for each player")
+#Willy Boly is better
+
+#WOL_WB
+WOL_WB_data <- as.data.frame(all_combined_Team_Pos_min_10_players_2[all_combined_Team_Pos_min_10_players_2$Team_Pos == "WOL_WB",])
+
+ggplot(WOL_WB_data, aes(Player, xPts)) + geom_boxplot(aes(colour = Player), outlier.shape = NA) + geom_jitter(width = 0.2, aes(colour = WOL_WB_data$Player)) + theme_minimal() + theme(axis.text.x = element_text(angle = 45)) +ggtitle("WOL_WB xFpt for each player")
+#Doherty is good, jonny is okay
+
+# NEW_CM
+NEW_CM_data <- as.data.frame(all_combined_Team_Pos_min_10_players_2[all_combined_Team_Pos_min_10_players_2$Team_Pos == "NEW_CM",])
+
+ggplot(NEW_CM_data, aes(Player, xPts)) + geom_boxplot(aes(colour = Player), outlier.shape = NA) + geom_jitter(width = 0.2, aes(colour = NEW_CM_data$Player)) + theme_minimal() + theme(axis.text.x = element_text(angle = 45)) +ggtitle("NEW_CM xFpt for each player")
+#Saint-Maximin is good, shelvey, ritchie, and almiron are pretty good
+
+#NEW_AM
+NEW_AM_data <- as.data.frame(all_combined_Team_Pos_min_10_players_2[all_combined_Team_Pos_min_10_players_2$Team_Pos == "NEW_AM",])
+
+ggplot(NEW_AM_data, aes(Player, xPts)) + geom_boxplot(aes(colour = Player), outlier.shape = NA) + geom_jitter(width = 0.2, aes(colour = NEW_AM_data$Player)) + theme_minimal() + theme(axis.text.x = element_text(angle = 45)) +ggtitle("NEW_AM xFpt for each player")
+#Saint-Maximin is good, atsu might be good, almiron is not good
+
+#WHU_CM
+WHU_CM_data <- as.data.frame(all_combined_Team_Pos_min_10_players_2[all_combined_Team_Pos_min_10_players_2$Team_Pos == "WHU_CM",])
+
+ggplot(WHU_CM_data, aes(Player, xPts)) + geom_boxplot(aes(colour = Player), outlier.shape = NA) + geom_jitter(width = 0.2, aes(colour = WHU_CM_data$Player)) + theme_minimal() + theme(axis.text.x = element_text(angle = 45)) +ggtitle("WHU_CM xFpt for each player")
+#anderson is good Noble is bad
+
+#LEI_CM
+LEI_CM_data <- as.data.frame(all_combined_Team_Pos_min_10_players_2[all_combined_Team_Pos_min_10_players_2$Team_Pos == "LEI_CM",])
+
+ggplot(LEI_CM_data, aes(Player, xPts)) + geom_boxplot(aes(colour = Player), outlier.shape = NA) + geom_jitter(width = 0.2, aes(colour = LEI_CM_data$Player)) + theme_minimal() + theme(axis.text.x = element_text(angle = 45)) +ggtitle("LEI_CM xFpt for each player")
+#barnes and Maddison are about the same
+
+#CRY_FW
+CRY_FW_data <- as.data.frame(all_combined_Team_Pos_min_10_players_2[all_combined_Team_Pos_min_10_players_2$Team_Pos == "CRY_FW",])
+
+ggplot(CRY_FW_data, aes(Player, xPts)) + geom_boxplot(aes(colour = Player), outlier.shape = NA) + geom_jitter(width = 0.2, aes(colour = CRY_FW_data$Player)) + theme_minimal() + theme(axis.text.x = element_text(angle = 45)) +ggtitle("CRY_FW xFpt for each player")
+#benteke better than the other two
+
+
+#SOU_FW
+SOU_FW_data <- as.data.frame(all_combined_Team_Pos_min_10_players_2[all_combined_Team_Pos_min_10_players_2$Team_Pos == "SOU_FW",])
+
+ggplot(SOU_FW_data, aes(Player, xPts)) + geom_boxplot(aes(colour = Player), outlier.shape = NA) + geom_jitter(width = 0.2, aes(colour = SOU_FW_data$Player)) + theme_minimal() + theme(axis.text.x = element_text(angle = 45)) +ggtitle("SOU_FW xFpt for each player")
+#Shane long and Danny Ings about equal che Adams no good
+
+#BUR_CM
+BUR_CM_data <- as.data.frame(all_combined_Team_Pos_min_10_players_2[all_combined_Team_Pos_min_10_players_2$Team_Pos == "BUR_CM",])
+
+ggplot(BUR_CM_data, aes(Player, xPts)) + geom_boxplot(aes(colour = Player), outlier.shape = NA) + geom_jitter(width = 0.2, aes(colour = BUR_CM_data$Player)) + theme_minimal() + theme(axis.text.x = element_text(angle = 45)) +ggtitle("BUR_CM xFpt for each player")
+#McNeil is good
+
+#BOU_CM
+BOU_CM_data <- as.data.frame(all_combined_Team_Pos_min_10_players_2[all_combined_Team_Pos_min_10_players_2$Team_Pos == "BOU_CM",])
+
+ggplot(BOU_CM_data, aes(Player, xPts)) + geom_boxplot(aes(colour = Player), outlier.shape = NA) + geom_jitter(width = 0.2, aes(colour = BOU_CM_data$Player)) + theme_minimal() + theme(axis.text.x = element_text(angle = 45)) +ggtitle("BOU_CM xFpt for each player")
+#some are good some bad
+
+#MUN_LW
+MUN_LW_data <- as.data.frame(all_combined_Team_Pos_min_10_players_2[all_combined_Team_Pos_min_10_players_2$Team_Pos == "MUN_LW",])
+
+ggplot(MUN_LW_data, aes(Player, xPts)) + geom_boxplot(aes(colour = Player), outlier.shape = NA) + geom_jitter(width = 0.2, aes(colour = MUN_LW_data$Player)) + theme_minimal() + theme(axis.text.x = element_text(angle = 45)) +ggtitle("MUN_LW xFpt for each player")
+#Rashford is way better than Daniel James
+
+#MUN_AM
+MUN_AM_data <- as.data.frame(all_combined_Team_Pos_min_10_players_2[all_combined_Team_Pos_min_10_players_2$Team_Pos == "MUN_AM",])
+
+ggplot(MUN_AM_data, aes(Player, xPts)) + geom_boxplot(aes(colour = Player), outlier.shape = NA) + geom_jitter(width = 0.2, aes(colour = MUN_AM_data$Player)) + theme_minimal() + theme(axis.text.x = element_text(angle = 45)) +ggtitle("MUN_AM xFpt for each player")
+#Bruno and Pereira are good
+
+#MCI_CM
+MCI_CM_data <- as.data.frame(all_combined_Team_Pos_min_10_players_2[all_combined_Team_Pos_min_10_players_2$Team_Pos == "MCI_CM",])
+
+ggplot(MCI_CM_data, aes(Player, xPts)) + geom_boxplot(aes(colour = Player), outlier.shape = NA) + geom_jitter(width = 0.2, aes(colour = MCI_CM_data$Player)) + theme_minimal() + theme(axis.text.x = element_text(angle = 45)) +ggtitle("MCI_CM xFpt for each player")
+#KDB is real good and Bernardo Silva is not so good
+
+#WOL_DM
+WOL_DM_data <- as.data.frame(all_combined_Team_Pos_min_10_players_2[all_combined_Team_Pos_min_10_players_2$Team_Pos == "WOL_DM",])
+
+ggplot(WOL_DM_data, aes(Player, xPts)) + geom_boxplot(aes(colour = Player), outlier.shape = NA) + geom_jitter(width = 0.2, aes(colour = WOL_DM_data$Player)) + theme_minimal() + theme(axis.text.x = element_text(angle = 45)) +ggtitle("WOL_DM xFpt for each player")
+#Moutinho is good, don't bother with Dendoncker
+
+#CHE_DM
+CHE_DM_data <- as.data.frame(all_combined_Team_Pos_min_10_players_2[all_combined_Team_Pos_min_10_players_2$Team_Pos == "CHE_DM",])
+
+ggplot(CHE_DM_data, aes(Player, xPts)) + geom_boxplot(aes(colour = Player), outlier.shape = NA) + geom_jitter(width = 0.2, aes(colour = CHE_DM_data$Player)) + theme_minimal() + theme(axis.text.x = element_text(angle = 45)) +ggtitle("CHE_DM xFpt for each player")
+#Kante is good
+
+#NOR_AM
+
+NOR_AM_data <- as.data.frame(all_combined_Team_Pos_min_10_players_2[all_combined_Team_Pos_min_10_players_2$Team_Pos == "NOR_AM",])
+
+ggplot(NOR_AM_data, aes(Player, xPts)) + geom_boxplot(aes(colour = Player), outlier.shape = NA) + geom_jitter(width = 0.2, aes(colour = NOR_AM_data$Player)) + theme_minimal() + theme(axis.text.x = element_text(angle = 45)) +ggtitle("NOR_AM xFpt for each player")
+#Duda looks to be good
