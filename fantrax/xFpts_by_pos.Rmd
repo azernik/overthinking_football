@@ -207,7 +207,7 @@ team_pos_player <- all_combined_Team_Pos_min_10_players_2[all_combined_Team_Pos_
 
 k_test <- kruskal.test(xPts ~ Player, data = team_pos_player) 
 
-#check if the Kruskal-Wallis test is close to bonferroni significant
+#check if the Kruskal-Wallis test is close to significant
 bool_signif <- k_test$p.value < 0.05
 ```
 
@@ -299,6 +299,11 @@ dim(team_pos_players_same_for_df)
 
 #graph the forwards
 ggplot(team_pos_players_same_for_df, aes(x = reorder(Team_Pos, xPts, FUN = median ), y = xPts)) + geom_boxplot()  + theme_minimal() + theme(axis.text.x = element_text(angle = 90)) +ggtitle("Forwards xFpts for Team Positions with no stat difference btw players")
+
+#all positions together
+
+ggplot(team_pos_players_same_df, aes(x = reorder(Team_Pos, xPts, FUN = median ), y = xPts)) + geom_boxplot()  + theme_minimal() + theme(axis.text.x = element_text(angle = 90)) +ggtitle("All Players xFpts for Team Positions with no stat difference btw players")
+
 ```
 
 #Look into the statistically different team positions
@@ -435,3 +440,123 @@ NOR_AM_data <- as.data.frame(all_combined_Team_Pos_min_10_players_2[all_combined
 
 ggplot(NOR_AM_data, aes(Player, xPts)) + geom_boxplot(aes(colour = Player), outlier.shape = NA) + geom_jitter(width = 0.2, aes(colour = NOR_AM_data$Player)) + theme_minimal() + theme(axis.text.x = element_text(angle = 45)) +ggtitle("NOR_AM xFpt for each player")
 #Duda looks to be good
+```
+
+#test if there are players who get much better Fantasy points in one position versus another 
+```{r}
+#require that each players has played 2 or more positions
+players_2_plus_pos <- all_combined_Team_Pos %>% group_by(Player) %>% filter(length(unique(Team_Pos)) > 1)
+
+dim(players_2_plus_pos)
+#[1] 3879  130
+
+#vector of the players that played 2 or more positions
+player_vec <- unique(players_2_plus_pos$Player)
+
+length(player_vec)
+#[1] 237
+
+#length of the player_vec
+n = length(player_vec)
+
+#initiate a vector to save the boolean of whether the Kruskal-Wallis test was significant for each player (test of whether the player distributions seem to be the same)
+sigKWPlayerTestList <- vector(mode= "list", length= n)
+
+#for each player
+for(p in 1:length(player_vec)){
+  
+  print(player_vec[p])
+  
+  #set player
+  player <- player_vec[p]
+  
+  #filter to just the entries of this player
+  player_games <- players_2_plus_pos[players_2_plus_pos$Player == player,]
+  
+  #test if there is a differnce in xPts based on position
+  k_test <- kruskal.test(xPts ~ Team_Pos, data = player_games)
+  print(k_test$p.value)
+
+  #check if the Kruskal-Wallis test is close to significant
+  bool_signif <- k_test$p.value < 0.05
+  
+  #write the team pos test significance to the list
+ sigKWPlayerTestList[[p]] <- bool_signif
+}
+
+#make the list into a vector
+sigKWPlayerTestList <- unlist(sigKWPlayerTestList)
+
+
+#players who seem to be distributed differently when playing different positions
+
+player_vec[sigKWPlayerTestList]
+#[1] "Neil Taylor"        "Max Aarons"         "Christian Kabasele" "Harry Wilson"       "Jack Cork"  
+
+
+#look at theese 5 players
+"Neil Taylor"
+player <- as.data.frame(players_2_plus_pos[players_2_plus_pos$Player == "Neil Taylor",])
+
+ggplot(player, aes(Team_Pos, xPts)) + geom_boxplot(aes(colour = Team_Pos), outlier.shape = NA) + geom_jitter(width = 0.2, aes(colour = player$Team_Pos)) + theme_minimal() + theme(axis.text.x = element_text(angle = 45)) +ggtitle("Neil Taylor xFpt for each position played")
+
+"Max Aarons"
+player <- as.data.frame(players_2_plus_pos[players_2_plus_pos$Player == "Max Aarons",])
+
+ggplot(player, aes(Team_Pos, xPts)) + geom_boxplot(aes(colour = Team_Pos), outlier.shape = NA) + geom_jitter(width = 0.2, aes(colour = player$Team_Pos)) + theme_minimal() + theme(axis.text.x = element_text(angle = 45)) +ggtitle("Max Aarons xFpt for each position played")
+
+"Christian Kabasele"
+
+player <- as.data.frame(players_2_plus_pos[players_2_plus_pos$Player == "Christian Kabasele",])
+
+ggplot(player, aes(Team_Pos, xPts)) + geom_boxplot(aes(colour = Team_Pos), outlier.shape = NA) + geom_jitter(width = 0.2, aes(colour = player$Team_Pos)) + theme_minimal() + theme(axis.text.x = element_text(angle = 45)) +ggtitle("Christian Kabasele xFpt for each position played")
+
+"Harry Wilson"
+player <- as.data.frame(players_2_plus_pos[players_2_plus_pos$Player == "Harry Wilson",])
+
+ggplot(player, aes(Team_Pos, xPts)) + geom_boxplot(aes(colour = Team_Pos), outlier.shape = NA) + geom_jitter(width = 0.2, aes(colour = player$Team_Pos)) + theme_minimal() + theme(axis.text.x = element_text(angle = 45)) +ggtitle("Harry Wilson xFpt for each position played")
+
+"Jack Cork"
+
+player <- as.data.frame(players_2_plus_pos[players_2_plus_pos$Player == "Jack Cork",])
+
+ggplot(player, aes(Team_Pos, xPts)) + geom_boxplot(aes(colour = Team_Pos), outlier.shape = NA) + geom_jitter(width = 0.2, aes(colour = player$Team_Pos)) + theme_minimal() + theme(axis.text.x = element_text(angle = 45)) +ggtitle("Jack Cork xFpt for each position played")
+
+#Spot check Allan Saint-Maximin
+player <- as.data.frame(players_2_plus_pos[players_2_plus_pos$Player == "Allan Saint-Maximin",])
+
+ggplot(player, aes(Team_Pos, xPts)) + geom_boxplot(aes(colour = Team_Pos), outlier.shape = NA) + geom_jitter(width = 0.2, aes(colour = player$Team_Pos)) + theme_minimal() + theme(axis.text.x = element_text(angle = 45)) +ggtitle("Allan Saint-Maximin xFpt for each position played")
+```
+
+#Looking into Interesting Team Positions
+```{r}
+#NOR_RW
+#interesting because there is no sig diff between Buendia and Cantwell AND really good xFpts
+NOR_RW_data <- as.data.frame(all_combined_Team_Pos_min_10_players_2[all_combined_Team_Pos_min_10_players_2$Team_Pos == "NOR_RW",])
+ggplot(NOR_RW_data, aes(Player, xPts)) + geom_boxplot(aes(colour = Player), outlier.shape = NA) + geom_jitter(width = 0.2, aes(colour = NOR_RW_data$Player)) + theme_minimal() + theme(axis.text.x = element_text(angle = 45)) +ggtitle("NOR_RW xFpt for each player")
+
+#WAT_AM
+#interesting because it is quite high and multiple players
+WAT_AM_data <- as.data.frame(all_combined_Team_Pos_min_10_players_2[all_combined_Team_Pos_min_10_players_2$Team_Pos == "WAT_AM",])
+ggplot(WAT_AM_data, aes(Player, xPts)) + geom_boxplot(aes(colour = Player), outlier.shape = NA) + geom_jitter(width = 0.2, aes(colour = WAT_AM_data$Player)) + theme_minimal() + theme(axis.text.x = element_text(angle = 45)) +ggtitle("WAT_AM xFpt for each player")
+#graph shows not that interesting high variance in everybody
+
+#LIV_FW
+#interesting because it is quite high and multiple players
+LIV_FW_data <- as.data.frame(all_combined_Team_Pos_min_10_players_2[all_combined_Team_Pos_min_10_players_2$Team_Pos == "LIV_FW",])
+ggplot(LIV_FW_data, aes(Player, xPts)) + geom_boxplot(aes(colour = Player), outlier.shape = NA) + geom_jitter(width = 0.2, aes(colour = LIV_FW_data$Player)) + theme_minimal() + theme(axis.text.x = element_text(angle = 45)) +ggtitle("LIV_FW xFpt for each player")
+#graph shows not that interesting seems to be a Salah sample size issue
+
+#WHU_FW
+#interesting because it looks to quite good AND not quite diff between Antonio and Haller
+WHU_FW_data <- as.data.frame(all_combined_Team_Pos_min_10_players_2[all_combined_Team_Pos_min_10_players_2$Team_Pos == "WHU_FW",])
+ggplot(WHU_FW_data, aes(Player, xPts)) + geom_boxplot(aes(colour = Player), outlier.shape = NA) + geom_jitter(width = 0.2, aes(colour = WHU_FW_data$Player)) + theme_minimal() + theme(axis.text.x = element_text(angle = 45)) +ggtitle("WHU_FW xFpt for each player")
+
+
+#BUR_CB
+#interesting because quite good
+BUR_CB_data <- as.data.frame(all_combined_Team_Pos_min_10_players_2[all_combined_Team_Pos_min_10_players_2$Team_Pos == "BUR_CB",])
+ggplot(BUR_CB_data, aes(Player, xPts)) + geom_boxplot(aes(colour = Player), outlier.shape = NA) + geom_jitter(width = 0.2, aes(colour = BUR_CB_data$Player)) + theme_minimal() + theme(axis.text.x = element_text(angle = 45)) +ggtitle("BUR_CB xFpt for each player")
+#going to be super correlated, so might not be that interesting
+
+#Interesting to compare MUN and BUR CBs
