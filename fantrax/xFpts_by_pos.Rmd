@@ -163,7 +163,7 @@ dim(all_combined_Team_Pos)
 #[1] 5291  130
 
 #filter out any team positions that have not occurred 10 times
-all_combined_Team_Pos_min_10 <- all_combined_Team_Pos %>% group_by(Team_Pos) %>% filter(n()> 10)
+all_combined_Team_Pos_min_10 <- all_combined_Team_Pos %>% group_by(Team_Pos) %>% filter(n()>= 10)
 
 
 dim(all_combined_Team_Pos_min_10)
@@ -252,6 +252,7 @@ sigKWTestVec <- unlist(sigKWTestList)
 team_pos_vec[sigKWTestVec]
 # [1] "ARS_RB" "CRY_CM" "MCI_CB" "MUN_CB" "NOR_CB" "WOL_CB" "WOL_WB" "NEW_CM" "NEW_AM" "WHU_CM" "LEI_CM" "CRY_FW" "SOU_FW" "BUR_CM" "BOU_CM"
 #[16] "MUN_LW" "MUN_AM" "MCI_CM" "WOL_DM" "CHE_DM" "NOR_AM"
+
 
 # no statistical difference between players for these positions
 team_pos_vec_players_same <- team_pos_vec[!sigKWTestVec]
@@ -506,7 +507,6 @@ player <- as.data.frame(players_2_plus_pos[players_2_plus_pos$Player == "Max Aar
 ggplot(player, aes(Team_Pos, xPts)) + geom_boxplot(aes(colour = Team_Pos), outlier.shape = NA) + geom_jitter(width = 0.2, aes(colour = player$Team_Pos)) + theme_minimal() + theme(axis.text.x = element_text(angle = 45)) +ggtitle("Max Aarons xFpt for each position played")
 
 "Christian Kabasele"
-
 player <- as.data.frame(players_2_plus_pos[players_2_plus_pos$Player == "Christian Kabasele",])
 
 ggplot(player, aes(Team_Pos, xPts)) + geom_boxplot(aes(colour = Team_Pos), outlier.shape = NA) + geom_jitter(width = 0.2, aes(colour = player$Team_Pos)) + theme_minimal() + theme(axis.text.x = element_text(angle = 45)) +ggtitle("Christian Kabasele xFpt for each position played")
@@ -526,6 +526,25 @@ ggplot(player, aes(Team_Pos, xPts)) + geom_boxplot(aes(colour = Team_Pos), outli
 player <- as.data.frame(players_2_plus_pos[players_2_plus_pos$Player == "Allan Saint-Maximin",])
 
 ggplot(player, aes(Team_Pos, xPts)) + geom_boxplot(aes(colour = Team_Pos), outlier.shape = NA) + geom_jitter(width = 0.2, aes(colour = player$Team_Pos)) + theme_minimal() + theme(axis.text.x = element_text(angle = 45)) +ggtitle("Allan Saint-Maximin xFpt for each position played")
+
+"James Ward-Prowse"
+
+player <- as.data.frame(players_2_plus_pos[players_2_plus_pos$Player == "James Ward-Prowse",])
+
+ggplot(player, aes(Team_Pos, xPts)) + geom_boxplot(aes(colour = Team_Pos), outlier.shape = NA) + geom_jitter(width = 0.2, aes(colour = player$Team_Pos)) + theme_minimal() + theme(axis.text.x = element_text(angle = 45)) +ggtitle("James Ward-Prowse xFpt for each position played")
+
+
+"Cesar Azpilicueta"
+player <- as.data.frame(players_2_plus_pos[players_2_plus_pos$Player == "Cesar Azpilicueta",])
+
+ggplot(player, aes(Team_Pos, xPts)) + geom_boxplot(aes(colour = Team_Pos), outlier.shape = NA) + geom_jitter(width = 0.2, aes(colour = player$Team_Pos)) + theme_minimal() + theme(axis.text.x = element_text(angle = 45)) +ggtitle("Cesar Azpilicueta xFpt for each position played")
+
+"Emiliano Buendia"
+player <- as.data.frame(players_2_plus_pos[players_2_plus_pos$Player == "Emiliano Buendia",])
+
+ggplot(player, aes(Team_Pos, xPts)) + geom_boxplot(aes(colour = Team_Pos), outlier.shape = NA) + geom_jitter(width = 0.2, aes(colour = player$Team_Pos)) + theme_minimal() + theme(axis.text.x = element_text(angle = 45)) +ggtitle("Emiliano Buendia xFpt for each position played")
+
+
 ```
 
 #Looking into Interesting Team Positions
@@ -560,3 +579,289 @@ ggplot(BUR_CB_data, aes(Player, xPts)) + geom_boxplot(aes(colour = Player), outl
 #going to be super correlated, so might not be that interesting
 
 #Interesting to compare MUN and BUR CBs
+
+#SHU_CB
+SHU_CB_data <- as.data.frame(all_combined_Team_Pos_min_10_players_2[all_combined_Team_Pos_min_10_players_2$Team_Pos == "SHU_CB",])
+ggplot(SHU_CB_data, aes(Player, xPts)) + geom_boxplot(aes(colour = Player), outlier.shape = NA) + geom_jitter(width = 0.2, aes(colour = SHU_CB_data$Player)) + theme_minimal() + theme(axis.text.x = element_text(angle = 45)) +ggtitle("SHU_CB xFpt for each player")
+
+#MCI_RW
+MCI_RW_data <- as.data.frame(all_combined_Team_Pos_min_10_players_2[all_combined_Team_Pos_min_10_players_2$Team_Pos == "MCI_RW",])
+ggplot(MCI_RW_data, aes(Player, xPts)) + geom_boxplot(aes(colour = Player), outlier.shape = NA) + geom_jitter(width = 0.2, aes(colour = MCI_RW_data$Player)) + theme_minimal() + theme(axis.text.x = element_text(angle = 45)) +ggtitle("MCI_RW xFpt for each player")
+
+#MCI_LW
+MCI_LW_data <- as.data.frame(all_combined_Team_Pos_min_10_players_2[all_combined_Team_Pos_min_10_players_2$Team_Pos == "MCI_LW",])
+ggplot(MCI_LW_data, aes(Player, xPts)) + geom_boxplot(aes(colour = Player), outlier.shape = NA) + geom_jitter(width = 0.2, aes(colour = MCI_LW_data$Player)) + theme_minimal() + theme(axis.text.x = element_text(angle = 45)) +ggtitle("MCI_LW xFpt for each player")
+```
+
+# Center Backs analysis
+```{r}
+#fix a lot of stat fields being characters
+all_combined_Team_Pos_min_10_num <- all_combined_Team_Pos_min_10
+
+all_combined_Team_Pos_min_10_num[,101:127] <- sapply(all_combined_Team_Pos_min_10_num[,101:127], as.numeric)
+
+#filter so it is only center backs
+all_combined_df_CBs <- all_combined_Team_Pos_min_10_num[all_combined_Team_Pos_min_10_num$Pos == "CB",]
+
+#plot fantasy points for all CBs
+#xFpts plot
+ggplot(all_combined_Team_Pos_min_10_num, aes(x = reorder(Player, xPts, FUN = median ), y = xPts)) + geom_boxplot()  + theme_minimal() + theme(axis.text.x = element_text(angle = 90)) +ggtitle("xFpts for CBs")
+#not useful
+
+#Man U analysis
+MUN_CB <- all_combined_df_CBs[all_combined_df_CBs$Team_Pos == "MUN_CB",]
+
+dim(MUN_CB)
+#[1]  56 130
+
+#remove Luke Shaw
+MUN_CB <- MUN_CB[MUN_CB$Player != "Luke Shaw",]
+
+dim(MUN_CB)
+#[1]  55 130
+
+
+#loop through the statistics we have and see what is significantly different between the players
+stat_vec <- names(MUN_CB)
+
+#length of the stat_vec
+n = length(stat_vec)
+
+#initiate a vector to save the boolean of whether the Kruskal-Wallis test was significant for each stat
+sigStatKWTestList <- vector(mode= "list", length= n)
+
+#for each team position
+for(s in 1:length(stat_vec)){
+  
+  print(stat_vec[s])
+  print(s)
+  
+  #set stat_name
+  stat_name <- stat_vec[s]
+  
+  #if this stat is not an int or a numeric vector (so a character vector) don't perform the stat test
+  if(typeof(MUN_CB[[stat_name]]) == "character" ){
+    
+    bool_signif = FALSE
+  
+  #if all entries are the same don't run the test  
+  } else if(length(unique(MUN_CB[[stat_name]])) == 1){
+  
+    bool_signif = FALSE
+    
+  } else {
+  
+  #filter all_combined_Team_Pos_min_10_players_2 to just the entries of players with this team_pos
+  #team_pos_player <- all_combined_Team_Pos_min_10_players_2[all_combined_Team_Pos_min_10_players_2$Team_Pos == team_pos,]
+  
+  k_test <- kruskal.test(MUN_CB[[stat_name]] ~ Player, data = MUN_CB)
+  print(k_test$p.value)
+
+  #check if the Kruskal-Wallis test is close to bonferroni significant
+  bool_signif <- k_test$p.value < 0.05
+  
+  }
+  
+  #write the team pos test significance to the list
+  sigStatKWTestList[[s]] <- bool_signif
+}
+
+#make the list into a vector
+sigStatKWTestList<- unlist(sigStatKWTestList)
+
+
+#players seem to be distributed differently for these team distributions
+
+stat_vec[sigStatKWTestList]
+# [1] "Rk"        "FPts"      "FP/G"      "S"         "SOT"       "SA"        "Off"       "SFTP"      "CF_1"      "Int.x"     "DW"       
+#[12] "AER"       "LB"        "LBA"       "Sh"        "SoT"       "Int.y"     "xG"        "npxG"      "PrgDist_1" "xPts"  
+
+#make a summary for these fields
+summary_MUN_CBs <- MUN_CB %>% 
+  group_by(Player) %>%
+  summarize(n = n(), meanFpts = mean(FPts), total_Fpts = sum(FPts), meanxFpts = mean(xPts), total_xFpts = sum(xPts),total_SOT = sum(SOT), total_Shots = sum(S), total_xG = sum(xG), total_SA = sum(SA), meanInts = mean(Int.x), meanAER = mean(AER), meanPrgDist = mean(PrgDist_1) )
+
+#summary_MUN_CBs_for_plot <- summary_MUN_CBs %>% gather(Stat_Name,Stat_Value, meanFpts,meanxFpts,total_SOT,total_xG,meanInts,meanAER,meanPrgDist)
+
+summary_MUN_CBs_for_plot <- summary_MUN_CBs %>% gather(Stat_Name,Stat_Value, meanFpts,meanxFpts,total_SOT,total_xG,meanInts,meanAER)
+
+#make a bar plot of these data
+ggplot(summary_MUN_CBs_for_plot , aes(fill=Player, y=Stat_Value, x=Stat_Name)) + geom_bar(position="dodge", stat="identity") + theme_minimal() +ggtitle("Maguire and Lindelof Summary")
+
+#ggplot(MCI_LW_data, aes(Player, xPts)) + geom_boxplot(aes(colour = Player), outlier.shape = NA) + geom_jitter(width = 0.2, aes(colour = MCI_LW_data$Player)) + theme_minimal() + theme(axis.text.x = element_text(angle = 45)) +ggtitle("MCI_LW xFpt for each player")
+
+
+#Wolves analysis
+WOL_CB <- all_combined_df_CBs[all_combined_df_CBs$Team_Pos == "WOL_CB",]
+
+dim(WOL_CB)
+#[1]  74 130
+
+#remove Luke Shaw
+WOL_CB <- WOL_CB[WOL_CB$Player != "Leander Dendoncker",]
+
+dim(WOL_CB)
+#[1]  62 130
+
+
+#loop through the statistics we have and see what is significantly different between the players
+stat_vec <- names(WOL_CB)
+
+#length of the stat_vec
+n = length(stat_vec)
+
+#initiate a vector to save the boolean of whether the Kruskal-Wallis test was significant for each stat
+sigStatKWTestList <- vector(mode= "list", length= n)
+
+#for each team position
+for(s in 1:length(stat_vec)){
+  
+  print(stat_vec[s])
+  print(s)
+  
+  #set stat_name
+  stat_name <- stat_vec[s]
+  
+  #if this stat is not an int or a numeric vector (so a character vector) don't perform the stat test
+  if(typeof(WOL_CB[[stat_name]]) == "character" ){
+    
+    bool_signif = FALSE
+  
+  #if all entries are the same don't run the test  
+  } else if(length(unique(WOL_CB[[stat_name]])) == 1){
+  
+    bool_signif = FALSE
+    
+  } else {
+  
+  #filter all_combined_Team_Pos_min_10_players_2 to just the entries of players with this team_pos
+  #team_pos_player <- all_combined_Team_Pos_min_10_players_2[all_combined_Team_Pos_min_10_players_2$Team_Pos == team_pos,]
+  
+  k_test <- kruskal.test(WOL_CB[[stat_name]] ~ Player, data = WOL_CB)
+  print(k_test$p.value)
+
+  #check if the Kruskal-Wallis test is close to bonferroni significant
+  bool_signif <- k_test$p.value < 0.05
+  
+  }
+  
+  #write the team pos test significance to the list
+  sigStatKWTestList[[s]] <- bool_signif
+}
+
+#make the list into a vector
+sigStatKWTestList<- unlist(sigStatKWTestList)
+
+
+#players seem to be distributed differently for these team distributions
+
+stat_vec[sigStatKWTestList]
+# [1] "Rk"      "FPts"    "FP/G"    "S"       "SOT"     "SA"      "TkW"     "PLC"     "FC"      "FS"      "YC"     
+#[12] "PC%"     "C"       "CF"      "CF_1"    "Int.x"   "CoSF"    "DW"      "DL"      "AER"     "AERL"    "PL"     
+#[23] "LB"      "LBA"     "Sh"      "SoT"     "CrdY"    "Touches" "Press"   "Tkl"     "Int.y"   "xG"      "npxG"   
+#[34] "Cmp%"    "PrgDist" "Succ"    "xPts"   
+
+#make a summary for these fields
+summary_WOL_CBs <- WOL_CB %>% 
+  group_by(Player) %>%
+  summarize(n = n(), meanFpts = mean(FPts), total_Fpts = sum(FPts), meanxFpts = mean(xPts), total_xFpts = sum(xPts), total_SOT = sum(SOT), total_Shots = sum(S), total_SA = sum(SA), meanInts = mean(Int.x), meanAER = mean(AER), totalYC = sum(CrdY), meanTkW = mean(TkW), meanTouches = mean(Touches), meanPress = mean(Press))
+
+summary_WOL_CBs_for_plot <- summary_WOL_CBs %>% gather(Stat_Name,Stat_Value, meanFpts,meanxFpts,total_SOT,meanInts,meanAER, totalYC,meanTkW, meanPress,meanTouches)
+
+#make a bar plot of these data
+ggplot(summary_WOL_CBs_for_plot , aes(fill=Player, y=Stat_Value, x=Stat_Name)) + geom_bar(position="dodge", stat="identity") + theme_minimal() +ggtitle("Wolves CB Summary")
+
+#fantrax point categor
+#c(“G”,”KP”,”AT”,”SOT”,”TkW”,”DIS”,”YC”,”SYC”,”RC”,”ACNC”,”Int”,”CLR”,”CoS”,”AER”,”OG”,”GAD”,”CS”)
+```
+
+#Make top 20 team positions in the EPL
+```{r}
+#sort min_10_examples to find the top 20 team positions
+
+#sort on median xFpts
+min_10_examples_sorted <- min_10_examples[order(- min_10_examples$med_xPts),]
+
+#take the top 20 team_pos
+min_10_examples_sorted_top20 <- head(min_10_examples_sorted, 20)
+
+#prep team colors
+library(RColorBrewer)
+
+unique(min_10_examples_sorted$Team)
+ [1] "MCI" "CHE" "EVE" "NOR" "LIV" "WOL" "TOT" "WAT" "LEI" "WHU" "AVL" "BHA" "ARS" "MUN" "SOU" "SHU" "CRY" "BUR" "NEW" "BOU"
+
+team_colors <- c(
+          '#c8102E',
+          '#6CABDD',
+          '#003090',
+          '#034694',
+          '#DA291C',
+          '#FDB913',
+          "#132257",
+          "#ee2737",
+          "#EF0107",
+          "#1B458F",
+          "#6C1D45",
+          "#003399",
+          "white",
+          "#d71920",
+          "#0057B8",
+          "#FBEE23",
+          "#7A263A",
+          "#DA291C",
+          "#670e36",
+          "#00A650")
+teams = c('LIV',
+          'MCI',
+          'LEI',
+          'CHE',
+          'MUN',
+          'WOL',
+          "TOT",
+          "SHU",
+          "ARS",
+          "CRY",
+          "BUR",
+          "EVE",
+          "NEW",
+          "SOU",
+          "BHA",
+          "WAT",
+          "WHU",
+          "BOU",
+          "AVL",
+          "NOR")
+names(team_colors) <- teams
+colScale <- scale_colour_manual(name = "opposition",values = team_colors)
+fillScale <- scale_fill_manual(name = "opposition",values = team_colors, guide = FALSE)
+
+#filter for just top 20 team_pos in all_combined_Team_Pos_min_10
+#filter so it is only team pos that there is no statistical difference in players
+
+all_combined_Team_Pos_min_10_top_20 <- all_combined_Team_Pos_min_10[all_combined_Team_Pos_min_10$Team_Pos %in% unique(min_10_examples_sorted_top20$Team_Pos) ,]
+#
+
+dim(all_combined_Team_Pos_min_10_top_20)
+#[1] 425 130
+
+length( unique(min_10_examples_sorted_top20$Team_Pos))
+[1] 20
+
+length( unique(all_combined_Team_Pos_min_10_top_20$Team_Pos))
+[1] 20
+
+#make a team-position field with no underscore
+all_combined_Team_Pos_min_10_top_20$Team_space_Pos <- gsub("_", " ", all_combined_Team_Pos_min_10_top_20$Team_Pos)
+
+#plot the top 20 team_pos
+
+ggplot(all_combined_Team_Pos_min_10_top_20, aes(x = reorder(Team_space_Pos, xPts, FUN = median ), y = xPts, fill = Team)) + geom_boxplot()  + theme_minimal() + theme(axis.text.x = element_text(angle = 90)) + ggtitle("xFpts for the top 20 Team-Positions") + xlab("Team-Position") + ylab("xFpts") + colScale + fillScale
+
+
+#ggplot(all_combined_Team_Pos_min_10, aes(x = reorder(Team_Pos, xPts, FUN = median ), y = xPts)) + geom_boxplot()  + theme_minimal() + theme(axis.text.x = element_text(angle = 90)) +ggtitle("xFpts for Team Positions")
+
+
+#ggplot(MCI_LW_data, aes(Player, xPts)) + geom_boxplot(aes(colour = Player), outlier.shape = NA) + geom_jitter(width = 0.2, aes(colour = MCI_LW_data$Player)) + theme_minimal() + theme(axis.text.x = element_text(angle = 45)) +ggtitle("MCI_LW xFpt for each player")
+
+#all_combined_Team_Pos_min_10 <- all_combined_Team_Pos_min_10 %>% group_by(Team_Pos) %>% filter(length(unique(Player)) > 1)
