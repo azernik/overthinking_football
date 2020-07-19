@@ -773,6 +773,81 @@ ggplot(summary_WOL_CBs_for_plot , aes(fill=Player, y=Stat_Value, x=Stat_Name)) +
 
 #fantrax point categor
 #c(“G”,”KP”,”AT”,”SOT”,”TkW”,”DIS”,”YC”,”SYC”,”RC”,”ACNC”,”Int”,”CLR”,”CoS”,”AER”,”OG”,”GAD”,”CS”)
+
+
+#Burnley CB analysis
+BUR_CB <- all_combined_df_CBs[all_combined_df_CBs$Team_Pos == "BUR_CB",]
+
+dim(BUR_CB)
+#[1]  58 130
+
+
+#loop through the statistics we have and see what is significantly different between the players
+stat_vec <- names(BUR_CB)
+
+#length of the stat_vec
+n = length(stat_vec)
+
+#initiate a vector to save the boolean of whether the Kruskal-Wallis test was significant for each stat
+sigStatKWTestList <- vector(mode= "list", length= n)
+
+#for each team position
+for(s in 1:length(stat_vec)){
+  
+  print(stat_vec[s])
+  print(s)
+  
+  #set stat_name
+  stat_name <- stat_vec[s]
+  
+  #if this stat is not an int or a numeric vector (so a character vector) don't perform the stat test
+  if(typeof(BUR_CB[[stat_name]]) == "character" ){
+    
+    bool_signif = FALSE
+  
+  #if all entries are the same don't run the test  
+  } else if(length(unique(BUR_CB[[stat_name]])) == 1){
+  
+    bool_signif = FALSE
+    
+  } else {
+  
+  #filter all_combined_Team_Pos_min_10_players_2 to just the entries of players with this team_pos
+  #team_pos_player <- all_combined_Team_Pos_min_10_players_2[all_combined_Team_Pos_min_10_players_2$Team_Pos == team_pos,]
+  
+  k_test <- kruskal.test(BUR_CB[[stat_name]] ~ Player, data = BUR_CB)
+  print(k_test$p.value)
+
+  #check if the Kruskal-Wallis test is close to bonferroni significant
+  bool_signif <- k_test$p.value < 0.05
+  
+  }
+  
+  #write the team pos test significance to the list
+  sigStatKWTestList[[s]] <- bool_signif
+}
+
+#make the list into a vector
+sigStatKWTestList<- unlist(sigStatKWTestList)
+
+
+#players seem to be distributed differently for these team distributions
+
+stat_vec[sigStatKWTestList]
+#[1] "Rk"    "ErS"   "IntB"  "DW"    "AERL"  "LB"    "Press" "Tkl"
+
+#make a summary for these fields
+summary_BUR_CBs <- BUR_CB %>% 
+  group_by(Player) %>%
+  summarize(n = n(), meanFpts = mean(FPts), total_Fpts = sum(FPts), meanxFpts = mean(xPts), total_xFpts = sum(xPts), meanIntB = mean(IntB), meanAERL = mean(AERL), meanTkl = mean(Tkl), meanLB = mean(LB))
+
+summary_BUR_CBs_for_plot <- summary_BUR_CBs %>% gather(Stat_Name,Stat_Value, meanFpts,meanxFpts,meanIntB,meanAERL,meanTkl,meanLB)
+
+#make a bar plot of these data
+ggplot(summary_BUR_CBs_for_plot , aes(fill=Player, y=Stat_Value, x=Stat_Name)) + geom_bar(position="dodge", stat="identity") + theme_minimal() +ggtitle("Burnley CB Summary")
+
+#fantrax point categor
+#c(“G”,”KP”,”AT”,”SOT”,”TkW”,”DIS”,”YC”,”SYC”,”RC”,”ACNC”,”Int”,”CLR”,”CoS”,”AER”,”OG”,”GAD”,”CS”)
 ```
 
 #Make top 20 team positions in the EPL
