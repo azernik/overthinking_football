@@ -1,0 +1,322 @@
+---
+title: "xFpts"
+author: "Christopher Adams"
+date: "6/10/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+library(ggplot2)
+library(ggrepel)
+```
+
+## Data setup
+
+```{r data_setup}
+
+weekly_data_csv = "~/Documents/GitHub/soccer_analytics/data/fantrax_data/weekly.all_data_combined.no_double_gws.csv"
+yearly_data_csv = "~/Documents/GitHub/soccer_analytics/data/fantrax_data/yearly.all_data_combined.csv"
+
+weekly_data_df <- read_csv(file = weekly_data_csv, col_names = TRUE)
+yearly_data_df <- read_csv(file = yearly_data_csv, col_names = TRUE)
+
+# Only weeks where at least 60 minutes are played
+min_60_min_df <- weekly_data_df[weekly_data_df$Min > 59,]
+# Players that have started at least 5 games
+summary_min_60_df <- min_60_min_df %>% 
+  group_by(Player, Team, Position) %>%
+  summarize(n = n(), min_total = sum(Min), sd = sd(FPts), mean = mean(FPts), total_fpts = sum(FPts), mean_minutes = mean(Min))
+
+players_min_5_starts_summary_df <- summary_min_60_df[summary_min_60_df$n >= 5,]
+
+player_min_5_starts_weekly_df <- min_60_min_df %>%
+  filter(Player %in% players_min_5_starts_summary_df$Player)
+nrow(player_min_5_starts_weekly_df)
+```
+
+## Defender Analysis
+
+
+
+```{r defender_scatter_analysis}
+players_min_starts.defenders = players_min_5_starts_summary_df[players_min_5_starts_summary_df$Position == 'D',]
+nrow(players_min_starts.defenders)
+def_player_list <- players_min_starts.defenders$Player
+length(def_player_list)
+defenders_fbref_df <- read_csv('~/Desktop/Overthinking_Football/player_fbref_match_csvs/Def_min5starts.csv')
+cs_df <- read_csv('~/Desktop/Overthinking_Football/player_fbref_match_csvs/game_results.csv')
+defenders_fbref_df$game_week <- sapply(strsplit(defenders_fbref_df$Round, " "), function(x) (x[2]))
+defenders_min60_merged_df <- merge(min_60_min_df, defenders_fbref_df, by=c('Player', 'game_week'))
+length(unique(defenders_min60_merged_df$Player))
+i <- def_player_list %in% unique(defenders_min60_merged_df$Player)
+def_player_list[!i]
+all_cs_data_df <- data.frame('Squad' = c(cs_df$Home, cs_df$Away), 'xG_against' = c(cs_df$xG_1, cs_df$xG), 'game_week' = c(cs_df$Wk, cs_df$Wk))
+
+defenders_min60_merged_cs_df <- merge(defenders_min60_merged_df, all_cs_data_df, by=c('Squad', 'game_week'))
+
+defenders_min60_merged_cs_df$GAD_against <- ifelse(defenders_min60_merged_cs_df$xG_against - 0.25 < 0, 0, defenders_min60_merged_cs_df$xG_against - 0.25)
+
+defenders_min60_merged_cs_df$normed_xg_against <- ifelse(defenders_min60_merged_cs_df$GAD_against <= 1.25, 1 - defenders_min60_merged_cs_df$GAD_against/1.25, 0)
+
+defenders_min60_min600_merged_df <- defenders_min60_merged_cs_df %>%
+  filter(Player %in% def_player_list)
+
+defenders_min60_min600_merged_df$xPts <- defenders_min60_min600_merged_df$FPts - (defenders_min60_min600_merged_df$G * 10 + defenders_min60_min600_merged_df$AT * 8 + defenders_min60_min600_merged_df$CS * 6 + defenders_min60_min600_merged_df$GAD * -2) + (as.numeric(defenders_min60_min600_merged_df$xG)* 10 + as.numeric(defenders_min60_min600_merged_df$xA) * 8 + as.numeric(defenders_min60_min600_merged_df$normed_xg_against)* 6 + as.numeric(defenders_min60_min600_merged_df$GAD_against) * -2)
+
+#defenders_min60_min600_merged_df$xPts <- defenders_min60_min600_merged_df$FPts - (defenders_min60_min600_merged_df$G * 10 + defenders_min60_min600_merged_df$AT * 8 + defenders_min60_min600_merged_df$CS * 6) + (as.numeric(defenders_min60_min600_merged_df$xG)* 10 + as.numeric(defenders_min60_min600_merged_df$xA) * 8 + as.numeric(defenders_min60_min600_merged_df$normed_xg_against)* 6)
+
+
+summary_xpts_df.def <- defenders_min60_min600_merged_df %>% 
+  group_by(Player, Team, Position) %>%
+  summarize(n = n(), min_total = sum(Min.x), sd_emp_pts = sd(FPts), sd_xpts = sd(xPts), mean_emp_pts = mean(FPts), mean_xPts = mean(xPts), med_emp_pts= median(FPts), med_xPts = median(xPts), total_emp_fpts = sum(FPts), total_xPts = sum(xPts), mean_minutes = mean(Min.x), n_CS = sum(CS), xCS = sum(normed_xg_against))
+sd(summary_xpts_df.def$mean_xPts)
+
+ggplot(summary_xpts_df.def, aes(y = mean_emp_pts, x = mean_xPts)) +
+  geom_point() +
+  geom_abline(slope = 1, intercept = 0) +
+  geom_abline(slope = 1, intercept = -1.5, color = 'green', linetype = 2) +
+  geom_abline(slope = 1, intercept = 1.5, color = 'red', linetype = 2) +
+  geom_text_repel(
+    data = subset(summary_xpts_df.def, abs(mean_emp_pts - mean_xPts) > 2.5),
+    aes(label = Player),
+    size = 3,
+    box.padding = unit(2, "lines"),
+    point.padding = unit(0, "lines")
+  ) +
+  theme_light() +
+  xlab("mean xFpts") +
+  ylab("mean observed Fpts") +
+  ggtitle("Defender xFpts to observed comparison") +
+  theme(plot.title = element_text(hjust = 0.5))
+
+
+  
+cor(summary_xpts_df.def$mean_xPts, summary_xpts_df.def$mean_emp_pts)  
+hist(summary_xpts_df.def$n_CS - summary_xpts_df.def$xCS)
+mean(summary_xpts_df.def$n_CS - summary_xpts_df.def$xCS)
+sd(summary_xpts_df.def$n_CS - summary_xpts_df.def$xCS)
+write.csv(x=summary_xpts_df.def, file="~/Desktop/Overthinking_Football/defs_xpts.csv")
+```
+
+```{r defender_range_analysis}
+
+## DEFENSE
+boxplot_def_df <- data.frame(Player = as.character(summary_xpts_df.def$Player), sd = summary_xpts_df.def$sd_xpts, mean = summary_xpts_df.def$mean_xPts)
+
+index <- with(boxplot_def_df, order(mean))
+sorted_boxplot_def_df <- boxplot_def_df[index,]
+
+correct_player_order = sorted_boxplot_def_df$Player
+sorted_boxplot_def_df$Player <- factor(sorted_boxplot_def_df$Player, levels = correct_player_order)
+
+
+defense_plot <- ggplot(data = sorted_boxplot_def_df,aes(y = Player, mean)) +
+  geom_crossbar(aes(xmin = mean, xmax = mean), width = 1) +
+  geom_errorbar(aes(xmin = mean - sd, xmax = mean + sd)) +
+  xlab('xFpts') +
+  ylab('Player') +
+  ggtitle('xFpt ranges for Defenders') +
+  theme_light() +
+  theme(plot.title = element_text(hjust = 0.5))
+ggsave("~/Desktop/Overthinking_Football/defense_plot.png", plot = defense_plot, height = 14)
+
+```
+
+## Midfielder Analysis
+
+```{r midfielder_scatter_analysis}
+players_min_starts.midfielders = players_min_5_starts_summary_df[players_min_5_starts_summary_df$Position == 'M',]
+nrow(players_min_starts.midfielders)
+mid_player_list <- players_min_starts.midfielders$Player
+
+mids_fbref_df <- read_csv('~/Desktop/Overthinking_Football/player_fbref_match_csvs/Mid_min5starts.csv')
+mids_fbref_df$game_week <- sapply(strsplit(mids_fbref_df$Round, " "), function(x) (x[2]))
+mids_min60_merged_df <- merge(min_60_min_df, mids_fbref_df, by=c('Player', 'game_week'))
+
+i <- mid_player_list %in% unique(mids_min60_merged_df$Player)
+mid_player_list[!i]
+
+mids_min60_min600_merged_df <- mids_min60_merged_df %>%
+  filter(Player %in% mid_player_list)
+
+mids_min60_min600_merged_df$xPts <- mids_min60_min600_merged_df$FPts - (mids_min60_min600_merged_df$G * 9 + mids_min60_min600_merged_df$AT * 6)
+mids_min60_min600_merged_df$xPts <- mids_min60_min600_merged_df$xPts + (as.numeric(mids_min60_min600_merged_df$xG)* 9 + as.numeric(mids_min60_min600_merged_df$xA) * 6)
+
+#mids_min60_min600_merged_df_after_jan <- mids_min60_min600_merged_df[mids_min60_min600_merged_df$game_week > 21,]
+
+summary_xpts_df.mid <- mids_min60_min600_merged_df %>% 
+  group_by(Player, Team, Position) %>%
+  summarize(n = n(), min_total = sum(Min.x), sd_emp_pts = sd(FPts), sd_xpts = sd(xPts), mean_emp_pts = mean(FPts), mean_xPts = mean(xPts), med_emp_pts= median(FPts), med_xPts = median(xPts), total_emp_fpts = sum(FPts), total_xPts = sum(xPts), mean_minutes = mean(Min.x))
+sd(summary_xpts_df.mid$mean_xPts)
+ggplot(summary_xpts_df.mid, aes(y = mean_emp_pts, x = mean_xPts)) +
+  geom_point() +
+  geom_abline(slope = 1, intercept = 0) +
+  geom_abline(slope = 1, intercept = -1.5, color = 'green', linetype = 2) +
+  geom_abline(slope = 1, intercept = 1.5, color = 'red', linetype = 2) +
+  geom_text_repel(
+    data = subset(summary_xpts_df.mid, abs(mean_emp_pts - mean_xPts) > 2),
+    aes(label = Player),
+    size = 3,
+    box.padding = unit(0.7, "lines"),
+    point.padding = unit(0.7, "lines")
+  ) +
+  theme_light() +
+  xlab("mean xFpts") +
+  ylab("mean observed Fpts") +
+  ggtitle("Midfielder xFpts to observed comparison") +
+  theme(plot.title = element_text(hjust = 0.5))
+cor(summary_xpts_df.mid$mean_xPts, summary_xpts_df.mid$mean_emp_pts)
+wilcox.test(x = mids_min60_min600_merged_df[mids_min60_min600_merged_df$Player == 'Kevin De Bruyne',]$xPts, y = mids_min60_min600_merged_df[mids_min60_min600_merged_df$Player == 'Kevin De Bruyne',]$FPts)
+write.csv(x=summary_xpts_df.mid, file="~/Desktop/Overthinking_Football/Mids_xpts.csv")
+
+```
+
+```{r midfielder_range_analysis}
+
+## DEFENSE
+boxplot_mid_df <- data.frame(Player = as.character(summary_xpts_df.mid$Player), sd = summary_xpts_df.mid$sd_xpts, mean = summary_xpts_df.mid$mean_xPts)
+
+index <- with(boxplot_mid_df, order(mean))
+sorted_boxplot_mid_df <- boxplot_mid_df[index,]
+
+correct_player_order = sorted_boxplot_mid_df$Player
+sorted_boxplot_mid_df$Player <- factor(sorted_boxplot_mid_df$Player, levels = correct_player_order)
+
+
+mid_plot <- ggplot(data = sorted_boxplot_mid_df,aes(y = Player, mean)) +
+  geom_crossbar(aes(xmin = mean, xmax = mean), width = 1) +
+  geom_errorbar(aes(xmin = mean - sd, xmax = mean + sd)) +
+  xlab('xFpts') +
+  ylab('Player') +
+  ggtitle('xFpt ranges for Midfielders') +
+  theme_light() +
+  theme(plot.title = element_text(hjust = 0.5))
+ggsave("~/Desktop/Overthinking_Football/mid_plot.png", plot = mid_plot, height = 15)
+
+```
+
+## Forwards Analysis
+
+
+```{r forward_analysis}
+players_min_starts.forwards = players_min_5_starts_summary_df[players_min_5_starts_summary_df$Position == 'F',]
+nrow(players_min_starts.forwards)
+for_player_list <- players_min_starts.forwards$Player
+
+fwds_fbref_df <- read_csv('~/Desktop/Overthinking_Football/player_fbref_match_csvs/For_min5starts.csv')
+fwds_fbref_df$game_week <- sapply(strsplit(fwds_fbref_df$Round, " "), function(x) (x[2]))
+fwds_min60_merged_df <- merge(min_60_min_df, fwds_fbref_df, by=c('Player', 'game_week'))
+
+i <- for_player_list %in% unique(fwds_min60_merged_df$Player)
+for_player_list[!i]
+
+fwds_min60_min600_merged_df <- fwds_min60_merged_df %>%
+  filter(Player %in% for_player_list)
+
+fwds_min60_min600_merged_df$xPts <- fwds_min60_min600_merged_df$FPts - (fwds_min60_min600_merged_df$G * 9 + fwds_min60_min600_merged_df$AT * 6)
+fwds_min60_min600_merged_df$xPts <- fwds_min60_min600_merged_df$xPts + (as.numeric(fwds_min60_min600_merged_df$xG)* 9 + as.numeric(fwds_min60_min600_merged_df$xA) * 6)
+
+summary_xpts_df.for <- fwds_min60_min600_merged_df %>% 
+  group_by(Player, Team, Position) %>%
+  summarize(n = n(), min_total = sum(Min.x), sd_emp_pts = sd(FPts), sd_xpts = sd(xPts), mean_emp_pts = mean(FPts), mean_xPts = mean(xPts), med_emp_pts= median(FPts), med_xPts = median(xPts), total_emp_fpts = sum(FPts), total_xPts = sum(xPts), mean_minutes = mean(Min.x))
+sd(summary_xpts_df.for$mean_xPts)
+ggplot(summary_xpts_df.for, aes(y = mean_emp_pts, x = mean_xPts)) +
+  geom_point() +
+  geom_abline(slope = 1, intercept = 0) +
+  geom_abline(slope = 1, intercept = -1.5, color = 'green', linetype = 2) +
+  geom_abline(slope = 1, intercept = 1.5, color = 'red', linetype = 2) +
+  geom_text_repel(
+    data = subset(summary_xpts_df.for, abs(mean_emp_pts - mean_xPts) > 2),
+    aes(label = Player),
+    size = 3,
+    box.padding = unit(2, "lines"),
+    point.padding = unit(0, "lines")
+  ) +
+  theme_light() +
+  xlab("mean xFpts") +
+  ylab("mean observed Fpts") +
+  ggtitle("Forwards xFpts to observed comparison") +
+  theme(plot.title = element_text(hjust = 0.5))
+wilcox.test(x = fwds_min60_min600_merged_df$xPts, y = fwds_min60_min600_merged_df$FPts)
+wilcox.test(x = fwds_min60_min600_merged_df[fwds_min60_min600_merged_df$Player == 'Christian Benteke',]$xPts, y = fwds_min60_min600_merged_df[fwds_min60_min600_merged_df$Player == 'Christian Benteke',]$FPts)
+wilcox.test(x = fwds_min60_min600_merged_df[fwds_min60_min600_merged_df$Player == 'Sadio Mane',]$xPts, y = fwds_min60_min600_merged_df[fwds_min60_min600_merged_df$Player == 'Sadio Mane',]$FPts)
+
+cor(summary_xpts_df.for$mean_xPts, summary_xpts_df.for$mean_emp_pts)   
+write.csv(x=summary_xpts_df.for, file="~/Desktop/Overthinking_Football/Forwards_xpts.csv")
+
+```
+
+```{r forwards_range_analysis}
+
+## DEFENSE
+boxplot_for_df <- data.frame(Player = as.character(summary_xpts_df.for$Player), sd = summary_xpts_df.for$sd_xpts, mean = summary_xpts_df.for$mean_xPts)
+
+index <- with(boxplot_for_df, order(mean))
+sorted_boxplot_for_df <- boxplot_for_df[index,]
+
+correct_player_order = sorted_boxplot_for_df$Player
+sorted_boxplot_for_df$Player <- factor(sorted_boxplot_for_df$Player, levels = correct_player_order)
+
+
+for_plot <- ggplot(data = sorted_boxplot_for_df,aes(y = Player, mean)) +
+  geom_crossbar(aes(xmin = mean, xmax = mean), width = 1) +
+  geom_errorbar(aes(xmin = mean - sd, xmax = mean + sd)) +
+  xlab('xFpts') +
+  ylab('Player') +
+  ggtitle('xFpt ranges for Forwards') +
+  theme_light() +
+  theme(plot.title = element_text(hjust = 0.5))
+ggsave("~/Desktop/Overthinking_Football/for_plot.png", plot = for_plot, height = 12)
+
+```
+
+
+
+## All position groups
+
+```{r all_analysis}
+summary_df.all <- rbind(summary_xpts_df.def, summary_xpts_df.mid,summary_xpts_df.for)
+
+ggplot(summary_df.all, aes(y = mean_emp_pts, x = mean_xPts, color = Position)) +
+  geom_point() +
+  geom_abline(slope = 1, intercept = 0) +
+  geom_abline(slope = 1, intercept = -1.5, color = 'green', linetype = 2) +
+  geom_abline(slope = 1, intercept = 1.5, color = 'red', linetype = 2) +
+  geom_text_repel(
+    data = subset(summary_df.all, abs(mean_emp_pts - mean_xPts) > 4),
+    aes(label = Player),
+    size = 3,
+    box.padding = unit(2, "lines"),
+    point.padding = unit(0, "lines")
+  ) +
+  theme_light() +
+  xlab("mean xFpts") +
+  ylab("mean observed Fpts") +
+  ggtitle("All Starters xFpts to observed comparison") +
+  theme(plot.title = element_text(hjust = 0.5))
+  
+
+```
+
+## Emerson v Marcos Alonso
+
+```{r emerson_v_marcos_analysis}
+alonso_v_emerson_weekly_df <- defenders_min60_min600_merged_df[defenders_min60_min600_merged_df$Player == 'Emerson' | defenders_min60_min600_merged_df$Player == 'Marcos Alonso',]
+
+alonso_v_emerson_df <- data.frame(Player = c(rep('Emerson', 20), rep('Marcos Alonso', 20)), pts_type = c(rep('Fpts', 10), rep('xFpts', 10), rep('Fpts', 10), rep('xFpts', 10)), value = c(alonso_v_emerson_weekly_df[alonso_v_emerson_weekly_df$Player == 'Emerson',]$FPts, alonso_v_emerson_weekly_df[alonso_v_emerson_weekly_df$Player == 'Emerson',]$xPts,alonso_v_emerson_weekly_df[alonso_v_emerson_weekly_df$Player == 'Marcos Alonso',]$FPts, alonso_v_emerson_weekly_df[alonso_v_emerson_weekly_df$Player == 'Marcos Alonso',]$xPts))
+ggplot(alonso_v_emerson_df, aes(x=pts_type, y=value, fill = Player)) +
+  geom_boxplot() +
+  ylab('points') +
+  xlab('Types of points')
+
+ggplot(alonso_v_emerson_weekly_df, aes(x=Player, y=FPts - xPts)) +
+  geom_boxplot()
+
+```
+
+
+
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
