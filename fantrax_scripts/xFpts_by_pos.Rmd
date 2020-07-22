@@ -1603,7 +1603,7 @@ ggplot(all_combined_Team_Pos_min_10, aes(x = reorder(Team_Pos, xPts, FUN = media
 
 ```
 
-#Make top 20 team positions in the EPL
+#Remake top 20 team positions in the EPL
 ```{r}
 #sort min_10_examples to find the top 20 team positions
 
