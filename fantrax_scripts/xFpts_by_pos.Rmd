@@ -1322,20 +1322,17 @@ all_combined_Team_Pos_min_10_top_20$Team_space_Pos <- gsub("_", " ", all_combine
 
 ggplot(all_combined_Team_Pos_min_10_top_20, aes(x = reorder(Team_space_Pos, xPts, FUN = median ), y = xPts, fill = Team.x)) + geom_boxplot()  + theme_minimal() + theme(axis.text.x = element_text(angle = 90)) + ggtitle("xFpts for the top 20 Team-Positions") + xlab("Team-Position") + ylab("xFpts") + colScale + fillScale
 
-
-give.n <- function(x){
-  return(c(y = median(x)*2, label = length(unique(x$Player)))) 
-  # experiment with the multiplier to find the perfect position
-}
-
- ggplot(all_combined_Team_Pos_min_10_top_20, aes(x = reorder(Team_space_Pos, xPts, FUN = median ), y = xPts, fill = Team.x)) + geom_boxplot()  + theme_minimal() + theme(axis.text.x = element_text(angle = 90)) + ggtitle("xFpts for the top 20 Team-Positions") + xlab("Team-Position") + ylab("xFpts") + colScale + fillScale +  stat_summary(fun.data = give.n, geom = "text", fun.y = median)
-
-
 #ggplot(all_combined_Team_Pos_min_10, aes(x = reorder(Team_Pos, xPts, FUN = median ), y = xPts)) + geom_boxplot()  + theme_minimal() + theme(axis.text.x = element_text(angle = 90)) +ggtitle("xFpts for Team Positions")
 
 
 #ggplot(MCI_LW_data, aes(Player, xPts)) + geom_boxplot(aes(colour = Player), outlier.shape = NA) + geom_jitter(width = 0.2, aes(colour = MCI_LW_data$Player)) + theme_minimal() + theme(axis.text.x = element_text(angle = 45)) +ggtitle("MCI_LW xFpt for each player")
 
-#all_combined_Team_Pos_min_10 <- all_combined_Team_Pos_min_10 %>% group_by(Team_Pos) %>% filter(length(unique(Player)) > 1)
+#summarize number of players per team position
+all_combined_Team_Pos_min_10_top_20_summ <- all_combined_Team_Pos_min_10_top_20 %>% group_by(Team_Pos) %>% summarize(n = n(), num_diff_players = length(unique(Player)),medxPts = median(xPts))
+
+#sort on median xFpts
+all_combined_Team_Pos_min_10_top_20_summ_sorted <- all_combined_Team_Pos_min_10_top_20_summ[order(- all_combined_Team_Pos_min_10_top_20_summ$medxPts),]
+
+write.csv(all_combined_Team_Pos_min_10_top_20_summ_sorted, file="../data/fbref/premier_league/19_20/all_combined_Team_Pos_min_10_top_20_summ.csv")
 
 ```
