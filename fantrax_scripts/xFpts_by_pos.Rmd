@@ -944,42 +944,141 @@ ggplot(all_combined_Team_Pos_min_10_top_20, aes(x = reorder(Team_space_Pos, xPts
 ```
 
 #Regenerate top 20 team positions in the EPL with updated data
-```{r}
+
+## Data setup
+
+```{r data_setup}
+#load all player data for fbref.com
+weekly_data_csv = "../data/fantrax_data/weekly.all_data_combined.no_double_gws.csv"
+yearly_data_csv = "../data/fantrax_data/yearly.all_data_combined.csv"
+
+weekly_data_df <- read_csv(file = weekly_data_csv, col_names = TRUE)
+yearly_data_df <- read_csv(file = yearly_data_csv, col_names = TRUE)
+
+# Only weeks where at least 60 minutes are played
+min_60_min_df <- weekly_data_df[weekly_data_df$Min > 59,]
+# Players that have started at least 5 games
+summary_min_60_df <- min_60_min_df %>% 
+  group_by(Player, Team, Position) %>%
+  summarize(n = n(), min_total = sum(Min), sd = sd(FPts), mean = mean(FPts), total_fpts = sum(FPts), mean_minutes = mean(Min))
+
+#only players with at least 5 starts
+players_min_5_starts_summary_df <- summary_min_60_df[summary_min_60_df$n >= 5,]
+
+player_min_5_starts_weekly_df <- min_60_min_df %>%
+  filter(Player %in% players_min_5_starts_summary_df$Player)
+nrow(player_min_5_starts_weekly_df)
+
+
+```
+
+## get xFpts
+
+```{r gather_xfpt_df}
+
 
 # load in just defenders
 players_min_starts.defenders = players_min_5_starts_summary_df[players_min_5_starts_summary_df$Position == 'D',]
 nrow(players_min_starts.defenders)
 def_player_list <- players_min_starts.defenders$Player
 length(def_player_list)
+#[1] 138
 
-#read in the fb ref summary table
+#read in fbref_summary data
 fbref_summ_df <- read_csv('../data/fbref/premier_league/19_20/name_cleaned.summary_table.first_360_matches.csv')
+
+dim(fbref_summ_df)
+#[1] 10025    35
+
 #clean sheet data
 cs_df <- read_csv('../data/fantrax_data/game_results.csv')
 
-#convert dates to the same format:
-format(fbref_summ_df$Date, format="%m/%d/%y")
+#add game week to fbref_summ_df from cs_df
 
-#parse round into game week
-fbref_df$game_week <- sapply(strsplit(fbref_df$Round, " "), function(x) (x[2]))
+date_to_week_df <- as.data.frame(cbind(cs_df$Date, cs_df$Wk))
+
+colnames(date_to_week_df) <- c("Date","game_week")
+
+date_to_week_df <- distinct(date_to_week_df)
+
+fbref_summ_df<- merge(fbref_summ_df, date_to_week_df, by="Date")
+
+dim(fbref_summ_df)
+#[1] 10025    36
+#correct dims
+
+#write to file
+write.csv(x=fbref_summ_df, file="../data/fbref/premier_league/19_20/name_cleaned.summary_table.first_360_matches_game_week.csv")
+
+#convert game_week to numeric
+fbref_summ_df$game_week <- as.character(fbref_summ_df$game_week)
+fbref_summ_df$game_week <- as.numeric(fbref_summ_df$game_week)
+
+#write to file
+write.csv(x=fbref_summ_df, file="../data/fbref/premier_league/19_20/name_cleaned.summary_table.first_360_matches_game_week.csv")
 
 #merge on player and game week
-defenders_min60_merged_df <- merge(min_60_min_df, defenders_fbref_df, by=c('Player', 'game_week'))
+min60_merged_df <- merge(min_60_min_df, fbref_summ_df, by=c('Player', 'game_week'))
 
-#just get the important stuff for clean sheets
-all_cs_data_df <- data.frame('Squad' = c(cs_df$Home, cs_df$Away), 'xG_against' = c(cs_df$xG_1, cs_df$xG), 'game_week' = c(cs_df$Wk, cs_df$Wk))
+
+
+
+dim(min60_merged_df)
+#[1] 6764  125
+
+table(min60_merged_df$Position)
+
+#   D    F    M 
+#2764 1342 2658 
+
+#filter on fantrax defenders
+defenders_min60_merged_df <- min60_merged_df[min60_merged_df$Position == "D",]
+
+length(unique(defenders_min60_merged_df$Player))
+#[1] 161
+
+sum(def_player_list %in% unique(defenders_min60_merged_df$Player))
+#[1] 138
+#so they are all there
+
+#negate %in%
+`%!in%` = Negate(`%in%`)
+
+#see which players are extra in this group
+Players_defenders_min60_merged_df<-unique(defenders_min60_merged_df$Player)
+
+Players_defenders_min60_merged_df[Players_defenders_min60_merged_df %!in% def_player_list]
+#[1] "Axel Tuanzebe"       "Charlie Daniels"     "Diogo Dalot"         "Eric Bailly"        
+ #[5] "Ezequiel Schelotto"  "Jack Robinson"       "Jack Simpson"        "Jake Vokins"        
+ #[9] "Jarrad Branthwaite"  "Jeremy Ngakia"       "Kevin Danso"         "Kevin Long"         
+#[13] "Leighton Baines"     "Luke Thomas"         "Maximilian Kilman"   "Neco Williams"      
+#[17] "Pablo Mari"          "Phil Jagielka"       "Phil Jones"          "Rob Holding"        
+#[21] "Tariq Lamptey"       "Timothy Fosu-Mensah" "Wes Morgan"
+
+#they are players who havent have 5 starts
+
+#remove the under 5 games players
+defenders_min60_merged_df <- defenders_min60_merged_df[defenders_min60_merged_df$Player %in% def_player_list,]
+
+dim(defenders_min60_merged_df)
+#[1] 2715  125
+
+#just get the important stuff for clean sheets (name "Team.y" for easy merge in a sec)
+all_cs_data_df <- data.frame('Team.y' = c(cs_df$Home, cs_df$Away), 'xG_against' = c(cs_df$xG_1, cs_df$xG), 'game_week' = c(cs_df$Wk, cs_df$Wk))
+
+#convert squad to character all_cs_data_df for merge
+all_cs_data_df$Team.y <- as.character(all_cs_data_df$Team.y)
 
 #merge cs and defender data
-defenders_min60_merged_cs_df <- merge(defenders_min60_merged_df, all_cs_data_df, by=c('Squad', 'game_week'))
+defenders_min60_merged_cs_df <- merge(defenders_min60_merged_df, all_cs_data_df, by=c("Team.y", "game_week"))
+
+dim(defenders_min60_merged_cs_df)
+#[1] 2715  126
 
 #calculate xFpts from cs given xG against
 defenders_min60_merged_cs_df$GAD_against <- ifelse(defenders_min60_merged_cs_df$xG_against - 0.25 < 0, 0, defenders_min60_merged_cs_df$xG_against - 0.25)
 
 defenders_min60_merged_cs_df$normed_xg_against <- ifelse(defenders_min60_merged_cs_df$GAD_against <= 1.25, 1 - defenders_min60_merged_cs_df$GAD_against/1.25, 0)
-
-#just defenders filter
-defenders_min60_min600_merged_df <- defenders_min60_merged_cs_df %>%
-  filter(Player %in% def_player_list)
 
 #calculate xFpts for defenders
 defenders_min60_merged_cs_df$xPts <- defenders_min60_merged_cs_df$FPts - (defenders_min60_merged_cs_df$G * 10 + defenders_min60_merged_cs_df$AT * 8 + defenders_min60_merged_cs_df$CS * 6 + defenders_min60_merged_cs_df$GAD * -2) + (as.numeric(defenders_min60_merged_cs_df$xG)* 10 + as.numeric(defenders_min60_merged_cs_df$xA) * 8 + as.numeric(defenders_min60_merged_cs_df$normed_xg_against)* 6 + as.numeric(defenders_min60_merged_cs_df$GAD_against) * -2)
@@ -1085,4 +1184,3 @@ ggplot(all_combined_Team_Pos_min_10, aes(x = reorder(Team_Pos, xPts, FUN = media
 #Fpts plot
 ggplot(all_combined_Team_Pos_min_10, aes(x = reorder(Team_Pos, FPts, FUN = median ), y = FPts)) + geom_boxplot()  + theme_minimal() + theme(axis.text.x = element_text(angle = 90)) +ggtitle("Fpts for Team Positions")
 ```
-
