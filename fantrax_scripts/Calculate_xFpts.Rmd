@@ -107,10 +107,10 @@ dim(defenders_min_minutes_merged_cs_df)
 #calculate xFpts from cs given xG against
 defenders_min_minutes_merged_cs_df$GAD_against <- ifelse(defenders_min_minutes_merged_cs_df$xG_against - 0.25 < 0, 0, defenders_min_minutes_merged_cs_df$xG_against - 0.25)
 
-defenders_min_minutes_merged_cs_df$normed_xg_against <- ifelse(defenders_min_minutes_merged_cs_df$GAD_against <= 1.25, 1 - defenders_min_minutes_merged_cs_df$GAD_against/1.25, 0)
+defenders_min_minutes_merged_cs_df$xCS <- ifelse(defenders_min_minutes_merged_cs_df$GAD_against <= 1.25, 1 - defenders_min_minutes_merged_cs_df$GAD_against/1.25, 0)
 
 #calculate xFpts for defenders
-defenders_min_minutes_merged_cs_df$xPts <- defenders_min_minutes_merged_cs_df$FPts - (defenders_min_minutes_merged_cs_df$G * 10 + defenders_min_minutes_merged_cs_df$AT * 8 + defenders_min_minutes_merged_cs_df$CS * 6 + defenders_min_minutes_merged_cs_df$GAD * -2) + (as.numeric(defenders_min_minutes_merged_cs_df$xG)* 10 + as.numeric(defenders_min_minutes_merged_cs_df$xA) * 8 + as.numeric(defenders_min_minutes_merged_cs_df$normed_xg_against)* 6 + as.numeric(defenders_min_minutes_merged_cs_df$GAD_against) * -2)
+defenders_min_minutes_merged_cs_df$xPts <- defenders_min_minutes_merged_cs_df$FPts - (defenders_min_minutes_merged_cs_df$G * 10 + defenders_min_minutes_merged_cs_df$AT * 8 + defenders_min_minutes_merged_cs_df$CS * 6 + defenders_min_minutes_merged_cs_df$GAD * -2) + (as.numeric(defenders_min_minutes_merged_cs_df$xG)* 10 + as.numeric(defenders_min_minutes_merged_cs_df$xA) * 8 + as.numeric(defenders_min_minutes_merged_cs_df$xCS)* 6 + as.numeric(defenders_min_minutes_merged_cs_df$GAD_against) * -2)
 
 #remove some extra defender columns
 drops <- c("normed_xg_against","GAD_against", 'xG_against')
