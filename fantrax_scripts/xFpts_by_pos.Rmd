@@ -2331,6 +2331,648 @@ defenders_min60_merged_cs_df$xCS <- ifelse(defenders_min60_merged_cs_df$GAD_agai
 #calculate xFpts for defenders
 defenders_min60_merged_cs_df$xPts <- defenders_min60_merged_cs_df$FPts - (defenders_min60_merged_cs_df$G * 10 + defenders_min60_merged_cs_df$AT * 8 + defenders_min60_merged_cs_df$CS * 6 + defenders_min60_merged_cs_df$GAD * -2) + (as.numeric(defenders_min60_merged_cs_df$xG)* 10 + as.numeric(defenders_min60_merged_cs_df$xA) * 8 + as.numeric(defenders_min60_merged_cs_df$xCS)* 6 + as.numeric(defenders_min60_merged_cs_df$GAD_against) * -2)
 
+#calculate piecewise point categories
+#clearances
+defenders_min60_merged_cs_df$CLRpts <- defenders_min60_merged_cs_df$CLR * 0.25
+
+#goals
+defenders_min60_merged_cs_df$xGpts <-  defenders_min60_merged_cs_df$xG * 10
+
+#assists
+defenders_min60_merged_cs_df$xApts <-  defenders_min60_merged_cs_df$xA * 8
+
+#Key Passes
+defenders_min60_merged_cs_df$KPpts <- defenders_min60_merged_cs_df$KP * 2
+
+#Shots on target
+defenders_min60_merged_cs_df$SOTpts <- defenders_min60_merged_cs_df$SOT * 2
+
+#tackles won = 1 so not needed
+
+#dispossessed
+defenders_min60_merged_cs_df$DISpts <- defenders_min60_merged_cs_df$DIS * -0.5
+
+#yellow cards
+defenders_min60_merged_cs_df$YCpts <- defenders_min60_merged_cs_df$YC * -3
+
+#second yellow
+defenders_min60_merged_cs_df$YCpts <- defenders_min60_merged_cs_df$SYC * -4
+
+#red
+defenders_min60_merged_cs_df$RCpts <- defenders_min60_merged_cs_df$RC * -7
+
+#Acc. Cross, Ints, CoS, AER all 1 so not needed
+
+#Own Goals
+defenders_min60_merged_cs_df$OGpts <- defenders_min60_merged_cs_df$OG * -9
+
+#Goals against
+defenders_min60_merged_cs_df$xGADpts <- defenders_min60_merged_cs_df$GAD_against * -2
+
+#Clean Sheets
+defenders_min60_merged_cs_df$xCSpts <- defenders_min60_merged_cs_df$xCS * 6
+
+
+#write all denfenders df to file
+write.csv(x=defenders_min60_merged_cs_df, file="../data/fantrax_data/defenders_pts_breakdown_20200726.csv")
 
 #filter so it is only center backs
-all_combined_df_CBs <- all_combined_Team_Pos[all_combined_Team_Pos$Pos == "CB",]
+pts_breakdown_df_CBs <- defenders_min60_merged_cs_df[defenders_min60_merged_cs_df$Pos == "CB",]
+
+dim(pts_breakdown_df_CBs)
+#[1] 1395  140
+
+#calculate defensive points
+pts_breakdown_df_CBs$defPts = pts_breakdown_df_CBs$CLRpts + pts_breakdown_df_CBs$TkW + pts_breakdown_df_CBs$Int.x + pts_breakdown_df_CBs$OGpts + pts_breakdown_df_CBs$xGADpts + pts_breakdown_df_CBs$xCSpts
+
+
+#calculate offensive points
+pts_breakdown_df_CBs$offPts = pts_breakdown_df_CBs$xGpts + pts_breakdown_df_CBs$xApts + pts_breakdown_df_CBs$KPpts + pts_breakdown_df_CBs$SOTpts + pts_breakdown_df_CBs$DISpts + pts_breakdown_df_CBs$ACNC + pts_breakdown_df_CBs$CoS
+
+#write CB df to file
+write.csv(x=pts_breakdown_df_CBs, file="../data/fantrax_data/CBs_pts_breakdown_20200726.csv")
+
+#graph all datap points just to see
+
+ggplot(pts_breakdown_df_CBs, aes(y = offPts, x = defPts)) + geom_point(aes(colour = xPts)) + scale_color_gradient(low="blue", high="red", ) + theme_minimal() +ggtitle("All CB Starts defPts vs offPts")
+
+#might help to look at only players that are likely to be owned
+pts_breakdown_df_CBs$Pct_Owned <- gsub("%", "", pts_breakdown_df_CBs$`% Owned`)
+
+pts_breakdown_df_CBs$Pct_Owned <- as.numeric(pts_breakdown_df_CBs$Pct_Owned)
+
+#make a summary for these fields
+summary_CBs <- pts_breakdown_df_CBs %>% 
+  group_by(Player) %>%
+  summarize(n = n(), meanFpts = mean(FPts), meanxFpts = mean(xPts), meanOffPts= mean(offPts), meanDefPts= mean(defPts), meanxG = mean(xG), meanxCS = mean(xCS), meanxA = mean(xA) )
+
+#plot summary data
+ggplot(summary_CBs, aes(y = meanOffPts, x = meanDefPts, label = Player)) + geom_point(aes(colour = meanxFpts)) + scale_color_gradient(low="blue", high="red", ) + theme_minimal() + geom_text_repel()
+
+#correlation
+cor(summary_CBs$meanOffPts, summary_CBs$meanxFpts)
+#[1] 0.6398535
+cor(summary_CBs$meanDefPts, summary_CBs$meanxFpts)
+#[1] 0.7581317
+
+#might help to look at only players that are likely to be owned
+pts_breakdown_df_CBs$Pct_Owned <- gsub("%", "", pts_breakdown_df_CBs$`% Owned`)
+
+pts_breakdown_df_CBs$Pct_Owned <- as.numeric(pts_breakdown_df_CBs$Pct_Owned)
+
+pts_breakdown_df_CBs_GT20 <- pts_breakdown_df_CBs[pts_breakdown_df_CBs$Pct_Owned > 50,]
+
+summary_CBs_50 <- pts_breakdown_df_CBs_GT20 %>% 
+  group_by(Player) %>%
+  summarize(n = n(), meanFpts = mean(FPts), meanxFpts = mean(xPts), meanOffPts= mean(offPts), meanDefPts= mean(defPts), meanxG = mean(xG), meanxCS = mean(xCS), meanxA = mean(xA), meanAER = mean(AER) )
+
+summary_CBs_50 <- as.data.frame(summary_CBs_50)
+
+
+
+#plot summary data
+ggplot(summary_CBs_50, aes(y = meanOffPts, x = meanDefPts, label = Player)) + geom_point(aes(colour = meanxFpts)) + scale_color_gradient(low="blue", high="red", ) + theme_minimal() + geom_text_repel()
+
+dim(summary_CBs_50)
+#[1] 57  9
+
+summary_CBs_50_n5 <- summary_CBs_50[summary_CBs_50$n >= 5,]
+
+dim(summary_CBs_50_n5)
+#[1] 29  9
+
+ggplot(summary_CBs_50_n5, aes(y = meanOffPts, x = meanDefPts, label = Player)) + geom_point(aes(colour = meanxFpts)) + scale_color_gradient(low="blue", high="red", ) + theme_minimal() + geom_text_repel()
+
+#last line is NA so gotta remove
+summary_CBs_50_n5 <- summary_CBs_50_n5[complete.cases(summary_CBs_50_n5),]
+
+#correlation
+cor(summary_CBs_50_n5$meanOffPts, summary_CBs_50_n5$meanxFpts)
+#[1] 0.618092
+cor(summary_CBs_50$meanDefPts, summary_CBs_50$meanxFpts)
+#[1] 0.7456804
+
+#ggplot(summary_BUR_CBs_for_plot , aes(fill=Player, y=Stat_Value, x=Stat_Name)) + geom_bar(position="dodge", stat="identity") + theme_minimal() +ggtitle("Burnley CB Summary")
+```
+
+#Aerial analyses
+```{r}
+
+#write read in denfenders df to file
+defenders_min60_merged_cs_df <- read.csv( file="../data/fantrax_data/defenders_pts_breakdown_20200726.csv")
+
+#filter so it is only center backs
+pts_breakdown_df_CBs <- defenders_min60_merged_cs_df[defenders_min60_merged_cs_df$Pos == "CB",]
+
+dim(pts_breakdown_df_CBs)
+#[1] 1395  140
+
+#calculated AER_pct (percent won)
+pts_breakdown_df_CBs$AER_prop <- pts_breakdown_df_CBs$AER / (pts_breakdown_df_CBs$AER + pts_breakdown_df_CBs$AERL)
+#could lead to 0/0 so need to remove NaNs
+pts_breakdown_df_CBs$AER_prop[is.nan(pts_breakdown_df_CBs$AER_prop)]<- 0
+
+#calculate defensive points
+pts_breakdown_df_CBs$defPts = pts_breakdown_df_CBs$CLRpts + pts_breakdown_df_CBs$TkW + pts_breakdown_df_CBs$Int.x + pts_breakdown_df_CBs$OGpts + pts_breakdown_df_CBs$xGADpts + pts_breakdown_df_CBs$xCSpts
+
+
+#calculate offensive points
+pts_breakdown_df_CBs$offPts = pts_breakdown_df_CBs$xGpts + pts_breakdown_df_CBs$xApts + pts_breakdown_df_CBs$KPpts + pts_breakdown_df_CBs$SOTpts + pts_breakdown_df_CBs$DISpts + pts_breakdown_df_CBs$ACNC + pts_breakdown_df_CBs$CoS
+
+
+summary_all_CBs <- pts_breakdown_df_CBs %>% 
+  group_by(Player) %>%
+  summarize(n = n(), meanFpts = mean(FPts), meanxFpts = mean(xPts), meanOffPts= mean(offPts), meanDefPts= mean(defPts), meanxG = mean(xG), meanxCS = mean(xCS), meanxA = mean(xA), meanAER = mean(AER), meanAERProp = mean(AER_prop) )
+
+#require that they played at least 5 games as a CB
+
+summary_CBs_n5 <- summary_all_CBs[summary_all_CBs$n >= 5,]
+
+#plot it to take a look
+ggplot(summary_CBs_n5, aes(y = meanOffPts, x = meanDefPts, label = Player)) + geom_point(aes(colour = meanxFpts)) + scale_color_gradient(low="blue", high="red", ) + theme_minimal() + geom_text_repel()
+
+
+#correlation
+cor(summary_CBs_n5$meanOffPts, summary_CBs_n5$meanxFpts)
+#[1] 0.5228639
+cor(summary_CBs_n5$meanDefPts, summary_CBs_n5$meanxFpts)
+#[1] 0.7228486
+cor(summary_CBs_n5$meanAER, summary_CBs_n5$meanxFpts)
+#[1] 0.6473951
+cor(summary_CBs_n5$meanAER, summary_CBs_n5$meanOffPts)
+#[1] 0.2222049
+cor(summary_CBs_n5$meanAER, summary_CBs_n5$meanDefPts)
+#[1] 0.09010674
+cor(summary_CBs_n5$meanAERProp, summary_CBs_n5$meanOffPts)
+#[1] 0.1764171
+cor(summary_CBs_n5$meanAERProp, summary_CBs_n5$meanDefPts)
+#[1] 0.1430124
+cor(summary_CBs_n5$meanAERProp, summary_CBs_n5$meanxFpts)
+#[1] 0.5535953
+cor(summary_CBs_n5$meanAERProp, summary_CBs_n5$meanxG)
+#[1] 0.1147131
+cor(summary_CBs_n5$meanAERProp, summary_CBs_n5$meanxCS)
+#[1] 0.04472386
+
+
+
+
+
+#clear that AER is more correlated with offense
+plot(summary_CBs_n5$meanAER, summary_CBs_n5$meanOffPts)
+plot(summary_CBs_n5$meanAER, summary_CBs_n5$meanDefPts)
+
+#plot it to take a look
+ggplot(summary_CBs_n5, aes(y = meanOffPts, x = meanAER, label = Player)) + geom_point(aes(colour = meanxFpts)) + scale_color_gradient(low="blue", high="red", ) + theme_minimal() + geom_text_repel()
+
+ggplot(summary_CBs_n5, aes(y = meanOffPts, x = meanAERProp, label = Player)) + geom_point(aes(colour = meanxFpts)) + scale_color_gradient(low="blue", high="red", ) + theme_minimal() + geom_text_repel()
+
+ggplot(summary_CBs_n5, aes(y = meanOffPts, x = meanAERProp, label = Player)) + geom_point(aes(colour = meanxFpts)) + scale_color_gradient(low="blue", high="red", ) + theme_minimal() + geom_text_repel()
+
+#add in possession data
+fbref_pos_df <- read_csv('../data/fbref/premier_league/19_20/name_cleaned.possession_table.first_360_matches.csv')
+
+dim(fbref_pos_df)
+#[1] 10025    29
+
+cs_df <- read_csv('../data/fantrax_data/game_results.csv')
+
+#add game week to fbref_pos_df from cs_df
+
+date_to_week_df <- as.data.frame(cbind(cs_df$Date, cs_df$Wk))
+
+colnames(date_to_week_df) <- c("Date","game_week")
+
+date_to_week_df <- distinct(date_to_week_df)
+
+fbref_pos_df <- merge(fbref_pos_df, date_to_week_df, by="Date")
+
+
+dim(fbref_pos_df)
+#[1] 10025    30
+#correct dims
+
+#write to file
+write.csv(x=fbref_pos_df, file="../data/fbref/premier_league/19_20/name_cleaned.possession_table.first_360_matches_game_week.csv")
+
+pts_breakdown_df_CBs_posStats <- merge(pts_breakdown_df_CBs, fbref_pos_df, by=c('Player', 'game_week'))
+
+ dim(pts_breakdown_df_CBs_posStats)
+#[1] 1395  172
+ 
+ 
+ summary_all_CBs_poss <- pts_breakdown_df_CBs_posStats %>% 
+  group_by(Player) %>%
+  summarize(n = n(), meanFpts = mean(FPts), meanxFpts = mean(xPts), meanOffPts= mean(offPts), meanDefPts= mean(defPts), meanxG = mean(xG), meanxCS = mean(xCS), meanxA = mean(xA), meanAER = mean(AER), meanAERProp = mean(AER_prop), meanSoT = mean(SoT), meanAtt3rd = mean(`Att 3rd`), meanAttPen = mean(`Att Pen`), meanDefPen = mean(`Def Pen`))
+
+#require that they played at least 5 games as a CB
+
+summary_all_CBs_poss_n5 <- summary_all_CBs_poss[summary_all_CBs_poss$n >= 5,]
+
+#plot it to take a look
+ggplot(summary_all_CBs_poss_n5, aes(y = meanSoT, x = meanAER, label = Player)) + geom_point(aes(colour = meanxFpts)) + scale_color_gradient(low="blue", high="red", ) + theme_minimal() + geom_text_repel()
+
+
+ggplot(summary_all_CBs_poss_n5, aes(y =  meanAER, x = meanAtt3rd, label = Player)) + geom_point(aes(colour = meanxFpts)) + scale_color_gradient(low="blue", high="red", ) + theme_minimal() + geom_text_repel()
+
+cor.test(summary_all_CBs_poss_n5$meanAER, summary_all_CBs_poss_n5$meanAtt3rd)
+
+	'Pearsons product-moment correlation
+
+data:  summary_all_CBs_poss_n5$meanAER and summary_all_CBs_poss_n5$meanAtt3rd
+t = 2.0284, df = 68, p-value = 0.04644
+alternative hypothesis: true correlation is not equal to 0
+95 percent confidence interval:
+ 0.004119127 0.448654630
+sample estimates:
+     cor 
+0.238862 '
+
+ggplot(summary_all_CBs_poss_n5, aes(y =  meanAER, x = meanAttPen, label = Player)) + geom_point(aes(colour = meanxFpts)) + scale_color_gradient(low="blue", high="red", ) + theme_minimal() + geom_text_repel()
+
+
+cor.test(summary_all_CBs_poss_n5$meanAER, summary_all_CBs_poss_n5$meanAttPen)
+
+	'Pearsons product-moment correlation
+
+data:  summary_all_CBs_poss_n5$meanAER and summary_all_CBs_poss_n5$meanAttPen
+t = 6.6366, df = 68, p-value = 6.363e-09
+alternative hypothesis: true correlation is not equal to 0
+95 percent confidence interval:
+ 0.4597325 0.7512714
+sample estimates:
+      cor 
+0.6269772 '
+
+ggplot(summary_all_CBs_poss_n5, aes(y =  meanAER, x = meanDefPen, label = Player)) + geom_point(aes(colour = meanxFpts)) + scale_color_gradient(low="blue", high="red", ) + theme_minimal() + geom_text_repel()
+
+#correlation
+cor(summary_CBs_n5$meanOffPts, summary_CBs_n5$meanxFpts)
+
+
+```
+
+
+# Look at AER for other positions
+
+#Outside backs
+```{r}
+#read in fbref_summary data
+
+defenders_min60_merged_cs_df <- read.csv(file="../data/fantrax_data/defenders_pts_breakdown_20200726.csv")
+
+#filter so it is only outside backs
+
+OB_Pos <- c("LB","RB","WB")
+
+pts_breakdown_df_OBs <- defenders_min60_merged_cs_df[defenders_min60_merged_cs_df$Pos %in% OB_Pos,]
+
+dim(pts_breakdown_df_OBs)
+#[1] 1101  141
+
+#calculated AER_pct (percent won)
+pts_breakdown_df_OBs$AER_prop <- pts_breakdown_df_OBs$AER / (pts_breakdown_df_OBs$AER + pts_breakdown_df_OBs$AERL)
+#could lead to 0/0 so need to remove NaNs
+pts_breakdown_df_OBs$AER_prop[is.nan(pts_breakdown_df_OBs$AER_prop)]<- 0
+
+#calculate defensive points
+pts_breakdown_df_OBs$defPts = pts_breakdown_df_OBs$CLRpts + pts_breakdown_df_OBs$TkW + pts_breakdown_df_OBs$Int.x + pts_breakdown_df_OBs$OGpts + pts_breakdown_df_OBs$xGADpts + pts_breakdown_df_OBs$xCSpts
+
+
+#calculate offensive points
+pts_breakdown_df_OBs$offPts = pts_breakdown_df_OBs$xGpts + pts_breakdown_df_OBs$xApts + pts_breakdown_df_OBs$KPpts + pts_breakdown_df_OBs$SOTpts + pts_breakdown_df_OBs$DISpts + pts_breakdown_df_OBs$ACNC + pts_breakdown_df_OBs$CoS
+
+#write 0B df to file
+write.csv(x=pts_breakdown_df_OBs, file="../data/fantrax_data/OBs_pts_breakdown_20200729.csv")
+          
+          
+#add possession data
+fbref_pos_df <- read.csv(file="../data/fbref/premier_league/19_20/name_cleaned.possession_table.first_360_matches_game_week.csv")
+
+pts_breakdown_df_OBs_posStats <- merge(pts_breakdown_df_OBs, fbref_pos_df, by=c('Player', 'game_week'))
+
+dim(pts_breakdown_df_OBs_posStats)
+#[1] 1101  173
+ 
+ 
+ summary_all_OBs_poss <- pts_breakdown_df_OBs_posStats %>% 
+  group_by(Player) %>%
+  summarize(n = n(), meanFpts = mean(FPts), meanxFpts = mean(xPts), meanOffPts= mean(offPts), meanDefPts= mean(defPts), meanxG = mean(xG), meanxCS = mean(xCS), meanxA = mean(xA), meanAER = mean(AER), meanAERProp = mean(AER_prop), meanSoT = mean(SoT), meanAtt3rd = mean(Att.3rd), meanAttPen = mean(Att.Pen), meanDefPen = mean(Def.Pen))
+
+#require that they played at least 5 games as a OB
+
+summary_all_OBs_poss_n5 <- summary_all_OBs_poss[summary_all_OBs_poss$n >= 5,]
+
+dim(summary_all_OBs_poss_n5)
+#[1] 69 15
+
+#plot it to take a look
+ggplot(summary_all_OBs_poss, aes(y = meanSoT, x = meanAER, label = Player)) + geom_point(aes(colour = meanxFpts)) + scale_color_gradient(low="blue", high="red", ) + theme_minimal() + geom_text_repel()
+
+
+ggplot(summary_all_OBs_poss, aes(y =  meanAER, x = meanAtt3rd, label = Player)) + geom_point(aes(colour = meanxFpts)) + scale_color_gradient(low="blue", high="red", ) + theme_minimal() + geom_text_repel()
+
+cor.test(summary_all_OBs_poss_n5$meanAER, summary_all_OBs_poss_n5$meanAtt3rd)
+
+	'Pearsons product-moment correlation
+
+data:  summary_all_OBs_poss_n5$meanAER and summary_all_OBs_poss_n5$meanAtt3rd
+t = -0.028278, df = 67, p-value = 0.9775
+alternative hypothesis: true correlation is not equal to 0
+95 percent confidence interval:
+ -0.2399392  0.2334168
+sample estimates:
+         cor 
+-0.003454734 '
+
+ggplot(summary_all_OBs_poss, aes(y =  meanAER, x = meanAttPen, label = Player)) + geom_point(aes(colour = meanxFpts)) + scale_color_gradient(low="blue", high="red", ) + theme_minimal() + geom_text_repel()
+
+
+cor.test(summary_all_OBs_poss$meanAER, summary_all_OBs_poss$meanAttPen)
+
+	'Pearsons product-moment correlation
+
+data:  summary_all_OBs_poss$meanAER and summary_all_OBs_poss$meanAttPen
+t = 0.82421, df = 76, p-value = 0.4124
+alternative hypothesis: true correlation is not equal to 0
+95 percent confidence interval:
+ -0.1311536  0.3101585
+sample estimates:
+      cor 
+0.0941242 '
+
+ggplot(summary_all_OBs_poss, aes(y =  meanAER, x = meanDefPen, label = Player)) + geom_point(aes(colour = meanxFpts)) + scale_color_gradient(low="blue", high="red", ) + theme_minimal() + geom_text_repel()
+
+#correlation
+cor(summary_all_OBs_poss$meanOffPts, summary_all_OBs_poss$meanxFpts)
+
+```
+
+# Look at AER for midfielders
+```{r}
+
+#load all player data for fbref.com
+weekly_data_csv = "../data/fantrax_data/weekly.all_data_combined.no_double_gws.csv"
+yearly_data_csv = "../data/fantrax_data/yearly.all_data_combined.csv"
+
+weekly_data_df <- read_csv(file = weekly_data_csv, col_names = TRUE)
+yearly_data_df <- read_csv(file = yearly_data_csv, col_names = TRUE)
+
+# Only weeks where at least 60 minutes are played
+min_60_min_df <- weekly_data_df[weekly_data_df$Min > 59,]
+# Players that have started at least 5 games
+summary_min_60_df <- min_60_min_df %>% 
+  group_by(Player, Team, Position) %>%
+  summarize(n = n(), min_total = sum(Min), sd = sd(FPts), mean = mean(FPts), total_fpts = sum(FPts), mean_minutes = mean(Min))
+
+#only players with at least 5 starts
+players_min_5_starts_summary_df <- summary_min_60_df[summary_min_60_df$n >= 5,]
+
+player_min_5_starts_weekly_df <- min_60_min_df %>%
+  filter(Player %in% players_min_5_starts_summary_df$Player)
+nrow(player_min_5_starts_weekly_df)
+
+#read in fbref_summary data
+fbref_summ_df <- read_csv('../data/fbref/premier_league/19_20/name_cleaned.summary_table.first_360_matches.csv')
+
+dim(fbref_summ_df)
+#[1] 10025    35
+
+#clean sheet data
+cs_df <- read_csv('../data/fantrax_data/game_results.csv')
+
+#add game week to fbref_summ_df from cs_df
+
+date_to_week_df <- as.data.frame(cbind(cs_df$Date, cs_df$Wk))
+
+colnames(date_to_week_df) <- c("Date","game_week")
+
+date_to_week_df <- distinct(date_to_week_df)
+
+fbref_summ_df<- merge(fbref_summ_df, date_to_week_df, by="Date")
+
+dim(fbref_summ_df)
+#[1] 10025    36
+#correct dims
+
+#convert game_week to numeric
+fbref_summ_df$game_week <- as.character(fbref_summ_df$game_week)
+fbref_summ_df$game_week <- as.numeric(fbref_summ_df$game_week)
+
+#merge on player and game week
+min60_merged_df <- merge(min_60_min_df, fbref_summ_df, by=c('Player', 'game_week'))
+
+
+dim(min60_merged_df)
+#[1] 6764  125
+
+table(min60_merged_df$Position)
+
+#   D    F    M 
+#2764 1342 2658 
+
+# midfielders
+players_min_starts.midfielders = players_min_5_starts_summary_df[players_min_5_starts_summary_df$Position == 'M',]
+
+mid_player_list <- players_min_starts.midfielders$Player
+
+#filter on fantrax midfielders
+mids_min60_merged_df <- min60_merged_df[min60_merged_df$Position == "M",]
+
+length(unique(mids_min60_merged_df$Player))
+#[1] 168
+
+#remove the under 5 games players
+mids_min60_merged_df <- mids_min60_merged_df[mids_min60_merged_df$Player %in% mid_player_list,]
+
+dim(mids_min60_merged_df)
+#[1] 2600  125
+
+
+length(unique(mids_min60_merged_df$Player))
+#[1] 143
+
+#calculate xFpts for midfielders
+mids_min60_merged_df$xPts <- mids_min60_merged_df$FPts - (mids_min60_merged_df$G * 9 + mids_min60_merged_df$AT * 6)
+mids_min60_merged_df$xPts <- mids_min60_merged_df$xPts + (as.numeric(mids_min60_merged_df$xG)* 9 + as.numeric(mids_min60_merged_df$xA) * 6)
+
+#add possession data
+fbref_pos_df <- read.csv(file="../data/fbref/premier_league/19_20/name_cleaned.possession_table.first_360_matches_game_week.csv")
+
+mids_min60_merged_df_posStats <- merge(mids_min60_merged_df, fbref_pos_df, by=c('Player', 'game_week'))
+
+dim(mids_min60_merged_df_posStats )
+#[1] 2600  155
+ 
+#calculated AER_pct (percent won)
+mids_min60_merged_df_posStats$AER_prop <- mids_min60_merged_df_posStats$AER / (mids_min60_merged_df_posStats$AER + mids_min60_merged_df_posStats$AERL)
+#could lead to 0/0 so need to remove NaNs
+mids_min60_merged_df_posStats$AER_prop[is.nan(mids_min60_merged_df_posStats$AER_prop)]<- 0
+
+#filter on actual midfield positions
+Mid_Pos <- c("AM","CM","DM","RW","LW")
+
+mids_min60_merged_df_posStats <- mids_min60_merged_df_posStats[mids_min60_merged_df_posStats$Pos.x %in% Mid_Pos,]
+
+ summary_all_mids_poss <- mids_min60_merged_df_posStats %>% 
+  group_by(Player) %>%
+  summarize(n = n(), meanFpts = mean(FPts), meanxFpts = mean(xPts), meanxG = mean(xG), meanxA = mean(xA), meanAER = mean(AER), meanAERProp = mean(AER_prop), meanSoT = mean(SoT), meanAtt3rd = mean(Att.3rd), meanAttPen = mean(Att.Pen), meanDefPen = mean(Def.Pen))
+ 
+
+
+#require that they played at least 5 games as a OB
+
+summary_all_mids_poss_n5 <- summary_all_mids_poss[summary_all_mids_poss$n >= 5,]
+
+dim(summary_all_mids_poss_n5)
+#[1] 129  12
+
+#plot it to take a look
+ggplot(summary_all_mids_poss_n5 , aes(y = meanSoT, x = meanAER, label = Player)) + geom_point(aes(colour = meanxFpts)) + scale_color_gradient(low="blue", high="red", ) + theme_minimal() + geom_text_repel()
+
+
+ggplot(summary_all_mids_poss_n5 , aes(y =  meanAER, x = meanAtt3rd, label = Player)) + geom_point(aes(colour = meanxFpts)) + scale_color_gradient(low="blue", high="red", ) + theme_minimal() + geom_text_repel()
+
+cor.test(summary_all_mids_poss_n5$meanAER, summary_all_mids_poss_n5$meanAtt3rd)
+
+	'Pearsons product-moment correlation
+
+data:  summary_all_mids_poss_n5$meanAER and summary_all_mids_poss_n5$meanAtt3rd
+t = -5.254, df = 127, p-value = 6.094e-07
+alternative hypothesis: true correlation is not equal to 0
+95 percent confidence interval:
+ -0.5548777 -0.2693721
+sample estimates:
+       cor 
+-0.4225515 '
+
+ggplot(summary_all_mids_poss_n5, aes(y =  meanAER, x = meanAttPen)) + geom_point(aes(colour = meanxFpts)) + scale_color_gradient(low="blue", high="red", ) + theme_minimal()
+
+
+cor.test(summary_all_mids_poss_n5$meanAER, summary_all_mids_poss_n5$meanAttPen)
+
+	'Pearsons product-moment correlation
+
+data:  summary_all_mids_poss_n5$meanAER and summary_all_mids_poss_n5$meanAttPen
+t = -2.4998, df = 127, p-value = 0.0137
+alternative hypothesis: true correlation is not equal to 0
+95 percent confidence interval:
+ -0.37535951 -0.04540091
+sample estimates:
+       cor 
+-0.2165558 '
+
+ggplot(summary_all_mids_poss_n5, aes(y =  meanAER, x = meanDefPen, label = Player)) + geom_point(aes(colour = meanxFpts)) + scale_color_gradient(low="blue", high="red", ) + theme_minimal() + geom_text_repel()
+
+```
+
+#AER for forwards
+```{r}
+#note needs midfield directly above code above
+# forwards
+
+#load in just forwards
+players_min_starts.forwards = players_min_5_starts_summary_df[players_min_5_starts_summary_df$Position == 'F',]
+#nrow(players_min_starts.forwards)
+
+for_player_list <- players_min_starts.forwards$Player
+
+length(for_player_list)
+#[1] 71
+
+
+#filter on fantrax forwards
+fwds_min60_merged_df <- min60_merged_df[min60_merged_df$Position == "F",]
+
+length(unique(fwds_min60_merged_df$Player))
+#[1] 81
+
+
+
+#remove the under 5 games players
+fwds_min60_merged_df <- fwds_min60_merged_df[fwds_min60_merged_df$Player %in% for_player_list,]
+
+dim(fwds_min60_merged_df)
+#[1] 1314  125
+
+length(unique(fwds_min60_merged_df$Player))
+#[1] 71
+
+#calculate xFpts for forwards
+fwds_min60_merged_df$xPts <- fwds_min60_merged_df$FPts - (fwds_min60_merged_df$G * 9 + fwds_min60_merged_df$AT * 6)
+fwds_min60_merged_df$xPts <- fwds_min60_merged_df$xPts + (as.numeric(fwds_min60_merged_df$xG)* 9 + as.numeric(fwds_min60_merged_df$xA) * 6)
+
+#add possession data
+fbref_pos_df <- read.csv(file="../data/fbref/premier_league/19_20/name_cleaned.possession_table.first_360_matches_game_week.csv")
+
+fwds_min60_merged_df_posStats <- merge(fwds_min60_merged_df, fbref_pos_df, by=c('Player', 'game_week'))
+
+dim(fwds_min60_merged_df_posStats )
+#[1] 1314  155
+
+
+
+
+
+
+#calculated AER_pct (percent won)
+fwds_min60_merged_df_posStats$AER_prop <- fwds_min60_merged_df_posStats$AER / (fwds_min60_merged_df_posStats$AER + fwds_min60_merged_df_posStats$AERL)
+#could lead to 0/0 so need to remove NaNs
+fwds_min60_merged_df_posStats$AER_prop[is.nan(fwds_min60_merged_df_posStats$AER_prop)]<- 0
+
+#filter on actual midfield positions
+For_Pos <- c("FW","RW","LW")
+
+fwds_min60_merged_df_posStats <- fwds_min60_merged_df_posStats[fwds_min60_merged_df_posStats$Pos.x %in% For_Pos,]
+
+ summary_all_fwds_poss <- fwds_min60_merged_df_posStats %>% 
+  group_by(Player) %>%
+  summarize(n = n(), meanFpts = mean(FPts), meanxFpts = mean(xPts), meanxG = mean(xG), meanxA = mean(xA), meanAER = mean(AER), meanAERProp = mean(AER_prop), meanSoT = mean(SoT), meanAtt3rd = mean(Att.3rd), meanAttPen = mean(Att.Pen), meanDefPen = mean(Def.Pen))
+ 
+
+
+#require that they played at least 5 games as a Forwards
+
+ summary_all_fwds_poss_n5 <-  summary_all_fwds_poss[summary_all_fwds_poss$n >= 5,]
+
+dim(summary_all_fwds_poss_n5)
+#[1] 61 12
+
+#plot it to take a look
+ggplot(summary_all_fwds_poss_n5 , aes(y = meanSoT, x = meanAER, label = Player)) + geom_point(aes(colour = meanxFpts)) + scale_color_gradient(low="blue", high="red", ) + theme_minimal() + geom_text_repel()
+
+
+ggplot( summary_all_fwds_poss_n5 , aes(y =  meanAER, x = meanAtt3rd, label = Player)) + geom_point(aes(colour = meanxFpts)) + scale_color_gradient(low="blue", high="red", ) + theme_minimal() + geom_text_repel()
+
+cor.test( summary_all_fwds_poss_n5$meanAER,  summary_all_fwds_poss_n5$meanAtt3rd)
+
+	'Pearsons product-moment correlation
+
+data:   summary_all_fwds_poss$meanAER and  summary_all_fwds_poss$meanAtt3rd
+t = -5.254, df = 127, p-value = 6.094e-07
+alternative hypothesis: true correlation is not equal to 0
+95 percent confidence interval:
+ -0.5548777 -0.2693721
+sample estimates:
+       cor 
+-0.4225515 '
+
+ggplot( summary_all_fwds_poss_n5, aes(y =  meanAER, x = meanAttPen)) + geom_point(aes(colour = meanxFpts)) + scale_color_gradient(low="blue", high="red", ) + theme_minimal()
+
+
+cor.test( summary_all_fwds_poss_n5$meanAER,  summary_all_fwds_poss_n5$meanAttPen)
+
+	'Pearsons product-moment correlation
+
+data:  summary_all_mids_poss_n5$meanAER and summary_all_mids_poss_n5$meanAttPen
+t = -2.4998, df = 127, p-value = 0.0137
+alternative hypothesis: true correlation is not equal to 0
+95 percent confidence interval:
+ -0.37535951 -0.04540091
+sample estimates:
+       cor 
+-0.2165558 '
+
+ggplot( summary_all_fwds_poss_n5, aes(y =  meanAER, x = meanDefPen, label = Player)) + geom_point(aes(colour = meanxFpts)) + scale_color_gradient(low="blue", high="red", ) + theme_minimal() + geom_text_repel()
+
+```
