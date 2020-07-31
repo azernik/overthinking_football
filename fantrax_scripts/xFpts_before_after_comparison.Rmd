@@ -1,0 +1,1703 @@
+---
+title: "xFpts"
+author: "Christopher Adams"
+date: "6/10/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+library(ggplot2)
+library(ggrepel)
+```
+
+## Data setup
+
+```{r data_setup}
+#load all player data for fbref.com
+weekly_data_csv = "../data/fantrax_data/weekly.all_data_combined.no_double_gws.csv"
+yearly_data_csv = "../data/fantrax_data/yearly.all_data_combined.csv"
+
+weekly_data_df <- read_csv(file = weekly_data_csv, col_names = TRUE)
+yearly_data_df <- read_csv(file = yearly_data_csv, col_names = TRUE)
+
+# Only weeks where at least 60 minutes are played
+min_60_min_df <- weekly_data_df[weekly_data_df$Min > 59,]
+# Players that have started at least 5 games
+summary_min_60_df <- min_60_min_df %>% 
+  group_by(Player, Team, Position) %>%
+  summarize(n = n(), min_total = sum(Min), sd = sd(FPts), mean = mean(FPts), total_fpts = sum(FPts), mean_minutes = mean(Min))
+
+#only players with at least 5 starts
+players_min_5_starts_summary_df <- summary_min_60_df[summary_min_60_df$n >= 5,]
+
+player_min_5_starts_weekly_df <- min_60_min_df %>%
+  filter(Player %in% players_min_5_starts_summary_df$Player)
+nrow(player_min_5_starts_weekly_df)
+
+
+```
+
+## get xFpts
+
+```{r gather_xfpt_df}
+
+
+# load in just defenders
+players_min_starts.defenders = players_min_5_starts_summary_df[players_min_5_starts_summary_df$Position == 'D',]
+nrow(players_min_starts.defenders)
+def_player_list <- players_min_starts.defenders$Player
+length(def_player_list)
+
+defenders_fbref_df <- read_csv('../data/fantrax_data/Def_min5starts.csv')
+#clean sheet data
+cs_df <- read_csv('../data/fantrax_data/game_results.csv')
+
+#parse round into game week
+defenders_fbref_df$game_week <- sapply(strsplit(defenders_fbref_df$Round, " "), function(x) (x[2]))
+
+#merge on player and game week
+defenders_min60_merged_df <- merge(min_60_min_df, defenders_fbref_df, by=c('Player', 'game_week'))
+
+#just get the important stuff for clean sheets
+all_cs_data_df <- data.frame('Squad' = c(cs_df$Home, cs_df$Away), 'xG_against' = c(cs_df$xG_1, cs_df$xG), 'game_week' = c(cs_df$Wk, cs_df$Wk))
+
+#merge cs and defender data
+defenders_min60_merged_cs_df <- merge(defenders_min60_merged_df, all_cs_data_df, by=c('Squad', 'game_week'))
+
+#calculate xFpts from cs given xG against
+defenders_min60_merged_cs_df$GAD_against <- ifelse(defenders_min60_merged_cs_df$xG_against - 0.25 < 0, 0, defenders_min60_merged_cs_df$xG_against - 0.25)
+
+defenders_min60_merged_cs_df$normed_xg_against <- ifelse(defenders_min60_merged_cs_df$GAD_against <= 1.25, 1 - defenders_min60_merged_cs_df$GAD_against/1.25, 0)
+
+#just defenders filter
+defenders_min60_min600_merged_df <- defenders_min60_merged_cs_df %>%
+  filter(Player %in% def_player_list)
+
+#calculate xFpts for defenders
+defenders_min60_merged_cs_df$xPts <- defenders_min60_merged_cs_df$FPts - (defenders_min60_merged_cs_df$G * 10 + defenders_min60_merged_cs_df$AT * 8 + defenders_min60_merged_cs_df$CS * 6 + defenders_min60_merged_cs_df$GAD * -2) + (as.numeric(defenders_min60_merged_cs_df$xG)* 10 + as.numeric(defenders_min60_merged_cs_df$xA) * 8 + as.numeric(defenders_min60_merged_cs_df$normed_xg_against)* 6 + as.numeric(defenders_min60_merged_cs_df$GAD_against) * -2)
+
+#remove some extra defender columns
+drops <- c("normed_xg_against","GAD_against", 'xG_against')
+defenders_min60_merged_cs_df <- defenders_min60_merged_cs_df[ , !(names(defenders_min60_merged_cs_df) %in% drops)]
+
+# midfielders
+
+#load in just midfielders
+players_min_starts.midfielders = players_min_5_starts_summary_df[players_min_5_starts_summary_df$Position == 'M',]
+nrow(players_min_starts.midfielders)
+mid_player_list <- players_min_starts.midfielders$Player
+
+mids_fbref_df <- read_csv('../data/fantrax_data/Mid_min5starts.csv')
+
+#parse round into game week
+mids_fbref_df$game_week <- sapply(strsplit(mids_fbref_df$Round, " "), function(x) (x[2]))
+
+#merge on player and game week
+mids_min60_merged_df <- merge(min_60_min_df, mids_fbref_df, by=c('Player', 'game_week'))
+
+#just a test to make sure nothing weird happend to the names
+i <- mid_player_list %in% unique(mids_min60_merged_df$Player)
+mid_player_list[!i]
+
+# filter on the player names
+mids_min60_min600_merged_df <- mids_min60_merged_df %>%
+  filter(Player %in% mid_player_list)
+
+#calculate xFpts for midfielders
+mids_min60_merged_df$xPts <- mids_min60_merged_df$FPts - (mids_min60_merged_df$G * 9 + mids_min60_merged_df$AT * 6)
+mids_min60_merged_df$xPts <- mids_min60_merged_df$xPts + (as.numeric(mids_min60_merged_df$xG)* 9 + as.numeric(mids_min60_merged_df$xA) * 6)
+
+# forwards
+
+#load in just forwards
+players_min_starts.forwards = players_min_5_starts_summary_df[players_min_5_starts_summary_df$Position == 'F',]
+nrow(players_min_starts.forwards)
+
+for_player_list <- players_min_starts.forwards$Player
+
+fwds_fbref_df <- read_csv('../data/fantrax_data/For_min5starts.csv')
+
+#parse round into game week
+fwds_fbref_df$game_week <- sapply(strsplit(fwds_fbref_df$Round, " "), function(x) (x[2]))
+
+#merge on player and game week
+fwds_min60_merged_df <- merge(min_60_min_df, fwds_fbref_df, by=c('Player', 'game_week'))
+
+#filter on forward player list
+fwds_min60_min600_merged_df <- fwds_min60_merged_df %>%
+  filter(Player %in% for_player_list)
+
+#calculate xFpts for forwards
+fwds_min60_merged_df$xPts <- fwds_min60_merged_df$FPts - (fwds_min60_merged_df$G * 9 + fwds_min60_merged_df$AT * 6)
+fwds_min60_merged_df$xPts <- fwds_min60_merged_df$xPts + (as.numeric(fwds_min60_merged_df$xG)* 9 + as.numeric(fwds_min60_merged_df$xA) * 6)
+
+names(fwds_min60_merged_df)
+
+#combine all the position dataframes into one
+all_combined_df <- rbind(defenders_min60_merged_cs_df, fwds_min60_merged_df, mids_min60_merged_df)
+```
+
+#collect the data for with team postion information
+```{r}
+#make a summary file
+summary_all_combined_df <- all_combined_df %>% 
+  group_by(Team, Pos) %>%
+  summarize(n = n(), num_diff_players = length(unique(Player)) , min_total = sum(Min.x), sd_emp_pts = sd(FPts), sd_xpts = sd(xPts),   mean_emp_pts = mean(FPts), mean_xPts = mean(xPts), med_emp_pts= median(FPts), med_xPts = median(xPts), total_emp_fpts = sum(FPts),   total_xPts = sum(xPts), mean_minutes = mean(Min.x))
+
+#remove team positions that do not have at least 10 occurances (mainly to remove the double position entries)
+min_10_examples <- summary_all_combined_df[summary_all_combined_df$n >= 10,]
+
+min_10_examples$Team_Pos <- paste(min_10_examples$Team, min_10_examples$Pos, sep = "_")
+
+#write to file
+write.csv(x=min_10_examples, file="../data/fantrax_data/pos_group.csv")
+
+
+# collecting the team position data but keep the players
+all_combined_Team_Pos <- all_combined_df
+all_combined_Team_Pos$Team_Pos <- paste(all_combined_df$Team, all_combined_df$Pos, sep = "_")
+
+dim(all_combined_Team_Pos)
+#[1] 5291  130
+
+#filter out any team positions that have not occurred 10 times
+all_combined_Team_Pos_min_10 <- all_combined_Team_Pos %>% group_by(Team_Pos) %>% filter(n()>= 10)
+
+
+dim(all_combined_Team_Pos_min_10)
+#[1] 4482  130
+
+length(unique(all_combined_Team_Pos_min_10$Team_Pos))
+#[1] 147
+
+#try plotting it by team position
+#xFpts plot
+ggplot(all_combined_Team_Pos_min_10, aes(x = reorder(Team_Pos, xPts, FUN = median ), y = xPts)) + geom_boxplot()  + theme_minimal() + theme(axis.text.x = element_text(angle = 90)) +ggtitle("xFpts for Team Positions")
+
+#Fpts plot
+ggplot(all_combined_Team_Pos_min_10, aes(x = reorder(Team_Pos, FPts, FUN = median ), y = FPts)) + geom_boxplot()  + theme_minimal() + theme(axis.text.x = element_text(angle = 90)) +ggtitle("Fpts for Team Positions")
+```
+
+
+#test if there are positions where it doesn't matter which player is actually playing
+```{r}
+#require that 2 or more separate players have played the position (in order to 
+all_combined_Team_Pos_min_10_players_2 <- all_combined_Team_Pos_min_10 %>% group_by(Team_Pos) %>% filter(length(unique(Player)) > 1)
+
+dim(all_combined_Team_Pos_min_10_players_2)
+#[1] 4328  130
+
+length(unique(all_combined_Team_Pos_min_10_players_2$Team_Pos))
+#[1] 140
+
+ggplot(all_combined_Team_Pos_min_10_players_2, aes(x = reorder(Team_Pos, xPts, FUN = median ), y = xPts)) + geom_boxplot()  + theme_minimal() + theme(axis.text.x = element_text(angle = 90)) +ggtitle("xFpts for Team Positions")
+
+#Fpts plot
+ggplot(all_combined_Team_Pos_min_10_players_2, aes(x = reorder(Team_Pos, FPts, FUN = median ), y = FPts)) + geom_boxplot()  + theme_minimal() + theme(axis.text.x = element_text(angle = 90)) +ggtitle("Fpts for Team Positions")
+
+#test the statistic for just 1 example
+
+team_pos_vec <- unique(all_combined_Team_Pos_min_10_players_2$Team_Pos)
+
+team_pos <- team_pos_vec[1]
+
+team_pos_player <- all_combined_Team_Pos_min_10_players_2[all_combined_Team_Pos_min_10_players_2$Team_Pos == team_pos,]
+
+k_test <- kruskal.test(xPts ~ Player, data = team_pos_player) 
+
+#check if the Kruskal-Wallis test is close to significant
+bool_signif <- k_test$p.value < 0.05
+```
+
+#loop through the team positions and run Kruskal-Wallis test (non-parametric one way ANOVA) on each
+```{r}
+
+team_pos_vec <- unique(all_combined_Team_Pos_min_10_players_2$Team_Pos)
+
+#length of the team_pos_vec
+n = length(team_pos_vec)
+
+#initiate a vector to save the boolean of whether the Kruskal-Wallis test was significant for each position (test of whether the player distributions seem to be the same)
+sigKWTestList <- vector(mode= "list", length= n)
+
+#for each team position
+for(t in 1:length(team_pos_vec)){
+  
+  print(team_pos_vec[t])
+  
+  #set team_pos
+  team_pos <- team_pos_vec[t]
+  
+  #filter all_combined_Team_Pos_min_10_players_2 to just the entries of players with this team_pos
+  team_pos_player <- all_combined_Team_Pos_min_10_players_2[all_combined_Team_Pos_min_10_players_2$Team_Pos == team_pos,]
+  
+  k_test <- kruskal.test(xPts ~ Player, data = team_pos_player)
+  print(k_test$p.value)
+
+  #check if the Kruskal-Wallis test is close to bonferroni significant
+  bool_signif <- k_test$p.value < 0.05
+  
+  #write the team pos test significance to the list
+  sigKWTestList[[t]] <- bool_signif
+}
+
+#make the list into a vector
+sigKWTestVec <- unlist(sigKWTestList)
+
+
+#players seem to be distributed differently for these team distributions
+
+team_pos_vec[sigKWTestVec]
+# [1] "ARS_RB" "CRY_CM" "MCI_CB" "MUN_CB" "NOR_CB" "WOL_CB" "WOL_WB" "NEW_CM" "NEW_AM" "WHU_CM" "LEI_CM" "CRY_FW" "SOU_FW" "BUR_CM" "BOU_CM"
+#[16] "MUN_LW" "MUN_AM" "MCI_CM" "WOL_DM" "CHE_DM" "NOR_AM"
+
+
+# no statistical difference between players for these positions
+team_pos_vec_players_same <- team_pos_vec[!sigKWTestVec]
+#  [1] "ARS_CB" "ARS_LB" "AVL_RB" "AVL_CB" "AVL_LB" "AVL_WB" "AVL_CM" "BOU_CB" "BOU_LB" "BOU_RB" "BHA_CB" "BHA_WB" "BHA_LB" "BHA_RB" "BUR_LB"
+# [16] "BUR_RB" "BUR_CB" "CHE_RB" "CHE_CB" "CHE_LB" "CRY_RB" "CRY_CB" "CRY_LB" "EVE_CB" "EVE_RB" "EVE_CM" "LEI_CB" "LEI_LB" "LIV_LB" "LIV_CB"
+# [31] "MCI_RB" "MCI_LB" "MUN_LB" "NEW_CB" "NEW_WB" "NEW_LB" "NOR_LB" "NOR_RB" "SHU_CB" "SHU_CM" "SHU_WB" "SOU_CB" "TOT_CB" "TOT_RB" "WAT_RB"
+# [46] "WAT_LB" "WAT_CB" "WAT_WB" "WHU_LB" "WHU_RB" "WHU_CB" "BHA_FW" "WOL_RW" "ARS_FW" "MUN_FW" "BUR_FW" "LEI_FW" "SHU_FW" "ARS_LW" "CHE_RW"
+# [61] "CHE_LW" "BOU_FW" "EVE_FW" "MCI_FW" "MCI_LW" "WAT_FW" "WAT_LW" "BHA_LW" "TOT_FW" "WAT_CM" "WAT_RW" "NEW_FW" "LIV_RW" "LIV_FW" "ARS_CM"
+# [76] "ARS_RW" "CHE_FW" "WOL_FW" "WOL_LW" "EVE_RW" "LIV_LW" "WHU_FW" "TOT_LW" "TOT_CM" "BHA_DM" "BHA_CM" "AVL_FW" "CHE_AM" "WAT_DM" "WAT_AM"
+# [91] "LIV_CM" "NOR_CM" "NOR_DM" "EVE_DM" "MUN_DM" "AVL_RW" "AVL_LW" "BUR_DM" "MCI_RW" "AVL_DM" "ARS_DM" "ARS_AM" "WHU_DM" "TOT_AM" "LEI_DM"
+#[106] "NOR_RW" "NOR_LW" "TOT_DM" "LIV_DM" "WHU_AM" "MUN_CM" "MCI_DM" "NEW_DM" "CRY_DM" "SOU_CM" "SOU_DM" "BOU_DM" "WOL_CM" "CHE_CM"
+
+length(team_pos_vec_players_same)
+#[1] 119
+
+#filter so it is only team pos that there is no statistical difference in players
+team_pos_players_same_df <- all_combined_Team_Pos_min_10_players_2[ all_combined_Team_Pos_min_10_players_2$Team_Pos %in% team_pos_vec_players_same,]
+
+dim(team_pos_players_same_df)
+#[1] 3370  130
+
+#grab defenders
+team_pos_players_same_def_df <- team_pos_players_same_df[team_pos_players_same_df$Position == "D",]
+
+dim(team_pos_players_same_def_df)
+#[1] 1642  130
+
+#graph the defenders
+ggplot(team_pos_players_same_def_df, aes(x = reorder(Team_Pos, xPts, FUN = median ), y = xPts)) + geom_boxplot()  + theme_minimal() + theme(axis.text.x = element_text(angle = 90)) +ggtitle("Defenders xFpts for Team Positions with no stat difference btw players")
+
+#grab midfielders
+team_pos_players_same_mid_df <- team_pos_players_same_df[team_pos_players_same_df$Position == "M",]
+
+#graph the midfielders
+ggplot(team_pos_players_same_mid_df, aes(x = reorder(Team_Pos, xPts, FUN = median ), y = xPts)) + geom_boxplot()  + theme_minimal() + theme(axis.text.x = element_text(angle = 90)) +ggtitle("Midfielders xFpts for Team Positions with no stat difference btw players")
+
+dim(team_pos_players_same_mid_df)
+#[1] 1068  130
+
+#grab forwards
+team_pos_players_same_for_df <- team_pos_players_same_df[team_pos_players_same_df$Position == "F",]
+
+dim(team_pos_players_same_for_df)
+#[1] 660 130
+
+#graph the forwards
+ggplot(team_pos_players_same_for_df, aes(x = reorder(Team_Pos, xPts, FUN = median ), y = xPts)) + geom_boxplot()  + theme_minimal() + theme(axis.text.x = element_text(angle = 90)) +ggtitle("Forwards xFpts for Team Positions with no stat difference btw players")
+
+#all positions together
+
+ggplot(team_pos_players_same_df, aes(x = reorder(Team_Pos, xPts, FUN = median ), y = xPts)) + geom_boxplot()  + theme_minimal() + theme(axis.text.x = element_text(angle = 90)) +ggtitle("All Players xFpts for Team Positions with no stat difference btw players")
+
+```
+
+#Look into the statistically different team positions
+```{r}
+
+team_pos_vec[sigKWTestVec]
+# [1] "ARS_RB" "CRY_CM" "MCI_CB" "MUN_CB" "NOR_CB" "WOL_CB" "WOL_WB" "NEW_CM" "NEW_AM" "WHU_CM" "LEI_CM" "CRY_FW" "SOU_FW" "BUR_CM" "BOU_CM"
+#[16] "MUN_LW" "MUN_AM" "MCI_CM" "WOL_DM" "CHE_DM" "NOR_AM"
+
+#look at ARS RBs
+ARS_RB_data <- as.data.frame(all_combined_Team_Pos_min_10_players_2[all_combined_Team_Pos_min_10_players_2$Team_Pos == "ARS_RB",])
+
+ggplot(ARS_RB_data, aes(Player, xPts)) + geom_boxplot(aes(colour = Player), outlier.shape = NA) + geom_jitter(width = 0.2, aes(colour = ARS_RB_data$Player)) + theme_minimal() + theme(axis.text.x = element_text(angle = 45)) +ggtitle("Arsenal RB xFpt for each player")
+
+#CRY_CM
+CRY_CM_data <- as.data.frame(all_combined_Team_Pos_min_10_players_2[all_combined_Team_Pos_min_10_players_2$Team_Pos == "CRY_CM",])
+
+ggplot(CRY_CM_data, aes(Player, xPts)) + geom_boxplot(aes(colour = Player), outlier.shape = NA) + geom_jitter(width = 0.2, aes(colour = CRY_CM_data$Player)) + theme_minimal() + theme(axis.text.x = element_text(angle = 45)) +ggtitle("CRY_CM xFpt for each player")
+#Wilf Zaha is good, maybe some other stuff
+
+
+#MCI_CB
+MCI_CB_data <- as.data.frame(all_combined_Team_Pos_min_10_players_2[all_combined_Team_Pos_min_10_players_2$Team_Pos == "MCI_CB",])
+
+ggplot(MCI_CB_data, aes(Player, xPts)) + geom_boxplot(aes(colour = Player), outlier.shape = NA) + geom_jitter(width = 0.2, aes(colour = MCI_CB_data$Player)) + theme_minimal() + theme(axis.text.x = element_text(angle = 45)) +ggtitle("MCI_CB xFpt for each player")
+#Fernandinho is no good
+
+#MUN_CB
+MUN_CB_data <- as.data.frame(all_combined_Team_Pos_min_10_players_2[all_combined_Team_Pos_min_10_players_2$Team_Pos == "MUN_CB",])
+
+ggplot(MUN_CB_data, aes(Player, xPts)) + geom_boxplot(aes(colour = Player), outlier.shape = NA) + geom_jitter(width = 0.2, aes(colour = MUN_CB_data$Player)) + theme_minimal() + theme(axis.text.x = element_text(angle = 45)) +ggtitle("MUN_CB xFpt for each player")
+#Victor Lidelof is worse than Slabhead
+
+#NOR_CB
+NOR_CB_data <- as.data.frame(all_combined_Team_Pos_min_10_players_2[all_combined_Team_Pos_min_10_players_2$Team_Pos == "NOR_CB",])
+
+ggplot(NOR_CB_data, aes(Player, xPts)) + geom_boxplot(aes(colour = Player), outlier.shape = NA) + geom_jitter(width = 0.2, aes(colour = NOR_CB_data$Player)) + theme_minimal() + theme(axis.text.x = element_text(angle = 45)) +ggtitle("NOR_CB xFpt for each player")
+# Tettey and Godfrey are worse than Zimmerman and Hanley
+
+#WOL_CB
+WOL_CB_data <- as.data.frame(all_combined_Team_Pos_min_10_players_2[all_combined_Team_Pos_min_10_players_2$Team_Pos == "WOL_CB",])
+
+ggplot(WOL_CB_data, aes(Player, xPts)) + geom_boxplot(aes(colour = Player), outlier.shape = NA) + geom_jitter(width = 0.2, aes(colour = WOL_CB_data$Player)) + theme_minimal() + theme(axis.text.x = element_text(angle = 45)) +ggtitle("WOL_CB xFpt for each player")
+#Willy Boly is better
+
+#WOL_WB
+WOL_WB_data <- as.data.frame(all_combined_Team_Pos_min_10_players_2[all_combined_Team_Pos_min_10_players_2$Team_Pos == "WOL_WB",])
+
+ggplot(WOL_WB_data, aes(Player, xPts)) + geom_boxplot(aes(colour = Player), outlier.shape = NA) + geom_jitter(width = 0.2, aes(colour = WOL_WB_data$Player)) + theme_minimal() + theme(axis.text.x = element_text(angle = 45)) +ggtitle("WOL_WB xFpt for each player")
+#Doherty is good, jonny is okay
+
+# NEW_CM
+NEW_CM_data <- as.data.frame(all_combined_Team_Pos_min_10_players_2[all_combined_Team_Pos_min_10_players_2$Team_Pos == "NEW_CM",])
+
+ggplot(NEW_CM_data, aes(Player, xPts)) + geom_boxplot(aes(colour = Player), outlier.shape = NA) + geom_jitter(width = 0.2, aes(colour = NEW_CM_data$Player)) + theme_minimal() + theme(axis.text.x = element_text(angle = 45)) +ggtitle("NEW_CM xFpt for each player")
+#Saint-Maximin is good, shelvey, ritchie, and almiron are pretty good
+
+#NEW_AM
+NEW_AM_data <- as.data.frame(all_combined_Team_Pos_min_10_players_2[all_combined_Team_Pos_min_10_players_2$Team_Pos == "NEW_AM",])
+
+ggplot(NEW_AM_data, aes(Player, xPts)) + geom_boxplot(aes(colour = Player), outlier.shape = NA) + geom_jitter(width = 0.2, aes(colour = NEW_AM_data$Player)) + theme_minimal() + theme(axis.text.x = element_text(angle = 45)) +ggtitle("NEW_AM xFpt for each player")
+#Saint-Maximin is good, atsu might be good, almiron is not good
+
+#WHU_CM
+WHU_CM_data <- as.data.frame(all_combined_Team_Pos_min_10_players_2[all_combined_Team_Pos_min_10_players_2$Team_Pos == "WHU_CM",])
+
+ggplot(WHU_CM_data, aes(Player, xPts)) + geom_boxplot(aes(colour = Player), outlier.shape = NA) + geom_jitter(width = 0.2, aes(colour = WHU_CM_data$Player)) + theme_minimal() + theme(axis.text.x = element_text(angle = 45)) +ggtitle("WHU_CM xFpt for each player")
+#anderson is good Noble is bad
+
+#LEI_CM
+LEI_CM_data <- as.data.frame(all_combined_Team_Pos_min_10_players_2[all_combined_Team_Pos_min_10_players_2$Team_Pos == "LEI_CM",])
+
+ggplot(LEI_CM_data, aes(Player, xPts)) + geom_boxplot(aes(colour = Player), outlier.shape = NA) + geom_jitter(width = 0.2, aes(colour = LEI_CM_data$Player)) + theme_minimal() + theme(axis.text.x = element_text(angle = 45)) +ggtitle("LEI_CM xFpt for each player")
+#barnes and Maddison are about the same
+
+#CRY_FW
+CRY_FW_data <- as.data.frame(all_combined_Team_Pos_min_10_players_2[all_combined_Team_Pos_min_10_players_2$Team_Pos == "CRY_FW",])
+
+ggplot(CRY_FW_data, aes(Player, xPts)) + geom_boxplot(aes(colour = Player), outlier.shape = NA) + geom_jitter(width = 0.2, aes(colour = CRY_FW_data$Player)) + theme_minimal() + theme(axis.text.x = element_text(angle = 45)) +ggtitle("CRY_FW xFpt for each player")
+#benteke better than the other two
+
+
+#SOU_FW
+SOU_FW_data <- as.data.frame(all_combined_Team_Pos_min_10_players_2[all_combined_Team_Pos_min_10_players_2$Team_Pos == "SOU_FW",])
+
+ggplot(SOU_FW_data, aes(Player, xPts)) + geom_boxplot(aes(colour = Player), outlier.shape = NA) + geom_jitter(width = 0.2, aes(colour = SOU_FW_data$Player)) + theme_minimal() + theme(axis.text.x = element_text(angle = 45)) +ggtitle("SOU_FW xFpt for each player")
+#Shane long and Danny Ings about equal che Adams no good
+
+#BUR_CM
+BUR_CM_data <- as.data.frame(all_combined_Team_Pos_min_10_players_2[all_combined_Team_Pos_min_10_players_2$Team_Pos == "BUR_CM",])
+
+ggplot(BUR_CM_data, aes(Player, xPts)) + geom_boxplot(aes(colour = Player), outlier.shape = NA) + geom_jitter(width = 0.2, aes(colour = BUR_CM_data$Player)) + theme_minimal() + theme(axis.text.x = element_text(angle = 45)) +ggtitle("BUR_CM xFpt for each player")
+#McNeil is good
+
+#BOU_CM
+BOU_CM_data <- as.data.frame(all_combined_Team_Pos_min_10_players_2[all_combined_Team_Pos_min_10_players_2$Team_Pos == "BOU_CM",])
+
+ggplot(BOU_CM_data, aes(Player, xPts)) + geom_boxplot(aes(colour = Player), outlier.shape = NA) + geom_jitter(width = 0.2, aes(colour = BOU_CM_data$Player)) + theme_minimal() + theme(axis.text.x = element_text(angle = 45)) +ggtitle("BOU_CM xFpt for each player")
+#some are good some bad
+
+#MUN_LW
+MUN_LW_data <- as.data.frame(all_combined_Team_Pos_min_10_players_2[all_combined_Team_Pos_min_10_players_2$Team_Pos == "MUN_LW",])
+
+ggplot(MUN_LW_data, aes(Player, xPts)) + geom_boxplot(aes(colour = Player), outlier.shape = NA) + geom_jitter(width = 0.2, aes(colour = MUN_LW_data$Player)) + theme_minimal() + theme(axis.text.x = element_text(angle = 45)) +ggtitle("MUN_LW xFpt for each player")
+#Rashford is way better than Daniel James
+
+#MUN_AM
+MUN_AM_data <- as.data.frame(all_combined_Team_Pos_min_10_players_2[all_combined_Team_Pos_min_10_players_2$Team_Pos == "MUN_AM",])
+
+ggplot(MUN_AM_data, aes(Player, xPts)) + geom_boxplot(aes(colour = Player), outlier.shape = NA) + geom_jitter(width = 0.2, aes(colour = MUN_AM_data$Player)) + theme_minimal() + theme(axis.text.x = element_text(angle = 45)) +ggtitle("MUN_AM xFpt for each player")
+#Bruno and Pereira are good
+
+#MCI_CM
+MCI_CM_data <- as.data.frame(all_combined_Team_Pos_min_10_players_2[all_combined_Team_Pos_min_10_players_2$Team_Pos == "MCI_CM",])
+
+ggplot(MCI_CM_data, aes(Player, xPts)) + geom_boxplot(aes(colour = Player), outlier.shape = NA) + geom_jitter(width = 0.2, aes(colour = MCI_CM_data$Player)) + theme_minimal() + theme(axis.text.x = element_text(angle = 45)) +ggtitle("MCI_CM xFpt for each player")
+#KDB is real good and Bernardo Silva is not so good
+
+#WOL_DM
+WOL_DM_data <- as.data.frame(all_combined_Team_Pos_min_10_players_2[all_combined_Team_Pos_min_10_players_2$Team_Pos == "WOL_DM",])
+
+ggplot(WOL_DM_data, aes(Player, xPts)) + geom_boxplot(aes(colour = Player), outlier.shape = NA) + geom_jitter(width = 0.2, aes(colour = WOL_DM_data$Player)) + theme_minimal() + theme(axis.text.x = element_text(angle = 45)) +ggtitle("WOL_DM xFpt for each player")
+#Moutinho is good, don't bother with Dendoncker
+
+#CHE_DM
+CHE_DM_data <- as.data.frame(all_combined_Team_Pos_min_10_players_2[all_combined_Team_Pos_min_10_players_2$Team_Pos == "CHE_DM",])
+
+ggplot(CHE_DM_data, aes(Player, xPts)) + geom_boxplot(aes(colour = Player), outlier.shape = NA) + geom_jitter(width = 0.2, aes(colour = CHE_DM_data$Player)) + theme_minimal() + theme(axis.text.x = element_text(angle = 45)) +ggtitle("CHE_DM xFpt for each player")
+#Kante is good
+
+#NOR_AM
+
+NOR_AM_data <- as.data.frame(all_combined_Team_Pos_min_10_players_2[all_combined_Team_Pos_min_10_players_2$Team_Pos == "NOR_AM",])
+
+ggplot(NOR_AM_data, aes(Player, xPts)) + geom_boxplot(aes(colour = Player), outlier.shape = NA) + geom_jitter(width = 0.2, aes(colour = NOR_AM_data$Player)) + theme_minimal() + theme(axis.text.x = element_text(angle = 45)) +ggtitle("NOR_AM xFpt for each player")
+#Duda looks to be good
+```
+
+#test if there are players who get much better Fantasy points in one position versus another 
+```{r}
+#require that each players has played 2 or more positions
+players_2_plus_pos <- all_combined_Team_Pos %>% group_by(Player) %>% filter(length(unique(Team_Pos)) > 1)
+
+dim(players_2_plus_pos)
+#[1] 3879  130
+
+#vector of the players that played 2 or more positions
+player_vec <- unique(players_2_plus_pos$Player)
+
+length(player_vec)
+#[1] 237
+
+#length of the player_vec
+n = length(player_vec)
+
+#initiate a vector to save the boolean of whether the Kruskal-Wallis test was significant for each player (test of whether the player distributions seem to be the same)
+sigKWPlayerTestList <- vector(mode= "list", length= n)
+
+#for each player
+for(p in 1:length(player_vec)){
+  
+  print(player_vec[p])
+  
+  #set player
+  player <- player_vec[p]
+  
+  #filter to just the entries of this player
+  player_games <- players_2_plus_pos[players_2_plus_pos$Player == player,]
+  
+  #test if there is a differnce in xPts based on position
+  k_test <- kruskal.test(xPts ~ Team_Pos, data = player_games)
+  print(k_test$p.value)
+
+  #check if the Kruskal-Wallis test is close to significant
+  bool_signif <- k_test$p.value < 0.05
+  
+  #write the team pos test significance to the list
+ sigKWPlayerTestList[[p]] <- bool_signif
+}
+
+#make the list into a vector
+sigKWPlayerTestList <- unlist(sigKWPlayerTestList)
+
+
+#players who seem to be distributed differently when playing different positions
+
+player_vec[sigKWPlayerTestList]
+#[1] "Neil Taylor"        "Max Aarons"         "Christian Kabasele" "Harry Wilson"       "Jack Cork"  
+
+
+#look at theese 5 players
+"Neil Taylor"
+player <- as.data.frame(players_2_plus_pos[players_2_plus_pos$Player == "Neil Taylor",])
+
+ggplot(player, aes(Team_Pos, xPts)) + geom_boxplot(aes(colour = Team_Pos), outlier.shape = NA) + geom_jitter(width = 0.2, aes(colour = player$Team_Pos)) + theme_minimal() + theme(axis.text.x = element_text(angle = 45)) +ggtitle("Neil Taylor xFpt for each position played")
+
+"Max Aarons"
+player <- as.data.frame(players_2_plus_pos[players_2_plus_pos$Player == "Max Aarons",])
+
+ggplot(player, aes(Team_Pos, xPts)) + geom_boxplot(aes(colour = Team_Pos), outlier.shape = NA) + geom_jitter(width = 0.2, aes(colour = player$Team_Pos)) + theme_minimal() + theme(axis.text.x = element_text(angle = 45)) +ggtitle("Max Aarons xFpt for each position played")
+
+"Christian Kabasele"
+player <- as.data.frame(players_2_plus_pos[players_2_plus_pos$Player == "Christian Kabasele",])
+
+ggplot(player, aes(Team_Pos, xPts)) + geom_boxplot(aes(colour = Team_Pos), outlier.shape = NA) + geom_jitter(width = 0.2, aes(colour = player$Team_Pos)) + theme_minimal() + theme(axis.text.x = element_text(angle = 45)) +ggtitle("Christian Kabasele xFpt for each position played")
+
+"Harry Wilson"
+player <- as.data.frame(players_2_plus_pos[players_2_plus_pos$Player == "Harry Wilson",])
+
+ggplot(player, aes(Team_Pos, xPts)) + geom_boxplot(aes(colour = Team_Pos), outlier.shape = NA) + geom_jitter(width = 0.2, aes(colour = player$Team_Pos)) + theme_minimal() + theme(axis.text.x = element_text(angle = 45)) +ggtitle("Harry Wilson xFpt for each position played")
+
+"Jack Cork"
+
+player <- as.data.frame(players_2_plus_pos[players_2_plus_pos$Player == "Jack Cork",])
+
+ggplot(player, aes(Team_Pos, xPts)) + geom_boxplot(aes(colour = Team_Pos), outlier.shape = NA) + geom_jitter(width = 0.2, aes(colour = player$Team_Pos)) + theme_minimal() + theme(axis.text.x = element_text(angle = 45)) +ggtitle("Jack Cork xFpt for each position played")
+
+#Spot check Allan Saint-Maximin
+player <- as.data.frame(players_2_plus_pos[players_2_plus_pos$Player == "Allan Saint-Maximin",])
+
+ggplot(player, aes(Team_Pos, xPts)) + geom_boxplot(aes(colour = Team_Pos), outlier.shape = NA) + geom_jitter(width = 0.2, aes(colour = player$Team_Pos)) + theme_minimal() + theme(axis.text.x = element_text(angle = 45)) +ggtitle("Allan Saint-Maximin xFpt for each position played")
+
+"James Ward-Prowse"
+
+player <- as.data.frame(players_2_plus_pos[players_2_plus_pos$Player == "James Ward-Prowse",])
+
+ggplot(player, aes(Team_Pos, xPts)) + geom_boxplot(aes(colour = Team_Pos), outlier.shape = NA) + geom_jitter(width = 0.2, aes(colour = player$Team_Pos)) + theme_minimal() + theme(axis.text.x = element_text(angle = 45)) +ggtitle("James Ward-Prowse xFpt for each position played")
+
+
+"Cesar Azpilicueta"
+player <- as.data.frame(players_2_plus_pos[players_2_plus_pos$Player == "Cesar Azpilicueta",])
+
+ggplot(player, aes(Team_Pos, xPts)) + geom_boxplot(aes(colour = Team_Pos), outlier.shape = NA) + geom_jitter(width = 0.2, aes(colour = player$Team_Pos)) + theme_minimal() + theme(axis.text.x = element_text(angle = 45)) +ggtitle("Cesar Azpilicueta xFpt for each position played")
+
+"Emiliano Buendia"
+player <- as.data.frame(players_2_plus_pos[players_2_plus_pos$Player == "Emiliano Buendia",])
+
+ggplot(player, aes(Team_Pos, xPts)) + geom_boxplot(aes(colour = Team_Pos), outlier.shape = NA) + geom_jitter(width = 0.2, aes(colour = player$Team_Pos)) + theme_minimal() + theme(axis.text.x = element_text(angle = 45)) +ggtitle("Emiliano Buendia xFpt for each position played")
+
+
+```
+
+#Looking into Interesting Team Positions
+```{r}
+#NOR_RW
+#interesting because there is no sig diff between Buendia and Cantwell AND really good xFpts
+NOR_RW_data <- as.data.frame(all_combined_Team_Pos_min_10_players_2[all_combined_Team_Pos_min_10_players_2$Team_Pos == "NOR_RW",])
+ggplot(NOR_RW_data, aes(Player, xPts)) + geom_boxplot(aes(colour = Player), outlier.shape = NA) + geom_jitter(width = 0.2, aes(colour = NOR_RW_data$Player)) + theme_minimal() + theme(axis.text.x = element_text(angle = 45)) +ggtitle("NOR_RW xFpt for each player")
+
+#WAT_AM
+#interesting because it is quite high and multiple players
+WAT_AM_data <- as.data.frame(all_combined_Team_Pos_min_10_players_2[all_combined_Team_Pos_min_10_players_2$Team_Pos == "WAT_AM",])
+ggplot(WAT_AM_data, aes(Player, xPts)) + geom_boxplot(aes(colour = Player), outlier.shape = NA) + geom_jitter(width = 0.2, aes(colour = WAT_AM_data$Player)) + theme_minimal() + theme(axis.text.x = element_text(angle = 45)) +ggtitle("WAT_AM xFpt for each player")
+#graph shows not that interesting high variance in everybody
+
+#LIV_FW
+#interesting because it is quite high and multiple players
+LIV_FW_data <- as.data.frame(all_combined_Team_Pos_min_10_players_2[all_combined_Team_Pos_min_10_players_2$Team_Pos == "LIV_FW",])
+ggplot(LIV_FW_data, aes(Player, xPts)) + geom_boxplot(aes(colour = Player), outlier.shape = NA) + geom_jitter(width = 0.2, aes(colour = LIV_FW_data$Player)) + theme_minimal() + theme(axis.text.x = element_text(angle = 45)) +ggtitle("LIV_FW xFpt for each player")
+#graph shows not that interesting seems to be a Salah sample size issue
+
+#WHU_FW
+#interesting because it looks to quite good AND not quite diff between Antonio and Haller
+WHU_FW_data <- as.data.frame(all_combined_Team_Pos_min_10_players_2[all_combined_Team_Pos_min_10_players_2$Team_Pos == "WHU_FW",])
+ggplot(WHU_FW_data, aes(Player, xPts)) + geom_boxplot(aes(colour = Player), outlier.shape = NA) + geom_jitter(width = 0.2, aes(colour = WHU_FW_data$Player)) + theme_minimal() + theme(axis.text.x = element_text(angle = 45)) +ggtitle("WHU_FW xFpt for each player")
+
+
+#BUR_CB
+#interesting because quite good
+BUR_CB_data <- as.data.frame(all_combined_Team_Pos_min_10_players_2[all_combined_Team_Pos_min_10_players_2$Team_Pos == "BUR_CB",])
+ggplot(BUR_CB_data, aes(Player, xPts)) + geom_boxplot(aes(colour = Player), outlier.shape = NA) + geom_jitter(width = 0.2, aes(colour = BUR_CB_data$Player)) + theme_minimal() + theme(axis.text.x = element_text(angle = 45)) +ggtitle("BUR_CB xFpt for each player")
+#going to be super correlated, so might not be that interesting
+
+#Interesting to compare MUN and BUR CBs
+
+#SHU_CB
+SHU_CB_data <- as.data.frame(all_combined_Team_Pos_min_10_players_2[all_combined_Team_Pos_min_10_players_2$Team_Pos == "SHU_CB",])
+ggplot(SHU_CB_data, aes(Player, xPts)) + geom_boxplot(aes(colour = Player), outlier.shape = NA) + geom_jitter(width = 0.2, aes(colour = SHU_CB_data$Player)) + theme_minimal() + theme(axis.text.x = element_text(angle = 45)) +ggtitle("SHU_CB xFpt for each player")
+
+#MCI_RW
+MCI_RW_data <- as.data.frame(all_combined_Team_Pos_min_10_players_2[all_combined_Team_Pos_min_10_players_2$Team_Pos == "MCI_RW",])
+ggplot(MCI_RW_data, aes(Player, xPts)) + geom_boxplot(aes(colour = Player), outlier.shape = NA) + geom_jitter(width = 0.2, aes(colour = MCI_RW_data$Player)) + theme_minimal() + theme(axis.text.x = element_text(angle = 45)) +ggtitle("MCI_RW xFpt for each player")
+
+#MCI_LW
+MCI_LW_data <- as.data.frame(all_combined_Team_Pos_min_10_players_2[all_combined_Team_Pos_min_10_players_2$Team_Pos == "MCI_LW",])
+ggplot(MCI_LW_data, aes(Player, xPts)) + geom_boxplot(aes(colour = Player), outlier.shape = NA) + geom_jitter(width = 0.2, aes(colour = MCI_LW_data$Player)) + theme_minimal() + theme(axis.text.x = element_text(angle = 45)) +ggtitle("MCI_LW xFpt for each player")
+```
+
+# Center Backs analysis
+```{r}
+#fix a lot of stat fields being characters
+all_combined_Team_Pos_min_10_num <- all_combined_Team_Pos_min_10
+
+all_combined_Team_Pos_min_10_num[,101:127] <- sapply(all_combined_Team_Pos_min_10_num[,101:127], as.numeric)
+
+#filter so it is only center backs
+all_combined_df_CBs <- all_combined_Team_Pos_min_10_num[all_combined_Team_Pos_min_10_num$Pos == "CB",]
+
+#plot fantasy points for all CBs
+#xFpts plot
+ggplot(all_combined_Team_Pos_min_10_num, aes(x = reorder(Player, xPts, FUN = median ), y = xPts)) + geom_boxplot()  + theme_minimal() + theme(axis.text.x = element_text(angle = 90)) +ggtitle("xFpts for CBs")
+#not useful
+
+#Man U analysis
+MUN_CB <- all_combined_df_CBs[all_combined_df_CBs$Team_Pos == "MUN_CB",]
+
+dim(MUN_CB)
+#[1]  56 130
+
+#remove Luke Shaw
+MUN_CB <- MUN_CB[MUN_CB$Player != "Luke Shaw",]
+
+dim(MUN_CB)
+#[1]  55 130
+
+
+#loop through the statistics we have and see what is significantly different between the players
+stat_vec <- names(MUN_CB)
+
+#length of the stat_vec
+n = length(stat_vec)
+
+#initiate a vector to save the boolean of whether the Kruskal-Wallis test was significant for each stat
+sigStatKWTestList <- vector(mode= "list", length= n)
+
+#for each team position
+for(s in 1:length(stat_vec)){
+  
+  print(stat_vec[s])
+  print(s)
+  
+  #set stat_name
+  stat_name <- stat_vec[s]
+  
+  #if this stat is not an int or a numeric vector (so a character vector) don't perform the stat test
+  if(typeof(MUN_CB[[stat_name]]) == "character" ){
+    
+    bool_signif = FALSE
+  
+  #if all entries are the same don't run the test  
+  } else if(length(unique(MUN_CB[[stat_name]])) == 1){
+  
+    bool_signif = FALSE
+    
+  } else {
+  
+  #filter all_combined_Team_Pos_min_10_players_2 to just the entries of players with this team_pos
+  #team_pos_player <- all_combined_Team_Pos_min_10_players_2[all_combined_Team_Pos_min_10_players_2$Team_Pos == team_pos,]
+  
+  k_test <- kruskal.test(MUN_CB[[stat_name]] ~ Player, data = MUN_CB)
+  print(k_test$p.value)
+
+  #check if the Kruskal-Wallis test is close to bonferroni significant
+  bool_signif <- k_test$p.value < 0.05
+  
+  }
+  
+  #write the team pos test significance to the list
+  sigStatKWTestList[[s]] <- bool_signif
+}
+
+#make the list into a vector
+sigStatKWTestList<- unlist(sigStatKWTestList)
+
+
+#players seem to be distributed differently for these team distributions
+
+stat_vec[sigStatKWTestList]
+# [1] "Rk"        "FPts"      "FP/G"      "S"         "SOT"       "SA"        "Off"       "SFTP"      "CF_1"      "Int.x"     "DW"       
+#[12] "AER"       "LB"        "LBA"       "Sh"        "SoT"       "Int.y"     "xG"        "npxG"      "PrgDist_1" "xPts"  
+
+#make a summary for these fields
+summary_MUN_CBs <- MUN_CB %>% 
+  group_by(Player) %>%
+  summarize(n = n(), meanFpts = mean(FPts), total_Fpts = sum(FPts), meanxFpts = mean(xPts), total_xFpts = sum(xPts),total_SOT = sum(SOT), total_Shots = sum(S), total_xG = sum(xG), total_SA = sum(SA), meanInts = mean(Int.x), meanAER = mean(AER), meanPrgDist = mean(PrgDist_1) )
+
+#summary_MUN_CBs_for_plot <- summary_MUN_CBs %>% gather(Stat_Name,Stat_Value, meanFpts,meanxFpts,total_SOT,total_xG,meanInts,meanAER,meanPrgDist)
+
+summary_MUN_CBs_for_plot <- summary_MUN_CBs %>% gather(Stat_Name,Stat_Value, meanFpts,meanxFpts,total_SOT,total_xG,meanInts,meanAER)
+
+#make a bar plot of these data
+ggplot(summary_MUN_CBs_for_plot , aes(fill=Player, y=Stat_Value, x=Stat_Name)) + geom_bar(position="dodge", stat="identity") + theme_minimal() +ggtitle("Maguire and Lindelof Summary")
+
+#ggplot(MCI_LW_data, aes(Player, xPts)) + geom_boxplot(aes(colour = Player), outlier.shape = NA) + geom_jitter(width = 0.2, aes(colour = MCI_LW_data$Player)) + theme_minimal() + theme(axis.text.x = element_text(angle = 45)) +ggtitle("MCI_LW xFpt for each player")
+
+
+#Wolves analysis
+WOL_CB <- all_combined_df_CBs[all_combined_df_CBs$Team_Pos == "WOL_CB",]
+
+dim(WOL_CB)
+#[1]  74 130
+
+#remove Luke Shaw
+WOL_CB <- WOL_CB[WOL_CB$Player != "Leander Dendoncker",]
+
+dim(WOL_CB)
+#[1]  62 130
+
+
+#loop through the statistics we have and see what is significantly different between the players
+stat_vec <- names(WOL_CB)
+
+#length of the stat_vec
+n = length(stat_vec)
+
+#initiate a vector to save the boolean of whether the Kruskal-Wallis test was significant for each stat
+sigStatKWTestList <- vector(mode= "list", length= n)
+
+#for each team position
+for(s in 1:length(stat_vec)){
+  
+  print(stat_vec[s])
+  print(s)
+  
+  #set stat_name
+  stat_name <- stat_vec[s]
+  
+  #if this stat is not an int or a numeric vector (so a character vector) don't perform the stat test
+  if(typeof(WOL_CB[[stat_name]]) == "character" ){
+    
+    bool_signif = FALSE
+  
+  #if all entries are the same don't run the test  
+  } else if(length(unique(WOL_CB[[stat_name]])) == 1){
+  
+    bool_signif = FALSE
+    
+  } else {
+  
+  #filter all_combined_Team_Pos_min_10_players_2 to just the entries of players with this team_pos
+  #team_pos_player <- all_combined_Team_Pos_min_10_players_2[all_combined_Team_Pos_min_10_players_2$Team_Pos == team_pos,]
+  
+  k_test <- kruskal.test(WOL_CB[[stat_name]] ~ Player, data = WOL_CB)
+  print(k_test$p.value)
+
+  #check if the Kruskal-Wallis test is close to bonferroni significant
+  bool_signif <- k_test$p.value < 0.05
+  
+  }
+  
+  #write the team pos test significance to the list
+  sigStatKWTestList[[s]] <- bool_signif
+}
+
+#make the list into a vector
+sigStatKWTestList<- unlist(sigStatKWTestList)
+
+
+#players seem to be distributed differently for these team distributions
+
+stat_vec[sigStatKWTestList]
+# [1] "Rk"      "FPts"    "FP/G"    "S"       "SOT"     "SA"      "TkW"     "PLC"     "FC"      "FS"      "YC"     
+#[12] "PC%"     "C"       "CF"      "CF_1"    "Int.x"   "CoSF"    "DW"      "DL"      "AER"     "AERL"    "PL"     
+#[23] "LB"      "LBA"     "Sh"      "SoT"     "CrdY"    "Touches" "Press"   "Tkl"     "Int.y"   "xG"      "npxG"   
+#[34] "Cmp%"    "PrgDist" "Succ"    "xPts"   
+
+#make a summary for these fields
+summary_WOL_CBs <- WOL_CB %>% 
+  group_by(Player) %>%
+  summarize(n = n(), meanFpts = mean(FPts), total_Fpts = sum(FPts), meanxFpts = mean(xPts), total_xFpts = sum(xPts), total_SOT = sum(SOT), total_Shots = sum(S), total_SA = sum(SA), meanInts = mean(Int.x), meanAER = mean(AER), totalYC = sum(CrdY), meanTkW = mean(TkW), meanTouches = mean(Touches), meanPress = mean(Press))
+
+summary_WOL_CBs_for_plot <- summary_WOL_CBs %>% gather(Stat_Name,Stat_Value, meanFpts,meanxFpts,total_SOT,meanInts,meanAER, totalYC,meanTkW, meanPress,meanTouches)
+
+#make a bar plot of these data
+ggplot(summary_WOL_CBs_for_plot , aes(fill=Player, y=Stat_Value, x=Stat_Name)) + geom_bar(position="dodge", stat="identity") + theme_minimal() +ggtitle("Wolves CB Summary")
+
+#fantrax point categor
+#c(“G”,”KP”,”AT”,”SOT”,”TkW”,”DIS”,”YC”,”SYC”,”RC”,”ACNC”,”Int”,”CLR”,”CoS”,”AER”,”OG”,”GAD”,”CS”)
+
+
+#Burnley CB analysis
+BUR_CB <- all_combined_df_CBs[all_combined_df_CBs$Team_Pos == "BUR_CB",]
+
+dim(BUR_CB)
+#[1]  58 130
+
+
+#loop through the statistics we have and see what is significantly different between the players
+stat_vec <- names(BUR_CB)
+
+#length of the stat_vec
+n = length(stat_vec)
+
+#initiate a vector to save the boolean of whether the Kruskal-Wallis test was significant for each stat
+sigStatKWTestList <- vector(mode= "list", length= n)
+
+#for each team position
+for(s in 1:length(stat_vec)){
+  
+  print(stat_vec[s])
+  print(s)
+  
+  #set stat_name
+  stat_name <- stat_vec[s]
+  
+  #if this stat is not an int or a numeric vector (so a character vector) don't perform the stat test
+  if(typeof(BUR_CB[[stat_name]]) == "character" ){
+    
+    bool_signif = FALSE
+  
+  #if all entries are the same don't run the test  
+  } else if(length(unique(BUR_CB[[stat_name]])) == 1){
+  
+    bool_signif = FALSE
+    
+  } else {
+  
+  #filter all_combined_Team_Pos_min_10_players_2 to just the entries of players with this team_pos
+  #team_pos_player <- all_combined_Team_Pos_min_10_players_2[all_combined_Team_Pos_min_10_players_2$Team_Pos == team_pos,]
+  
+  k_test <- kruskal.test(BUR_CB[[stat_name]] ~ Player, data = BUR_CB)
+  print(k_test$p.value)
+
+  #check if the Kruskal-Wallis test is close to bonferroni significant
+  bool_signif <- k_test$p.value < 0.05
+  
+  }
+  
+  #write the team pos test significance to the list
+  sigStatKWTestList[[s]] <- bool_signif
+}
+
+#make the list into a vector
+sigStatKWTestList<- unlist(sigStatKWTestList)
+
+
+#players seem to be distributed differently for these team distributions
+
+stat_vec[sigStatKWTestList]
+#[1] "Rk"    "ErS"   "IntB"  "DW"    "AERL"  "LB"    "Press" "Tkl"
+
+#make a summary for these fields
+summary_BUR_CBs <- BUR_CB %>% 
+  group_by(Player) %>%
+  summarize(n = n(), meanFpts = mean(FPts), total_Fpts = sum(FPts), meanxFpts = mean(xPts), total_xFpts = sum(xPts), meanIntB = mean(IntB), meanAERL = mean(AERL), meanTkl = mean(Tkl), meanLB = mean(LB))
+
+summary_BUR_CBs_for_plot <- summary_BUR_CBs %>% gather(Stat_Name,Stat_Value, meanFpts,meanxFpts,meanIntB,meanAERL,meanTkl,meanLB)
+
+#make a bar plot of these data
+ggplot(summary_BUR_CBs_for_plot , aes(fill=Player, y=Stat_Value, x=Stat_Name)) + geom_bar(position="dodge", stat="identity") + theme_minimal() +ggtitle("Burnley CB Summary")
+
+#fantrax point categor
+#c(“G”,”KP”,”AT”,”SOT”,”TkW”,”DIS”,”YC”,”SYC”,”RC”,”ACNC”,”Int”,”CLR”,”CoS”,”AER”,”OG”,”GAD”,”CS”)
+```
+
+#Make top 20 team positions in the EPL
+```{r}
+#sort min_10_examples to find the top 20 team positions
+
+#sort on median xFpts
+min_10_examples_sorted <- min_10_examples[order(- min_10_examples$med_xPts),]
+
+#take the top 20 team_pos
+min_10_examples_sorted_top20 <- head(min_10_examples_sorted, 20)
+
+#prep team colors
+library(RColorBrewer)
+
+unique(min_10_examples_sorted$Team)
+ #[1] "MCI" "CHE" "EVE" "NOR" "LIV" "WOL" "TOT" "WAT" "LEI" "WHU" "AVL" "BHA" "ARS" "MUN" "SOU" "SHU" "CRY" "BUR" "NEW" "BOU"
+
+team_colors <- c(
+          '#c8102E',
+          '#6CABDD',
+          '#003090',
+          '#034694',
+          '#DA291C',
+          '#FDB913',
+          "#132257",
+          "#ee2737",
+          "#EF0107",
+          "#1B458F",
+          "#6C1D45",
+          "#003399",
+          "white",
+          "#d71920",
+          "#0057B8",
+          "#FBEE23",
+          "#7A263A",
+          "#DA291C",
+          "#670e36",
+          "#00A650")
+teams = c('LIV',
+          'MCI',
+          'LEI',
+          'CHE',
+          'MUN',
+          'WOL',
+          "TOT",
+          "SHU",
+          "ARS",
+          "CRY",
+          "BUR",
+          "EVE",
+          "NEW",
+          "SOU",
+          "BHA",
+          "WAT",
+          "WHU",
+          "BOU",
+          "AVL",
+          "NOR")
+names(team_colors) <- teams
+colScale <- scale_colour_manual(name = "opposition",values = team_colors)
+fillScale <- scale_fill_manual(name = "opposition",values = team_colors, guide = FALSE)
+
+#filter for just top 20 team_pos in all_combined_Team_Pos_min_10
+#filter so it is only team pos that there is no statistical difference in players
+
+all_combined_Team_Pos_min_10_top_20 <- all_combined_Team_Pos_min_10[all_combined_Team_Pos_min_10$Team_Pos %in% unique(min_10_examples_sorted_top20$Team_Pos) ,]
+#
+
+dim(all_combined_Team_Pos_min_10_top_20)
+#[1] 425 130
+
+length( unique(min_10_examples_sorted_top20$Team_Pos))
+#[1] 20
+
+length( unique(all_combined_Team_Pos_min_10_top_20$Team_Pos))
+#[1] 20
+
+#make a team-position field with no underscore
+all_combined_Team_Pos_min_10_top_20$Team_space_Pos <- gsub("_", " ", all_combined_Team_Pos_min_10_top_20$Team_Pos)
+
+#plot the top 20 team_pos
+
+ggplot(all_combined_Team_Pos_min_10_top_20, aes(x = reorder(Team_space_Pos, xPts, FUN = median ), y = xPts, fill = Team)) + geom_boxplot()  + theme_minimal() + theme(axis.text.x = element_text(angle = 90)) + ggtitle("xFpts for the top 20 Team-Positions") + xlab("Team-Position") + ylab("xFpts") + colScale + fillScale
+
+
+#ggplot(all_combined_Team_Pos_min_10, aes(x = reorder(Team_Pos, xPts, FUN = median ), y = xPts)) + geom_boxplot()  + theme_minimal() + theme(axis.text.x = element_text(angle = 90)) +ggtitle("xFpts for Team Positions")
+
+
+#ggplot(MCI_LW_data, aes(Player, xPts)) + geom_boxplot(aes(colour = Player), outlier.shape = NA) + geom_jitter(width = 0.2, aes(colour = MCI_LW_data$Player)) + theme_minimal() + theme(axis.text.x = element_text(angle = 45)) +ggtitle("MCI_LW xFpt for each player")
+
+#all_combined_Team_Pos_min_10 <- all_combined_Team_Pos_min_10 %>% group_by(Team_Pos) %>% filter(length(unique(Player)) > 1)
+
+```
+
+#Regenerate top 20 team positions in the EPL with updated data
+
+## Data setup
+
+```{r data_setup}
+#load all player data for fbref.com
+weekly_data_csv = "../data/fantrax_data/weekly.all_data_combined.no_double_gws.csv"
+yearly_data_csv = "../data/fantrax_data/yearly.all_data_combined.csv"
+
+weekly_data_df <- read_csv(file = weekly_data_csv, col_names = TRUE)
+yearly_data_df <- read_csv(file = yearly_data_csv, col_names = TRUE)
+
+# Only weeks where at least 60 minutes are played
+min_60_min_df <- weekly_data_df[weekly_data_df$Min > 59,]
+# Players that have started at least 5 games
+summary_min_60_df <- min_60_min_df %>% 
+  group_by(Player, Team, Position) %>%
+  summarize(n = n(), min_total = sum(Min), sd = sd(FPts), mean = mean(FPts), total_fpts = sum(FPts), mean_minutes = mean(Min))
+
+#only players with at least 5 starts
+players_min_5_starts_summary_df <- summary_min_60_df[summary_min_60_df$n >= 5,]
+
+player_min_5_starts_weekly_df <- min_60_min_df %>%
+  filter(Player %in% players_min_5_starts_summary_df$Player)
+nrow(player_min_5_starts_weekly_df)
+
+
+```
+
+## get xFpts
+
+```{r gather_xfpt_df}
+
+
+# load in just defenders
+players_min_starts.defenders = players_min_5_starts_summary_df[players_min_5_starts_summary_df$Position == 'D',]
+nrow(players_min_starts.defenders)
+def_player_list <- players_min_starts.defenders$Player
+length(def_player_list)
+#[1] 138
+
+#read in fbref_summary data
+fbref_summ_df <- read_csv('../data/fbref/premier_league/19_20/name_cleaned.summary_table.first_360_matches.csv')
+
+dim(fbref_summ_df)
+#[1] 10025    35
+
+#clean sheet data
+cs_df <- read_csv('../data/fantrax_data/game_results.csv')
+
+#add game week to fbref_summ_df from cs_df
+
+date_to_week_df <- as.data.frame(cbind(cs_df$Date, cs_df$Wk))
+
+colnames(date_to_week_df) <- c("Date","game_week")
+
+date_to_week_df <- distinct(date_to_week_df)
+
+fbref_summ_df<- merge(fbref_summ_df, date_to_week_df, by="Date")
+
+dim(fbref_summ_df)
+#[1] 10025    36
+#correct dims
+
+#write to file
+write.csv(x=fbref_summ_df, file="../data/fbref/premier_league/19_20/name_cleaned.summary_table.first_360_matches_game_week.csv")
+
+#convert game_week to numeric
+fbref_summ_df$game_week <- as.character(fbref_summ_df$game_week)
+fbref_summ_df$game_week <- as.numeric(fbref_summ_df$game_week)
+
+#write to file
+write.csv(x=fbref_summ_df, file="../data/fbref/premier_league/19_20/name_cleaned.summary_table.first_360_matches_game_week.csv")
+
+#merge on player and game week
+min60_merged_df <- merge(min_60_min_df, fbref_summ_df, by=c('Player', 'game_week'))
+
+
+dim(min60_merged_df)
+#[1] 6764  125
+
+table(min60_merged_df$Position)
+
+#   D    F    M 
+#2764 1342 2658 
+
+#filter on fantrax defenders
+defenders_min60_merged_df <- min60_merged_df[min60_merged_df$Position == "D",]
+
+length(unique(defenders_min60_merged_df$Player))
+#[1] 161
+
+sum(def_player_list %in% unique(defenders_min60_merged_df$Player))
+#[1] 138
+#so they are all there
+
+#negate %in%
+`%!in%` = Negate(`%in%`)
+
+#see which players are extra in this group
+Players_defenders_min60_merged_df<-unique(defenders_min60_merged_df$Player)
+
+Players_defenders_min60_merged_df[Players_defenders_min60_merged_df %!in% def_player_list]
+#[1] "Axel Tuanzebe"       "Charlie Daniels"     "Diogo Dalot"         "Eric Bailly"        
+ #[5] "Ezequiel Schelotto"  "Jack Robinson"       "Jack Simpson"        "Jake Vokins"        
+ #[9] "Jarrad Branthwaite"  "Jeremy Ngakia"       "Kevin Danso"         "Kevin Long"         
+#[13] "Leighton Baines"     "Luke Thomas"         "Maximilian Kilman"   "Neco Williams"      
+#[17] "Pablo Mari"          "Phil Jagielka"       "Phil Jones"          "Rob Holding"        
+#[21] "Tariq Lamptey"       "Timothy Fosu-Mensah" "Wes Morgan"
+
+#they are players who havent have 5 starts
+
+#remove the under 5 games players
+defenders_min60_merged_df <- defenders_min60_merged_df[defenders_min60_merged_df$Player %in% def_player_list,]
+
+dim(defenders_min60_merged_df)
+#[1] 2715  125
+
+#just get the important stuff for clean sheets (name "Team.y" for easy merge in a sec)
+all_cs_data_df <- data.frame('Team.y' = c(cs_df$Home, cs_df$Away), 'xG_against' = c(cs_df$xG_1, cs_df$xG), 'game_week' = c(cs_df$Wk, cs_df$Wk))
+
+#convert squad to character all_cs_data_df for merge
+all_cs_data_df$Team.y <- as.character(all_cs_data_df$Team.y)
+
+#merge cs and defender data
+defenders_min60_merged_cs_df <- merge(defenders_min60_merged_df, all_cs_data_df, by=c("Team.y", "game_week"))
+
+dim(defenders_min60_merged_cs_df)
+#[1] 2715  126
+
+#calculate xFpts from cs given xG against
+defenders_min60_merged_cs_df$GAD_against <- ifelse(defenders_min60_merged_cs_df$xG_against - 0.25 < 0, 0, defenders_min60_merged_cs_df$xG_against - 0.25)
+
+defenders_min60_merged_cs_df$normed_xg_against <- ifelse(defenders_min60_merged_cs_df$GAD_against <= 1.25, 1 - defenders_min60_merged_cs_df$GAD_against/1.25, 0)
+
+#calculate xFpts for defenders
+defenders_min60_merged_cs_df$xPts <- defenders_min60_merged_cs_df$FPts - (defenders_min60_merged_cs_df$G * 10 + defenders_min60_merged_cs_df$AT * 8 + defenders_min60_merged_cs_df$CS * 6 + defenders_min60_merged_cs_df$GAD * -2) + (as.numeric(defenders_min60_merged_cs_df$xG)* 10 + as.numeric(defenders_min60_merged_cs_df$xA) * 8 + as.numeric(defenders_min60_merged_cs_df$normed_xg_against)* 6 + as.numeric(defenders_min60_merged_cs_df$GAD_against) * -2)
+
+#remove some extra defender columns
+drops <- c("normed_xg_against","GAD_against", 'xG_against')
+defenders_min60_merged_cs_df <- defenders_min60_merged_cs_df[ , !(names(defenders_min60_merged_cs_df) %in% drops)]
+
+# midfielders
+
+#load in just midfielders
+players_min_starts.midfielders = players_min_5_starts_summary_df[players_min_5_starts_summary_df$Position == 'M',]
+nrow(players_min_starts.midfielders)
+mid_player_list <- players_min_starts.midfielders$Player
+
+length(mid_player_list)
+#[1] 143
+
+#filter on fantrax midfielders
+mids_min60_merged_df <- min60_merged_df[min60_merged_df$Position == "M",]
+
+length(unique(mids_min60_merged_df$Player))
+#[1] 168
+
+sum(mid_player_list %in% unique(mids_min60_merged_df$Player))
+#[1] 143
+#so they are all there
+
+#see which players are extra in this group
+Players_mids_min60_merged_df<-unique(mids_min60_merged_df$Player)
+
+Players_mids_min60_merged_df[Players_mids_min60_merged_df %!in% mid_player_list]
+#[1] "Aaron Lennon"         "Adam Lallana"         "Alexis Mac Allister"  "Andrew Surman"       
+#[5] "Anthony Gordon"       "Ben Johnson"          "Ben Osborn"           "Billy Gilmour"       
+#[9] "Carlos Sanchez"       "Curtis Jones"         "Daniel Drinkwater"    "Daniel Podence"      
+#[13] "Demarai Gray"         "Henri Lansbury"       "Jean-Philippe Gbamin" "Jota"                
+#[17] "Keinan Davis"         "Luke Freeman"         "Morgan Gibbs-White"   "Muhamed Besic"       
+#[21] "Nampalys Mendy"       "Robbie Brady"         "Ruben Loftus-Cheek"   "Ryan Sessegnon"      
+#[25] "Valentino Lazaro"  
+
+summary_min_60_df[summary_min_60_df$Player == "Adam Lallana",]
+
+summary_min_60_df[summary_min_60_df$Player == "Billy Gilmour",]
+
+#they are players who havent have 5 starts
+
+#remove the under 5 games players
+mids_min60_merged_df <- mids_min60_merged_df[mids_min60_merged_df$Player %in% mid_player_list,]
+
+dim(mids_min60_merged_df)
+#[1] 2600  125
+
+
+length(unique(mids_min60_merged_df$Player))
+#[1] 143
+
+#calculate xFpts for midfielders
+mids_min60_merged_df$xPts <- mids_min60_merged_df$FPts - (mids_min60_merged_df$G * 9 + mids_min60_merged_df$AT * 6)
+mids_min60_merged_df$xPts <- mids_min60_merged_df$xPts + (as.numeric(mids_min60_merged_df$xG)* 9 + as.numeric(mids_min60_merged_df$xA) * 6)
+
+# forwards
+
+#load in just forwards
+players_min_starts.forwards = players_min_5_starts_summary_df[players_min_5_starts_summary_df$Position == 'F',]
+nrow(players_min_starts.forwards)
+
+for_player_list <- players_min_starts.forwards$Player
+
+length(for_player_list)
+#[1] 71
+
+
+#filter on fantrax forwards
+fwds_min60_merged_df <- min60_merged_df[min60_merged_df$Position == "F",]
+
+length(unique(fwds_min60_merged_df$Player))
+#[1] 81
+
+sum(for_player_list %in% unique(fwds_min60_merged_df$Player))
+#[1] 71
+#so they are all there
+
+#see which players are extra in this group
+Players_fwds_min60_merged_df<-unique(fwds_min60_merged_df$Player)
+
+Players_fwds_min60_merged_df[Players_for_min60_merged_df %!in% for_player_list]
+ #[1] "Adam Idah"           "Alireza Jahanbakhsh" "Andre Gray"          "Andy Carroll"       
+ #[5] "Josip Drmic"         "Michy Batshuayi"     "Reiss Nelson"        "William Smallbone"  
+ #[9] "Xherdan Shaqiri"     "Yoshinori Muto"
+
+summary_min_60_df[summary_min_60_df$Player == "William Smallbone",]
+
+summary_min_60_df[summary_min_60_df$Player == "Andre Gray",]
+
+#they are players who havent have 5 starts
+
+#remove the under 5 games players
+fwds_min60_merged_df <- for_min60_merged_df[for_min60_merged_df$Player %in% for_player_list,]
+
+dim(fwds_min60_merged_df)
+#[1] 1314  125
+
+length(unique(fwds_min60_merged_df$Player))
+#[1] 71
+
+#calculate xFpts for forwards
+fwds_min60_merged_df$xPts <- fwds_min60_merged_df$FPts - (fwds_min60_merged_df$G * 9 + fwds_min60_merged_df$AT * 6)
+fwds_min60_merged_df$xPts <- fwds_min60_merged_df$xPts + (as.numeric(fwds_min60_merged_df$xG)* 9 + as.numeric(fwds_min60_merged_df$xA) * 6)
+
+#remove some extra fields in midfielders and forwards
+# drops <- names(mids_min60_merged_df)[names(mids_min60_merged_df) %!in% names(defenders_min60_merged_cs_df)]
+
+#remove some extra defender columns
+#drops <- c("normed_xg_against","GAD_against", 'xG_against')
+#fwds_min60_merged_df <- fwds_min60_merged_df[ , !(names(fwds_min60_merged_df) %in% drops)]
+
+#drops <- c("normed_xg_against","GAD_against", 'xG_against')
+#mids_min60_merged_df <- mids_min60_merged_df[ , !(names(mids_min60_merged_df) %in% drops)]
+
+#combine all the position dataframes into one
+all_combined_df <- rbind(defenders_min60_merged_cs_df, fwds_min60_merged_df, mids_min60_merged_df)
+```
+
+#collect the data for with team postion information
+```{r}
+#make a summary file
+summary_all_combined_df <- all_combined_df %>% 
+  group_by(Team.x, Pos) %>%
+  summarize(n = n(), num_diff_players = length(unique(Player)) , min_total = sum(Min.x), sd_emp_pts = sd(FPts), sd_xpts = sd(xPts),   mean_emp_pts = mean(FPts), mean_xPts = mean(xPts), med_emp_pts= median(FPts), med_xPts = median(xPts), total_emp_fpts = sum(FPts),   total_xPts = sum(xPts), mean_minutes = mean(Min.x))
+
+#remove team positions that do not have at least 10 occurances (mainly to remove the double position entries)
+min_10_examples <- summary_all_combined_df[summary_all_combined_df$n >= 10,]
+
+min_10_examples$Team_Pos <- paste(min_10_examples$Team.x, min_10_examples$Pos, sep = "_")
+
+#write to file
+write.csv(x=min_10_examples, file="../data/fantrax_data/pos_group_20200721.csv")
+
+
+# collecting the team position data but keep the players
+all_combined_Team_Pos <- all_combined_df
+all_combined_Team_Pos$Team_Pos <- paste(all_combined_df$Team.x, all_combined_df$Pos, sep = "_")
+
+dim(all_combined_Team_Pos)
+#[1] 6629  127
+
+#filter out any team positions that have not occurred 10 times
+all_combined_Team_Pos_min_10 <- all_combined_Team_Pos %>% group_by(Team_Pos) %>% filter(n()>= 10)
+
+dim(all_combined_Team_Pos_min_10)
+#[1] 5791  127
+
+length(unique(all_combined_Team_Pos_min_10$Team_Pos))
+#[1] 161
+
+#try plotting it by team position
+#xFpts plot
+ggplot(all_combined_Team_Pos_min_10, aes(x = reorder(Team_Pos, xPts, FUN = median ), y = xPts)) + geom_boxplot()  + theme_minimal() + theme(axis.text.x = element_text(angle = 90)) +ggtitle("xFpts for Team Positions")
+
+```
+
+#Make top 20 team positions in the EPL
+```{r}
+#sort min_10_examples to find the top 20 team positions
+
+#sort on median xFpts
+min_10_examples_sorted <- min_10_examples[order(- min_10_examples$med_xPts),]
+
+#take the top 20 team_pos
+min_10_examples_sorted_top20 <- head(min_10_examples_sorted, 20)
+
+#prep team colors
+library(RColorBrewer)
+
+unique(min_10_examples_sorted$Team.x)
+ #[1] "MCI" "CHE" "EVE" "NOR" "LIV" "WOL" "TOT" "WAT" "LEI" "WHU" "AVL" "BHA" "ARS" "MUN" "SOU" "SHU" "CRY" "BUR" "NEW" "BOU"
+
+team_colors <- c(
+          '#c8102E',
+          '#6CABDD',
+          '#003090',
+          '#034694',
+          '#DA291C',
+          '#FDB913',
+          "#132257",
+          "#ee2737",
+          "#EF0107",
+          "#1B458F",
+          "#6C1D45",
+          "#003399",
+          "white",
+          "#d71920",
+          "#0057B8",
+          "#FBEE23",
+          "#7A263A",
+          "#DA291C",
+          "#670e36",
+          "#00A650")
+teams = c('LIV',
+          'MCI',
+          'LEI',
+          'CHE',
+          'MUN',
+          'WOL',
+          "TOT",
+          "SHU",
+          "ARS",
+          "CRY",
+          "BUR",
+          "EVE",
+          "NEW",
+          "SOU",
+          "BHA",
+          "WAT",
+          "WHU",
+          "BOU",
+          "AVL",
+          "NOR")
+names(team_colors) <- teams
+colScale <- scale_colour_manual(name = "opposition",values = team_colors)
+fillScale <- scale_fill_manual(name = "opposition",values = team_colors, guide = FALSE)
+
+#filter for just top 20 team_pos in all_combined_Team_Pos_min_10
+#filter so it is only team pos that there is no statistical difference in players
+
+all_combined_Team_Pos_min_10_top_20 <- all_combined_Team_Pos_min_10[all_combined_Team_Pos_min_10$Team_Pos %in% unique(min_10_examples_sorted_top20$Team_Pos) ,]
+#
+
+dim(all_combined_Team_Pos_min_10_top_20)
+#[1] 551 127
+
+length( unique(min_10_examples_sorted_top20$Team_Pos))
+#[1] 20
+
+length( unique(all_combined_Team_Pos_min_10_top_20$Team_Pos))
+#[1] 20
+
+#make a team-position field with no underscore
+all_combined_Team_Pos_min_10_top_20$Team_space_Pos <- gsub("_", " ", all_combined_Team_Pos_min_10_top_20$Team_Pos)
+
+#plot the top 20 team_pos
+
+
+ggplot(all_combined_Team_Pos_min_10_top_20, aes(x = reorder(Team_space_Pos, xPts, FUN = median ), y = xPts, fill = Team.x)) + geom_boxplot()  + theme_minimal() + theme(axis.text.x = element_text(angle = 90)) + ggtitle("xFpts for the top 20 Team-Positions") + xlab("Team-Position") + ylab("xFpts") + colScale + fillScale
+
+#ggplot(all_combined_Team_Pos_min_10, aes(x = reorder(Team_Pos, xPts, FUN = median ), y = xPts)) + geom_boxplot()  + theme_minimal() + theme(axis.text.x = element_text(angle = 90)) +ggtitle("xFpts for Team Positions")
+
+
+#ggplot(MCI_LW_data, aes(Player, xPts)) + geom_boxplot(aes(colour = Player), outlier.shape = NA) + geom_jitter(width = 0.2, aes(colour = MCI_LW_data$Player)) + theme_minimal() + theme(axis.text.x = element_text(angle = 45)) +ggtitle("MCI_LW xFpt for each player")
+
+#summarize number of players per team position
+all_combined_Team_Pos_min_10_top_20_summ <- all_combined_Team_Pos_min_10_top_20 %>% group_by(Team_Pos) %>% summarize(n = n(), num_diff_players = length(unique(Player)),medxPts = median(xPts))
+
+#sort on median xFpts
+all_combined_Team_Pos_min_10_top_20_summ_sorted <- all_combined_Team_Pos_min_10_top_20_summ[order(- all_combined_Team_Pos_min_10_top_20_summ$medxPts),]
+
+write.csv(all_combined_Team_Pos_min_10_top_20_summ_sorted, file="../data/fbref/premier_league/19_20/all_combined_Team_Pos_min_10_top_20_summ.csv")
+
+```
+
+#Regenerate top 20 team positions in the EPL with updated data NO number of starts filter
+
+## Data setup
+
+```{r data_setup}
+#load all player data for fbref.com
+weekly_data_csv = "../data/fantrax_data/weekly.all_data_combined.no_double_gws.csv"
+yearly_data_csv = "../data/fantrax_data/yearly.all_data_combined.csv"
+
+weekly_data_df <- read_csv(file = weekly_data_csv, col_names = TRUE)
+yearly_data_df <- read_csv(file = yearly_data_csv, col_names = TRUE)
+
+# Only weeks where at least 60 minutes are played
+min_60_min_df <- weekly_data_df[weekly_data_df$Min > 59,]
+# Players that have started at least 5 games
+summary_min_60_df <- min_60_min_df %>% 
+  group_by(Player, Team, Position) %>%
+  summarize(n = n(), min_total = sum(Min), sd = sd(FPts), mean = mean(FPts), total_fpts = sum(FPts), mean_minutes = mean(Min))
+
+#only players with at least 5 starts
+players_min_5_starts_summary_df <- summary_min_60_df[summary_min_60_df$n >= 5,]
+
+player_min_5_starts_weekly_df <- min_60_min_df %>%
+  filter(Player %in% players_min_5_starts_summary_df$Player)
+nrow(player_min_5_starts_weekly_df)
+
+```
+
+## get xFpts
+
+```{r gather_xfpt_df}
+
+
+# load in just defenders
+#players_min_starts.defenders = players_min_5_starts_summary_df[players_min_5_starts_summary_df$Position == 'D',]
+#nrow(players_min_starts.defenders)
+#def_player_list <- players_min_starts.defenders$Player
+#length(def_player_list)
+
+
+#read in fbref_summary data
+fbref_summ_df <- read_csv('../data/fbref/premier_league/19_20/name_cleaned.summary_table.first_360_matches.csv')
+
+dim(fbref_summ_df)
+#[1] 10025    35
+
+#clean sheet data
+cs_df <- read_csv('../data/fantrax_data/game_results.csv')
+
+#add game week to fbref_summ_df from cs_df
+
+date_to_week_df <- as.data.frame(cbind(cs_df$Date, cs_df$Wk))
+
+colnames(date_to_week_df) <- c("Date","game_week")
+
+date_to_week_df <- distinct(date_to_week_df)
+
+fbref_summ_df<- merge(fbref_summ_df, date_to_week_df, by="Date")
+
+dim(fbref_summ_df)
+#[1] 10025    36
+#correct dims
+
+#write to file
+#write.csv(x=fbref_summ_df, file="../data/fbref/premier_league/19_20/name_cleaned.summary_table.first_360_matches_game_week.csv")
+
+#convert game_week to numeric
+fbref_summ_df$game_week <- as.character(fbref_summ_df$game_week)
+fbref_summ_df$game_week <- as.numeric(fbref_summ_df$game_week)
+
+#write to file
+write.csv(x=fbref_summ_df, file="../data/fbref/premier_league/19_20/name_cleaned.summary_table.first_360_matches_game_week.csv")
+
+#merge on player and game week
+min60_merged_df <- merge(min_60_min_df, fbref_summ_df, by=c('Player', 'game_week'))
+
+
+dim(min60_merged_df)
+#[1] 6764  125
+
+table(min60_merged_df$Position)
+
+#   D    F    M 
+#2764 1342 2658 
+
+#filter on fantrax defenders
+defenders_min60_merged_df <- min60_merged_df[min60_merged_df$Position == "D",]
+
+length(unique(defenders_min60_merged_df$Player))
+#[1] 161
+
+sum(def_player_list %in% unique(defenders_min60_merged_df$Player))
+#[1] 138
+#so they are all there
+
+#see which players are extra in this group
+Players_defenders_min60_merged_df<-unique(defenders_min60_merged_df$Player)
+
+Players_defenders_min60_merged_df[Players_defenders_min60_merged_df %!in% def_player_list]
+#[1] "Axel Tuanzebe"       "Charlie Daniels"     "Diogo Dalot"         "Eric Bailly"        
+ #[5] "Ezequiel Schelotto"  "Jack Robinson"       "Jack Simpson"        "Jake Vokins"        
+ #[9] "Jarrad Branthwaite"  "Jeremy Ngakia"       "Kevin Danso"         "Kevin Long"         
+#[13] "Leighton Baines"     "Luke Thomas"         "Maximilian Kilman"   "Neco Williams"      
+#[17] "Pablo Mari"          "Phil Jagielka"       "Phil Jones"          "Rob Holding"        
+#[21] "Tariq Lamptey"       "Timothy Fosu-Mensah" "Wes Morgan"
+
+#they are players who havent have 5 starts
+
+#remove the under 5 games players
+#defenders_min60_merged_df <- defenders_min60_merged_df[defenders_min60_merged_df$Player %in% def_player_list,]
+
+dim(defenders_min60_merged_df)
+#[1] 2764  125
+
+#just get the important stuff for clean sheets (name "Team.y" for easy merge in a sec)
+all_cs_data_df <- data.frame('Team.y' = c(cs_df$Home, cs_df$Away), 'xG_against' = c(cs_df$xG_1, cs_df$xG), 'game_week' = c(cs_df$Wk, cs_df$Wk))
+
+#convert squad to character all_cs_data_df for merge
+all_cs_data_df$Team.y <- as.character(all_cs_data_df$Team.y)
+
+#merge cs and defender data
+defenders_min60_merged_cs_df <- merge(defenders_min60_merged_df, all_cs_data_df, by=c("Team.y", "game_week"))
+
+dim(defenders_min60_merged_cs_df)
+#[1] 2764  126
+
+#calculate xFpts from cs given xG against
+defenders_min60_merged_cs_df$GAD_against <- ifelse(defenders_min60_merged_cs_df$xG_against - 0.25 < 0, 0, defenders_min60_merged_cs_df$xG_against - 0.25)
+
+defenders_min60_merged_cs_df$normed_xg_against <- ifelse(defenders_min60_merged_cs_df$GAD_against <= 1.25, 1 - defenders_min60_merged_cs_df$GAD_against/1.25, 0)
+
+#calculate xFpts for defenders
+defenders_min60_merged_cs_df$xPts <- defenders_min60_merged_cs_df$FPts - (defenders_min60_merged_cs_df$G * 10 + defenders_min60_merged_cs_df$AT * 8 + defenders_min60_merged_cs_df$CS * 6 + defenders_min60_merged_cs_df$GAD * -2) + (as.numeric(defenders_min60_merged_cs_df$xG)* 10 + as.numeric(defenders_min60_merged_cs_df$xA) * 8 + as.numeric(defenders_min60_merged_cs_df$normed_xg_against)* 6 + as.numeric(defenders_min60_merged_cs_df$GAD_against) * -2)
+
+#remove some extra defender columns
+drops <- c("normed_xg_against","GAD_against", 'xG_against')
+defenders_min60_merged_cs_df <- defenders_min60_merged_cs_df[ , !(names(defenders_min60_merged_cs_df) %in% drops)]
+
+# midfielders
+
+#load in just midfielders
+#players_min_starts.midfielders = players_min_5_starts_summary_df[players_min_5_starts_summary_df$Position == 'M',]
+#nrow(players_min_starts.midfielders)
+#mid_player_list <- players_min_starts.midfielders$Player
+
+#length(mid_player_list)
+#[1] 143
+
+#filter on fantrax midfielders
+mids_min60_merged_df <- min60_merged_df[min60_merged_df$Position == "M",]
+
+length(unique(mids_min60_merged_df$Player))
+#[1] 168
+
+#sum(mid_player_list %in% unique(mids_min60_merged_df$Player))
+#[1] 143
+#so they are all there
+
+#see which players are extra in this group
+Players_mids_min60_merged_df<-unique(mids_min60_merged_df$Player)
+
+Players_mids_min60_merged_df[Players_mids_min60_merged_df %!in% mid_player_list]
+#[1] "Aaron Lennon"         "Adam Lallana"         "Alexis Mac Allister"  "Andrew Surman"       
+#[5] "Anthony Gordon"       "Ben Johnson"          "Ben Osborn"           "Billy Gilmour"       
+#[9] "Carlos Sanchez"       "Curtis Jones"         "Daniel Drinkwater"    "Daniel Podence"      
+#[13] "Demarai Gray"         "Henri Lansbury"       "Jean-Philippe Gbamin" "Jota"                
+#[17] "Keinan Davis"         "Luke Freeman"         "Morgan Gibbs-White"   "Muhamed Besic"       
+#[21] "Nampalys Mendy"       "Robbie Brady"         "Ruben Loftus-Cheek"   "Ryan Sessegnon"      
+#[25] "Valentino Lazaro"
+
+
+
+dim(mids_min60_merged_df)
+#[1] 2658  125
+
+
+length(unique(mids_min60_merged_df$Player))
+#[1] 168
+
+#calculate xFpts for midfielders
+mids_min60_merged_df$xPts <- mids_min60_merged_df$FPts - (mids_min60_merged_df$G * 9 + mids_min60_merged_df$AT * 6)
+mids_min60_merged_df$xPts <- mids_min60_merged_df$xPts + (as.numeric(mids_min60_merged_df$xG)* 9 + as.numeric(mids_min60_merged_df$xA) * 6)
+
+# forwards
+
+#load in just forwards
+#players_min_starts.forwards = players_min_5_starts_summary_df[players_min_5_starts_summary_df$Position == 'F',]
+#nrow(players_min_starts.forwards)
+
+#for_player_list <- players_min_starts.forwards$Player
+
+#length(for_player_list)
+#[1] 71
+
+
+#filter on fantrax forwards
+fwds_min60_merged_df <- min60_merged_df[min60_merged_df$Position == "F",]
+
+length(unique(fwds_min60_merged_df$Player))
+#[1] 81
+
+#sum(for_player_list %in% unique(fwds_min60_merged_df$Player))
+#[1] 71
+#so they are all there
+
+#see which players are extra in this group
+Players_fwds_min60_merged_df<-unique(fwds_min60_merged_df$Player)
+
+Players_fwds_min60_merged_df[Players_for_min60_merged_df %!in% for_player_list]
+ #[1] "Adam Idah"           "Alireza Jahanbakhsh" "Andre Gray"          "Andy Carroll"       
+ #[5] "Josip Drmic"         "Michy Batshuayi"     "Reiss Nelson"        "William Smallbone"  
+ #[9] "Xherdan Shaqiri"     "Yoshinori Muto"
+
+dim(fwds_min60_merged_df)
+#[1] 1342  125
+
+length(unique(fwds_min60_merged_df$Player))
+#[1] 81
+
+#calculate xFpts for forwards
+fwds_min60_merged_df$xPts <- fwds_min60_merged_df$FPts - (fwds_min60_merged_df$G * 9 + fwds_min60_merged_df$AT * 6)
+fwds_min60_merged_df$xPts <- fwds_min60_merged_df$xPts + (as.numeric(fwds_min60_merged_df$xG)* 9 + as.numeric(fwds_min60_merged_df$xA) * 6)
+
+#combine all the position dataframes into one
+all_combined_df <- rbind(defenders_min60_merged_cs_df, fwds_min60_merged_df, mids_min60_merged_df)
+```
+
+
+#collect the data for with team postion information
+```{r}
+#make a summary file
+summary_all_combined_df <- all_combined_df %>% 
+  group_by(Team.x, Pos) %>%
+  summarize(n = n(), num_diff_players = length(unique(Player)) , min_total = sum(Min.x), sd_emp_pts = sd(FPts), sd_xpts = sd(xPts),   mean_emp_pts = mean(FPts), mean_xPts = mean(xPts), med_emp_pts= median(FPts), med_xPts = median(xPts), total_emp_fpts = sum(FPts),   total_xPts = sum(xPts), mean_minutes = mean(Min.x))
+
+#remove team positions that do not have at least 10 occurances (mainly to remove the double position entries)
+min_10_examples <- summary_all_combined_df[summary_all_combined_df$n >= 10,]
+
+min_10_examples$Team_Pos <- paste(min_10_examples$Team.x, min_10_examples$Pos, sep = "_")
+
+#write to file
+write.csv(x=min_10_examples, file="../data/fantrax_data/pos_group_20200722_no_starts_min.csv")
+
+
+# collecting the team position data but keep the players
+all_combined_Team_Pos <- all_combined_df
+all_combined_Team_Pos$Team_Pos <- paste(all_combined_df$Team.x, all_combined_df$Pos, sep = "_")
+
+dim(all_combined_Team_Pos)
+#[1] 6764  127
+
+#filter out any team positions that have not occurred 10 times
+all_combined_Team_Pos_min_10 <- all_combined_Team_Pos %>% group_by(Team_Pos) %>% filter(n()>= 10)
+
+dim(all_combined_Team_Pos_min_10)
+#[1] 5907  127
+
+length(unique(all_combined_Team_Pos_min_10$Team_Pos))
+#[1] 161
+
+#try plotting it by team position
+#xFpts plot
+ggplot(all_combined_Team_Pos_min_10, aes(x = reorder(Team_Pos, xPts, FUN = median ), y = xPts)) + geom_boxplot()  + theme_minimal() + theme(axis.text.x = element_text(angle = 90)) +ggtitle("xFpts for Team Positions")
+
+```
+
+#Remake top 20 team positions in the EPL
+```{r}
+#sort min_10_examples to find the top 20 team positions
+
+#sort on median xFpts
+min_10_examples_sorted <- min_10_examples[order(- min_10_examples$med_xPts),]
+
+#take the top 20 team_pos
+min_10_examples_sorted_top20 <- head(min_10_examples_sorted, 20)
+
+#prep team colors
+library(RColorBrewer)
+
+unique(min_10_examples_sorted$Team.x)
+ #[1] "MCI" "CHE" "EVE" "NOR" "LIV" "WOL" "TOT" "WAT" "LEI" "WHU" "AVL" "BHA" "ARS" "MUN" "SOU" "SHU" "CRY" "BUR" "NEW" "BOU"
+
+team_colors <- c(
+          '#c8102E',
+          '#6CABDD',
+          '#003090',
+          '#034694',
+          '#DA291C',
+          '#FDB913',
+          "#132257",
+          "#ee2737",
+          "#EF0107",
+          "#1B458F",
+          "#6C1D45",
+          "#003399",
+          "white",
+          "#d71920",
+          "#0057B8",
+          "#FBEE23",
+          "#7A263A",
+          "#DA291C",
+          "#670e36",
+          "#00A650")
+teams = c('LIV',
+          'MCI',
+          'LEI',
+          'CHE',
+          'MUN',
+          'WOL',
+          "TOT",
+          "SHU",
+          "ARS",
+          "CRY",
+          "BUR",
+          "EVE",
+          "NEW",
+          "SOU",
+          "BHA",
+          "WAT",
+          "WHU",
+          "BOU",
+          "AVL",
+          "NOR")
+names(team_colors) <- teams
+colScale <- scale_colour_manual(name = "opposition",values = team_colors)
+fillScale <- scale_fill_manual(name = "opposition",values = team_colors, guide = FALSE)
+
+#filter for just top 20 team_pos in all_combined_Team_Pos_min_10
+#filter so it is only team pos that there is no statistical difference in players
+
+all_combined_Team_Pos_min_10_top_20 <- all_combined_Team_Pos_min_10[all_combined_Team_Pos_min_10$Team_Pos %in% unique(min_10_examples_sorted_top20$Team_Pos) ,]
+#
+
+dim(all_combined_Team_Pos_min_10_top_20)
+#[1] 560 127
+
+length( unique(min_10_examples_sorted_top20$Team_Pos))
+#[1] 20
+
+length( unique(all_combined_Team_Pos_min_10_top_20$Team_Pos))
+#[1] 20
+
+#make a team-position field with no underscore
+all_combined_Team_Pos_min_10_top_20$Team_space_Pos <- gsub("_", " ", all_combined_Team_Pos_min_10_top_20$Team_Pos)
+
+#plot the top 20 team_pos
+
+
+ggplot(all_combined_Team_Pos_min_10_top_20, aes(x = reorder(Team_space_Pos, xPts, FUN = median ), y = xPts, fill = Team.x)) + geom_boxplot()  + theme_minimal() + theme(axis.text.x = element_text(angle = 90)) + ggtitle("xFpts for the top 20 Team-Positions") + xlab("Team-Position") + ylab("xFpts") + colScale + fillScale + theme(plot.title = element_text(hjust = 0.5))
+
+#ggplot(all_combined_Team_Pos_min_10, aes(x = reorder(Team_Pos, xPts, FUN = median ), y = xPts)) + geom_boxplot()  + theme_minimal() + theme(axis.text.x = element_text(angle = 90)) +ggtitle("xFpts for Team Positions")
+
+
+#ggplot(MCI_LW_data, aes(Player, xPts)) + geom_boxplot(aes(colour = Player), outlier.shape = NA) + geom_jitter(width = 0.2, aes(colour = MCI_LW_data$Player)) + theme_minimal() + theme(axis.text.x = element_text(angle = 45)) +ggtitle("MCI_LW xFpt for each player")
+
+#summarize number of players per team position
+all_combined_Team_Pos_min_10_top_20_summ <- all_combined_Team_Pos_min_10_top_20 %>% group_by(Team_Pos) %>% summarize(n = n(), num_diff_players = length(unique(Player)),medxPts = median(xPts))
+
+#sort on median xFpts
+all_combined_Team_Pos_min_10_top_20_summ_sorted <- all_combined_Team_Pos_min_10_top_20_summ[order(- all_combined_Team_Pos_min_10_top_20_summ$medxPts),]
+
+write.csv(all_combined_Team_Pos_min_10_top_20_summ_sorted, file="../data/fbref/premier_league/19_20/all_combined_Team_Pos_min_10_top_20_summ_no_min_start.csv")
+
+```
