@@ -2560,17 +2560,38 @@ pts_breakdown_df_CBs_posStats <- merge(pts_breakdown_df_CBs, fbref_pos_df, by=c(
  dim(pts_breakdown_df_CBs_posStats)
 #[1] 1395  172
  
+ # summary_all_fwds_poss <- fwds_min60_merged_df_posStats %>% 
+ # group_by(Player) %>%
+#  summarize(n = n(), meanFpts = mean(FPts), meanxFpts = mean(xPts), sdxFpts = sd(xPts), meanxG = mean(xG), meanxA = mean(xA), meanAER = mean(AER), meanAERProp = mean(AER_prop), meanSoT = mean(SoT), meanSh = mean(Sh), meanAtt3rd = mean(Att.3rd), meanAttPen = mean(Att.Pen), meanDefPen = mean(Def.Pen))
+ 
  
  summary_all_CBs_poss <- pts_breakdown_df_CBs_posStats %>% 
   group_by(Player) %>%
-  summarize(n = n(), meanFpts = mean(FPts), meanxFpts = mean(xPts), meanOffPts= mean(offPts), meanDefPts= mean(defPts), meanxG = mean(xG), meanxCS = mean(xCS), meanxA = mean(xA), meanAER = mean(AER), meanAERProp = mean(AER_prop), meanSoT = mean(SoT), meanAtt3rd = mean(`Att 3rd`), meanAttPen = mean(`Att Pen`), meanDefPen = mean(`Def Pen`))
+  summarize(n = n(), meanFpts = mean(FPts), meanxFpts = mean(xPts), sdxFpts = sd(xPts), meanxG = mean(xG), meanxA = mean(xA), meanAER = mean(AER), meanAERProp = mean(AER_prop), meanSoT = mean(SoT), meanSh = mean(Sh), meanAtt3rd = mean(`Att 3rd`), meanAttPen = mean(`Att Pen`), meanDefPen = mean(`Def Pen`))
 
 #require that they played at least 5 games as a CB
 
 summary_all_CBs_poss_n5 <- summary_all_CBs_poss[summary_all_CBs_poss$n >= 5,]
 
 #plot it to take a look
-ggplot(summary_all_CBs_poss_n5, aes(y = meanSoT, x = meanAER, label = Player)) + geom_point(aes(colour = meanxFpts)) + scale_color_gradient(low="blue", high="red", ) + theme_minimal() + geom_text_repel()
+# AttPen v AER
+ggplot(summary_all_CBs_poss_n5, aes(y =  meanAER, x = meanAttPen)) + geom_point(aes(colour = meanxFpts, size = sdxFpts)) + scale_color_gradient2(low="blue", mid ="yellow", high="red", midpoint = mean(summary_all_CBs_poss_n5$meanxFpts)) + theme_minimal() + geom_text_repel(data = subset(summary_all_CBs_poss_n5,meanAER > 4.5 | meanAttPen > 1.5 ), aes(label = Player)) + geom_smooth(method = "lm", se = FALSE, colour = "black")
+
+#SoT v AER
+ggplot(summary_all_CBs_poss_n5, aes(y =  meanAER, x = meanSoT)) + geom_point(aes(colour = meanxFpts, size = sdxFpts)) + scale_color_gradient2(low="blue", mid ="yellow", high="red", midpoint = mean(summary_all_CBs_poss_n5$meanxFpts)) + theme_minimal() + geom_text_repel(data = subset(summary_all_CBs_poss_n5,meanAER > 4.5 | meanSoT > 0.3 ), aes(label = Player)) + geom_smooth(method = "lm", se = FALSE, colour = "black")
+
+#xG v AER
+ggplot(summary_all_CBs_poss_n5, aes(y =  meanAER, x = meanxG)) + geom_point(aes(colour = meanxFpts, size = sdxFpts)) + scale_color_gradient2(low="blue", mid ="yellow", high="red", midpoint = mean(summary_all_CBs_poss_n5$meanxFpts)) + theme_minimal() + geom_text_repel(data = subset(summary_all_CBs_poss_n5,meanAER > 4.5 | meanxG > 0.075  | meanxFpts > 10), aes(label = Player)) + geom_smooth(method = "lm", se = FALSE, colour = "black")
+
+
+#xFpts v AER
+ggplot(summary_all_CBs_poss_n5, aes(y =  meanAER, x = meanxFpts)) + geom_point(aes(colour = meanxFpts, size = sdxFpts)) + scale_color_gradient2(low="blue", mid ="yellow", high="red", midpoint = mean(summary_all_CBs_poss_n5$meanxFpts)) + theme_minimal() + geom_text_repel(data = subset(summary_all_CBs_poss_n5,meanAER > 4.5 |  meanxFpts > 9.5), aes(label = Player)) + geom_smooth(method = "lm", se = FALSE, colour = "black")
+
+#Sh v AER
+ggplot(summary_all_CBs_poss_n5, aes(y =  meanAER, x = meanSh)) + geom_point(aes(colour = meanxFpts, size = sdxFpts)) + scale_color_gradient2(low="blue", mid ="yellow", high="red", midpoint = mean(summary_all_CBs_poss_n5$meanxFpts)) + theme_minimal() + geom_text_repel(data = subset(summary_all_CBs_poss_n5,meanAER > 4.5 |  meanxFpts > 9.5), aes(label = Player)) + geom_smooth(method = "lm", se = FALSE, colour = "black")
+
+#xA v AER
+ggplot(summary_all_CBs_poss_n5, aes(y =  meanAER, x = meanxA)) + geom_point(aes(colour = meanxFpts, size = sdxFpts)) + scale_color_gradient2(low="blue", mid ="yellow", high="red", midpoint = mean(summary_all_CBs_poss_n5$meanxFpts)) + theme_minimal() + geom_text_repel(data = subset(summary_all_CBs_poss_n5,meanAER > 4.5 |  meanxFpts > 9.5), aes(label = Player)) + geom_smooth(method = "lm", se = FALSE, colour = "black")
 
 
 ggplot(summary_all_CBs_poss_n5, aes(y =  meanAER, x = meanAtt3rd, label = Player)) + geom_point(aes(colour = meanxFpts)) + scale_color_gradient(low="blue", high="red", ) + theme_minimal() + geom_text_repel()
@@ -2588,7 +2609,9 @@ sample estimates:
      cor 
 0.238862 '
 
-ggplot(summary_all_CBs_poss_n5, aes(y =  meanAER, x = meanAttPen, label = Player)) + geom_point(aes(colour = meanxFpts)) + scale_color_gradient(low="blue", high="red", ) + theme_minimal() + geom_text_repel()
+#ggplot(summary_all_CBs_poss_n5, aes(y =  meanAER, x = meanAttPen, label = Player)) + geom_point(aes(colour = meanxFpts)) + scale_color_gradient(low="blue", high="red", ) + theme_minimal() + geom_text_repel()
+
+ggplot(summary_all_CBs_poss_n5, aes(y =  meanAER, x = meanAttPen)) + geom_point(aes(colour = meanxFpts)) + scale_color_gradient(low="blue", high="red", ) + theme_minimal() + geom_text_repel(data = subset(summary_all_CBs_poss_n5, (meanAER - mean(meanAER))/length(Player) > 0.005 & (meanAttPen - mean(meanAttPen))/length(Player) > 0.003 ), aes(label = Player)) + geom_smooth(method = "lm", se = FALSE, colour = "black")
 
 
 cor.test(summary_all_CBs_poss_n5$meanAER, summary_all_CBs_poss_n5$meanAttPen)
@@ -2603,6 +2626,26 @@ alternative hypothesis: true correlation is not equal to 0
 sample estimates:
       cor 
 0.6269772 '
+
+#AER Prop and touches in AttPen
+ggplot(summary_all_CBs_poss_n5, aes(y =  meanAERProp, x = meanAttPen)) + geom_point(aes(colour = meanxFpts)) + scale_color_gradient(low="blue", high="red", ) + theme_minimal() + geom_text_repel(data = subset(summary_all_CBs_poss_n5, (meanAER - mean(meanAER))/length(Player) > 0.005 & (meanAttPen - mean(meanAttPen))/length(Player) > 0.003 ), aes(label = Player)) + geom_smooth(method = "lm", se = FALSE, colour = "black")
+
+
+#Aerials to xG
+ggplot(summary_all_CBs_poss_n5, aes(y =  meanxG, x = meanAER)) + geom_point(aes(colour = meanxFpts)) + scale_color_gradient(low="blue", high="red", ) + theme_minimal() + geom_text_repel(data = subset(summary_all_CBs_poss_n5, (meanAER - mean(meanAER))/length(Player) > 0.005 & (meanAttPen - mean(meanAttPen))/length(Player) > 0.003 ), aes(label = Player)) + geom_smooth(method = "lm", se = FALSE, colour = "black")
+cor.test(summary_all_CBs_poss_n5$meanAER, summary_all_CBs_poss_n5$meanxG)
+
+	'Pearsons product-moment correlation
+
+data:  summary_all_CBs_poss_n5$meanAER and summary_all_CBs_poss_n5$meanxG
+t = 2.1551, df = 68, p-value = 0.03469
+alternative hypothesis: true correlation is not equal to 0
+95 percent confidence interval:
+ 0.01901113 0.46047098
+sample estimates:
+      cor 
+0.2528556 '
+
 
 ggplot(summary_all_CBs_poss_n5, aes(y =  meanAER, x = meanDefPen, label = Player)) + geom_point(aes(colour = meanxFpts)) + scale_color_gradient(low="blue", high="red", ) + theme_minimal() + geom_text_repel()
 
@@ -2927,7 +2970,7 @@ fwds_min60_merged_df_posStats <- fwds_min60_merged_df_posStats[fwds_min60_merged
 
  summary_all_fwds_poss <- fwds_min60_merged_df_posStats %>% 
   group_by(Player) %>%
-  summarize(n = n(), meanFpts = mean(FPts), meanxFpts = mean(xPts), meanxG = mean(xG), meanxA = mean(xA), meanAER = mean(AER), meanAERProp = mean(AER_prop), meanSoT = mean(SoT), meanAtt3rd = mean(Att.3rd), meanAttPen = mean(Att.Pen), meanDefPen = mean(Def.Pen))
+  summarize(n = n(), meanFpts = mean(FPts), meanxFpts = mean(xPts), sdxFpts = sd(xPts), meanxG = mean(xG), meanxA = mean(xA), meanAER = mean(AER), meanAERProp = mean(AER_prop), meanSoT = mean(SoT), meanSh = mean(Sh), meanAtt3rd = mean(Att.3rd), meanAttPen = mean(Att.Pen), meanDefPen = mean(Def.Pen))
  
 
 
@@ -2936,7 +2979,7 @@ fwds_min60_merged_df_posStats <- fwds_min60_merged_df_posStats[fwds_min60_merged
  summary_all_fwds_poss_n5 <-  summary_all_fwds_poss[summary_all_fwds_poss$n >= 5,]
 
 dim(summary_all_fwds_poss_n5)
-#[1] 61 12
+#[1] 61 14
 
 #plot it to take a look
 ggplot(summary_all_fwds_poss_n5 , aes(y = meanSoT, x = meanAER, label = Player)) + geom_point(aes(colour = meanxFpts)) + scale_color_gradient(low="blue", high="red", ) + theme_minimal() + geom_text_repel()
@@ -2948,31 +2991,71 @@ cor.test( summary_all_fwds_poss_n5$meanAER,  summary_all_fwds_poss_n5$meanAtt3rd
 
 	'Pearsons product-moment correlation
 
-data:   summary_all_fwds_poss$meanAER and  summary_all_fwds_poss$meanAtt3rd
-t = -5.254, df = 127, p-value = 6.094e-07
+data:  summary_all_fwds_poss_n5$meanAER and summary_all_fwds_poss_n5$meanAtt3rd
+t = -2.8858, df = 59, p-value = 0.005446
 alternative hypothesis: true correlation is not equal to 0
 95 percent confidence interval:
- -0.5548777 -0.2693721
+ -0.5544138 -0.1095779
 sample estimates:
-       cor 
--0.4225515 '
+      cor 
+-0.351694 '
 
-ggplot( summary_all_fwds_poss_n5, aes(y =  meanAER, x = meanAttPen)) + geom_point(aes(colour = meanxFpts)) + scale_color_gradient(low="blue", high="red", ) + theme_minimal()
+ggplot( summary_all_fwds_poss_n5, aes(y =  meanAER, x = meanAttPen, label = Player)) + geom_point(aes(colour = meanxFpts)) + scale_color_gradient(low="blue", high="red", ) + theme_minimal()+ geom_text_repel()
 
 
 cor.test( summary_all_fwds_poss_n5$meanAER,  summary_all_fwds_poss_n5$meanAttPen)
 
+#ggplot(summary_all_fwds_poss_n5, aes(y =  meanAER, x = meanAttPen)) + geom_point(aes(colour = meanxFpts)) + scale_color_gradient(low="blue", high="red", ) + theme_minimal() + geom_text_repel(data = subset(summary_all_fwds_poss_n5,meanAER > 5 | meanAttPen > 7 ), aes(label = Player)) + geom_smooth(method = "lm", se = FALSE, colour = "black")
+
+#ggplot(summary_all_fwds_poss_n5, aes(y =  meanAER, x = meanSoT)) + geom_point(aes(colour = meanxFpts)) + scale_color_gradient(low="blue", high="red", ) + theme_minimal() + geom_text_repel(data = subset(summary_all_fwds_poss_n5,meanAER > 5 | meanSoT > 1.25 ), aes(label = Player)) + geom_smooth(method = "lm", se = FALSE, colour = "black")
+
+
+# xG v AER
+ggplot(summary_all_fwds_poss_n5, aes(y =  meanAER, x = meanxG)) + geom_point(aes(colour = meanxFpts, size = sdxFpts)) + scale_color_gradient2(low="blue", mid ="yellow", high="red", midpoint = 10 ) + theme_minimal() + geom_text_repel(data = subset(summary_all_fwds_poss_n5,meanAER > 5 | meanxG > 0.6 ), aes(label = Player)) + geom_smooth(method = "lm", se = FALSE, colour = "black")
+
+# SoT v AER
+ggplot(summary_all_fwds_poss_n5, aes(y =  meanAER, x = meanSoT)) + geom_point(aes(colour = meanxFpts, size = sdxFpts)) + scale_color_gradient2(low="blue", mid ="yellow", high="red", midpoint = 10 ) + theme_minimal() + geom_text_repel(data = subset(summary_all_fwds_poss_n5,meanAER > 5 | meanSoT > 1.39 ), aes(label = Player)) + geom_smooth(method = "lm", se = FALSE, colour = "black")
+
+# Sh v AER
+ggplot(summary_all_fwds_poss_n5, aes(y =  meanAER, x = meanSh)) + geom_point(aes(colour = meanxFpts, size = sdxFpts)) + scale_color_gradient2(low="blue", mid ="yellow", high="red", midpoint = 10 ) + theme_minimal() + geom_text_repel(data = subset(summary_all_fwds_poss_n5,meanAER > 5 | meanSh > 3.25 ), aes(label = Player)) + geom_smooth(method = "lm", se = FALSE, colour = "black")
+
+
+# AttPen v AER
+ggplot(summary_all_fwds_poss_n5, aes(y =  meanAER, x = meanAttPen)) + geom_point(aes(colour = meanxFpts, size = sdxFpts)) + scale_color_gradient2(low="blue", mid ="yellow", high="red", midpoint = 10 ) + theme_minimal() + geom_text_repel(data = subset(summary_all_fwds_poss_n5,meanAER > 5 | meanAttPen > 6.5 ), aes(label = Player)) + geom_smooth(method = "lm", se = FALSE, colour = "black")
+
+# xFpts v AER
+ggplot(summary_all_fwds_poss_n5, aes(y =  meanAER, x = meanxFpts)) + geom_point(aes(colour = meanxFpts, size = sdxFpts)) + scale_color_gradient2(low="blue", mid ="yellow", high="red", midpoint = 10 ) + theme_minimal() + geom_text_repel(data = subset(summary_all_fwds_poss_n5,meanAER > 5 | meanxFpts > 13 ), aes(label = Player)) + geom_smooth(method = "lm", se = FALSE, colour = "black")
+
 	'Pearsons product-moment correlation
 
-data:  summary_all_mids_poss_n5$meanAER and summary_all_mids_poss_n5$meanAttPen
-t = -2.4998, df = 127, p-value = 0.0137
+data:  summary_all_fwds_poss_n5$meanAER and summary_all_fwds_poss_n5$meanAttPen
+t = -2.2464, df = 59, p-value = 0.02843
 alternative hypothesis: true correlation is not equal to 0
 95 percent confidence interval:
- -0.37535951 -0.04540091
+ -0.49736696 -0.03107979
 sample estimates:
        cor 
--0.2165558 '
+-0.2807036 '
 
 ggplot( summary_all_fwds_poss_n5, aes(y =  meanAER, x = meanDefPen, label = Player)) + geom_point(aes(colour = meanxFpts)) + scale_color_gradient(low="blue", high="red", ) + theme_minimal() + geom_text_repel()
 
 ```
+
+#AER proportion plots for all positions
+```{r}
+
+# xG v AERProp
+ggplot(summary_all_fwds_poss_n5, aes(y =  meanAERProp, x = meanxG)) + geom_point(aes(colour = meanxFpts, size = sdxFpts)) + scale_color_gradient2(low="blue", mid ="yellow", high="red", midpoint = 10 ) + theme_minimal() + geom_text_repel(data = subset(summary_all_fwds_poss_n5,meanAERProp > .5 | meanxG > 0.6 ), aes(label = Player)) + geom_smooth(method = "lm", se = FALSE, colour = "black")
+
+# SoT v AERProp
+ggplot(summary_all_fwds_poss_n5, aes(y =  meanAERProp, x = meanSoT)) + geom_point(aes(colour = meanxFpts, size = sdxFpts)) + scale_color_gradient2(low="blue", mid ="yellow", high="red", midpoint = 10 ) + theme_minimal() + geom_text_repel(data = subset(summary_all_fwds_poss_n5,meanAERProp > .49 | meanSoT > 1.39 ), aes(label = Player)) + geom_smooth(method = "lm", se = FALSE, colour = "black")
+
+# Sh v AERProp
+ggplot(summary_all_fwds_poss_n5, aes(y =  meanAERProp, x = meanSh)) + geom_point(aes(colour = meanxFpts, size = sdxFpts)) + scale_color_gradient2(low="blue", mid ="yellow", high="red", midpoint = 10 ) + theme_minimal() + geom_text_repel(data = subset(summary_all_fwds_poss_n5,meanAERProp > 0.5 | meanSh > 3.25 ), aes(label = Player)) + geom_smooth(method = "lm", se = FALSE, colour = "black")
+
+
+# AttPen v AERProp
+ggplot(summary_all_fwds_poss_n5, aes(y =  meanAERProp, x = meanAttPen)) + geom_point(aes(colour = meanxFpts, size = sdxFpts)) + scale_color_gradient2(low="blue", mid ="yellow", high="red", midpoint = 10 ) + theme_minimal() + geom_text_repel(data = subset(summary_all_fwds_poss_n5,meanAERProp > 0.49 | meanAttPen > 6.5 ), aes(label = Player)) + geom_smooth(method = "lm", se = FALSE, colour = "black")
+
+# xFpts v AERProp
+ggplot(summary_all_fwds_poss_n5, aes(y =  meanAERProp, x = meanxFpts)) + geom_point(aes(colour = meanxFpts, size = sdxFpts)) + scale_color_gradient2(low="blue", mid ="yellow", high="red", midpoint = 10 ) + theme_minimal() + geom_text_repel(data = subset(summary_all_fwds_poss_n5,meanAERProp > 0.5 | meanxFpts > 13 ), aes(label = Player)) + geom_smooth(method = "lm", se = FALSE, colour = "black")
