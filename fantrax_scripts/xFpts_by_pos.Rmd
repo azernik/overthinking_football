@@ -2575,26 +2575,37 @@ summary_all_CBs_poss_n5 <- summary_all_CBs_poss[summary_all_CBs_poss$n >= 5,]
 
 #plot it to take a look
 # AttPen v AER
-ggplot(summary_all_CBs_poss_n5, aes(y =  meanAER, x = meanAttPen)) + geom_point(aes(colour = meanxFpts, size = sdxFpts)) + scale_color_gradient2(low="blue", mid ="yellow", high="red", midpoint = mean(summary_all_CBs_poss_n5$meanxFpts)) + theme_minimal() + geom_text_repel(data = subset(summary_all_CBs_poss_n5,meanAER > 4.5 | meanAttPen > 1.5 ), aes(label = Player)) + geom_smooth(method = "lm", se = FALSE, colour = "black")
+ggbub <- ggplot(summary_all_CBs_poss_n5, aes(y =  meanAER, x = meanAttPen)) + geom_point(aes(colour = meanxFpts, size = sdxFpts)) + scale_color_gradient2(low="blue", mid ="yellow", high="red", midpoint = mean(summary_all_CBs_poss_n5$meanxFpts)) + theme_minimal() + geom_text_repel(data = subset(summary_all_CBs_poss_n5,meanAER > 4.5 | meanAttPen > 1.5 ), aes(label = Player)) + geom_smooth(method = "lm", se = FALSE, colour = "black")
+
+ggsave(filename="../xFpts_figures/CB_AttPen_AER_sd.png", plot=ggbub)
 
 #SoT v AER
-ggplot(summary_all_CBs_poss_n5, aes(y =  meanAER, x = meanSoT)) + geom_point(aes(colour = meanxFpts, size = sdxFpts)) + scale_color_gradient2(low="blue", mid ="yellow", high="red", midpoint = mean(summary_all_CBs_poss_n5$meanxFpts)) + theme_minimal() + geom_text_repel(data = subset(summary_all_CBs_poss_n5,meanAER > 4.5 | meanSoT > 0.3 ), aes(label = Player)) + geom_smooth(method = "lm", se = FALSE, colour = "black")
+ggbub <- ggplot(summary_all_CBs_poss_n5, aes(y =  meanAER, x = meanSoT)) + geom_point(aes(colour = meanxFpts, size = sdxFpts)) + scale_color_gradient2(low="blue", mid ="yellow", high="red", midpoint = mean(summary_all_CBs_poss_n5$meanxFpts)) + theme_minimal() + geom_text_repel(data = subset(summary_all_CBs_poss_n5,meanAER > 4.5 | meanSoT > 0.3 ), aes(label = Player)) + geom_smooth(method = "lm", se = FALSE, colour = "black")
+
+ggsave(filename="../xFpts_figures/CB_SoT_AER_sd.png", plot=ggbub)
 
 #xG v AER
-ggplot(summary_all_CBs_poss_n5, aes(y =  meanAER, x = meanxG)) + geom_point(aes(colour = meanxFpts, size = sdxFpts)) + scale_color_gradient2(low="blue", mid ="yellow", high="red", midpoint = mean(summary_all_CBs_poss_n5$meanxFpts)) + theme_minimal() + geom_text_repel(data = subset(summary_all_CBs_poss_n5,meanAER > 4.5 | meanxG > 0.075  | meanxFpts > 10), aes(label = Player)) + geom_smooth(method = "lm", se = FALSE, colour = "black")
+ggbub <- ggplot(summary_all_CBs_poss_n5, aes(y =  meanAER, x = meanxG)) + geom_point(aes(colour = meanxFpts, size = sdxFpts)) + scale_color_gradient2(low="blue", mid ="yellow", high="red", midpoint = mean(summary_all_CBs_poss_n5$meanxFpts)) + theme_minimal() + geom_text_repel(data = subset(summary_all_CBs_poss_n5,meanAER > 4.5 | meanxG > 0.075  | meanxFpts > 10), aes(label = Player)) + geom_smooth(method = "lm", se = FALSE, colour = "black")
 
+ggsave(filename="../xFpts_figures/CB_xG_AER_sd.png", plot=ggbub)
 
 #xFpts v AER
-ggplot(summary_all_CBs_poss_n5, aes(y =  meanAER, x = meanxFpts)) + geom_point(aes(colour = meanxFpts, size = sdxFpts)) + scale_color_gradient2(low="blue", mid ="yellow", high="red", midpoint = mean(summary_all_CBs_poss_n5$meanxFpts)) + theme_minimal() + geom_text_repel(data = subset(summary_all_CBs_poss_n5,meanAER > 4.5 |  meanxFpts > 9.5), aes(label = Player)) + geom_smooth(method = "lm", se = FALSE, colour = "black")
+ggbub <- ggplot(summary_all_CBs_poss_n5, aes(y =  meanAER, x = meanxFpts)) + geom_point(aes(colour = meanxFpts, size = sdxFpts)) + scale_color_gradient2(low="blue", mid ="yellow", high="red", midpoint = mean(summary_all_CBs_poss_n5$meanxFpts)) + theme_minimal() + geom_text_repel(data = subset(summary_all_CBs_poss_n5,meanAER > 4.5 |  meanxFpts > 9.5), aes(label = Player)) + geom_smooth(method = "lm", se = FALSE, colour = "black")
+
+ggsave(filename="../xFpts_figures/CB_xFpts_AER_sd.png", plot=ggbub)
 
 #Sh v AER
-ggplot(summary_all_CBs_poss_n5, aes(y =  meanAER, x = meanSh)) + geom_point(aes(colour = meanxFpts, size = sdxFpts)) + scale_color_gradient2(low="blue", mid ="yellow", high="red", midpoint = mean(summary_all_CBs_poss_n5$meanxFpts)) + theme_minimal() + geom_text_repel(data = subset(summary_all_CBs_poss_n5,meanAER > 4.5 |  meanxFpts > 9.5), aes(label = Player)) + geom_smooth(method = "lm", se = FALSE, colour = "black")
+ggbub <- ggplot(summary_all_CBs_poss_n5, aes(y =  meanAER, x = meanSh)) + geom_point(aes(colour = meanxFpts, size = sdxFpts)) + scale_color_gradient2(low="blue", mid ="yellow", high="red", midpoint = mean(summary_all_CBs_poss_n5$meanxFpts)) + theme_minimal() + geom_text_repel(data = subset(summary_all_CBs_poss_n5,meanAER > 4.5 |  meanxFpts > 9.5 | meanSh > 0.99), aes(label = Player)) + geom_smooth(method = "lm", se = FALSE, colour = "black")
+
+ggsave(filename="../xFpts_figures/CB_Sh_AER_sd.png", plot=ggbub)
 
 #xA v AER
-ggplot(summary_all_CBs_poss_n5, aes(y =  meanAER, x = meanxA)) + geom_point(aes(colour = meanxFpts, size = sdxFpts)) + scale_color_gradient2(low="blue", mid ="yellow", high="red", midpoint = mean(summary_all_CBs_poss_n5$meanxFpts)) + theme_minimal() + geom_text_repel(data = subset(summary_all_CBs_poss_n5,meanAER > 4.5 |  meanxFpts > 9.5), aes(label = Player)) + geom_smooth(method = "lm", se = FALSE, colour = "black")
+ggbub <- ggplot(summary_all_CBs_poss_n5, aes(y =  meanAER, x = meanxA)) + geom_point(aes(colour = meanxFpts, size = sdxFpts)) + scale_color_gradient2(low="blue", mid ="yellow", high="red", midpoint = mean(summary_all_CBs_poss_n5$meanxFpts)) + theme_minimal() + geom_text_repel(data = subset(summary_all_CBs_poss_n5,meanAER > 4.5 |  meanxFpts > 9.5), aes(label = Player)) + geom_smooth(method = "lm", se = FALSE, colour = "black")
+
+ggsave(filename="../xFpts_figures/CB_xA_AER_sd.png", plot=ggbub)
 
 
-ggplot(summary_all_CBs_poss_n5, aes(y =  meanAER, x = meanAtt3rd, label = Player)) + geom_point(aes(colour = meanxFpts)) + scale_color_gradient(low="blue", high="red", ) + theme_minimal() + geom_text_repel()
+#ggplot(summary_all_CBs_poss_n5, aes(y =  meanAER, x = meanAtt3rd, label = Player)) + geom_point(aes(colour = meanxFpts)) + scale_color_gradient(low="blue", high="red", ) + theme_minimal() + geom_text_repel()
 
 cor.test(summary_all_CBs_poss_n5$meanAER, summary_all_CBs_poss_n5$meanAtt3rd)
 
@@ -2700,16 +2711,42 @@ dim(pts_breakdown_df_OBs_posStats)
  
  summary_all_OBs_poss <- pts_breakdown_df_OBs_posStats %>% 
   group_by(Player) %>%
-  summarize(n = n(), meanFpts = mean(FPts), meanxFpts = mean(xPts), meanOffPts= mean(offPts), meanDefPts= mean(defPts), meanxG = mean(xG), meanxCS = mean(xCS), meanxA = mean(xA), meanAER = mean(AER), meanAERProp = mean(AER_prop), meanSoT = mean(SoT), meanAtt3rd = mean(Att.3rd), meanAttPen = mean(Att.Pen), meanDefPen = mean(Def.Pen))
+  summarize(n = n(), meanFpts = mean(FPts), meanxFpts = mean(xPts), sdxFpts = sd(xPts) , meanOffPts= mean(offPts), meanDefPts= mean(defPts), meanxG = mean(xG), meanxCS = mean(xCS), meanxA = mean(xA), meanAER = mean(AER), meanAERProp = mean(AER_prop), meanSh = mean(Sh), meanSoT = mean(SoT), meanAtt3rd = mean(Att.3rd), meanAttPen = mean(Att.Pen), meanDefPen = mean(Def.Pen))
 
 #require that they played at least 5 games as a OB
 
 summary_all_OBs_poss_n5 <- summary_all_OBs_poss[summary_all_OBs_poss$n >= 5,]
 
 dim(summary_all_OBs_poss_n5)
-#[1] 69 15
+#[1] 69 16
 
-#plot it to take a look
+
+
+# AttPen v AER
+ggbub <- ggplot(summary_all_OBs_poss_n5, aes(y =  meanAER, x = meanAttPen)) + geom_point(aes(colour = meanxFpts, size = sdxFpts)) + scale_color_gradient2(low="blue", mid ="yellow", high="red", midpoint = mean(summary_all_OBs_poss_n5$meanxFpts)) + theme_minimal() + geom_text_repel(data = subset(summary_all_OBs_poss_n5,meanAER > 2.5 | meanAttPen > 2.5 ), aes(label = Player)) + geom_smooth(method = "lm", se = FALSE, colour = "black")
+
+ggsave(filename="../xFpts_figures/OB_AttPen_AER_sd.png", plot=ggbub)
+
+# xG v AER
+ggbub <- ggplot(summary_all_OBs_poss_n5, aes(y =  meanAER, x = meanxG)) + geom_point(aes(colour = meanxFpts, size = sdxFpts)) + scale_color_gradient2(low="blue", mid ="yellow", high="red", midpoint = mean(summary_all_OBs_poss_n5$meanxFpts)) + theme_minimal() + geom_text_repel(data = subset(summary_all_OBs_poss_n5,meanAER > 2.5 | meanxG > 0.075 ), aes(label = Player)) + geom_smooth(method = "lm", se = FALSE, colour = "black")
+
+ggsave(filename="../xFpts_figures/OB_xG_AER_sd.png", plot=ggbub)
+
+# Sh v AER
+ggbub <- ggplot(summary_all_OBs_poss_n5, aes(y =  meanAER, x = meanSh)) + geom_point(aes(colour = meanxFpts, size = sdxFpts)) + scale_color_gradient2(low="blue", mid ="yellow", high="red", midpoint = mean(summary_all_OBs_poss_n5$meanxFpts)) + theme_minimal() + geom_text_repel(data = subset(summary_all_OBs_poss_n5,meanAER > 2.5 | meanxG > 0.075 ), aes(label = Player)) + geom_smooth(method = "lm", se = FALSE, colour = "black")
+
+ggsave(filename="../xFpts_figures/OB_Sh_AER_sd.png", plot=ggbub)
+
+# xFpts v AER
+ggbub <- ggplot(summary_all_OBs_poss_n5, aes(y =  meanAER, x = meanxFpts)) + geom_point(aes(colour = meanxFpts, size = sdxFpts)) + scale_color_gradient2(low="blue", mid ="yellow", high="red", midpoint = mean(summary_all_OBs_poss_n5$meanxFpts)) + theme_minimal() + geom_text_repel(data = subset(summary_all_OBs_poss_n5,meanAER > 2.5 | meanxFpts > 12 ), aes(label = Player)) + geom_smooth(method = "lm", se = FALSE, colour = "black")
+
+ggsave(filename="../xFpts_figures/OB_xG_AER_sd.png", plot=ggbub)
+
+# SoT v AER
+ggbub <- ggplot(summary_all_OBs_poss_n5, aes(y =  meanAER, x = meanSoT)) + geom_point(aes(colour = meanxFpts, size = sdxFpts)) + scale_color_gradient2(low="blue", mid ="yellow", high="red", midpoint = mean(summary_all_OBs_poss_n5$meanxFpts)) + theme_minimal() + geom_text_repel(data = subset(summary_all_OBs_poss_n5,meanAER > 3 | meanSoT > 0.4 | meanxFpts > 12 ), aes(label = Player)) + geom_smooth(method = "lm", se = FALSE, colour = "black")
+
+ggsave(filename="../xFpts_figures/OB_SoT_AER_sd.png", plot=ggbub)
+
 ggplot(summary_all_OBs_poss, aes(y = meanSoT, x = meanAER, label = Player)) + geom_point(aes(colour = meanxFpts)) + scale_color_gradient(low="blue", high="red", ) + theme_minimal() + geom_text_repel()
 
 
@@ -2859,7 +2896,7 @@ mids_min60_merged_df_posStats <- mids_min60_merged_df_posStats[mids_min60_merged
 
  summary_all_mids_poss <- mids_min60_merged_df_posStats %>% 
   group_by(Player) %>%
-  summarize(n = n(), meanFpts = mean(FPts), meanxFpts = mean(xPts), meanxG = mean(xG), meanxA = mean(xA), meanAER = mean(AER), meanAERProp = mean(AER_prop), meanSoT = mean(SoT), meanAtt3rd = mean(Att.3rd), meanAttPen = mean(Att.Pen), meanDefPen = mean(Def.Pen))
+  summarize(n = n(), meanFpts = mean(FPts), meanxFpts = mean(xPts), sdxFpts = sd(xPts), meanxG = mean(xG), meanxA = mean(xA), meanAER = mean(AER), meanAERProp = mean(AER_prop), meanSh = mean(Sh), meanSoT = mean(SoT), meanAtt3rd = mean(Att.3rd), meanAttPen = mean(Att.Pen), meanDefPen = mean(Def.Pen))
  
 
 
@@ -2870,7 +2907,32 @@ summary_all_mids_poss_n5 <- summary_all_mids_poss[summary_all_mids_poss$n >= 5,]
 dim(summary_all_mids_poss_n5)
 #[1] 129  12
 
-#plot it to take a look
+
+# AttPen v AER
+ggbub <- ggplot(summary_all_mids_poss_n5, aes(y =  meanAER, x = meanAttPen)) + geom_point(aes(colour = meanxFpts, size = sdxFpts)) + scale_color_gradient2(low="blue", mid ="yellow", high="red", midpoint = mean(summary_all_mids_poss_n5$meanxFpts)) + theme_minimal() + geom_text_repel(data = subset(summary_all_mids_poss_n5,meanAER > 2.5 | meanAttPen > 5 | meanFpts > 16 ), aes(label = Player)) + geom_smooth(method = "lm", se = FALSE, colour = "black")
+
+ggsave(filename="../xFpts_figures/MID_AttPen_AER_sd.png", plot=ggbub)
+
+#Sh v AER
+ggbub <- ggplot(summary_all_mids_poss_n5, aes(y =  meanAER, x = meanSh)) + geom_point(aes(colour = meanxFpts, size = sdxFpts)) + scale_color_gradient2(low="blue", mid ="yellow", high="red", midpoint = mean(summary_all_mids_poss_n5$meanxFpts)) + theme_minimal() + geom_text_repel(data = subset(summary_all_mids_poss_n5,meanAER > 2.5 | meanSh > 2.5 | meanFpts > 16 ), aes(label = Player)) + geom_smooth(method = "lm", se = FALSE, colour = "black")
+
+ggsave(filename="../xFpts_figures/MID_Sh_AER_sd.png", plot=ggbub)
+
+#SoT v AER
+ggbub <- ggplot(summary_all_mids_poss_n5, aes(y =  meanAER, x = meanSoT)) + geom_point(aes(colour = meanxFpts, size = sdxFpts)) + scale_color_gradient2(low="blue", mid ="yellow", high="red", midpoint = mean(summary_all_mids_poss_n5$meanxFpts)) + theme_minimal() + geom_text_repel(data = subset(summary_all_mids_poss_n5,meanAER > 2.5 | meanSoT > 1 | meanFpts > 16 ), aes(label = Player)) + geom_smooth(method = "lm", se = FALSE, colour = "black")
+
+ggsave(filename="../xFpts_figures/MID_SoT_AER_sd.png", plot=ggbub)
+
+#xG v AER
+ggbub <- ggplot(summary_all_mids_poss_n5, aes(y =  meanAER, x = meanxG)) + geom_point(aes(colour = meanxFpts, size = sdxFpts)) + scale_color_gradient2(low="blue", mid ="yellow", high="red", midpoint = mean(summary_all_mids_poss_n5$meanxFpts)) + theme_minimal() + geom_text_repel(data = subset(summary_all_mids_poss_n5,meanAER > 2.5 | meanxG > 0.3 | meanFpts > 16 ), aes(label = Player)) + geom_smooth(method = "lm", se = FALSE, colour = "black")
+
+ggsave(filename="../xFpts_figures/MID_xG_AER_sd.png", plot=ggbub)
+
+#xA v AER
+ggbub <- ggplot(summary_all_mids_poss_n5, aes(y =  meanAER, x = meanxA)) + geom_point(aes(colour = meanxFpts, size = sdxFpts)) + scale_color_gradient2(low="blue", mid ="yellow", high="red", midpoint = mean(summary_all_mids_poss_n5$meanxFpts)) + theme_minimal() + geom_text_repel(data = subset(summary_all_mids_poss_n5,meanAER > 2.5 | meanxA > 0.25 | meanFpts > 16 ), aes(label = Player)) + geom_smooth(method = "lm", se = FALSE, colour = "black")
+
+ggsave(filename="../xFpts_figures/MID_xA_AER_sd.png", plot=ggbub)
+
 ggplot(summary_all_mids_poss_n5 , aes(y = meanSoT, x = meanAER, label = Player)) + geom_point(aes(colour = meanxFpts)) + scale_color_gradient(low="blue", high="red", ) + theme_minimal() + geom_text_repel()
 
 
@@ -3011,20 +3073,29 @@ cor.test( summary_all_fwds_poss_n5$meanAER,  summary_all_fwds_poss_n5$meanAttPen
 
 
 # xG v AER
-ggplot(summary_all_fwds_poss_n5, aes(y =  meanAER, x = meanxG)) + geom_point(aes(colour = meanxFpts, size = sdxFpts)) + scale_color_gradient2(low="blue", mid ="yellow", high="red", midpoint = 10 ) + theme_minimal() + geom_text_repel(data = subset(summary_all_fwds_poss_n5,meanAER > 5 | meanxG > 0.6 ), aes(label = Player)) + geom_smooth(method = "lm", se = FALSE, colour = "black")
+ggbub <- ggplot(summary_all_fwds_poss_n5, aes(y =  meanAER, x = meanxG)) + geom_point(aes(colour = meanxFpts, size = sdxFpts)) + scale_color_gradient2(low="blue", mid ="yellow", high="red", midpoint = 10 ) + theme_minimal() + geom_text_repel(data = subset(summary_all_fwds_poss_n5,meanAER > 5 | meanxG > 0.6 ), aes(label = Player)) + geom_smooth(method = "lm", se = FALSE, colour = "black")
+
+ggsave(filename="../xFpts_figures/FWD_xG_AER_sd.png", plot=ggbub)
 
 # SoT v AER
-ggplot(summary_all_fwds_poss_n5, aes(y =  meanAER, x = meanSoT)) + geom_point(aes(colour = meanxFpts, size = sdxFpts)) + scale_color_gradient2(low="blue", mid ="yellow", high="red", midpoint = 10 ) + theme_minimal() + geom_text_repel(data = subset(summary_all_fwds_poss_n5,meanAER > 5 | meanSoT > 1.39 ), aes(label = Player)) + geom_smooth(method = "lm", se = FALSE, colour = "black")
+ggbub <- ggplot(summary_all_fwds_poss_n5, aes(y =  meanAER, x = meanSoT)) + geom_point(aes(colour = meanxFpts, size = sdxFpts)) + scale_color_gradient2(low="blue", mid ="yellow", high="red", midpoint = 10 ) + theme_minimal() + geom_text_repel(data = subset(summary_all_fwds_poss_n5,meanAER > 5 | meanSoT > 1.39 ), aes(label = Player)) + geom_smooth(method = "lm", se = FALSE, colour = "black")
+
+ggsave(filename="../xFpts_figures/FWD_SoT_AER_sd.png", plot=ggbub)
 
 # Sh v AER
-ggplot(summary_all_fwds_poss_n5, aes(y =  meanAER, x = meanSh)) + geom_point(aes(colour = meanxFpts, size = sdxFpts)) + scale_color_gradient2(low="blue", mid ="yellow", high="red", midpoint = 10 ) + theme_minimal() + geom_text_repel(data = subset(summary_all_fwds_poss_n5,meanAER > 5 | meanSh > 3.25 ), aes(label = Player)) + geom_smooth(method = "lm", se = FALSE, colour = "black")
+ggbub <- ggplot(summary_all_fwds_poss_n5, aes(y =  meanAER, x = meanSh)) + geom_point(aes(colour = meanxFpts, size = sdxFpts)) + scale_color_gradient2(low="blue", mid ="yellow", high="red", midpoint = 10 ) + theme_minimal() + geom_text_repel(data = subset(summary_all_fwds_poss_n5,meanAER > 5 | meanSh > 3.25 ), aes(label = Player)) + geom_smooth(method = "lm", se = FALSE, colour = "black")
 
+ggsave(filename="../xFpts_figures/FWD_Sh_AER_sd.png", plot=ggbub)
 
 # AttPen v AER
-ggplot(summary_all_fwds_poss_n5, aes(y =  meanAER, x = meanAttPen)) + geom_point(aes(colour = meanxFpts, size = sdxFpts)) + scale_color_gradient2(low="blue", mid ="yellow", high="red", midpoint = 10 ) + theme_minimal() + geom_text_repel(data = subset(summary_all_fwds_poss_n5,meanAER > 5 | meanAttPen > 6.5 ), aes(label = Player)) + geom_smooth(method = "lm", se = FALSE, colour = "black")
+ggbub <- ggplot(summary_all_fwds_poss_n5, aes(y =  meanAER, x = meanAttPen)) + geom_point(aes(colour = meanxFpts, size = sdxFpts)) + scale_color_gradient2(low="blue", mid ="yellow", high="red", midpoint = 10 ) + theme_minimal() + geom_text_repel(data = subset(summary_all_fwds_poss_n5,meanAER > 5 | meanAttPen > 6.5 ), aes(label = Player)) + geom_smooth(method = "lm", se = FALSE, colour = "black")
+
+ggsave(filename="../xFpts_figures/FWD_AttPen_AER_sd.png", plot=ggbub)
 
 # xFpts v AER
-ggplot(summary_all_fwds_poss_n5, aes(y =  meanAER, x = meanxFpts)) + geom_point(aes(colour = meanxFpts, size = sdxFpts)) + scale_color_gradient2(low="blue", mid ="yellow", high="red", midpoint = 10 ) + theme_minimal() + geom_text_repel(data = subset(summary_all_fwds_poss_n5,meanAER > 5 | meanxFpts > 13 ), aes(label = Player)) + geom_smooth(method = "lm", se = FALSE, colour = "black")
+ggbub <- ggplot(summary_all_fwds_poss_n5, aes(y =  meanAER, x = meanxFpts)) + geom_point(aes(colour = meanxFpts, size = sdxFpts)) + scale_color_gradient2(low="blue", mid ="yellow", high="red", midpoint = 10 ) + theme_minimal() + geom_text_repel(data = subset(summary_all_fwds_poss_n5,meanAER > 5 | meanxFpts > 13 ), aes(label = Player)) + geom_smooth(method = "lm", se = FALSE, colour = "black")
+
+ggsave(filename="../xFpts_figures/FWD_xFpts_AER_sd.png", plot=ggbub)
 
 	'Pearsons product-moment correlation
 
@@ -3059,3 +3130,521 @@ ggplot(summary_all_fwds_poss_n5, aes(y =  meanAERProp, x = meanAttPen)) + geom_p
 
 # xFpts v AERProp
 ggplot(summary_all_fwds_poss_n5, aes(y =  meanAERProp, x = meanxFpts)) + geom_point(aes(colour = meanxFpts, size = sdxFpts)) + scale_color_gradient2(low="blue", mid ="yellow", high="red", midpoint = 10 ) + theme_minimal() + geom_text_repel(data = subset(summary_all_fwds_poss_n5,meanAERProp > 0.5 | meanxFpts > 13 ), aes(label = Player)) + geom_smooth(method = "lm", se = FALSE, colour = "black")
+
+```
+
+## Rerun AER analyses with whole season data
+```{r}
+#read in fantrax all 19-20 season data
+
+min_starts_requirement <- 5
+min_minutes_requirement <- 60
+
+#load all player data for fbref.com
+weekly_data_csv = "../data/fantrax_data/weekly.all_data_combined.no_double_gws.csv"
+yearly_data_csv = "../data/fantrax_data/yearly.all_data_combined.csv"
+
+weekly_data_df <- read_csv(file = weekly_data_csv, col_names = TRUE)
+yearly_data_df <- read_csv(file = yearly_data_csv, col_names = TRUE)
+
+# Only weeks where at least 60 minutes are played
+min_minute_df <- weekly_data_df[weekly_data_df$Min >= min_minutes_requirement,]
+# Players that have started at least 5 games
+summary_min_minutes_df <- min_minute_df %>% 
+  group_by(Player, Team, Position) %>%
+  summarize(n = n(), min_total = sum(Min), sd = sd(FPts), mean = mean(FPts), total_fpts = sum(FPts), mean_minutes = mean(Min))
+
+#only players with at least 5 starts
+players_min_starts_summary_df <- summary_min_minutes_df[summary_min_minutes_df$n >= min_starts_requirement,]
+
+player_min_starts_weekly_df <- min_minute_df %>%
+  filter(Player %in% players_min_starts_summary_df$Player)
+nrow(player_min_starts_weekly_df)
+
+
+#### DEFENDERS xFPTS ####
+
+# load in just defenders
+players_min_starts.defenders = players_min_starts_summary_df[players_min_starts_summary_df$Position == 'D',]
+nrow(players_min_starts.defenders)
+def_player_list <- players_min_starts.defenders$Player
+length(def_player_list)
+
+#read in fbref_summary data
+fbref_summ_df <- read_csv('../data/fbref/premier_league/19_20/name_cleaned.summary_table.first_360_matches_game_week.csv')
+
+dim(fbref_summ_df)
+
+#clean sheet data
+cs_df <- read_csv('../data/fantrax_data/game_results.csv')
+
+#merge on player and game week
+min_minutes_weekly_merged_df <- merge(min_minute_df, fbref_summ_df, by=c('Player', 'game_week'))
+
+
+#filter on fantrax defenders
+defenders_min_minutes_merged_df <- min_minutes_weekly_merged_df[min_minutes_weekly_merged_df$Position == "D",]
+
+sum(def_player_list %in% unique(defenders_min_minutes_merged_df$Player))
+#[1] 138
+#so they are all there
+
+#negate %in%
+`%!in%` = Negate(`%in%`)
+
+#see which players are extra in this group
+Players_defenders_min_minutes_merged_df<-unique(defenders_min_minutes_merged_df$Player)
+
+Players_defenders_min_minutes_merged_df[Players_defenders_min_minutes_merged_df %!in% def_player_list]
+
+#they are players who havent have 5 starts
+
+#remove the under 5 games players
+defenders_min_minutes_merged_df <- defenders_min_minutes_merged_df[defenders_min_minutes_merged_df$Player %in% def_player_list,]
+
+dim(defenders_min_minutes_merged_df)
+#[1] 2715  125
+
+#just get the important stuff for clean sheets (name "Team.y" for easy merge in a sec)
+all_cs_data_df <- data.frame('Team.y' = c(cs_df$Home, cs_df$Away), 'xG_against' = c(cs_df$xG_1, cs_df$xG), 'game_week' = c(cs_df$Wk, cs_df$Wk))
+
+#convert squad to character all_cs_data_df for merge
+all_cs_data_df$Team.y <- as.character(all_cs_data_df$Team.y)
+
+#merge cs and defender data
+defenders_min_minutes_merged_cs_df <- merge(defenders_min_minutes_merged_df, all_cs_data_df, by=c("Team.y", "game_week"))
+
+dim(defenders_min_minutes_merged_cs_df)
+#[1] 2715  126
+
+#calculate xFpts from cs given xG against
+defenders_min_minutes_merged_cs_df$GAD_against <- ifelse(defenders_min_minutes_merged_cs_df$xG_against - 0.25 < 0, 0, defenders_min_minutes_merged_cs_df$xG_against - 0.25)
+
+defenders_min_minutes_merged_cs_df$xCS <- ifelse(defenders_min_minutes_merged_cs_df$GAD_against <= 1.25, 1 - defenders_min_minutes_merged_cs_df$GAD_against/1.25, 0)
+
+#calculate xFpts for defenders
+defenders_min_minutes_merged_cs_df$xPts <- defenders_min_minutes_merged_cs_df$FPts - (defenders_min_minutes_merged_cs_df$G * 10 + defenders_min_minutes_merged_cs_df$AT * 8 + defenders_min_minutes_merged_cs_df$CS * 6 + defenders_min_minutes_merged_cs_df$GAD * -2) + (as.numeric(defenders_min_minutes_merged_cs_df$xG)* 10 + as.numeric(defenders_min_minutes_merged_cs_df$xA) * 8 + as.numeric(defenders_min_minutes_merged_cs_df$xCS)* 6 + as.numeric(defenders_min_minutes_merged_cs_df$GAD_against) * -2)
+
+#remove some extra defender columns
+drops <- c("normed_xg_against","GAD_against", 'xG_against')
+defenders_min_minutes_merged_cs_df <- defenders_min_minutes_merged_cs_df[ , !(names(defenders_min_minutes_merged_cs_df) %in% drops)]
+
+#### MIDFIELDERS xFPTS ####
+
+#load in just midfielders
+players_min_starts.midfielders = players_min_starts_summary_df[players_min_starts_summary_df$Position == 'M',]
+nrow(players_min_starts.midfielders)
+mid_player_list <- players_min_starts.midfielders$Player
+
+length(mid_player_list)
+
+#filter on fantrax midfielders
+mids_min_minutes_merged_df <- min_minutes_weekly_merged_df[min_minutes_weekly_merged_df$Position == "M",]
+
+length(unique(mids_min_minutes_merged_df$Player))
+
+
+sum(mid_player_list %in% unique(mids_min_minutes_merged_df$Player))
+
+#remove the under 5 games players
+mids_min_minutes_merged_df <- mids_min_minutes_merged_df[mids_min_minutes_merged_df$Player %in% mid_player_list,]
+
+dim(mids_min_minutes_merged_df)
+#[1] 2600  125
+
+
+length(unique(mids_min_minutes_merged_df$Player))
+#[1] 143
+
+#calculate xFpts for midfielders
+mids_min_minutes_merged_df$xPts <- mids_min_minutes_merged_df$FPts - (mids_min_minutes_merged_df$G * 9 + mids_min_minutes_merged_df$AT * 6)
+mids_min_minutes_merged_df$xPts <- mids_min_minutes_merged_df$xPts + (as.numeric(mids_min_minutes_merged_df$xG)* 9 + as.numeric(mids_min_minutes_merged_df$xA) * 6)
+
+#### FORWARDS xFPTS ####
+
+#load in just forwards
+players_min_starts.forwards = players_min_starts_summary_df[players_min_starts_summary_df$Position == 'F',]
+nrow(players_min_starts.forwards)
+
+for_player_list <- players_min_starts.forwards$Player
+
+length(for_player_list)
+#[1] 71
+
+
+#filter on fantrax forwards
+fwds_min_minutes_merged_df <- min_minutes_weekly_merged_df[min_minutes_weekly_merged_df$Position == "F",]
+
+length(unique(fwds_min_minutes_merged_df$Player))
+#[1] 81
+
+sum(for_player_list %in% unique(fwds_min_minutes_merged_df$Player))
+
+#remove the under min games players
+fwds_min_minutes_merged_df <- fwds_min_minutes_merged_df[fwds_min_minutes_merged_df$Player %in% for_player_list,]
+
+dim(fwds_min_minutes_merged_df)
+
+length(unique(fwds_min_minutes_merged_df$Player))
+
+#calculate xFpts for forwards
+fwds_min_minutes_merged_df$xPts <- fwds_min_minutes_merged_df$FPts - (fwds_min_minutes_merged_df$G * 9 + fwds_min_minutes_merged_df$AT * 6)
+fwds_min_minutes_merged_df$xPts <- fwds_min_minutes_merged_df$xPts + (as.numeric(fwds_min_minutes_merged_df$xG)* 9 + as.numeric(fwds_min_minutes_merged_df$xA) * 6)
+
+# these are the fantrax dfs to use
+#defenders_min_minutes_merged_cs_df, fwds_min_minutes_merged_df, mids_min_minutes_merged_df
+
+```
+
+#Merge Fantrax data with the fbref data
+```{r}
+#load data from the summary table
+fbref_summ_df <- read.csv(file="../data/fbref/premier_league/19_20/name_cleaned.summary_table.game_week.csv")
+#load data from the possession data
+fbref_pos_df <- read.csv(file="../data/fbref/premier_league/19_20/name_cleaned.possession_table.game_week.csv")
+
+#add it to the defenders
+dim(defenders_min_minutes_merged_cs_df)
+#[1] 2723  127
+
+defenders_min_minutes_merged_cs_fbref_df <- merge(defenders_min_minutes_merged_cs_df, fbref_summ_df, by=c('Player', 'game_week'))
+
+dim(defenders_min_minutes_merged_cs_fbref_df)
+#[1] 2723  162
+
+defenders_min_minutes_merged_cs_fbref_df <- merge(defenders_min_minutes_merged_cs_fbref_df, fbref_pos_df, by=c('Player', 'game_week'))
+
+dim(defenders_min_minutes_merged_cs_fbref_df)
+#[1] 2723  191
+
+#make the Team_Pos field
+defenders_min_minutes_merged_cs_fbref_df$Team_Pos <- paste(defenders_min_minutes_merged_cs_fbref_df$Team.x, defenders_min_minutes_merged_cs_fbref_df$Pos, sep = "_")
+
+#remove duplicate columns (team, min, and opponent)
+defenders_min_minutes_merged_cs_fbref_df <- defenders_min_minutes_merged_cs_fbref_df[, !duplicated(colnames(defenders_min_minutes_merged_cs_fbref_df))]
+
+#add it to the midfielders
+dim(mids_min_minutes_merged_df)
+#[1] 2604  126
+
+mids_min_minutes_merged_cs_fbref_df <- merge(mids_min_minutes_merged_df, fbref_summ_df, by=c('Player', 'game_week'))
+
+dim(mids_min_minutes_merged_cs_fbref_df)
+#[1] 2604  161
+
+mids_min_minutes_merged_cs_fbref_df <- merge(mids_min_minutes_merged_cs_fbref_df, fbref_pos_df, by=c('Player', 'game_week'))
+
+dim(mids_min_minutes_merged_cs_fbref_df)
+#[1] 2604  190
+
+#make the Team_Pos field
+mids_min_minutes_merged_cs_fbref_df$Team_Pos <- paste(mids_min_minutes_merged_cs_fbref_df$Team.x, mids_min_minutes_merged_cs_fbref_df$Pos, sep = "_")
+
+#remove duplicate columns (team, min, and opponent)
+mids_min_minutes_merged_cs_fbref_df <- mids_min_minutes_merged_cs_fbref_df[, !duplicated(colnames(mids_min_minutes_merged_cs_fbref_df))]
+
+#add it to the forwards
+dim(fwds_min_minutes_merged_df)
+#[1] 1318  126
+
+fwds_min_minutes_merged_cs_fbref_df <- merge(fwds_min_minutes_merged_df, fbref_summ_df, by=c('Player', 'game_week'))
+
+dim(fwds_min_minutes_merged_cs_fbref_df)
+#[1] 1318  161
+
+fwds_min_minutes_merged_cs_fbref_df <- merge(fwds_min_minutes_merged_cs_fbref_df, fbref_pos_df, by=c('Player', 'game_week'))
+
+dim(fwds_min_minutes_merged_cs_fbref_df)
+#[1] 1318  190
+
+#make the Team_Pos field
+fwds_min_minutes_merged_cs_fbref_df$Team_Pos <- paste(fwds_min_minutes_merged_cs_fbref_df$Team.x, fwds_min_minutes_merged_cs_fbref_df$Pos, sep = "_")
+
+#remove duplicate columns (team, min, and opponent)
+fwds_min_minutes_merged_cs_fbref_df <- fwds_min_minutes_merged_cs_fbref_df[, !duplicated(colnames(fwds_min_minutes_merged_cs_fbref_df))]
+
+```
+
+```{r}
+#Macguire and Lindeloff
+
+#MUN_CB
+MUN_CB_data <- as.data.frame(defenders_min_minutes_merged_cs_fbref_df[defenders_min_minutes_merged_cs_fbref_df$Team_Pos == "MUN_CB",])
+
+dim(MUN_CB_data)
+#[1]  69 186
+
+#get rid of Luke Shaw
+MUN_CB_data <- MUN_CB_data[MUN_CB_data$Player != "Luke Shaw",]
+
+ggbox <- ggplot(MUN_CB_data, aes(Player, xPts)) + geom_boxplot(aes(colour = Player), outlier.shape = NA) + geom_jitter(width = 0.2, aes(colour = MUN_CB_data$Player)) + theme_minimal() + theme(axis.text.x = element_text(angle = 45)) +ggtitle("xFpt for Manchester United CBs") + ylab("xFpts") + theme(plot.title = element_text(hjust = 0.5), text = element_text(size = 15)) 
+
+ggsave(filename="../xFpts_figures/MUN_CBs_boxplot_08022020.png", plot=ggbox)
+
+
+#look at the stats that are different between the two players
+
+#loop through the statistics we have and see what is significantly different between the players
+stat_vec <- names(MUN_CB_data)
+
+#length of the stat_vec
+n = length(stat_vec)
+
+#initiate a vector to save the boolean of whether the Kruskal-Wallis test was significant for each stat
+sigStatKWTestList <- vector(mode= "list", length= n)
+
+#for each team position
+for(s in 1:length(stat_vec)){
+  
+  print(stat_vec[s])
+  print(s)
+  
+  #set stat_name
+  stat_name <- stat_vec[s]
+  
+  #if this stat is not an int or a numeric vector (so a character vector) don't perform the stat test
+  if(typeof(MUN_CB_data[[stat_name]]) == "character" ){
+    
+    bool_signif = FALSE
+  
+  #if all entries are the same don't run the test  
+  } else if(length(unique(MUN_CB_data[[stat_name]])) == 1){
+  
+    bool_signif = FALSE
+    
+  } else {
+  
+  
+  k_test <- kruskal.test(MUN_CB_data[[stat_name]] ~ Player, data = MUN_CB_data)
+  print(k_test$p.value)
+
+  #check if the Kruskal-Wallis test is close to bonferroni significant
+  bool_signif <- k_test$p.value < 0.05
+  
+  }
+  
+  #write the team pos test significance to the list
+  sigStatKWTestList[[s]] <- bool_signif
+}
+
+#make the list into a vector
+sigStatKWTestList<- unlist(sigStatKWTestList)
+
+
+#players seem to be distributed differently for these team distributions
+
+stat_vec[sigStatKWTestList]
+stat_vec[sigStatKWTestList]
+# [1] "Rk"          "FPts"        "FP/G"        "KP"          "S"           "SOT"        
+ #[7] "SA"          "FS"          "Off"         "SFTP"        "CF_1"        "Int.x"      
+#[13] "DW"          "DL"          "AER"         "LB"          "LBA"         "#"          
+#[19] "Sh.x"        "SoT.x"       "Int.y"       "xG.x"        "npxG.x"      "PrgDist.1.x"
+#[25] "xPts"        "X..x"        "Nation.y"    "Sh.y"        "SoT.y"       "Int"        
+#[31] "xG.y"        "npxG.y"      "PrgDist.1.y" "X..y"        "Nation"      "Def.Pen"    
+#[37] "Att.3rd"     "Att.Pen"     "Succ."       "TotDist"     "PrgDist"     "Rec."
+
+#make a summary for these fields
+summary_MUN_CBs <- MUN_CB_data %>% 
+  group_by(Player) %>%
+  summarize(n = n(), meanFpts = mean(FPts), total_Fpts = sum(FPts), meanxFpts = mean(xPts), total_xFpts = sum(xPts),"Mean SOT" = mean(SOT), total_Shots = sum(S), "Mean xG" = mean(xG.x), "Mean INT" = mean(Int.x), "Mean AER" = mean(AER))
+
+#summary_MUN_CBs_for_plot <- summary_MUN_CBs %>% gather(Stat_Name,Stat_Value, meanFpts,meanxFpts,meanSOT,meanxG,meanInts,meanAER)
+
+summary_MUN_CBs_for_plot <- summary_MUN_CBs %>% gather(Stat_Name,Stat_Value,"Mean SOT","Mean xG","Mean INT","Mean AER")
+
+#make a bar plot of these data
+ggbar <- ggplot(summary_MUN_CBs_for_plot , aes(fill=Player, y=Stat_Value, x=Stat_Name)) + geom_bar(position="dodge", stat="identity") + theme_minimal() +ggtitle("Maguire and Lindelof Top Differences") + theme(plot.title = element_text(hjust = 0.5), text = element_text(size = 15)) + xlab("Statistics") + ylab("Value")
+
+ggsave(filename="../xFpts_figures/MUN_CBs_barplot_08022020.png", plot=ggbar)
+
+```
+
+
+#Full season CB AER plots
+```{r}
+
+CB_data <- defenders_min_minutes_merged_cs_fbref_df[defenders_min_minutes_merged_cs_fbref_df$Pos.x == "CB",]
+
+dim(CB_data)
+#[1] 1403  186
+
+#calculated AER_prop (prop won)
+CB_data$AER_prop <- CB_data$AER / (CB_data$AER + CB_data$AERL)
+#could lead to 0/0 so need to remove NaNs
+CB_data$AER_prop[is.nan(CB_data$AER_prop)]<- 0
+
+summary_CBs <- CB_data %>% 
+  group_by(Player) %>%
+  summarize(n = n(), meanFpts = mean(FPts), meanxFpts = mean(xPts), sdxFpts = sd(xPts), meanxG = mean(xG.x), meanxA = mean(xA.x), meanAER = mean(AER), meanAERProp = mean(AER_prop), meanSoT = mean(SoT.x), meanSh = mean(Sh.x), meanAtt3rd = mean(Att.3rd), meanAttPen = mean(Att.Pen), meanDefPen = mean(Def.Pen))
+
+#require that they played at least 5 games as a CB
+
+summary_CBs_n5 <- summary_CBs[summary_CBs$n >= 5,]
+
+#plot it to take a look
+# AttPen v AER
+ggbub <- ggplot(summary_CBs_n5, aes(y =  meanAER, x = meanAttPen)) + geom_point(aes(colour = meanxFpts, size = sdxFpts)) + scale_color_gradient2(low="blue", mid ="yellow", high="red", midpoint = mean(summary_CBs_n5$meanxFpts)) + theme_minimal() + geom_text_repel(data = subset(summary_CBs_n5,meanAER > 4.5 | meanAttPen > 1.5  | meanxFpts > 10), aes(label = Player)) + geom_smooth(method = "lm", se = FALSE, colour = "black") +ggtitle("CB mean touches in the attacking penalty box vs mean aerials won") + theme(plot.title = element_text(hjust = 0.5), text = element_text(size = 12)) + labs(x="Mean touches in the attacking penalty box", y= "Mean aerials won", col = "Mean xFpts", size="SD xFpts")
+
+ggsave(filename="../xFpts_figures/CB_AttPen_AER_sd_08022020.png", plot=ggbub)
+
+
+# Sh v AER
+ggbub <- ggplot(summary_CBs_n5, aes(y =  meanAER, x = meanSh)) + geom_point(aes(colour = meanxFpts, size = sdxFpts)) + scale_color_gradient2(low="blue", mid ="yellow", high="red", midpoint = mean(summary_CBs_n5$meanxFpts)) + theme_minimal() + geom_text_repel(data = subset(summary_CBs_n5,meanAER > 4.5 | meanSh > 0.75  | meanxFpts > 10), aes(label = Player)) + geom_smooth(method = "lm", se = FALSE, colour = "black") +ggtitle("CB mean shots vs mean aerials won") + theme(plot.title = element_text(hjust = 0.5), text = element_text(size = 12)) + labs(x="Mean shots", y= "Mean aerials won", col = "Mean xFpts", size="SD xFpts")
+
+ggsave(filename="../xFpts_figures/CB_Sh_AER_sd_08022020.png", plot=ggbub)
+
+
+# SoT v AER
+ggbub <- ggplot(summary_CBs_n5, aes(y =  meanAER, x = meanSoT)) + geom_point(aes(colour = meanxFpts, size = sdxFpts)) + scale_color_gradient2(low="blue", mid ="yellow", high="red", midpoint = mean(summary_CBs_n5$meanxFpts)) + theme_minimal() + geom_text_repel(data = subset(summary_CBs_n5,meanAER > 4.5 | meanSoT > 0.25  | meanxFpts > 10), aes(label = Player)) + geom_smooth(method = "lm", se = FALSE, colour = "black") +ggtitle("CB mean shots on target vs mean aerials won") + theme(plot.title = element_text(hjust = 0.5), text = element_text(size = 12)) + labs(x="Mean shots on target", y= "Mean aerials won", col = "Mean xFpts", size="SD xFpts")
+
+ggsave(filename="../xFpts_figures/CB_SoT_AER_sd_08022020.png", plot=ggbub)
+
+# xG v AER
+ggbub <- ggplot(summary_CBs_n5, aes(y =  meanAER, x = meanxG)) + geom_point(aes(colour = meanxFpts, size = sdxFpts)) + scale_color_gradient2(low="blue", mid ="yellow", high="red", midpoint = mean(summary_CBs_n5$meanxFpts)) + theme_minimal() + geom_text_repel(data = subset(summary_CBs_n5,meanAER > 4.5 | meanxG > 0.1  | meanxFpts > 10), aes(label = Player)) + geom_smooth(method = "lm", se = FALSE, colour = "black") +ggtitle("CB mean xG vs mean aerials won") + theme(plot.title = element_text(hjust = 0.5), text = element_text(size = 12)) + labs(x="Mean xG", y= "Mean aerials won", col = "Mean xFpts", size="SD xFpts")
+
+ggsave(filename="../xFpts_figures/CB_xG_AER_sd_08022020.png", plot=ggbub)
+
+
+# xA v AER
+ggbub <- ggplot(summary_CBs_n5, aes(y =  meanAER, x = meanxA)) + geom_point(aes(colour = meanxFpts, size = sdxFpts)) + scale_color_gradient2(low="blue", mid ="yellow", high="red", midpoint = mean(summary_CBs_n5$meanxFpts)) + theme_minimal() + geom_text_repel(data = subset(summary_CBs_n5,meanAER > 4.5 | meanxA > 0.06  | meanxFpts > 10), aes(label = Player)) + geom_smooth(method = "lm", se = FALSE, colour = "black") +ggtitle("CB mean xA vs mean aerials won") + theme(plot.title = element_text(hjust = 0.5), text = element_text(size = 12)) + labs(x="Mean xA", y= "Mean aerials won", col = "Mean xFpts", size="SD xFpts")
+
+ggsave(filename="../xFpts_figures/CB_xA_AER_sd_08022020.png", plot=ggbub)
+
+# xFpts v AER
+ggbub <- ggplot(summary_CBs_n5, aes(y =  meanAER, x = meanxFpts)) + geom_point(aes(colour = meanxFpts, size = sdxFpts)) + scale_color_gradient2(low="blue", mid ="yellow", high="red", midpoint = mean(summary_CBs_n5$meanxFpts)) + theme_minimal() + geom_text_repel(data = subset(summary_CBs_n5,meanAER > 4.5  | meanxFpts > 10), aes(label = Player)) + geom_smooth(method = "lm", se = FALSE, colour = "black") +ggtitle("CB mean xFpts vs mean aerials won") + theme(plot.title = element_text(hjust = 0.5), text = element_text(size = 12)) + labs(x="Mean xFpts", y= "Mean aerials won", col = "Mean xFpts", size="SD xFpts")
+
+ggsave(filename="../xFpts_figures/CB_xFpts_AER_sd_08022020.png", plot=ggbub)
+
+# AERProp v AER
+ggbub <- ggplot(summary_CBs_n5, aes(y =  meanAER, x = meanAERProp)) + geom_point(aes(colour = meanxFpts, size = sdxFpts)) + scale_color_gradient2(low="blue", mid ="yellow", high="red", midpoint = mean(summary_CBs_n5$meanxFpts)) + theme_minimal() + geom_text_repel(data = subset(summary_CBs_n5,meanAER > 4.5 | meanxFpts > 10), aes(label = Player)) + geom_smooth(method = "lm", se = FALSE, colour = "black") +ggtitle("CB mean proportion of aerials won vs mean aerials won") + theme(plot.title = element_text(hjust = 0.5), text = element_text(size = 12)) + labs(x="Mean proportion of aerials won", y= "Mean aerials won", col = "Mean xFpts", size="SD xFpts")
+
+ggsave(filename="../xFpts_figures/CB_AERProp_AER_sd_08022020.png", plot=ggbub)
+
+```
+
+#Full season OB AER plots
+```{r}
+OB_Pos <- c("WB","LB","RB")
+
+OB_data <- defenders_min_minutes_merged_cs_fbref_df[defenders_min_minutes_merged_cs_fbref_df$Pos.x %in% OB_Pos,]
+
+dim(OB_data)
+#[1] 1101  186
+
+#calculated AER_prop (prop won)
+OB_data$AER_prop <- OB_data$AER / (OB_data$AER + OB_data$AERL)
+#could lead to 0/0 so need to remove NaNs
+OB_data$AER_prop[is.nan(OB_data$AER_prop)]<- 0
+
+summary_OBs <- OB_data %>% 
+  group_by(Player) %>%
+  summarize(n = n(), meanFpts = mean(FPts), meanxFpts = mean(xPts), sdxFpts = sd(xPts), meanxG = mean(xG.x), meanxA = mean(xA.x), meanAER = mean(AER), meanAERProp = mean(AER_prop), meanSoT = mean(SoT.x), meanSh = mean(Sh.x), meanAtt3rd = mean(Att.3rd), meanAttPen = mean(Att.Pen), meanDefPen = mean(Def.Pen))
+
+#require that they played at least 5 games as a OB
+
+summary_OBs_n5 <- summary_OBs[summary_OBs$n >= 5,]
+
+#plot it to take a look
+# AttPen v AER
+ggbub <- ggplot(summary_OBs_n5, aes(y =  meanAER, x = meanAttPen)) + geom_point(aes(colour = meanxFpts, size = sdxFpts)) + scale_color_gradient2(low="blue", mid ="yellow", high="red", midpoint = mean(summary_OBs_n5$meanxFpts)) + theme_minimal() + geom_text_repel(data = subset(summary_OBs_n5,meanAER > 3 | meanAttPen > 2.5  | meanxFpts > 12), aes(label = Player)) + geom_smooth(method = "lm", se = FALSE, colour = "black") +ggtitle("OB mean touches in the attacking penalty box vs mean aerials won") + theme(plot.title = element_text(hjust = 0.5), text = element_text(size = 12)) + labs(x="Mean touches in the attacking penalty box", y= "Mean aerials won", col = "Mean xFpts", size="SD xFpts")
+
+ggsave(filename="../xFpts_figures/OB_AttPen_AER_sd_08022020.png", plot=ggbub)
+
+
+# Sh v AER
+ggbub <- ggplot(summary_OBs_n5, aes(y =  meanAER, x = meanSh)) + geom_point(aes(colour = meanxFpts, size = sdxFpts)) + scale_color_gradient2(low="blue", mid ="yellow", high="red", midpoint = mean(summary_OBs_n5$meanxFpts)) + theme_minimal() + geom_text_repel(data = subset(summary_OBs_n5,meanAER > 3 | meanSh > 1  | meanxFpts > 12), aes(label = Player)) + geom_smooth(method = "lm", se = FALSE, colour = "black") +ggtitle("OB mean shots vs mean aerials won") + theme(plot.title = element_text(hjust = 0.5), text = element_text(size = 12)) + labs(x="Mean shots", y= "Mean aerials won", col = "Mean xFpts", size="SD xFpts")
+
+ggsave(filename="../xFpts_figures/OB_Sh_AER_sd_08022020.png", plot=ggbub)
+
+
+# SoT v AER
+ggbub <- ggplot(summary_OBs_n5, aes(y =  meanAER, x = meanSoT)) + geom_point(aes(colour = meanxFpts, size = sdxFpts)) + scale_color_gradient2(low="blue", mid ="yellow", high="red", midpoint = mean(summary_OBs_n5$meanxFpts)) + theme_minimal() + geom_text_repel(data = subset(summary_OBs_n5,meanAER > 3 | meanSoT > 0.3  | meanxFpts > 12), aes(label = Player)) + geom_smooth(method = "lm", se = FALSE, colour = "black") +ggtitle("OB mean shots on target vs mean aerials won") + theme(plot.title = element_text(hjust = 0.5), text = element_text(size = 12)) + labs(x="Mean shots on target", y= "Mean aerials won", col = "Mean xFpts", size="SD xFpts")
+
+ggsave(filename="../xFpts_figures/OB_SoT_AER_sd_08022020.png", plot=ggbub)
+
+# xG v AER
+ggbub <- ggplot(summary_OBs_n5, aes(y =  meanAER, x = meanxG)) + geom_point(aes(colour = meanxFpts, size = sdxFpts)) + scale_color_gradient2(low="blue", mid ="yellow", high="red", midpoint = mean(summary_OBs_n5$meanxFpts)) + theme_minimal() + geom_text_repel(data = subset(summary_OBs_n5,meanAER > 3 | meanxG > 0.075  | meanxFpts > 12), aes(label = Player)) + geom_smooth(method = "lm", se = FALSE, colour = "black") +ggtitle("OB mean xG vs mean aerials won") + theme(plot.title = element_text(hjust = 0.5), text = element_text(size = 12)) + labs(x="Mean xG", y= "Mean aerials won", col = "Mean xFpts", size="SD xFpts")
+
+ggsave(filename="../xFpts_figures/OB_xG_AER_sd_08022020.png", plot=ggbub)
+
+
+# xA v AER
+ggbub <- ggplot(summary_OBs_n5, aes(y =  meanAER, x = meanxA)) + geom_point(aes(colour = meanxFpts, size = sdxFpts)) + scale_color_gradient2(low="blue", mid ="yellow", high="red", midpoint = mean(summary_OBs_n5$meanxFpts)) + theme_minimal() + geom_text_repel(data = subset(summary_OBs_n5,meanAER > 3 | meanxA > 0.15  | meanxFpts > 12), aes(label = Player)) + geom_smooth(method = "lm", se = FALSE, colour = "black") +ggtitle("OB mean xA vs mean aerials won") + theme(plot.title = element_text(hjust = 0.5), text = element_text(size = 12)) + labs(x="Mean xA", y= "Mean aerials won", col = "Mean xFpts", size="SD xFpts")
+
+ggsave(filename="../xFpts_figures/OB_xA_AER_sd_08022020.png", plot=ggbub)
+
+# xFpts v AER
+ggbub <- ggplot(summary_OBs_n5, aes(y =  meanAER, x = meanxFpts)) + geom_point(aes(colour = meanxFpts, size = sdxFpts)) + scale_color_gradient2(low="blue", mid ="yellow", high="red", midpoint = mean(summary_OBs_n5$meanxFpts)) + theme_minimal() + geom_text_repel(data = subset(summary_OBs_n5,meanAER > 3  | meanxFpts > 12), aes(label = Player)) + geom_smooth(method = "lm", se = FALSE, colour = "black") +ggtitle("OB mean xFpts vs mean aerials won") + theme(plot.title = element_text(hjust = 0.5), text = element_text(size = 12)) + labs(x="Mean xFpts", y= "Mean aerials won", col = "Mean xFpts", size="SD xFpts")
+
+ggsave(filename="../xFpts_figures/OB_xFpts_AER_sd_08022020.png", plot=ggbub)
+
+# AERProp v AER
+ggbub <- ggplot(summary_OBs_n5, aes(y =  meanAER, x = meanAERProp)) + geom_point(aes(colour = meanxFpts, size = sdxFpts)) + scale_color_gradient2(low="blue", mid ="yellow", high="red", midpoint = mean(summary_OBs_n5$meanxFpts)) + theme_minimal() + geom_text_repel(data = subset(summary_OBs_n5,meanAER > 3 | meanAERProp > 0.7 | meanxFpts > 12), aes(label = Player)) + geom_smooth(method = "lm", se = FALSE, colour = "black") +ggtitle("OB mean proportion of aerials won vs mean aerials won") + theme(plot.title = element_text(hjust = 0.5), text = element_text(size = 12)) + labs(x="Mean proportion of aerials won", y= "Mean aerials won", col = "Mean xFpts", size="SD xFpts")
+
+ggsave(filename="../xFpts_figures/OB_AERProp_AER_sd_08022020.png", plot=ggbub)
+
+```
+
+
+#Full season MIDS AER plots
+```{r}
+MID_Pos <- c("CM","LW","RW","DM","AM")
+
+MID_data <- mids_min_minutes_merged_cs_fbref_df[mids_min_minutes_merged_cs_fbref_df$Pos.x %in% MID_Pos,]
+
+dim(MID_data)
+#[1] 2020  185
+
+#calculated AER_prop (prop won)
+MID_data$AER_prop <- MID_data$AER / (MID_data$AER + MID_data$AERL)
+#could lead to 0/0 so need to remove NaNs
+MID_data$AER_prop[is.nan(MID_data$AER_prop)]<- 0
+
+summary_MIDs <- MID_data %>% 
+  group_by(Player) %>%
+  summarize(n = n(), meanFpts = mean(FPts), meanxFpts = mean(xPts), sdxFpts = sd(xPts), meanxG = mean(xG.x), meanxA = mean(xA.x), meanAER = mean(AER), meanAERProp = mean(AER_prop), meanSoT = mean(SoT.x), meanSh = mean(Sh.x), meanAtt3rd = mean(Att.3rd), meanAttPen = mean(Att.Pen), meanDefPen = mean(Def.Pen))
+
+#require that they played at least 5 games as a MID
+
+summary_MIDs_n5 <- summary_MIDs[summary_MIDs$n >= 5,]
+
+#plot it to take a look
+# AttPen v AER
+ggbub <- ggplot(summary_MIDs_n5, aes(y =  meanAER, x = meanAttPen)) + geom_point(aes(colour = meanxFpts, size = sdxFpts)) + scale_color_gradient2(low="blue", mid ="yellow", high="red", midpoint = mean(summary_MIDs_n5$meanxFpts)) + theme_minimal() + geom_text_repel(data = subset(summary_MIDs_n5,meanAER > 3 | meanAttPen > 4.8  | meanxFpts > 12), aes(label = Player)) + geom_smooth(method = "lm", se = FALSE, colour = "black") +ggtitle("MID mean touches in the attacking penalty box vs mean aerials won") + theme(plot.title = element_text(hjust = 0.5), text = element_text(size = 15)) + labs(x="Mean touches in the attacking penalty box", y= "Mean aerials won", col = "Mean xFpts", size="SD xFpts")
+
+ggsave(filename="../xFpts_figures/MID_AttPen_AER_sd_08022020.png", plot=ggbub)
+
+
+# Sh v AER
+ggbub <- ggplot(summary_MIDs_n5, aes(y =  meanAER, x = meanSh)) + geom_point(aes(colour = meanxFpts, size = sdxFpts)) + scale_color_gradient2(low="blue", mid ="yellow", high="red", midpoint = mean(summary_MIDs_n5$meanxFpts)) + theme_minimal() + geom_text_repel(data = subset(summary_MIDs_n5,meanAER > 3 | meanSh > 2.5  | meanxFpts > 15), aes(label = Player)) + geom_smooth(method = "lm", se = FALSE, colour = "black") +ggtitle("MID mean shots vs mean aerials won") + theme(plot.title = element_text(hjust = 0.5), text = element_text(size = 12)) + labs(x="Mean shots", y= "Mean aerials won", col = "Mean xFpts", size="SD xFpts")
+
+ggsave(filename="../xFpts_figures/MID_Sh_AER_sd_08022020.png", plot=ggbub)
+
+
+# SoT v AER
+ggbub <- ggplot(summary_MIDs_n5, aes(y =  meanAER, x = meanSoT)) + geom_point(aes(colour = meanxFpts, size = sdxFpts)) + scale_color_gradient2(low="blue", mid ="yellow", high="red", midpoint = mean(summary_MIDs_n5$meanxFpts)) + theme_minimal() + geom_text_repel(data = subset(summary_MIDs_n5,meanAER > 3 | meanSoT > 0.9  | meanxFpts > 15), aes(label = Player)) + geom_smooth(method = "lm", se = FALSE, colour = "black") +ggtitle("MID mean shots on target vs mean aerials won") + theme(plot.title = element_text(hjust = 0.5), text = element_text(size = 12)) + labs(x="Mean shots on target", y= "Mean aerials won", col = "Mean xFpts", size="SD xFpts")
+
+ggsave(filename="../xFpts_figures/MID_SoT_AER_sd_08022020.png", plot=ggbub)
+
+# xG v AER
+ggbub <- ggplot(summary_MIDs_n5, aes(y =  meanAER, x = meanxG)) + geom_point(aes(colour = meanxFpts, size = sdxFpts)) + scale_color_gradient2(low="blue", mid ="yellow", high="red", midpoint = mean(summary_MIDs_n5$meanxFpts)) + theme_minimal() + geom_text_repel(data = subset(summary_MIDs_n5,meanAER > 3 | meanxG > 0.3  | meanxFpts > 15), aes(label = Player)) + geom_smooth(method = "lm", se = FALSE, colour = "black") +ggtitle("MID mean xG vs mean aerials won") + theme(plot.title = element_text(hjust = 0.5), text = element_text(size = 12)) + labs(x="Mean xG", y= "Mean aerials won", col = "Mean xFpts", size="SD xFpts")
+
+ggsave(filename="../xFpts_figures/MID_xG_AER_sd_08022020.png", plot=ggbub)
+
+
+# xA v AER
+ggbub <- ggplot(summary_MIDs_n5, aes(y =  meanAER, x = meanxA)) + geom_point(aes(colour = meanxFpts, size = sdxFpts)) + scale_color_gradient2(low="blue", mid ="yellow", high="red", midpoint = mean(summary_MIDs_n5$meanxFpts)) + theme_minimal() + geom_text_repel(data = subset(summary_MIDs_n5,meanAER > 3 | meanxA > 0.25  | meanxFpts > 15), aes(label = Player)) + geom_smooth(method = "lm", se = FALSE, colour = "black") +ggtitle("MID mean xA vs mean aerials won") + theme(plot.title = element_text(hjust = 0.5), text = element_text(size = 12)) + labs(x="Mean xA", y= "Mean aerials won", col = "Mean xFpts", size="SD xFpts")
+
+ggsave(filename="../xFpts_figures/MID_xA_AER_sd_08022020.png", plot=ggbub)
+
+# xFpts v AER
+ggbub <- ggplot(summary_MIDs_n5, aes(y =  meanAER, x = meanxFpts)) + geom_point(aes(colour = meanxFpts, size = sdxFpts)) + scale_color_gradient2(low="blue", mid ="yellow", high="red", midpoint = mean(summary_MIDs_n5$meanxFpts)) + theme_minimal() + geom_text_repel(data = subset(summary_MIDs_n5,meanAER > 3  | meanxFpts > 15), aes(label = Player)) + geom_smooth(method = "lm", se = FALSE, colour = "black") +ggtitle("MID mean xFpts vs mean aerials won") + theme(plot.title = element_text(hjust = 0.5), text = element_text(size = 12)) + labs(x="Mean xFpts", y= "Mean aerials won", col = "Mean xFpts", size="SD xFpts")
+
+ggsave(filename="../xFpts_figures/MID_xFpts_AER_sd_08022020.png", plot=ggbub)
+
+# AERProp v AER
+ggbub <- ggplot(summary_MIDs_n5, aes(y =  meanAER, x = meanAERProp)) + geom_point(aes(colour = meanxFpts, size = sdxFpts)) + scale_color_gradient2(low="blue", mid ="yellow", high="red", midpoint = mean(summary_MIDs_n5$meanxFpts)) + theme_minimal() + geom_text_repel(data = subset(summary_MIDs_n5,meanAER > 3 | meanAERProp > 0.7 | meanxFpts > 15), aes(label = Player)) + geom_smooth(method = "lm", se = FALSE, colour = "black") +ggtitle("MID mean proportion of aerials won vs mean aerials won") + theme(plot.title = element_text(hjust = 0.5), text = element_text(size = 15)) + labs(x="Mean proportion of aerials won", y= "Mean aerials won", col = "Mean xFpts", size="SD xFpts")
+
+ggsave(filename="../xFpts_figures/MID_AERProp_AER_sd_08022020.png", plot=ggbub)
+
+```
