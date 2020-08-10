@@ -205,10 +205,18 @@ for.filtered_weekly_player_df$xFpts <- for.filtered_weekly_player_df$xG * 9 +
 
 #combine all the position dataframes into one
 all_combined_df <- rbind(def.filtered_weekly_player_df, mid.filtered_weekly_player_df, for.filtered_weekly_player_df)
+write.csv(x = all_combined_df, file = "../data/fantrax_data/weekly_data.xFpts_epl_2019_2020.csv")
 
 summary_combined_xfpts_df <- all_combined_df %>% 
   group_by(Player, Team.x, Position) %>%
   summarize(n = n(), min_total = sum(Min.x),  mean_minutes = mean(Min.x), mean_xFpts = mean(xFpts), sd_xFpts = sd(xFpts), median_xFpts = median(xFpts), mean_fpts = mean(updated_fpts), sd_fpts = sd(updated_fpts), median_ftps = median(updated_fpts),  total_xFpts = sum(xFpts), total_fpts = sum(updated_fpts), mean_xCS = mean(xCS), xCS = sum(xCS), CS = sum(CS))
+
+hist(summary_combined_xfpts_df$sd_xFpts)
+hist(summary_combined_xfpts_df$sd_fpts)
 write.csv(x = summary_combined_xfpts_df, file = "../data/fantrax_data/xFpts_epl_2019_2020.csv")
 ```
+
+
+
+
 
