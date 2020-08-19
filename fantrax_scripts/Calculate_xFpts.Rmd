@@ -22,11 +22,9 @@ min_minutes_requirement <- 60
 
 ```{r data_setup}
 #load all player data for fbref.com
-weekly_data_csv = "../data/fantrax_data/weekly.all_data_combined.no_double_gws.csv"
-yearly_data_csv = "../data/fantrax_data/yearly.all_data_combined.csv"
+weekly_data_csv = "../data/fantrax_data/weekly.all_data_combined.no_double_gws.updated_positions.csv"
 
 weekly_data_df <- read_csv(file = weekly_data_csv, col_names = TRUE)
-yearly_data_df <- read_csv(file = yearly_data_csv, col_names = TRUE)
 
 # Only weeks where at least 60 minutes are played
 min_minute_df <- weekly_data_df[weekly_data_df$Min >= min_minutes_requirement,]
@@ -205,15 +203,13 @@ for.filtered_weekly_player_df$xFpts <- for.filtered_weekly_player_df$xG * 9 +
 
 #combine all the position dataframes into one
 all_combined_df <- rbind(def.filtered_weekly_player_df, mid.filtered_weekly_player_df, for.filtered_weekly_player_df)
-write.csv(x = all_combined_df, file = "../data/fantrax_data/weekly_data.xFpts_epl_2019_2020.csv")
+write.csv(x = all_combined_df, file = "../data/fantrax_data/new_positions.weekly_data.xFpts_epl_2019_2020.csv")
 
 summary_combined_xfpts_df <- all_combined_df %>% 
   group_by(Player, Team.x, Position) %>%
   summarize(n = n(), min_total = sum(Min.x),  mean_minutes = mean(Min.x), mean_xFpts = mean(xFpts), sd_xFpts = sd(xFpts), median_xFpts = median(xFpts), mean_fpts = mean(updated_fpts), sd_fpts = sd(updated_fpts), median_ftps = median(updated_fpts),  total_xFpts = sum(xFpts), total_fpts = sum(updated_fpts), mean_xCS = mean(xCS), xCS = sum(xCS), CS = sum(CS))
 
-hist(summary_combined_xfpts_df$sd_xFpts)
-hist(summary_combined_xfpts_df$sd_fpts)
-write.csv(x = summary_combined_xfpts_df, file = "../data/fantrax_data/xFpts_epl_2019_2020.csv")
+write.csv(x = summary_combined_xfpts_df, file = "../data/fantrax_data/new_positions.xFpts_epl_2019_2020.csv")
 ```
 
 
