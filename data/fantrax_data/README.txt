@@ -23,3 +23,6 @@ new_positions.weekly_data.xFpts_epl_2019_2020.update.csv
 fantrax.weekly.all_data_combined.no_double_gws.new_positions.csv
 * Weekly Fantrax point totals and data
 * Positions updated to 2020/2021
+
+game_results.csv
+* Weekly xG totals for each match
