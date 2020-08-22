@@ -90,8 +90,7 @@ def.filtered_weekly_player_df$updated_fpts <- def.filtered_weekly_player_df$G * 
   def.filtered_weekly_player_df$YC * -3 +
   def.filtered_weekly_player_df$RC * -7 +
   def.filtered_weekly_player_df$CS * 6 +
-  def.filtered_weekly_player_df$GAD * -2 +
-  def.filtered_weekly_player_df$CoS * 1
+  def.filtered_weekly_player_df$GAD * -2
 
 def.filtered_weekly_player_df$xFpts <- def.filtered_weekly_player_df$xG * 10 +
   def.filtered_weekly_player_df$xA * 7 +
@@ -109,8 +108,7 @@ def.filtered_weekly_player_df$xFpts <- def.filtered_weekly_player_df$xG * 10 +
   def.filtered_weekly_player_df$YC * -3 +
   def.filtered_weekly_player_df$RC * -7 +
   def.filtered_weekly_player_df$xCS * 6 +
-  def.filtered_weekly_player_df$xGAD * -2 +
-  def.filtered_weekly_player_df$CoS * 1
+  def.filtered_weekly_player_df$xGAD * -2
 
 #### MIDFIELDERS xFPTS ####
 
@@ -134,8 +132,7 @@ mid.filtered_weekly_player_df$updated_fpts <- mid.filtered_weekly_player_df$G * 
   mid.filtered_weekly_player_df$YC * -3 +
   mid.filtered_weekly_player_df$RC * -7 +
   mid.filtered_weekly_player_df$CS * 1 +
-  mid.filtered_weekly_player_df$GAD * 0 +
-  mid.filtered_weekly_player_df$CoS * 1
+  mid.filtered_weekly_player_df$GAD * 0
 
 #calculate xFpts for midfielders
 mid.filtered_weekly_player_df$xFpts <- mid.filtered_weekly_player_df$xG * 9 +
@@ -154,8 +151,7 @@ mid.filtered_weekly_player_df$xFpts <- mid.filtered_weekly_player_df$xG * 9 +
   mid.filtered_weekly_player_df$YC * -3 +
   mid.filtered_weekly_player_df$RC * -7 +
   mid.filtered_weekly_player_df$xCS * 1 +
-  mid.filtered_weekly_player_df$GAD * 0 +
-  mid.filtered_weekly_player_df$CoS * 1
+  mid.filtered_weekly_player_df$GAD * 0
 
 
 #### FORWARDS xFPTS ####
@@ -180,8 +176,7 @@ for.filtered_weekly_player_df$updated_fpts <- for.filtered_weekly_player_df$G * 
   for.filtered_weekly_player_df$YC * -3 +
   for.filtered_weekly_player_df$RC * -7 +
   for.filtered_weekly_player_df$CS * 0 +
-  for.filtered_weekly_player_df$GAD * 0 +
-  for.filtered_weekly_player_df$CoS * 1
+  for.filtered_weekly_player_df$GAD * 0
 
 #calculate xFpts for midfielders
 for.filtered_weekly_player_df$xFpts <- for.filtered_weekly_player_df$xG * 9 +
@@ -200,8 +195,7 @@ for.filtered_weekly_player_df$xFpts <- for.filtered_weekly_player_df$xG * 9 +
   for.filtered_weekly_player_df$YC * -3 +
   for.filtered_weekly_player_df$RC * -7 +
   for.filtered_weekly_player_df$xCS * 0 +
-  for.filtered_weekly_player_df$GAD * 0 +
-  for.filtered_weekly_player_df$CoS * 1
+  for.filtered_weekly_player_df$GAD * 0
 
 #combine all the position dataframes into one
 all_combined_df <- rbind(def.filtered_weekly_player_df, mid.filtered_weekly_player_df, for.filtered_weekly_player_df)
