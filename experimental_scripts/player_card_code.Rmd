@@ -52,9 +52,11 @@ summary_player_pts <- player_start_df %>%
             
 ```
 
-# Old xFpts stacked bar plot
+# xFpts stacked bar plot
 ```{r}
 #add the vector of multipliers for the statistics that make sense for each position
+`%!in%` <- Negate(`%in%`)
+
 if (player_pos == "D"){
   
   point_vec = c(10,7,2,2,1,1,1,1,1,0.25,-0.5,-4,-5,-3,-7,6,-2)
@@ -63,17 +65,30 @@ if (player_pos == "D"){
   start_points_vec = summary_player_pts[, -1]
 
   # get the xFpts for the player
-  start_points_vec = start_points * point_vec
+  start_points_vec = start_points_vec * point_vec
 
   start_points_vec = start_points_vec[point_vec != 0]
 
   #format the data for plotting
-  start_points_df <- start_points_vec %>% gather(point_cat,point_value,xG,xA,KP, SOT,ACNC,CoS,TkW,Int,AER,CLR,DIS,PKM,OG,YC,RC,CS,xGAD)
+  start_points_df <- start_points_vec %>% gather(point_cat,point_value,xG,xA,KP, SOT,ACNC,CoS,TkW,Int,AER,CLR,DIS,PKM,OG,YC,RC,xCS,xGAD)
 
   start_points_df$player = player
 
   #reorder for figure
-  start_points_df$point_cat <- factor(start_points_df$point_cat, levels = rev(c("xG","xA","CS","KP","SOT","ACNC","CoS","TkW","Int","AER","CLR","DIS","PKM","OG","YC","RC","xGAD")))
+  start_points_df$point_cat <- factor(start_points_df$point_cat, levels = rev(c("xG","xA","xCS","KP","SOT","ACNC","CoS","TkW","Int","AER","CLR","DIS","PKM","OG","YC","RC","xGAD")))
+  
+  #calculate Ghost points
+  ghost_points_df <- start_points_df[start_points_df$point_cat %!in% c("xG","xA","xCS"),]
+  
+  ghost_points <- sum(ghost_points_df$point_value)
+  
+  start_points_df <- start_points_df %>% add_row(point_cat = "Ghost", point_value = ghost_points, player = player)
+  
+  #output just the xG, xA, xCS, and ghost points
+  
+  start_points_df <- start_points_df[start_points_df$point_cat %in% c("xG","xA","xCS","Ghost"),]
+  
+  start_points_df$point_cat <- factor(start_points_df$point_cat, levels = rev(c("xG","xA","xCS","Ghost")))
   
 } else if (player_pos == "M"){
   
@@ -83,17 +98,31 @@ if (player_pos == "D"){
   start_points_vec = summary_player_pts[, -1]
 
   # get the xFpts for the player
-  start_points_vec = start_points * point_vec
+  start_points_vec = start_points_vec * point_vec
 
   start_points_vec = start_points_vec[point_vec != 0]
 
   #format the data for plotting
-  start_points_df <- start_points_vec %>% gather(point_cat,point_value,xG,xA,KP,SOT,ACNC, CoS,TkW,Int,AER,DIS,PKM,OG,YC,RC,CS)
+  start_points_df <- start_points_vec %>% gather(point_cat,point_value,xG,xA,KP,SOT,ACNC, CoS,TkW,Int,AER,DIS,PKM,OG,YC,RC,xCS)
 
   start_points_df$player = player
 
   #reorder for figure
-  start_points_df$point_cat <- factor(start_points_df$point_cat, levels = rev(c("xG","xA","KP","SOT","ACNC","CoS","TkW","Int","AER","CS","DIS","PKM","OG","YC","RC")))
+  start_points_df$point_cat <- factor(start_points_df$point_cat, levels = rev(c("xG","xA","xCS","KP","SOT","ACNC","CoS","TkW","Int","AER","DIS","PKM","OG","YC","RC")))
+  
+  #calculate Ghost points
+  ghost_points_df <- start_points_df[start_points_df$point_cat %!in% c("xG","xA","xCS"),]
+  
+  ghost_points <- sum(ghost_points_df$point_value)
+  
+  start_points_df <- start_points_df %>% add_row(point_cat = "Ghost", point_value = ghost_points, player = player)
+  
+  #output just the xG, xA, xCS, and ghost points
+  
+  start_points_df <- start_points_df[start_points_df$point_cat %in% c("xG","xA","xCS","Ghost"),]
+  
+  start_points_df$point_cat <- factor(start_points_df$point_cat, levels = rev(c("xG","xA","xCS","Ghost")))
+  
   
 } else if (player_pos == "F"){
   
@@ -103,7 +132,7 @@ if (player_pos == "D"){
   start_points_vec = summary_player_pts[, -1]
 
   # get the xFpts for the player
-  start_points_vec = start_points * point_vec
+  start_points_vec = start_points_vec * point_vec
 
   start_points_vec = start_points_vec[point_vec != 0]
 
@@ -115,21 +144,51 @@ if (player_pos == "D"){
   #reorder for figure
   start_points_df$point_cat <- factor(start_points_df$point_cat, levels = rev(c("xG","xA","KP","SOT","ACNC","CoS","TkW","Int","AER","DIS","PKM","OG","YC","RC")))
   
+  #calculate Ghost points
+  ghost_points_df <- start_points_df[start_points_df$point_cat %!in% c("xG","xA"),]
+  
+  ghost_points <- sum(ghost_points_df$point_value)
+  
+  start_points_df <- start_points_df %>% add_row(point_cat = "Ghost", point_value = ghost_points, player = player)
+  
+  #output just the xG, xA, and ghost points
+  
+  start_points_df <- start_points_df[start_points_df$point_cat %in% c("xG","xA","Ghost"),]
+  
 } else {
   stop("position doesn't make sense")
 }
 
 #plot the data
 
-start_points_df$point_value <- abs(start_points_df$point_value)
+#start_points_df$point_value <- abs(start_points_df$point_value)
+
+total_player_plot_pts = sum(start_points_df$point_value)
+
+start_points_df$percent <- (start_points_df$point_value / total_player_plot_pts) * 100
+
+start_points_df$percent <- paste(round(start_points_df$percent,  digits =0),"%", sep = "")
+
+start_points_df$cat_percent <- paste(start_points_df$point_cat,paste("(",start_points_df$percent,")", sep = "") ,sep="\n")
+
+if (length(start_points_df$point_cat) == 3){
+  
+  ggbar <- ggplot(aes(x = player, y = point_value, fill = point_cat, label = cat_percent), data = start_points_df) + geom_bar(stat = "identity", width = 1, color = "white") + coord_flip() + theme_void() + ylab("xFpts")  + geom_text(position = position_stack(vjust = 0.5), fontface = "bold") + theme(legend.position = "none") + ggtitle('Points Breakdown') + theme(plot.title = element_text(size = 12, hjust = 0.5, face = "bold" )) + scale_fill_manual(values=c("#ffc425","#00aedb", "#00b159")) #+ theme(plot.title = element_text(hjust = 0.5))
+} else if (length(start_points_df$point_cat) == 4){
+  
+  ggbar <- ggplot(aes(x = player, y = point_value, fill = point_cat, label = cat_percent), data = start_points_df) + geom_bar(stat = "identity", width = 1, color = "white") + coord_flip() + theme_void() + ylab("xFpts")  + geom_text(position = position_stack(vjust = 0.5), fontface = "bold") + theme(legend.position = "none") + ggtitle('Points Breakdown') + theme(plot.title = element_text(size = 12, hjust = 0.5, face = "bold" )) + scale_fill_manual(values=c("#ffc425","#f8766d", "#00aedb", "#00b159" ))
+} else {
+  stop("number of point categories doesn't make sense")
+}
 
 
-ggbar <- ggplot(aes(x = player, y = point_value, fill = point_cat), data = start_points_df) + geom_bar(position = "fill", stat = "identity", width = 0.1, color = "white") + coord_flip() + theme_void() + ylab("xFpts")  + theme(legend.position=c(0.5,0.8), legend.direction="horizontal") + scale_fill_discrete(name = "Points\nCategories",breaks=rev(levels(start_points_df$point_cat))) 
+
+#ggbar <- ggplot(aes(x = player, y = point_value, fill = point_cat), data = start_points_df) + geom_bar(position = "fill", stat = "identity", width = 0.1, color = "white") + coord_flip() + theme_void() + ylab("xFpts")  + theme(legend.position=c(0.5,0.8), legend.direction="horizontal") + scale_fill_discrete(name = "Points\nCategories",breaks=rev(levels(start_points_df$point_cat)))
 
 ```
 
 
-# New xFpts stacked bar plot
+#### New xFpts stacked bar plot
 ```{r}
 #add the vector of multipliers for the statistics that make sense for each position
 if (player_pos == "D"){
@@ -222,7 +281,134 @@ ggplot(foo) + aes(x = 0, y = Foo, fill = Foo, label = Foo) +
 
 ```
 
-#### Table of Statistics
+
+#### Three Tables Code
+```{r}
+#player WAR column
+player_WAR_row <- WAR_epl_1920[WAR_epl_1920$Player == player,]
+
+#player Season xFPts
+player_xFpts_overview_row <- xFpt_epl_overview[xFpt_epl_overview$Player == player,]
+
+#xFpts Table
+#grab player mean xFpts per start, and sd xFpts
+player_meanFpts <- as.data.frame(player_xFpts_overview_row$mean_fpts)
+player_sdFpts <- as.data.frame(player_xFpts_overview_row$sd_fpts)
+
+player_meanxFpts <- as.data.frame(player_xFpts_overview_row$mean_xFpts)
+player_sdxFpts <- as.data.frame(player_xFpts_overview_row$sd_xFpts)
+
+#calculate player xFpts per start rank overall
+xFpts_epl_1920_starts <- arrange(xFpt_epl_overview,desc(mean_xFpts))
+
+player_meanxFpts_rank <- as.data.frame(as.integer(which(xFpts_epl_1920_starts$Player == player)))
+
+#calculate player xFpts per start rank at positon
+xFpts_epl_1920_starts_pos <- arrange(xFpt_epl_overview[xFpt_epl_overview$Position == player_pos, ],desc(mean_xFpts))
+
+player_meanxFpts_pos_rank <- as.data.frame(as.integer(which(xFpts_epl_1920_starts_pos$Player == player)))
+
+#make the xFpts Table
+
+#put together the strings
+
+sdFpts_str <- paste(round(player_sdFpts, digits =2),")", sep="")
+Fpts_str <- paste(round(player_meanFpts, digits = 2), "(+/-", sdFpts_str, "Fpts/Start", sep=" ")
+
+sdxFpts_str <- paste(round(player_sdxFpts, digits =2),")", sep="")
+xFpts_str <- paste(round(player_meanxFpts, digits = 2), "(+/-", sdxFpts_str, "xFpts/Start", sep=" ")
+
+xFpts_rank_str <- paste("xFpts Overall Rank:", player_meanxFpts_rank, sep=" ")
+
+xFpts_pos_rank_str <- paste("xFpts Position Rank:", player_meanxFpts_pos_rank, sep=" ")
+
+#put strings in a df
+xFpts_table_df <- as.data.frame(rbind(xFpts_str,Fpts_str,xFpts_rank_str,xFpts_pos_rank_str))
+
+colnames(xFpts_table_df) <- c("Points per Start")
+
+#xFptsTable <- tableGrob(xFpts_table_df, theme = ttheme_minimal(base_size = 15, core=list(fg_params=list(hjust=0, x=0)), colhead=list(fg_params=list(hjust=0, x=0))) ,rows=NULL)
+
+xFptsTable <- tableGrob(xFpts_table_df, theme = ttheme_minimal(base_size = 18),rows=NULL)
+
+#grid.arrange(xFptsTable)
+#function to find cells in the table
+#find_cell <- function(table, row, col, name="core-fg"){
+# l <- table$layout
+#  which(l$t==row & l$l==col & l$name==name)
+#}
+
+#warCell_s <- find_cell(statTable, 1, 1, "core-fg")
+##################################################
+#WAR Table
+#grab player WAR
+player_WAR <- as.data.frame(player_WAR_row$WAR)
+
+#calculate player WAR per start rank overall
+WAR_epl_1920_starts <- arrange(WAR_epl_1920,desc(WAR))
+
+player_WAR_epl_1920_rank <- as.data.frame(as.integer(which(WAR_epl_1920_starts$Player == player)))
+
+#calculate player WAR per start rank at positon
+WAR_epl_1920_starts_pos <- arrange(WAR_epl_1920[WAR_epl_1920$Pos == player_pos, ],desc(WAR))
+
+player_WAR_epl_1920_pos_rank <- as.data.frame(as.integer(which(WAR_epl_1920_starts_pos$Player == player)))
+
+#put together the strings
+
+WAR_str <- paste(round(player_WAR, digits = 2), "2019/2020 WAR", sep=" ")
+
+WAR_rank_str <- paste("Overall Rank:", player_WAR_epl_1920_rank, sep=" ")
+
+WAR_pos_rank_str <- paste("Position Rank:", player_WAR_epl_1920_pos_rank, sep=" ")
+
+#put strings in a df
+WAR_table_df <- as.data.frame(rbind(WAR_str,WAR_rank_str,WAR_pos_rank_str))
+
+colnames(WAR_table_df) <- c("WAR")
+
+#WARTable <- tableGrob(WAR_table_df, theme = ttheme_minimal(base_size = 15, core=list(fg_params=list(hjust=0, x=0)), colhead=list(fg_params=list(hjust=0, x=0))) ,rows=NULL)
+
+WARTable <- tableGrob(WAR_table_df, theme = ttheme_minimal(base_size = 18),rows=NULL)
+
+#grid.arrange(WARTable)
+###############################################################
+#pWAS Table
+#grab player pWAS
+player_pWAS <- as.data.frame(player_WAR_row$pWAS)
+
+#calculate player WAR per start rank overall
+pWAS_epl_1920_starts <- arrange(WAR_epl_1920,desc(pWAS))
+
+player_pWAS_epl_1920_rank <- as.data.frame(as.integer(which(pWAS_epl_1920_starts$Player == player)))
+
+#calculate player WAR per start rank at positon
+pWAS_epl_1920_starts_pos <- arrange(WAR_epl_1920[WAR_epl_1920$Pos == player_pos, ],desc(pWAS))
+
+player_pWAS_epl_1920_pos_rank <- as.data.frame(as.integer(which(pWAS_epl_1920_starts_pos$Player == player)))
+
+#put together the strings
+
+pWAS_str <- paste(round(player_pWAS, digits = 3), "2019/2020 pWAS", sep=" ")
+
+pWAS_rank_str <- paste("Overall Rank:", player_pWAS_epl_1920_rank, sep=" ")
+
+pWAS_pos_rank_str <- paste("Position Rank:", player_pWAS_epl_1920_pos_rank, sep=" ")
+
+#put strings in a df
+pWAS_table_df <- as.data.frame(rbind(pWAS_str,pWAS_rank_str,pWAS_pos_rank_str))
+
+colnames(pWAS_table_df) <- c("pWAS")
+
+#pWASTable <- tableGrob(pWAS_table_df, theme = ttheme_minimal(base_size = 15, core=list(fg_params=list(hjust=0, x=0)), colhead=list(fg_params=list(hjust=0, x=0))) ,rows=NULL)
+
+pWASTable <- tableGrob(pWAS_table_df, theme = ttheme_minimal(base_size = 18),rows=NULL)
+#grid.arrange(pWASTable)
+
+```
+
+
+#### Old Table of Statistics
 ```{r}
 
 player_WAR_row <- WAR_epl_1920[WAR_epl_1920$Player == player,]
@@ -244,7 +430,7 @@ player_meanxFpts_rank <- as.data.frame(as.integer(which(xFpts_epl_1920_starts_po
 #combine the data types and format to make a table
 player_table_df <- bind_cols(player_WAR, player_meanxFpts_rank, player_meanxFpts, player_sdxFpts)
 
-colnames(player_table_df) <- c("WAR", "Position_xFpts_rank", "Mean_xFpts", "SD_xFpts")
+colnames(player_table_df) <- c("WAR", "Position Rank", "Mean xFpts", "SD xFpts")
 
 player_table_df = t(player_table_df)
 rownames(player_table_df)
@@ -253,9 +439,49 @@ player_table_df <- cbind(rownames(player_table_df), data.frame(player_table_df, 
 
 colnames(player_table_df) <- c("Statistics","Value")
 
-table <- tableGrob(player_table_df[1:4,1:2], theme = ttheme_minimal(),rows=NULL)
+player_table_df$Value <- round(player_table_df$Value, digits = 2)
+#even more rounding for rank
 
+player_table_df$Value <- as.character(player_table_df$Value)
 
+#basic table in tableGrob
+statTable <- tableGrob(player_table_df[1:4,1:2], theme = ttheme_minimal(base_size = 22) ,rows=NULL, cols = NULL)
+
+#function to find cells in the table
+find_cell <- function(table, row, col, name="core-fg"){
+  l <- table$layout
+  which(l$t==row & l$l==col & l$name==name)
+}
+
+warCell_s <- find_cell(statTable, 1, 1, "core-fg")
+
+warCell_v <- find_cell(statTable, 1, 2, "core-fg")
+
+posRank_s <- find_cell(statTable, 2, 1, "core-fg")
+
+posRank_v <- find_cell(statTable, 2, 2, "core-fg")
+
+meanXFpts_s <- find_cell(statTable, 3, 1, "core-fg")
+
+meanXFpts_v <- find_cell(statTable, 3, 2, "core-fg")
+
+sdXFpts_s <- find_cell(statTable, 4, 1, "core-fg")
+
+sdXFpts_v <- find_cell(statTable, 4, 2, "core-fg")
+
+statTable$grobs[warCell_s][[1]][["gp"]] <- gpar(fontsize=20, fontface="bold")
+statTable$grobs[warCell_v][[1]][["gp"]] <- gpar(fontsize=20, fontface="bold")
+
+statTable$grobs[posRank_s][[1]][["gp"]] <- gpar(fontsize=20, fontface="bold")
+statTable$grobs[posRank_v][[1]][["gp"]] <- gpar(fontsize=20, fontface="bold")
+
+statTable$grobs[meanXFpts_s][[1]][["gp"]] <- gpar(fontsize=15)
+statTable$grobs[meanXFpts_v][[1]][["gp"]] <- gpar(fontsize=15)
+
+statTable$grobs[sdXFpts_s][[1]][["gp"]] <- gpar(fontsize=15 )
+statTable$grobs[sdXFpts_v][[1]][["gp"]] <- gpar(fontsize=15 )
+
+grid.arrange(statTable)
 #grid.arrange(tableGrob(player_table_df[1:4,1:2], theme = ttheme_minimal(),rows=NULL))
 ```
 
@@ -265,11 +491,16 @@ table <- tableGrob(player_table_df[1:4,1:2], theme = ttheme_minimal(),rows=NULL)
 library("gtable")
 library(lattice)
 
-#Make the minutes and position text plot
-min_text <- " Minutes played:"
-player_min <-player_xFpts_overview_row$min_total
+#Make the minutes, starts, and position text plot
+#min
+min_text <- " Starter Minutes:"
+player_min <- player_xFpts_overview_row$min_total
 player_min <- paste(as.character(player_min)," ", sep="")
 
+#starts
+start_text <- " Starts:"
+player_starts <- player_xFpts_overview_row$n
+player_starts <- paste(as.character(player_starts)," ", sep="")
 
 #parse appropriate position string form player position
 if (player_pos == "D"){
@@ -291,11 +522,13 @@ if (player_pos == "D"){
 }
 
 #add whatever string you want here
-extra_text <- " EPL 2019/2020"
+extra_text <- paste(paste(" ",player_xFpts_overview_row$Team.x, sep=""), "2019/2020", sep=" - ")
 
 min_text <- paste(min_text, player_min, sep = " ")
 
-min_pos_text <- paste(pos_str,min_text,extra_text,sep= "|")
+start_text <- paste(start_text, player_starts, sep = " ")
+
+min_pos_text <- paste(pos_str,min_text, start_text, extra_text,sep= "|")
 
 #minutes and position text plot
 min_pos_fig <- textGrob(min_pos_text,gp = gpar(col = "black", fontsize = 15, face = "bold"))
@@ -303,7 +536,7 @@ min_pos_fig <- textGrob(min_pos_text,gp = gpar(col = "black", fontsize = 15, fac
 #plot of player name
 player_name = print(player)
 
-name_fig <- textGrob(player_name,gp = gpar(col = "black", fontsize = 30, face = "bold"))
+name_fig <- textGrob(player_name,gp = gpar(col = "black", fontsize = 40, fontface = "bold"))
 
 #grid.arrange(textGrob(player_name,gp = gpar(col = "black", fontsize = 30, face = "bold")))
 
@@ -387,29 +620,50 @@ ggmad <- ggplot(data = Fpts_v_xFpts_df, aes(x = game_week, y = points, color = p
 
 ```
 
+
 #histogram plots
 ```{r}
-#hist(xFpts_epl_1920_all[xFpts_epl_1920_all$Player == 'Trent Alexander-Arnold',]$xFpts, breaks = 15)
-#hist(player_all_df[aplayer_all_df$Player == 'Cesar Azpilicueta',]$xFpts, breaks = 15)
 
 #distribution of all player xFpts
-all_player_xFpts_dist <- xFpts_epl_1920_all$xFpts
+#all_player_xFpts_dist <- xFpts_epl_1920_all$xFpts
 
 #distribution of all players that play this player's position
-pos_player_xFpts_dist <- xFpts_epl_1920_all[xFpts_epl_1920_all$Position == player_pos,]$xFpts
+#pos_player_xFpts_dist <- xFpts_epl_1920_all[xFpts_epl_1920_all$Position == player_pos,]$xFpts
+
+
+#Grab the names of the starters (defined by rank of mean xFpts):
+xFpts_epl_1920_D_starters <- head(arrange(xFpt_epl_overview[xFpt_epl_overview$Position == "D", ],desc(mean_xFpts)),40)
+
+xFpts_epl_1920_M_starters <- head(arrange(xFpt_epl_overview[xFpt_epl_overview$Position == "M", ],desc(mean_xFpts)),50)
+
+xFpts_epl_1920_F_starters <- head(arrange(xFpt_epl_overview[xFpt_epl_overview$Position == "F", ],desc(mean_xFpts)),30)
+
+all_starters <- rbind(xFpts_epl_1920_D_starters, xFpts_epl_1920_M_starters, xFpts_epl_1920_F_starters)
+
+#just need the player names
+all_starters <- all_starters$Player
+
+#grab starters games from the weekly data
+xFpts_epl_1920_starters_df <- xFpts_epl_1920_all[xFpts_epl_1920_all$Player %in% all_starters,]
+
+#get just the xFpts
+xFpts_epl_1920_starters <- xFpts_epl_1920_starters_df$xFpts 
+
+#filter to just starter defenders and only keep xFpts field
+pos_player_xFpts_dist <- xFpts_epl_1920_starters_df[xFpts_epl_1920_starters_df$Position == player_pos,]$xFpts
 
 #parse appropriate position string form player position
 if (player_pos == "D"){
   
-  pos_str <- "Defender xFpts"
+  pos_str <- "Defender Starters"
   
 } else if(player_pos == "M"){
   
-  pos_str <- "Midfielder xFpts"
+  pos_str <- "Midfielder Starters"
   
 } else if(player_pos == "F"){
   
-  pos_str <- "Forward xFpts"
+  pos_str <- "Forward Starters"
   
 }else{
   
@@ -419,38 +673,44 @@ if (player_pos == "D"){
 
 #distribution of this player's xFpts
 player_xFpts_dist <- xFpts_epl_1920_all[xFpts_epl_1920_all$Player == player,]$xFpts
-#ca <- all_combined_df[all_combined_df$Player == 'Cesar Azpilicueta',]$xFpts
-#ld <- all_combined_df[all_combined_df$Player == 'Lucas Digne',]$xFpts
-
-#all = all_combined_df[all_combined_df$Position == 'D',]$xFpts
 
 #make a df of all three distributions for plotting
-combined_xFpts_dist_df = data.frame(Distribution = c(rep('All players xFpts', length(all_player_xFpts_dist)), rep(pos_str, length(pos_player_xFpts_dist)), rep(player, length(player_xFpts_dist))), xfpts = c(all_player_xFpts_dist, pos_player_xFpts_dist, player_xFpts_dist))
+#combined_xFpts_dist_df = data.frame(Distribution = c(rep('All Starters xFpts', length(xFpts_epl_1920_starters)), rep(pos_str, length(pos_player_xFpts_dist)), rep(player, length(player_xFpts_dist))), xfpts = c(xFpts_epl_1920_starters, pos_player_xFpts_dist, player_xFpts_dist))
 
-combined_xFpts_dist_df$Distribution <- factor(combined_xFpts_dist_df$Distribution, levels=c(player, pos_str, "All players xFpts"))
+combined_xFpts_dist_df = data.frame(Distribution = c(rep(pos_str, length(pos_player_xFpts_dist)), rep(player, length(player_xFpts_dist))), xfpts = c( pos_player_xFpts_dist, player_xFpts_dist))
+
+combined_xFpts_dist_df$Distribution <- factor(combined_xFpts_dist_df$Distribution, levels=c(player, pos_str))
+
+position_mean <- mean(combined_xFpts_dist_df[combined_xFpts_dist_df$Distribution == pos_str,]$xfpts)
 
  #start_points_df$point_cat <- factor(start_points_df$point_cat, levels = rev(c("xG","xA","KP","SOT","ACNC","CoS","TkW","Int","AER","DIS","PKM","OG","YC","RC")))
 
 #plot the data
 gghist <- ggplot(data = combined_xFpts_dist_df, aes(x=xfpts, fill = Distribution)) +
-  geom_density(alpha = 0.55) +
+  geom_density(alpha = 0.4) +
   theme_light() +
   ylab("Probability")  +
   xlab("xFpts") +
   ggtitle('Distribution of xFpts') +
-  theme(plot.title = element_text(hjust = 0.5))
-  theme_minimal()
+  theme(plot.title = element_text(hjust = 0.5), legend.position = c(0.8,0.8), legend.title = element_blank()) +
+  xlim(-10,40)
+  #geom_vline(xintercept = position_mean, linetype = "dotted", color = "black", size=1)
 
 ```
 
 
-#put the figures together to make a full figure
+#### put the figures together to make a full figure
 ```{r}
+
+#grid.arrange(name_fig, statTable, gghist, ggbar, min_pos_fig, nrow= 8, layout_matrix = rbind(c(NA,1,1,1,1,1,1,NA), c(NA,5,5,5,5,5,5,NA),  c(2,2,2,3,3,3,3,3) , c(2,2,2,3,3,3,3,3) , c(2,2,2,3,3,3,3,3), c(NA,NA,NA,3,3,3,3,3), c(NA,NA,NA,3,3,3,3,3), c(4,4,4,4,4,4,4,4)) )
+
+grid.arrange(name_fig, xFptsTable, gghist, ggbar, min_pos_fig, WARTable, pWASTable, nrow= 9, layout_matrix = rbind(c(NA,1,1,1,1,1,1,NA), c(NA,5,5,5,5,5,5,NA),  c(2,2,2,3,3,3,3,3) , c(2,2,2,3,3,3,3,3) , c(6,6,6,3,3,3,3,3), c(6,6,6,3,3,3,3,3), c(7,7,7,3,3,3,3,3), c(7,7,7,3,3,3,3,3), c(4,4,4,4,4,4,4,4)) )
+
+#grid.arrange(name_fig, statTable, gghist, ggbar, min_pos_fig, nrow= 8, layout_matrix = rbind(c(NA,1,1,1,1,1,NA), c(NA,5,5,5,5,5,NA),  c(2,2,2,3,3,3,3) , c(2,2,2,3,3,3,3) , c(2,2,2,3,3,3,3), c(2,2,2,3,3,3,3), c(2,2,2,3,3,3,3), c(4,4,4,4,4,4,4)) )
 
 #grid.arrange(name_fig, table, gghist, ggbar, min_pos_fig, nrow= 7, layout_matrix = rbind(c(NA,1,1,1,NA),c(NA,1,1,1,NA), c(NA,5,5,5,NA) , c(2,2,3,3,3), c(2,2,3,3,3), c(NA,4,4,4,NA),c(NA,4,4,4,NA)) )
 
-
-grid.arrange(name_fig, table, gghist, ggbar, min_pos_fig, nrow= 6, layout_matrix = rbind(c(NA,1,1,1,NA), c(NA,5,5,5,NA) , c(2,2,3,3,3), c(2,2,3,3,3), c(NA,4,4,4,NA),c(NA,4,4,4,NA)) )
+#grid.arrange(name_fig, statTable, gghist, ggbar, min_pos_fig, nrow= 6, layout_matrix = rbind(c(NA,1,1,1,NA), c(NA,5,5,5,NA) , c(2,2,3,3,3), c(2,2,3,3,3), c(4,4,4,4,4),c(4,4,4,4,4)) )
 
 #grid.arrange(name_fig, table, gghist, ggbar, nrow= 3, layout_matrix = rbind(c(NA,1,1,1,NA), c(2,2,3,3,3), c(NA,4,4,4,NA)) )
 
