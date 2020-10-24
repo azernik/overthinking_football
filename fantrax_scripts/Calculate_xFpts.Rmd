@@ -22,7 +22,7 @@ min_minutes_requirement <- 60
 
 ```{r data_setup}
 #load all player data for fbref.com
-weekly_data_csv = "../data/fantrax_data/weekly.all_data_combined.no_double_gws.updated_positions.csv"
+weekly_data_csv = "../data/fantrax_data/fantrax.weekly.all_data_combined.no_double_gws.new_positions.dgw_bug_fix.csv"
 
 weekly_data_df <- read_csv(file = weekly_data_csv, col_names = TRUE)
 

@@ -1,0 +1,56 @@
+---
+D:
+  G: 10
+  AT: 7
+  KP: 2
+  SOT: 2
+  ACNC: 1
+  CoS: 1
+  TkW: 1
+  Int_x: 1
+  AER: 1
+  CLR: 0.25
+  DIS: -0.5
+  PKM: -4
+  OG: -5
+  YC: -3
+  RC: -7
+  CS: 6
+  GAD: -2
+M:
+  G: 9
+  AT: 6
+  KP: 2
+  SOT: 2
+  ACNC: 1
+  CoS: 1
+  TkW: 1
+  Int_x: 1
+  AER: 0.5
+  CLR: 0
+  DIS: -0.5
+  PKM: -4
+  OG: -5
+  YC: -3
+  RC: -7
+  CS: 1
+  GAD: 0
+F:
+  G: 9
+  AT: 6
+  KP: 2
+  SOT: 2
+  ACNC: 1
+  CoS: 1
+  TkW: 1
+  Int_x: 1
+  AER: 0.5
+  CLR: 0
+  DIS: -0.5
+  PKM: -4
+  OG: -5
+  YC: -3
+  RC: -7
+  CS: 0
+  GAD: 0
+...

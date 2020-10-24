@@ -1,0 +1,12 @@
+---
+name_conversion_file: /Users/adamscj/Documents/GitHub/overthinking_football/data/fbref/premier_league/20_21/player_fantrax_fbref_conversion_dict.v3.json
+team_id_file: /Users/adamscj/Documents/GitHub/overthinking_football/data/fbref/premier_league/20_21/team_id.csv
+match_url_file: /Users/adamscj/Documents/GitHub/overthinking_football/data/fbref/premier_league/20_21/matches_2021_epl.txt
+fbref_tables:
+  summary: /Users/adamscj/Documents/GitHub/overthinking_football/data/fbref/premier_league/20_21/master.name_cleaned.summary_table.csv
+  defense: /Users/adamscj/Documents/GitHub/overthinking_football/data/fbref/premier_league/20_21/master.name_cleaned.defense_table.csv
+  misc: /Users/adamscj/Documents/GitHub/overthinking_football/data/fbref/premier_league/20_21/master.name_cleaned.misc_table.csv
+  passing_types: /Users/adamscj/Documents/GitHub/overthinking_football/data/fbref/premier_league/20_21/master.name_cleaned.passing_types_table.csv
+  passing: /Users/adamscj/Documents/GitHub/overthinking_football/data/fbref/premier_league/20_21/master.name_cleaned.passing_table.csv
+  possession: /Users/adamscj/Documents/GitHub/overthinking_football/data/fbref/premier_league/20_21/master.name_cleaned.possession_table.csv
+...
