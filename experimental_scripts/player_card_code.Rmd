@@ -8,7 +8,7 @@ output: html_document
 ####prep to run
 ```{r}
 #what player do you want a card for?
-player = "James Maddison"
+player = "Bruno Fernandes"
 
 #load libraries
 
@@ -126,7 +126,7 @@ if (player_pos == "D"){
   
 } else if (player_pos == "F"){
   
-  point_vec = c(9,6,2,2,1,1,1,1,0.5,0,-0.5,6,-4,-5,-3,-7,0,0)
+  point_vec = c(9,6,2,2,1,1,1,1,0.5,0,-0.5,-4,-5,-3,-7,0,0)
   
   #remove the number of starts (n) from the summary_player_pts
   start_points_vec = summary_player_pts[, -1]
@@ -489,7 +489,8 @@ grid.arrange(statTable)
 ```{r}
 #install.packages("gtable")
 library("gtable")
-library(lattice)
+library("lattice")
+library(grid)
 
 #Make the minutes, starts, and position text plot
 #min

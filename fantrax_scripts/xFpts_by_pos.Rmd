@@ -3141,8 +3141,8 @@ min_starts_requirement <- 5
 min_minutes_requirement <- 60
 
 #load all player data for fbref.com
-weekly_data_csv = "../data/fantrax_data/weekly.all_data_combined.no_double_gws.csv"
-yearly_data_csv = "../data/fantrax_data/yearly.all_data_combined.csv"
+weekly_data_csv = "../data/fantrax_data/archive/weekly.all_data_combined.no_double_gws.csv"
+yearly_data_csv = "../data/fantrax_data/archive/yearly.all_data_combined.csv"
 
 weekly_data_df <- read_csv(file = weekly_data_csv, col_names = TRUE)
 yearly_data_df <- read_csv(file = yearly_data_csv, col_names = TRUE)

@@ -1,0 +1,217 @@
+---
+title: "Ghost_points"
+author: "William Bone"
+date: "10/16/2020"
+output: html_document
+---
+
+####prep to run
+```{r}
+#what player do you want a card for?
+player = "Bruno Fernandes"
+
+#load libraries
+
+library(tidyverse)
+library(ggplot2)
+library(ggrepel)
+library(gridExtra)
+library(RColorBrewer)
+```
+
+####load in the data
+```{r}
+
+#read in the epl 19/20 data with week level data
+#min 60 and 5 starts
+xFpts_epl_1920_starts <- read_csv(file = "../data/fantrax_data/new_positions.weekly_data.xFpts_epl_2019_2020.update.csv", col_names = TRUE)
+
+#no requirements
+xFpts_epl_1920_all <- read_csv(file = "../data/fantrax_data/weekly_data.no_min_requirement.updated_positions.xFpts_epl_2019_2020.update.csv", col_names = TRUE)
+
+#grab overview xFpts data total minutes, xFpts, etc. for the full season
+xFpt_epl_overview <- read_csv(file = "../data/fantrax_data/new_positions.overall_xFpts_epl_2019_2020.update.csv", col_names = TRUE)
+
+#grab the WAR score
+WAR_epl_1920 <- read_csv(file = "../data/fantrax_data/final_WAR_table.epl_2019_2020.new_positions.update.csv", col_names = TRUE)
+```
+
+#### Make a dfs with only point fields for each position
+```{r}
+
+xFpts_point_fields <- select(xFpts_epl_1920_all, Player, Position, xG, xA, KP, SOT, ACNC, CoS, TkW, Int.x, AER, CLR, DIS, PKM, OG, YC, RC, xCS, xGAD, Gls, Ast, GAD)
+
+#split the data by positions
+xFpts_point_fields_D <- xFpts_point_fields[xFpts_point_fields$Position == "D",]
+
+xFpts_point_fields_M <- xFpts_point_fields[xFpts_point_fields$Position == "M",]
+
+xFpts_point_fields_F <- xFpts_point_fields[xFpts_point_fields$Position == "F",]
+
+
+#for defenders calculate category points
+point_vec_D = c(10,7,2,2,1,1,1,1,1,0.25,-0.5,-4,-5,-3,-7,6,-2,10,7,-2)
+
+xFpts_point_fields_D_mat <- as.matrix(select(xFpts_point_fields_D,-Player, -Position))
+
+# perform the positional multiplication
+xFpts_point_fields_D_mat <- t(t(xFpts_point_fields_D_mat) * point_vec_D)
+
+for(c in 1:dim(xFpts_point_fields_D_mat)[2]){
+  field <- xFpts_point_fields_D_mat[,c]
+  print(colnames(xFpts_point_fields_D_mat)[c])
+  print(sd(field))
+}
+# [1] "xG"
+# [1] 1.035319
+# [1] "xA"
+# [1] 0.8669392
+# [1] "KP"
+# [1] 1.763082
+# [1] "SOT"
+# [1] 0.7942026
+# [1] "ACNC"
+# [1] 0.6682651
+# [1] "CoS"
+# [1] 0.9265828
+# [1] "TkW"
+# [1] 1.144076
+# [1] "Int.x"
+# [1] 1.263795
+# [1] "AER"
+# [1] 2.195311
+# [1] "CLR"
+# [1] 0.6680016
+# [1] "DIS"
+# [1] 0.3597163
+# [1] "PKM"
+# [1] 0
+# [1] "OG"
+# [1] 0.4072904
+# [1] "YC"
+# [1] 1.116275
+# [1] "RC"
+# [1] 0.5705706
+# [1] "xCS"
+# [1] 1.983047
+# [1] "xGAD"
+# [1] 1.550315
+# [1] "Gls"
+# [1] 1.966755
+# [1] "Ast"
+# [1] 1.648901
+# [1] "GAD"
+# [1] 2.424839
+
+
+#for midfielders calculate category points
+point_vec_M = c(9,6,2,2,1,1,1,1,0.5,0,-0.5,-4,-5,-3,-7,1,0,9,6,0)
+
+xFpts_point_fields_M_mat <- as.matrix(select(xFpts_point_fields_M,-Player, -Position))
+
+# perform the positional multiplication
+xFpts_point_fields_M_mat <- t(t(xFpts_point_fields_M_mat) * point_vec_M)
+
+for(c in 1:dim(xFpts_point_fields_M_mat)[2]){
+  field <- xFpts_point_fields_M_mat[,c]
+  print(colnames(xFpts_point_fields_M_mat)[c])
+  print(sd(field))
+}
+
+# [1] "xG"
+# [1] 1.666648
+# [1] "xA"
+# [1] 0.9652281
+# [1] "KP"
+# [1] 2.555115
+# [1] "SOT"
+# [1] 1.331383
+# [1] "ACNC"
+# [1] 0.5865622
+# [1] "CoS"
+# [1] 1.450491
+# [1] "TkW"
+# [1] 1.103494
+# [1] "Int.x"
+# [1] 1.173023
+# [1] "AER"
+# [1] 0.6846874
+# [1] "CLR"
+# [1] 0
+# [1] "DIS"
+# [1] 0.6293742
+# [1] "PKM"
+# [1] 0.179274
+# [1] "OG"
+# [1] 0.2240925
+# [1] "YC"
+# [1] 1.103611
+# [1] "RC"
+# [1] 0.443233
+# [1] "xCS"
+# [1] 0.3284216
+# [1] "xGAD"
+# [1] 0
+# [1] "Gls"
+# [1] 2.908744
+# [1] "Ast"
+# [1] 1.98239
+# [1] "GAD"
+# [1] 0
+
+
+#for forwards calculate category points
+point_vec_F = c(9,6,2,2,1,1,1,1,0.5,0,-0.5,-4,-5,-3,-7,0,0,9,6,0)
+
+xFpts_point_fields_F_mat <- as.matrix(select(xFpts_point_fields_F,-Player, -Position))
+
+# perform the positional multiplication
+xFpts_point_fields_F_mat <- t(t(xFpts_point_fields_F_mat) * point_vec_F)
+
+for(c in 1:dim(xFpts_point_fields_F_mat)[2]){
+  field <- xFpts_point_fields_F_mat[,c]
+  print(colnames(xFpts_point_fields_F_mat)[c])
+  print(sd(field))
+}
+
+# 1] "xG"
+# [1] 3.238635
+# [1] "xA"
+# [1] 1.24271
+# [1] "KP"
+# [1] 2.413191
+# [1] "SOT"
+# [1] 2.142681
+# [1] "ACNC"
+# [1] 0.5212456
+# [1] "CoS"
+# [1] 1.560599
+# [1] "TkW"
+# [1] 0.775225
+# [1] "Int.x"
+# [1] 0.614084
+# [1] "AER"
+# [1] 1.285249
+# [1] "CLR"
+# [1] 0
+# [1] "DIS"
+# [1] 0.6602511
+# [1] "PKM"
+# [1] 0.391348
+# [1] "OG"
+# [1] 0.1926642
+# [1] "YC"
+# [1] 0.8955582
+# [1] "RC"
+# [1] 0.4260041
+# [1] "xCS"
+# [1] 0
+# [1] "xGAD"
+# [1] 0
+# [1] "Gls"
+# [1] 5.341015
+# [1] "Ast"
+# [1] 2.170543
+# [1] "GAD"
+# [1] 0
+```
