@@ -1,0 +1,1318 @@
+,Player,#,Nation,Pos,Min,Touches,Def Pen,Def 3rd,Mid 3rd,Att 3rd,Att Pen,Live,Succ,Att,Succ%,#Pl,Megs,Carries,TotDist,PrgDist,Targ,Rec,Rec%,Miscon,Dispos,Date,Team,Opponent
+0,Aboubakar Kamara,47.0,fr FRA,FW,62,26,0,1,13,14,1,22,0,2,0.0,0,0,20,114,78,26,18,69.2,3,3,09/12/20,Fulham,Arsenal
+1,Aleksandar Mitrovic,9.0,rs SRB,FW,28,7,0,0,3,4,0,7,1,1,100.0,1,0,6,27,6,12,7,58.3,1,0,09/12/20,Fulham,Arsenal
+2,Ivan Cavaleiro,17.0,pt POR,LW,90,41,4,11,23,11,0,41,2,3,66.7,2,0,29,226,85,41,34,82.9,2,1,09/12/20,Fulham,Arsenal
+3,Neeskens Kebano,7.0,cd COD,RW,62,30,0,3,14,15,1,30,2,3,66.7,2,0,21,164,72,26,22,84.6,2,0,09/12/20,Fulham,Arsenal
+4,Andre-Frank Zambo Anguissa,29.0,cm CMR,RW,28,23,2,4,11,8,0,23,1,1,100.0,1,0,18,142,73,20,17,85.0,0,2,09/12/20,Fulham,Arsenal
+5,Josh Onomah,25.0,eng ENG,AM,74,31,2,3,18,11,0,31,0,0,,0,0,20,108,46,29,24,82.8,2,2,09/12/20,Fulham,Arsenal
+6,Bobby De Cordova-Reid,14.0,jm JAM,AM,16,10,1,2,5,3,0,10,0,0,,0,0,1,3,3,8,6,75.0,1,0,09/12/20,Fulham,Arsenal
+7,Tom Cairney,10.0,sco SCO,DM,90,82,3,16,52,19,0,79,0,0,,0,0,62,291,127,72,69,95.8,0,0,09/12/20,Fulham,Arsenal
+8,Harrison Reed,21.0,eng ENG,DM,90,75,3,20,49,9,0,74,0,0,,0,0,46,250,104,64,63,98.4,0,0,09/12/20,Fulham,Arsenal
+9,Joe Bryan,23.0,eng ENG,LB,90,66,2,18,30,22,1,55,0,0,,0,0,27,161,88,47,44,93.6,0,0,09/12/20,Fulham,Arsenal
+10,Tim Ream,13.0,us USA,CB,90,71,19,41,31,0,0,70,0,0,,0,0,43,223,103,53,53,100.0,0,0,09/12/20,Fulham,Arsenal
+11,Michael Hector,3.0,jm JAM,CB,90,72,10,39,34,0,0,72,0,0,,0,0,45,136,74,55,55,100.0,1,0,09/12/20,Fulham,Arsenal
+12,Denis Odoi,4.0,be BEL,RB,90,68,3,21,36,20,0,55,0,0,,0,0,44,294,145,46,45,97.8,0,0,09/12/20,Fulham,Arsenal
+13,Marek RodÃ¡k,12.0,sk SVK,GK,90,28,26,28,0,0,0,22,0,0,,0,0,13,46,15,17,17,100.0,0,0,09/12/20,Fulham,Arsenal
+14,Alexandre Lacazette,9.0,fr FRA,FW,86,30,0,1,15,15,6,29,2,2,100.0,2,0,20,51,13,43,24,55.8,1,3,09/12/20,Arsenal,Fulham
+15,Eddie Nketiah,30.0,eng ENG,FW,4,1,0,1,0,0,0,1,0,0,,0,0,1,3,0,2,1,50.0,0,0,09/12/20,Arsenal,Fulham
+16,Pierre-Emerick Aubameyang,14.0,ga GAB,LW,90,39,0,4,16,22,5,39,2,5,40.0,3,0,27,208,132,52,35,67.3,1,1,09/12/20,Arsenal,Fulham
+17,Willian,12.0,br BRA,RW,75,40,1,7,17,20,3,36,0,0,,0,0,29,236,141,36,30,83.3,1,1,09/12/20,Arsenal,Fulham
+18,Nicolas Pepe,19.0,ci CIV,RW,15,12,0,0,5,7,3,10,0,1,0.0,0,0,8,54,41,11,8,72.7,1,0,09/12/20,Arsenal,Fulham
+19,Granit Xhaka,34.0,ch SUI,CM,78,66,3,13,38,18,1,64,0,0,,0,0,40,162,88,51,46,90.2,0,0,09/12/20,Arsenal,Fulham
+20,Dani Ceballos,8.0,es ESP,CM,12,19,0,4,11,4,2,18,1,1,100.0,1,1,11,68,60,15,15,100.0,0,0,09/12/20,Arsenal,Fulham
+21,Mohamed Elneny,25.0,eg EGY,CM,90,68,2,16,47,9,1,68,1,1,100.0,1,0,57,285,160,59,58,98.3,0,0,09/12/20,Arsenal,Fulham
+22,Ainsley Maitland-Niles,15.0,eng ENG,WB,90,52,2,12,30,14,2,48,0,2,0.0,0,0,30,120,52,44,38,86.4,2,0,09/12/20,Arsenal,Fulham
+23,Hector Bellerin,2.0,es ESP,WB,90,73,0,15,33,29,1,64,2,4,50.0,2,0,48,320,237,58,54,93.1,1,0,09/12/20,Arsenal,Fulham
+24,Kieran Tierney,3.0,sco SCO,CB,90,96,3,32,60,10,1,87,1,2,50.0,1,0,70,348,225,80,75,93.8,0,1,09/12/20,Arsenal,Fulham
+25,Gabriel Magalhaes,6.0,br BRA,CB,90,121,13,76,53,1,1,120,0,0,,0,0,91,446,219,109,108,99.1,0,0,09/12/20,Arsenal,Fulham
+26,Rob Holding,16.0,eng ENG,CB,90,97,15,56,47,2,0,95,2,2,100.0,2,0,72,312,189,83,83,100.0,0,0,09/12/20,Arsenal,Fulham
+27,Bernd Leno,1.0,de GER,GK,90,33,29,33,0,0,0,26,0,0,,0,0,18,44,16,21,20,95.2,0,0,09/12/20,Arsenal,Fulham
+28,Jordan Ayew,9.0,gh GHA,FW,90,36,0,3,13,21,2,36,2,4,50.0,2,0,27,93,41,58,26,44.8,7,11,09/12/20,Crystal Palace,Southampton
+29,Wilfried Zaha,11.0,ci CIV,FW,90,28,0,4,11,17,2,28,1,2,50.0,1,0,20,206,144,44,19,43.2,6,3,09/12/20,Crystal Palace,Southampton
+30,Jeffrey Schlupp,15.0,gh GHA,LM,80,23,0,1,13,10,0,22,0,0,,0,0,9,65,27,20,16,80.0,3,3,09/12/20,Crystal Palace,Southampton
+31,Eberechi Eze,25.0,eng ENG,LM,10,12,0,2,4,7,1,10,2,3,66.7,2,0,11,57,35,8,8,100.0,0,1,09/12/20,Crystal Palace,Southampton
+32,Andros Townsend,10.0,eng ENG,RM,90,40,2,9,19,15,1,38,3,4,75.0,3,0,29,238,129,28,21,75.0,3,2,09/12/20,Crystal Palace,Southampton
+33,James McCarthy,22.0,ie IRL,DM,73,30,1,10,18,4,0,27,0,0,,0,0,9,24,8,9,6,66.7,0,1,09/12/20,Crystal Palace,Southampton
+34,Luka Milivojevic,4.0,rs SRB,DM,17,15,1,3,10,2,0,13,0,0,,0,0,6,16,9,2,2,100.0,0,0,09/12/20,Crystal Palace,Southampton
+35,James McArthur,18.0,sco SCO,DM,90,44,3,12,30,3,2,42,0,0,,0,0,18,71,31,14,14,100.0,1,0,09/12/20,Crystal Palace,Southampton
+36,Tyrick Mitchell,27.0,eng ENG,LB,90,57,1,15,30,14,0,41,0,2,0.0,0,0,18,83,29,18,17,94.4,1,2,09/12/20,Crystal Palace,Southampton
+37,Scott Dann,6.0,eng ENG,CB,90,37,7,24,9,4,3,36,0,0,,0,0,5,25,5,8,8,100.0,0,0,09/12/20,Crystal Palace,Southampton
+38,Cheikhou Kouyate,8.0,sn SEN,CB,90,25,5,12,12,1,1,24,0,0,,0,0,3,20,11,4,4,100.0,0,1,09/12/20,Crystal Palace,Southampton
+39,Joel Ward,2.0,eng ENG,RB,90,45,9,17,16,12,0,30,0,0,,0,0,9,48,17,7,6,85.7,0,0,09/12/20,Crystal Palace,Southampton
+40,Vicente Guaita,31.0,es ESP,GK,90,29,24,29,0,0,0,19,0,0,,0,0,7,34,26,6,6,100.0,0,0,09/12/20,Crystal Palace,Southampton
+41,Danny Ings,9.0,eng ENG,FW,90,29,0,2,9,18,6,29,2,2,100.0,2,0,19,61,27,34,24,70.6,3,1,09/12/20,Southampton,Crystal Palace
+42,Che Adams,10.0,eng ENG,FW,84,27,0,0,12,15,5,27,0,0,,0,0,12,55,9,36,24,66.7,5,2,09/12/20,Southampton,Crystal Palace
+43,Shane Long,7.0,ie IRL,FW,6,5,0,0,1,4,1,5,0,1,0.0,0,0,3,4,0,4,3,75.0,1,1,09/12/20,Southampton,Crystal Palace
+44,Nathan Redmond,11.0,eng ENG,LM,90,52,0,9,23,23,3,52,0,1,0.0,0,0,27,176,70,41,37,90.2,1,2,09/12/20,Southampton,Crystal Palace
+45,William Smallbone,20.0,ie IRL,RM,76,25,0,3,10,13,0,25,0,0,,0,0,18,67,31,22,19,86.4,0,1,09/12/20,Southampton,Crystal Palace
+46,Moussa Djenepo,12.0,ml MLI,RM,14,10,0,2,7,2,0,10,1,1,100.0,1,0,5,34,19,7,6,85.7,2,0,09/12/20,Southampton,Crystal Palace
+47,Oriol Romeu,6.0,es ESP,DM,90,83,1,13,65,9,0,82,0,0,,0,0,40,218,138,62,60,96.8,0,1,09/12/20,Southampton,Crystal Palace
+48,James Ward-Prowse,8.0,eng ENG,DM,90,77,1,9,49,20,1,67,0,1,0.0,0,0,35,160,74,56,49,87.5,1,0,09/12/20,Southampton,Crystal Palace
+49,Ryan Bertrand,3.0,eng ENG,LB,90,84,2,21,44,23,1,70,1,1,100.0,1,0,38,191,102,53,47,88.7,1,2,09/12/20,Southampton,Crystal Palace
+50,Jan Bednarek,35.0,pl POL,CB,45,56,2,28,31,2,0,54,1,1,100.0,1,0,41,323,211,41,41,100.0,0,0,09/12/20,Southampton,Crystal Palace
+51,Jannik Vestergaard,4.0,dk DEN,CB,45,48,4,27,21,3,1,48,1,1,100.0,1,0,23,151,87,26,26,100.0,1,0,09/12/20,Southampton,Crystal Palace
+52,Jack Stephens,5.0,eng ENG,CB,90,95,5,47,57,2,1,93,0,0,,0,0,51,327,239,67,67,100.0,0,1,09/12/20,Southampton,Crystal Palace
+53,Kyle Walker-Peters,2.0,eng ENG,RB,90,97,1,23,49,31,2,75,0,0,,0,0,52,302,185,57,54,94.7,1,6,09/12/20,Southampton,Crystal Palace
+54,Alex McCarthy,1.0,eng ENG,GK,90,52,35,51,2,0,0,43,0,0,,0,0,27,98,54,29,29,100.0,0,0,09/12/20,Southampton,Crystal Palace
+55,Roberto Firmino,9.0,br BRA,FW,90,49,0,5,22,27,9,48,1,1,100.0,1,0,31,206,107,49,36,73.5,3,4,09/12/20,Liverpool,Leeds United
+56,Sadio Mane,10.0,sn SEN,LW,90,54,0,7,21,30,9,53,4,5,80.0,4,1,37,337,142,58,42,72.4,4,2,09/12/20,Liverpool,Leeds United
+57,Mohamed Salah,11.0,eg EGY,RW,90,80,0,3,24,58,18,78,9,13,69.2,10,0,64,469,280,74,62,83.8,5,8,09/12/20,Liverpool,Leeds United
+58,Georginio Wijnaldum,5.0,nl NED,CM,90,37,0,3,23,13,3,37,1,3,33.3,1,0,21,172,76,29,26,89.7,2,3,09/12/20,Liverpool,Leeds United
+59,Naby Keita,8.0,gn GUI,CM,57,45,1,7,22,19,6,42,3,4,75.0,3,0,26,183,109,31,27,87.1,3,2,09/12/20,Liverpool,Leeds United
+60,Fabinho,3.0,br BRA,CM,33,18,2,4,7,7,1,18,0,0,,0,0,8,49,13,6,6,100.0,0,0,09/12/20,Liverpool,Leeds United
+61,Jordan Henderson,14.0,eng ENG,DM,65,43,0,8,29,9,0,42,1,1,100.0,1,0,24,173,72,28,26,92.9,0,0,09/12/20,Liverpool,Leeds United
+62,Curtis Jones,17.0,eng ENG,DM,25,23,0,3,5,17,1,23,0,0,,0,0,17,108,51,19,16,84.2,0,1,09/12/20,Liverpool,Leeds United
+63,Andrew Robertson,26.0,sco SCO,LB,90,69,1,16,24,32,2,53,0,2,0.0,0,0,30,186,90,38,29,76.3,0,0,09/12/20,Liverpool,Leeds United
+64,Virgil van Dijk,4.0,nl NED,CB,90,42,3,16,25,2,2,42,0,0,,0,0,19,155,82,27,26,96.3,0,0,09/12/20,Liverpool,Leeds United
+65,Joseph Gomez,12.0,eng ENG,CB,90,61,5,29,38,2,0,60,2,2,100.0,2,0,36,333,192,29,29,100.0,1,2,09/12/20,Liverpool,Leeds United
+66,Trent Alexander-Arnold,66.0,eng ENG,RB,88,71,4,18,22,31,0,42,1,3,33.3,2,0,27,129,38,29,24,82.8,0,0,09/12/20,Liverpool,Leeds United
+67,Joel Matip,32.0,cm CMR,CB,2,1,0,0,1,0,0,1,0,0,,0,0,1,7,3,1,1,100.0,0,0,09/12/20,Liverpool,Leeds United
+68,Alisson,1.0,br BRA,GK,90,30,23,30,0,0,0,24,0,0,,0,0,13,38,20,16,16,100.0,0,0,09/12/20,Liverpool,Leeds United
+69,Patrick Bamford,9.0,eng ENG,FW,61,17,3,3,8,7,2,13,0,0,,0,0,7,60,32,23,6,26.1,1,1,09/12/20,Leeds United,Liverpool
+70,Rodrigo Moreno,20.0,es ESP,FW,29,6,2,3,2,1,0,5,0,0,,0,0,1,0,0,8,0,0.0,0,0,09/12/20,Leeds United,Liverpool
+71,Jack Harrison,22.0,eng ENG,LM,90,41,3,14,14,15,2,41,3,3,100.0,3,1,26,222,154,37,23,62.2,5,1,09/12/20,Leeds United,Liverpool
+72,Mateusz Klich,43.0,pl POL,CM,80,46,8,18,21,11,4,46,1,2,50.0,1,0,21,146,100,38,28,73.7,1,0,09/12/20,Leeds United,Liverpool
+73,Jamie Shackleton,46.0,eng ENG,CM,10,6,1,2,2,2,0,6,1,1,100.0,1,0,2,9,1,5,4,80.0,1,0,09/12/20,Leeds United,Liverpool
+74,Pablo Hernandez,19.0,es ESP,CM,61,42,0,8,24,13,1,39,0,1,0.0,0,0,22,103,62,34,32,94.1,0,0,09/12/20,Leeds United,Liverpool
+75,Tyler Roberts,11.0,wal WAL,CM,29,13,1,5,5,3,0,13,0,0,,0,0,5,35,19,9,7,77.8,0,0,09/12/20,Leeds United,Liverpool
+76,Helder Costa,17.0,pt POR,RM,90,32,2,11,14,11,2,32,2,3,66.7,3,1,20,231,168,30,17,56.7,3,3,09/12/20,Leeds United,Liverpool
+77,Kalvin Phillips,23.0,eng ENG,DM,90,68,4,29,35,6,0,66,0,0,,0,0,28,150,45,42,41,97.6,3,3,09/12/20,Leeds United,Liverpool
+78,Stuart Dallas,15.0,nir NIR,LB,90,81,4,38,37,9,1,73,0,0,,0,0,39,207,117,46,45,97.8,2,1,09/12/20,Leeds United,Liverpool
+79,Pascal Struijk,21.0,nl NED,CB,90,79,28,66,15,0,0,75,0,0,,0,0,30,143,63,47,45,95.7,0,0,09/12/20,Leeds United,Liverpool
+80,Robin Koch,5.0,de GER,CB,90,73,19,59,14,2,1,72,0,0,,0,0,41,239,148,46,45,97.8,0,1,09/12/20,Leeds United,Liverpool
+81,Luke Ayling,2.0,eng ENG,RB,90,83,7,45,32,8,0,68,3,3,100.0,3,1,40,213,123,47,45,95.7,2,1,09/12/20,Leeds United,Liverpool
+82,Illan Meslier,1.0,fr FRA,GK,90,62,59,62,0,0,0,49,0,0,,0,0,32,116,53,35,35,100.0,0,0,09/12/20,Leeds United,Liverpool
+83,Michail Antonio,30.0,eng ENG,"FW,AM",90,37,0,0,10,30,6,33,1,3,33.3,1,0,24,196,130,37,27,73.0,1,5,09/12/20,West Ham,Newcastle Utd
+84,Pablo Fornals,18.0,es ESP,LW,66,23,0,5,8,10,1,23,0,0,,0,0,14,118,25,16,13,81.3,0,0,09/12/20,West Ham,Newcastle Utd
+85,Sebastien Haller,22.0,fr FRA,"FW,LW",24,12,0,1,2,9,4,12,1,1,100.0,1,0,8,39,14,9,8,88.9,0,0,09/12/20,West Ham,Newcastle Utd
+86,Jarrod Bowen,20.0,eng ENG,"RW,LW",88,40,0,5,21,17,4,38,2,3,66.7,2,0,29,260,102,30,27,90.0,0,1,09/12/20,West Ham,Newcastle Utd
+87,Felipe Anderson,8.0,br BRA,LW,2,4,0,0,4,1,0,4,0,0,,0,0,3,57,49,4,3,75.0,0,0,09/12/20,West Ham,Newcastle Utd
+88,Mark Noble,16.0,eng ENG,AM,66,46,0,4,38,7,0,41,0,0,,0,0,34,223,107,39,37,94.9,0,1,09/12/20,West Ham,Newcastle Utd
+89,Andriy Yarmolenko,7.0,ua UKR,"RW,AM",24,25,0,3,13,13,1,21,0,0,,0,0,18,183,118,18,18,100.0,0,1,09/12/20,West Ham,Newcastle Utd
+90,Declan Rice,41.0,eng ENG,DM,90,76,3,16,51,19,3,76,3,4,75.0,3,0,61,422,234,56,55,98.2,0,1,09/12/20,West Ham,Newcastle Utd
+91,Tomas Soucek,28.0,cz CZE,DM,90,40,3,9,25,8,2,39,0,0,,0,0,20,112,66,32,24,75.0,1,0,09/12/20,West Ham,Newcastle Utd
+92,Aaron Cresswell,3.0,eng ENG,LB,90,67,2,11,43,16,0,59,0,0,,0,0,47,234,118,45,44,97.8,0,0,09/12/20,West Ham,Newcastle Utd
+93,Angelo Ogbonna,21.0,it ITA,CB,90,80,11,41,43,3,3,78,0,0,,0,0,46,500,302,49,49,100.0,1,0,09/12/20,West Ham,Newcastle Utd
+94,Issa Diop,23.0,fr FRA,CB,90,84,9,33,54,0,0,80,0,0,,0,0,60,343,208,60,60,100.0,0,0,09/12/20,West Ham,Newcastle Utd
+95,Ryan Fredericks,24.0,eng ENG,RB,90,54,5,6,28,23,1,48,0,1,0.0,0,0,34,159,114,39,36,92.3,0,0,09/12/20,West Ham,Newcastle Utd
+96,Åukasz FabiaÅski,1.0,pl POL,GK,90,31,25,31,0,0,0,22,0,0,,0,0,13,73,51,12,12,100.0,0,0,09/12/20,West Ham,Newcastle Utd
+97,Andy Carroll,7.0,eng ENG,FW,87,42,5,7,18,17,6,42,2,4,50.0,2,0,21,86,49,48,27,56.3,1,3,09/12/20,Newcastle Utd,West Ham
+98,Sean Longstaff,36.0,eng ENG,FW,3,3,1,1,1,1,1,3,0,0,,0,0,1,6,0,2,1,50.0,0,0,09/12/20,Newcastle Utd,West Ham
+99,Callum Wilson,13.0,eng ENG,FW,84,31,0,3,13,18,8,30,2,3,66.7,2,0,21,239,126,43,24,55.8,2,1,09/12/20,Newcastle Utd,West Ham
+100,Miguel Almiron,24.0,py PAR,LM,6,14,0,2,10,7,2,14,0,0,,0,0,9,102,95,13,11,84.6,0,0,09/12/20,Newcastle Utd,West Ham
+101,Jeff Hendrick,16.0,ie IRL,"RM,LM",90,37,5,10,14,19,6,37,4,4,100.0,4,0,21,157,98,24,18,75.0,2,2,09/12/20,Newcastle Utd,West Ham
+102,Allan Saint-Maximin,10.0,fr FRA,"RM,LM",74,38,0,6,21,16,2,37,3,5,60.0,3,0,37,453,301,30,26,86.7,2,3,09/12/20,Newcastle Utd,West Ham
+103,Joelinton,9.0,br BRA,"LM,FW",16,13,2,4,4,6,1,13,2,2,100.0,2,0,11,61,34,10,7,70.0,0,0,09/12/20,Newcastle Utd,West Ham
+104,Isaac Hayden,14.0,eng ENG,DM,90,50,3,17,32,6,0,47,0,0,,0,0,28,138,36,20,20,100.0,0,1,09/12/20,Newcastle Utd,West Ham
+105,Jonjo Shelvey,8.0,eng ENG,DM,90,64,1,15,31,20,2,52,0,0,,0,0,29,151,60,40,38,95.0,0,1,09/12/20,Newcastle Utd,West Ham
+106,Jamal Lewis,15.0,nir NIR,LB,90,47,2,14,28,8,0,41,0,0,,0,0,27,143,61,28,28,100.0,1,1,09/12/20,Newcastle Utd,West Ham
+107,Federico Fernandez,18.0,ar ARG,CB,90,50,13,35,12,3,1,49,0,0,,0,0,24,73,32,27,27,100.0,0,0,09/12/20,Newcastle Utd,West Ham
+108,Jamaal Lascelles,6.0,eng ENG,CB,90,37,9,29,9,0,0,36,1,1,100.0,1,0,18,97,53,17,17,100.0,1,0,09/12/20,Newcastle Utd,West Ham
+109,Javier Manquillo,19.0,es ESP,RB,90,45,6,15,16,16,2,42,1,2,50.0,1,0,23,129,73,26,22,84.6,1,0,09/12/20,Newcastle Utd,West Ham
+110,Karl Darlow,26.0,eng ENG,GK,90,25,18,25,0,0,0,17,0,0,,0,0,10,86,49,9,9,100.0,0,0,09/12/20,Newcastle Utd,West Ham
+111,Callum Robinson,7.0,ie IRL,FW,59,14,0,0,5,9,2,12,0,0,,0,0,6,25,1,27,10,37.0,0,3,09/13/20,West Brom,Leicester City
+112,Hal Robson-Kanu,4.0,wal WAL,FW,31,7,1,1,3,3,0,6,0,0,,0,0,3,5,5,7,3,42.9,0,0,09/13/20,West Brom,Leicester City
+113,Grady Diangana,11.0,eng ENG,LW,90,49,0,9,26,17,2,49,1,2,50.0,1,0,32,118,72,49,37,75.5,4,5,09/13/20,West Brom,Leicester City
+114,Matheus Pereira,12.0,br BRA,RW,90,46,1,5,19,22,3,39,2,7,28.6,3,1,28,141,36,36,29,80.6,1,2,09/13/20,West Brom,Leicester City
+115,Romaine Sawyers,19.0,kn SKN,DM,67,25,0,2,19,6,0,25,0,1,0.0,0,0,17,88,39,20,18,90.0,0,2,09/13/20,West Brom,Leicester City
+116,Kyle Edwards,21.0,eng ENG,"CM,DM",23,10,0,3,5,3,1,10,0,0,,0,0,7,60,38,9,7,77.8,0,1,09/13/20,West Brom,Leicester City
+117,Jake Livermore,8.0,eng ENG,DM,90,33,2,9,20,6,0,33,0,0,,0,0,18,92,33,17,14,82.4,0,0,09/13/20,West Brom,Leicester City
+118,Kieran Gibbs,3.0,eng ENG,"WB,LB",90,47,5,14,28,9,0,43,0,0,,0,0,27,180,94,33,27,81.8,0,2,09/13/20,West Brom,Leicester City
+119,Darnell Furlong,2.0,eng ENG,WB,68,37,2,9,13,18,2,30,0,0,,0,0,17,148,91,23,19,82.6,3,1,09/13/20,West Brom,Leicester City
+120,Rekeem Harper,16.0,eng ENG,"CM,WB",22,18,0,2,14,4,0,18,0,0,,0,0,7,26,10,11,10,90.9,1,0,09/13/20,West Brom,Leicester City
+121,Dara O'Shea,27.0,ie IRL,"CB,RB",90,54,5,27,28,4,0,42,0,0,,0,0,28,156,73,30,29,96.7,0,0,09/13/20,West Brom,Leicester City
+122,Kyle Bartley,5.0,eng ENG,CB,90,56,15,35,23,1,1,55,0,0,,0,0,27,201,38,24,24,100.0,0,0,09/13/20,West Brom,Leicester City
+123,Semi Ajayi,6.0,ng NGA,CB,90,37,1,16,24,2,0,34,1,1,100.0,1,0,26,221,110,22,21,95.5,0,1,09/13/20,West Brom,Leicester City
+124,Sam Johnstone,1.0,eng ENG,GK,90,34,29,34,0,0,0,26,0,0,,0,0,14,88,35,19,19,100.0,0,0,09/13/20,West Brom,Leicester City
+125,Jamie Vardy,9.0,eng ENG,FW,90,17,2,2,7,9,3,14,0,0,,0,0,7,24,21,28,9,32.1,2,1,09/13/20,Leicester City,West Brom
+126,Harvey Barnes,15.0,eng ENG,LM,90,44,1,5,18,25,7,44,1,2,50.0,1,0,32,319,219,36,31,86.1,0,2,09/13/20,Leicester City,West Brom
+127,Dennis Praet,26.0,be BEL,CM,74,45,0,6,26,13,5,45,1,1,100.0,1,0,22,77,25,44,35,79.5,2,1,09/13/20,Leicester City,West Brom
+128,James Maddison,10.0,eng ENG,CM,16,20,0,0,17,3,0,18,0,1,0.0,0,0,12,62,13,21,16,76.2,0,0,09/13/20,Leicester City,West Brom
+129,Youri Tielemans,8.0,be BEL,CM,90,97,0,20,60,23,1,89,2,2,100.0,2,0,58,278,156,77,72,93.5,0,1,09/13/20,Leicester City,West Brom
+130,Ayoze Perez,17.0,es ESP,RM,66,35,1,3,18,15,3,35,1,1,100.0,1,0,24,102,39,35,26,74.3,0,1,09/13/20,Leicester City,West Brom
+131,Marc Albrighton,11.0,eng ENG,RM,24,10,1,1,3,7,0,10,0,0,,0,0,7,73,41,9,8,88.9,0,0,09/13/20,Leicester City,West Brom
+132,Nampalys Mendy,24.0,fr FRA,DM,90,84,0,19,57,13,0,83,0,0,,0,0,61,267,110,70,69,98.6,2,1,09/13/20,Leicester City,West Brom
+133,James Justin,2.0,eng ENG,LB,90,80,1,25,37,23,1,64,0,2,0.0,0,0,42,190,123,44,43,97.7,1,2,09/13/20,Leicester City,West Brom
+134,Caglar Soyuncu,4.0,tr TUR,CB,90,92,8,48,54,2,2,88,0,0,,0,0,58,442,295,71,71,100.0,0,0,09/13/20,Leicester City,West Brom
+135,Wilfred Ndidi,25.0,ng NGA,CB,90,98,10,60,44,0,0,97,0,0,,0,0,65,379,205,79,75,94.9,1,1,09/13/20,Leicester City,West Brom
+136,Timothy Castagne,27.0,be BEL,RB,90,90,3,32,46,18,2,78,1,1,100.0,1,0,44,250,146,63,54,85.7,2,0,09/13/20,Leicester City,West Brom
+137,Kasper Schmeichel,1.0,dk DEN,GK,90,29,23,29,0,0,0,20,0,0,,0,0,14,59,34,16,15,93.8,0,0,09/13/20,Leicester City,West Brom
+138,Harry Kane,10.0,eng ENG,FW,90,26,1,5,9,14,2,25,0,3,0.0,0,0,14,87,24,28,20,71.4,1,1,09/13/20,Tottenham,Everton
+139,Son Heung-Min,7.0,kr KOR,"LW,AM",90,40,0,1,6,35,7,33,0,0,,0,0,22,158,105,40,26,65.0,3,1,09/13/20,Tottenham,Everton
+140,Lucas Moura,27.0,br BRA,RW,90,50,0,3,27,23,2,49,1,4,25.0,2,1,34,172,91,40,37,92.5,1,4,09/13/20,Tottenham,Everton
+141,Dele Alli,20.0,eng ENG,AM,45,22,1,2,13,11,2,21,0,1,0.0,0,0,10,66,10,19,16,84.2,1,1,09/13/20,Tottenham,Everton
+142,Moussa Sissoko,17.0,fr FRA,"DM,RB,AM",45,38,0,4,23,12,0,29,0,0,,0,0,13,78,43,26,23,88.5,0,0,09/13/20,Tottenham,Everton
+143,Harry Winks,8.0,eng ENG,DM,59,52,0,6,40,8,1,52,0,1,0.0,1,0,32,140,52,42,42,100.0,0,0,09/13/20,Tottenham,Everton
+144,Steven Bergwijn,23.0,nl NED,LW,31,20,0,2,7,13,1,20,0,1,0.0,0,0,12,60,36,24,18,75.0,0,0,09/13/20,Tottenham,Everton
+145,Pierre-Emile Hojbjerg,5.0,dk DEN,DM,90,88,4,16,64,11,0,88,0,0,,0,0,53,262,139,65,65,100.0,0,2,09/13/20,Tottenham,Everton
+146,Ben Davies,33.0,wal WAL,LB,90,83,2,17,47,26,2,68,0,0,,0,0,43,237,136,55,52,94.5,0,0,09/13/20,Tottenham,Everton
+147,Eric Dier,15.0,eng ENG,CB,90,66,7,30,40,2,0,65,0,0,,0,0,38,165,90,52,52,100.0,0,0,09/13/20,Tottenham,Everton
+148,Toby Alderweireld,4.0,be BEL,CB,90,78,6,38,44,3,1,78,1,1,100.0,1,0,51,191,111,61,60,98.4,1,0,09/13/20,Tottenham,Everton
+149,Matt Doherty,2.0,ie IRL,RB,75,63,3,9,38,22,2,53,2,3,66.7,2,0,35,145,93,53,43,81.1,2,1,09/13/20,Tottenham,Everton
+150,Tanguy Ndombele,28.0,fr FRA,DM,15,20,0,4,15,3,0,20,0,0,,0,0,17,71,39,20,19,95.0,0,0,09/13/20,Tottenham,Everton
+151,Hugo Lloris,1.0,fr FRA,GK,90,30,26,30,0,0,0,21,0,0,,0,0,10,14,5,13,13,100.0,0,0,09/13/20,Tottenham,Everton
+152,Dominic Calvert-Lewin,9.0,eng ENG,FW,88,20,0,0,11,10,4,20,1,1,100.0,1,0,12,142,59,27,17,63.0,1,0,09/13/20,Everton,Tottenham
+153,Moise Kean,27.0,it ITA,FW,2,2,0,1,0,1,1,2,0,1,0.0,0,0,2,23,6,1,1,100.0,1,0,09/13/20,Everton,Tottenham
+154,Richarlison,7.0,br BRA,LW,90,69,2,13,37,26,9,67,7,7,100.0,7,0,59,465,282,53,48,90.6,4,3,09/13/20,Everton,Tottenham
+155,James Rodriguez,19.0,co COL,RW,89,70,1,9,48,15,2,69,2,3,66.7,3,0,45,256,76,57,53,93.0,1,0,09/13/20,Everton,Tottenham
+156,Tom Davies,26.0,eng ENG,RW,1,2,0,2,0,0,0,2,0,0,,0,0,1,2,0,0,0,,0,0,09/13/20,Everton,Tottenham
+157,Andre Gomes,21.0,pt POR,CM,67,47,1,10,32,8,2,47,0,0,,0,0,38,230,103,43,41,95.3,2,2,09/13/20,Everton,Tottenham
+158,Gylfi Sigurdsson,10.0,is ISL,CM,23,16,0,5,11,1,0,15,0,0,,0,0,10,20,9,10,10,100.0,1,0,09/13/20,Everton,Tottenham
+159,Abdoulaye Doucoure,16.0,fr FRA,CM,90,63,1,13,46,7,1,63,1,1,100.0,1,0,40,178,80,47,47,100.0,1,1,09/13/20,Everton,Tottenham
+160,Allan,6.0,br BRA,DM,90,72,4,21,51,3,0,72,0,0,,0,0,49,253,117,52,51,98.1,1,0,09/13/20,Everton,Tottenham
+161,Lucas Digne,12.0,fr FRA,LB,90,88,4,26,48,18,0,73,0,0,,0,0,46,157,68,52,51,98.1,0,0,09/13/20,Everton,Tottenham
+162,Michael Keane,5.0,eng ENG,CB,90,68,11,43,24,1,0,66,0,0,,0,0,45,154,62,52,52,100.0,0,1,09/13/20,Everton,Tottenham
+163,Yerry Mina,13.0,co COL,CB,90,68,12,50,22,1,0,65,0,0,,0,0,45,202,116,46,45,97.8,0,0,09/13/20,Everton,Tottenham
+164,Seamus Coleman,23.0,ie IRL,RB,90,67,8,25,38,11,0,57,0,2,0.0,0,0,40,279,112,34,33,97.1,1,0,09/13/20,Everton,Tottenham
+165,Jordan Pickford,1.0,eng ENG,GK,90,41,39,41,0,0,0,37,0,0,,0,0,26,149,65,24,24,100.0,0,0,09/13/20,Everton,Tottenham
+166,Billy Sharp,10.0,eng ENG,"FW,AM",90,27,0,2,5,21,10,26,1,2,50.0,1,0,17,117,65,28,20,71.4,1,4,09/14/20,Sheffield Utd,Wolves
+167,Oliver McBurnie,9.0,sco SCO,FW,90,38,2,3,7,29,5,38,2,4,50.0,2,0,16,88,32,37,31,83.8,0,1,09/14/20,Sheffield Utd,Wolves
+168,John Fleck,4.0,sco SCO,CM,90,53,0,6,16,35,4,46,1,2,50.0,1,0,33,139,93,35,35,100.0,0,3,09/14/20,Sheffield Utd,Wolves
+169,John Lundstram,7.0,eng ENG,CM,90,68,0,0,25,47,3,62,0,0,,0,0,51,244,94,53,51,96.2,1,0,09/14/20,Sheffield Utd,Wolves
+170,Oliver Norwood,16.0,nir NIR,DM,75,66,1,8,43,17,0,58,0,0,,0,0,41,125,66,47,45,95.7,0,0,09/14/20,Sheffield Utd,Wolves
+171,Sander Berge,8.0,no NOR,DM,15,25,0,0,13,14,0,25,0,0,,0,0,17,114,69,19,18,94.7,0,0,09/14/20,Sheffield Utd,Wolves
+172,Enda Stevens,3.0,ie IRL,"WB,LB",90,72,1,9,40,32,2,62,2,3,66.7,2,0,51,227,151,41,39,95.1,0,1,09/14/20,Sheffield Utd,Wolves
+173,George Baldock,2.0,eng ENG,"WB,RB",90,58,0,6,18,34,5,50,0,0,,0,0,42,155,50,42,41,97.6,0,1,09/14/20,Sheffield Utd,Wolves
+174,Jack O'Connell,5.0,eng ENG,CB,90,62,1,21,29,15,0,62,0,1,0.0,0,0,40,125,76,45,42,93.3,0,0,09/14/20,Sheffield Utd,Wolves
+175,John Egan,12.0,ie IRL,CB,90,57,4,18,39,5,3,56,0,0,,0,0,31,217,163,34,34,100.0,0,0,09/14/20,Sheffield Utd,Wolves
+176,Chris Basham,6.0,eng ENG,CB,70,39,3,9,26,6,0,38,0,0,,0,0,20,124,96,19,19,100.0,1,0,09/14/20,Sheffield Utd,Wolves
+177,David McGoldrick,17.0,ie IRL,AM,20,25,0,0,8,19,1,23,1,1,100.0,1,0,18,100,32,23,22,95.7,1,1,09/14/20,Sheffield Utd,Wolves
+178,Aaron Ramsdale,1.0,eng ENG,GK,90,26,21,26,0,0,0,19,0,0,,0,0,15,102,52,12,12,100.0,0,0,09/14/20,Sheffield Utd,Wolves
+179,Daniel Podence,10.0,pt POR,"FW,AM",75,31,0,2,25,5,0,30,2,3,66.7,2,0,25,152,76,36,27,75.0,1,0,09/14/20,Wolves,Sheffield Utd
+180,Ruben Neves,8.0,pt POR,AM,15,11,1,6,5,0,0,11,0,0,,0,0,2,2,1,6,5,83.3,0,0,09/14/20,Wolves,Sheffield Utd
+181,Pedro Neto,7.0,pt POR,AM,68,32,0,6,21,8,1,29,1,2,50.0,1,0,24,263,166,29,21,72.4,2,0,09/14/20,Wolves,Sheffield Utd
+182,Oskar Buur,59.0,dk DEN,"WB,AM",22,17,0,5,12,0,0,16,0,0,,0,0,11,27,21,14,13,92.9,0,1,09/14/20,Wolves,Sheffield Utd
+183,Raul Jimenez,9.0,mx MEX,"AM,FW",90,63,4,8,39,22,5,63,3,4,75.0,3,0,42,333,210,62,47,75.8,2,4,09/14/20,Wolves,Sheffield Utd
+184,Joao Moutinho,28.0,pt POR,DM,85,55,5,24,25,8,0,48,0,1,0.0,0,0,35,111,43,32,32,100.0,0,0,09/14/20,Wolves,Sheffield Utd
+185,Vitinha,20.0,pt POR,DM,5,5,0,1,1,3,0,4,0,0,,0,0,3,14,0,4,4,100.0,0,0,09/14/20,Wolves,Sheffield Utd
+186,Leander Dendoncker,32.0,be BEL,DM,90,45,1,10,31,5,1,45,1,1,100.0,1,0,22,59,24,42,33,78.6,2,0,09/14/20,Wolves,Sheffield Utd
+187,Marcal,5.0,br BRA,WB,90,48,4,26,21,5,0,42,2,2,100.0,2,0,27,149,83,28,25,89.3,1,1,09/14/20,Wolves,Sheffield Utd
+188,Adama Traore,37.0,es ESP,"WB,FW",90,54,3,17,28,15,0,41,8,10,80.0,9,0,32,339,223,33,28,84.8,2,2,09/14/20,Wolves,Sheffield Utd
+189,Romain Saiss,27.0,ma MAR,CB,90,63,10,40,22,3,3,62,0,0,,0,0,25,89,40,37,36,97.3,0,0,09/14/20,Wolves,Sheffield Utd
+190,Conor Coady,16.0,eng ENG,CB,90,48,16,43,5,0,0,47,0,0,,0,0,22,72,30,29,28,96.6,0,0,09/14/20,Wolves,Sheffield Utd
+191,Willy Boly,15.0,fr FRA,CB,90,59,10,40,19,0,0,58,1,1,100.0,1,0,25,81,29,34,33,97.1,0,1,09/14/20,Wolves,Sheffield Utd
+192,Rui PatrÃ­cio,11.0,pt POR,GK,90,25,24,25,0,0,0,13,0,0,,0,0,9,62,50,2,2,100.0,0,0,09/14/20,Wolves,Sheffield Utd
+193,Leandro Trossard,11.0,be BEL,"FW,CM",90,48,1,2,20,28,2,45,1,2,50.0,2,1,36,175,56,47,34,72.3,1,3,09/14/20,Brighton,Chelsea
+194,Neal Maupay,9.0,fr FRA,FW,90,18,0,1,8,10,3,14,0,0,,0,0,10,72,35,34,11,32.4,0,2,09/14/20,Brighton,Chelsea
+195,Steven Alzate,17.0,co COL,CM,78,39,1,7,20,15,2,39,1,1,100.0,1,0,32,191,101,36,29,80.6,0,1,09/14/20,Brighton,Chelsea
+196,Alireza Jahanbakhsh,16.0,ir IRN,CM,12,13,0,0,7,6,0,13,0,0,,0,0,9,46,19,11,9,81.8,0,0,09/14/20,Brighton,Chelsea
+197,Adam Lallana,14.0,eng ENG,CM,44,24,0,4,11,11,1,23,0,0,,0,0,16,79,35,25,18,72.0,1,1,09/14/20,Brighton,Chelsea
+198,Aaron Connolly,7.0,ie IRL,FW,46,9,0,0,0,9,2,9,3,3,100.0,3,0,9,51,14,20,7,35.0,1,2,09/14/20,Brighton,Chelsea
+199,Yves Bissouma,8.0,ml MLI,DM,90,68,1,13,46,16,1,66,0,3,0.0,0,0,52,298,112,55,50,90.9,0,1,09/14/20,Brighton,Chelsea
+200,Solly March,20.0,eng ENG,"WB,LB",90,74,5,18,33,32,2,61,3,4,75.0,4,0,55,534,342,54,50,92.6,1,1,09/14/20,Brighton,Chelsea
+201,Tariq Lamptey,2.0,eng ENG,"WB,RB",90,78,3,22,29,31,2,65,5,7,71.4,6,1,52,365,199,50,44,88.0,0,4,09/14/20,Brighton,Chelsea
+202,Adam Webster,4.0,eng ENG,CB,90,74,6,39,36,6,0,74,0,0,,0,0,58,335,227,59,58,98.3,1,1,09/14/20,Brighton,Chelsea
+203,Lewis Dunk,5.0,eng ENG,CB,90,82,10,50,34,1,1,78,0,0,,0,0,51,214,75,55,55,100.0,0,0,09/14/20,Brighton,Chelsea
+204,Ben White,3.0,eng ENG,CB,78,56,9,36,22,3,0,52,0,0,,0,0,36,204,102,37,37,100.0,1,0,09/14/20,Brighton,Chelsea
+205,Pascal Gross,13.0,de GER,"DM,CB",12,14,1,5,11,1,0,13,0,0,,0,0,10,71,37,10,9,90.0,0,0,09/14/20,Brighton,Chelsea
+206,Mathew Ryan,1.0,au AUS,GK,90,46,35,46,0,0,0,44,0,0,,0,0,37,101,45,34,33,97.1,0,0,09/14/20,Brighton,Chelsea
+207,Timo Werner,11.0,de GER,FW,90,34,0,7,13,18,8,32,3,5,60.0,4,0,26,233,162,48,29,60.4,2,3,09/14/20,Chelsea,Brighton
+208,Ruben Loftus-Cheek,12.0,eng ENG,FW,60,25,0,5,16,5,0,25,0,4,0.0,0,1,19,103,62,29,18,62.1,2,1,09/14/20,Chelsea,Brighton
+209,Ross Barkley,8.0,eng ENG,"AM,FW",30,28,0,5,17,8,1,28,3,4,75.0,3,0,20,131,95,28,21,75.0,0,0,09/14/20,Chelsea,Brighton
+210,Mason Mount,19.0,eng ENG,"AM,LW",90,54,2,11,26,21,3,53,1,4,25.0,1,0,37,219,129,50,37,74.0,1,0,09/14/20,Chelsea,Brighton
+211,Kai Havertz,29.0,de GER,"AM,RW",79,33,2,14,14,7,0,33,1,3,33.3,1,1,23,118,58,31,25,80.6,1,2,09/14/20,Chelsea,Brighton
+212,Callum Hudson-Odoi,20.0,eng ENG,RW,11,6,0,0,2,5,2,6,0,0,,0,0,6,53,33,4,4,100.0,0,0,09/14/20,Chelsea,Brighton
+213,Jorginho,5.0,it ITA,"DM,CM",84,57,3,22,28,9,1,55,0,0,,0,0,37,176,78,41,40,97.6,0,0,09/14/20,Chelsea,Brighton
+214,Cesar Azpilicueta,28.0,es ESP,"RB,CM",6,8,0,4,1,3,1,7,0,0,,0,0,4,4,3,5,5,100.0,0,0,09/14/20,Chelsea,Brighton
+215,N'Golo Kante,7.0,fr FRA,"DM,CM",90,50,5,18,24,10,2,50,0,0,,0,0,27,126,71,31,30,96.8,1,0,09/14/20,Chelsea,Brighton
+216,Marcos Alonso,3.0,es ESP,LB,90,97,5,37,47,24,1,82,0,0,,0,0,56,328,212,68,61,89.7,1,1,09/14/20,Chelsea,Brighton
+217,Kurt Zouma,15.0,fr FRA,CB,90,57,6,38,20,1,1,57,1,1,100.0,1,0,36,143,46,37,37,100.0,0,1,09/14/20,Chelsea,Brighton
+218,Andreas Christensen,4.0,dk DEN,CB,90,53,8,34,19,1,1,53,0,0,,0,0,34,167,39,38,38,100.0,0,1,09/14/20,Chelsea,Brighton
+219,Reece James,24.0,eng ENG,"RB,CM",90,70,6,26,29,18,3,58,0,0,,0,0,41,197,97,45,45,100.0,1,0,09/14/20,Chelsea,Brighton
+220,Kepa Arrizabalaga,1.0,es ESP,GK,90,28,28,28,0,0,0,19,0,0,,0,0,12,64,23,12,12,100.0,0,0,09/14/20,Chelsea,Brighton
+221,Dominic Calvert-Lewin,9.0,eng ENG,FW,70,24,1,2,9,14,8,24,1,3,33.3,1,0,13,90,44,28,18,64.3,3,0,09/19/20,Everton,West Brom
+222,Alex Iwobi,17.0,ng NGA,LW,20,13,0,0,9,6,2,13,0,0,,0,0,8,104,74,15,11,73.3,1,0,09/19/20,Everton,West Brom
+223,Richarlison,7.0,br BRA,"LW,FW",90,39,0,5,16,21,12,36,3,4,75.0,3,2,28,175,99,44,26,59.1,0,2,09/19/20,Everton,West Brom
+224,James Rodriguez,19.0,co COL,RW,77,69,0,5,42,25,3,60,1,3,33.3,1,0,48,237,69,56,54,96.4,1,2,09/19/20,Everton,West Brom
+225,Moise Kean,27.0,it ITA,RW,13,12,0,0,6,7,3,12,0,2,0.0,0,0,9,106,75,12,11,91.7,0,0,09/19/20,Everton,West Brom
+226,Andre Gomes,21.0,pt POR,CM,90,86,2,11,62,16,2,85,0,0,,0,0,64,257,93,72,68,94.4,1,2,09/19/20,Everton,West Brom
+227,Abdoulaye Doucoure,16.0,fr FRA,CM,64,61,0,18,37,9,0,60,0,0,,0,0,36,111,29,50,46,92.0,1,0,09/19/20,Everton,West Brom
+228,Gylfi Sigurdsson,10.0,is ISL,CM,26,49,1,7,34,9,0,48,0,0,,0,0,26,122,66,45,44,97.8,1,1,09/19/20,Everton,West Brom
+229,Allan,6.0,br BRA,DM,90,90,0,17,68,12,0,90,0,0,,0,0,63,428,291,74,74,100.0,0,2,09/19/20,Everton,West Brom
+230,Lucas Digne,12.0,fr FRA,LB,90,100,2,17,46,43,3,81,0,0,,0,0,49,297,225,68,64,94.1,2,0,09/19/20,Everton,West Brom
+231,Michael Keane,5.0,eng ENG,CB,90,136,13,64,73,5,4,134,0,0,,0,0,94,439,290,116,116,100.0,0,1,09/19/20,Everton,West Brom
+232,Yerry Mina,13.0,co COL,CB,90,138,14,69,77,1,1,137,0,0,,0,0,93,501,322,123,123,100.0,1,0,09/19/20,Everton,West Brom
+233,Seamus Coleman,23.0,ie IRL,RB,90,81,4,21,42,23,4,76,3,3,100.0,3,1,67,451,206,64,61,95.3,1,2,09/19/20,Everton,West Brom
+234,Jordan Pickford,1.0,eng ENG,GK,90,38,32,38,0,0,0,33,0,0,,0,0,20,109,46,26,26,100.0,0,0,09/19/20,Everton,West Brom
+235,Callum Robinson,7.0,ie IRL,FW,90,34,0,2,15,17,3,28,0,0,,0,0,17,81,32,36,22,61.1,2,3,09/19/20,West Brom,Everton
+236,Grady Diangana,11.0,eng ENG,"LW,LM",70,38,1,7,17,16,6,38,4,6,66.7,4,0,29,246,196,33,27,81.8,4,1,09/19/20,West Brom,Everton
+237,Kyle Edwards,21.0,eng ENG,LM,20,6,0,4,2,0,0,6,0,0,,0,0,3,19,12,4,4,100.0,0,0,09/19/20,West Brom,Everton
+238,Matheus Pereira,12.0,br BRA,"RW,RM",70,36,3,10,16,14,2,35,0,0,,0,0,24,148,89,24,23,95.8,2,1,09/19/20,West Brom,Everton
+239,Matt Phillips,10.0,sco SCO,RM,20,13,0,3,7,4,0,12,1,1,100.0,1,0,11,80,48,9,6,66.7,1,3,09/19/20,West Brom,Everton
+240,Romaine Sawyers,19.0,kn SKN,"CM,DM",74,50,4,16,31,4,0,50,0,0,,0,0,32,114,39,36,36,100.0,1,2,09/19/20,West Brom,Everton
+241,Sam Field,28.0,eng ENG,DM,16,7,1,3,5,0,0,7,0,0,,0,0,2,22,4,1,1,100.0,0,1,09/19/20,West Brom,Everton
+242,Jake Livermore,8.0,eng ENG,"CM,DM",90,43,4,10,26,8,1,43,0,0,,0,0,22,74,28,22,21,95.5,1,1,09/19/20,West Brom,Everton
+243,Kieran Gibbs,3.0,eng ENG,"WB,AM",44,39,2,11,25,7,0,35,0,0,,0,0,26,172,121,29,27,93.1,2,0,09/19/20,West Brom,Everton
+244,Darnell Furlong,2.0,eng ENG,"WB,RB",90,34,4,12,17,5,1,33,0,0,,0,0,15,45,15,27,22,81.5,1,1,09/19/20,West Brom,Everton
+245,Dara O'Shea,27.0,ie IRL,"CB,LB",90,55,7,39,15,2,0,50,0,0,,0,0,27,78,37,31,29,93.5,0,0,09/19/20,West Brom,Everton
+246,Kyle Bartley,5.0,eng ENG,CB,90,32,8,26,7,0,0,32,0,0,,0,0,11,68,54,15,15,100.0,0,0,09/19/20,West Brom,Everton
+247,Semi Ajayi,6.0,ng NGA,CB,90,28,6,21,8,1,0,27,0,0,,0,0,16,112,71,13,13,100.0,0,0,09/19/20,West Brom,Everton
+248,Sam Johnstone,1.0,eng ENG,GK,90,34,31,34,0,0,0,21,0,0,,0,0,11,119,58,11,11,100.0,0,0,09/19/20,West Brom,Everton
+249,Patrick Bamford,9.0,eng ENG,FW,69,17,1,2,12,4,2,13,1,1,100.0,1,0,6,113,53,12,8,66.7,1,2,09/19/20,Leeds United,Fulham
+250,Ezgjan Alioski,10.0,mk MKD,"CM,FW",21,18,0,2,7,11,3,17,0,0,,0,0,6,24,6,17,13,76.5,1,1,09/19/20,Leeds United,Fulham
+251,Jack Harrison,22.0,eng ENG,LM,90,34,2,11,13,13,1,32,0,0,,0,0,25,183,103,39,27,69.2,0,4,09/19/20,Leeds United,Fulham
+252,Mateusz Klich,43.0,pl POL,CM,90,66,0,11,36,23,2,65,0,1,0.0,0,1,33,174,107,48,39,81.3,2,1,09/19/20,Leeds United,Fulham
+253,Rodrigo Moreno,20.0,es ESP,CM,45,22,0,6,9,7,2,22,1,1,100.0,1,0,13,64,15,18,16,88.9,1,0,09/19/20,Leeds United,Fulham
+254,Tyler Roberts,11.0,wal WAL,"CM,FW",45,24,0,2,14,10,1,24,1,1,100.0,1,0,12,57,19,26,18,69.2,4,0,09/19/20,Leeds United,Fulham
+255,Helder Costa,17.0,pt POR,RM,90,54,0,13,25,20,5,53,1,4,25.0,1,1,35,264,141,53,43,81.1,1,6,09/19/20,Leeds United,Fulham
+256,Kalvin Phillips,23.0,eng ENG,DM,90,66,5,24,27,16,0,57,0,0,,0,0,29,133,49,30,30,100.0,2,0,09/19/20,Leeds United,Fulham
+257,Stuart Dallas,15.0,nir NIR,LB,90,68,3,34,30,9,2,57,2,2,100.0,2,0,40,371,203,35,34,97.1,1,2,09/19/20,Leeds United,Fulham
+258,Liam Cooper,6.0,sco SCO,CB,90,47,4,33,14,1,0,45,0,0,,0,0,23,127,55,25,25,100.0,0,1,09/19/20,Leeds United,Fulham
+259,Robin Koch,5.0,de GER,CB,90,56,17,41,13,4,2,56,0,0,,0,0,24,187,111,38,37,97.4,0,0,09/19/20,Leeds United,Fulham
+260,Luke Ayling,2.0,eng ENG,RB,90,83,2,37,36,14,0,61,1,1,100.0,1,0,36,159,97,44,42,95.5,1,3,09/19/20,Leeds United,Fulham
+261,Illan Meslier,1.0,fr FRA,GK,90,40,38,40,0,0,0,30,0,0,,0,0,21,75,27,24,24,100.0,0,0,09/19/20,Leeds United,Fulham
+262,Aleksandar Mitrovic,9.0,rs SRB,FW,90,53,2,5,24,25,7,48,1,2,50.0,1,0,31,128,63,57,37,64.9,6,2,09/19/20,Fulham,Leeds United
+263,Ivan Cavaleiro,17.0,pt POR,LW,90,53,0,9,26,25,1,50,2,3,66.7,2,0,36,344,200,47,30,63.8,4,1,09/19/20,Fulham,Leeds United
+264,Aboubakar Kamara,47.0,fr FRA,RW,57,25,0,3,10,12,1,25,0,0,,0,0,20,108,53,25,21,84.0,1,2,09/19/20,Fulham,Leeds United
+265,Neeskens Kebano,7.0,cd COD,RW,33,17,1,4,4,11,1,17,1,2,50.0,1,0,11,112,78,17,11,64.7,1,2,09/19/20,Fulham,Leeds United
+266,Josh Onomah,25.0,eng ENG,AM,57,27,0,3,15,13,2,26,0,0,,0,0,21,179,68,22,19,86.4,0,3,09/19/20,Fulham,Leeds United
+267,Bobby De Cordova-Reid,14.0,jm JAM,AM,33,12,1,2,5,7,2,12,2,3,66.7,2,0,14,78,43,20,8,40.0,0,1,09/19/20,Fulham,Leeds United
+268,Harrison Reed,21.0,eng ENG,DM,69,58,2,15,39,11,0,58,1,1,100.0,1,0,38,271,142,44,42,95.5,1,0,09/19/20,Fulham,Leeds United
+269,Mario Lemina,18.0,ga GAB,DM,21,11,0,4,7,1,0,11,0,1,0.0,1,0,5,48,45,6,5,83.3,0,1,09/19/20,Fulham,Leeds United
+270,Andre-Frank Zambo Anguissa,29.0,cm CMR,DM,90,70,3,19,46,15,0,69,6,7,85.7,6,0,56,408,230,40,37,92.5,2,6,09/19/20,Fulham,Leeds United
+271,Joe Bryan,23.0,eng ENG,LB,90,62,4,26,26,13,2,53,1,1,100.0,1,0,29,202,135,29,27,93.1,1,3,09/19/20,Fulham,Leeds United
+272,Denis Odoi,4.0,be BEL,CB,90,63,6,40,29,4,0,62,0,0,,0,0,45,511,397,46,45,97.8,0,0,09/19/20,Fulham,Leeds United
+273,Michael Hector,3.0,jm JAM,CB,90,64,10,40,26,4,1,59,2,2,100.0,2,0,47,347,248,43,43,100.0,0,0,09/19/20,Fulham,Leeds United
+274,Kenny Tete,2.0,nl NED,RB,90,54,4,17,22,16,1,47,0,0,,0,0,28,128,43,35,24,68.6,0,1,09/19/20,Fulham,Leeds United
+275,Alphonse Areola,1.0,fr FRA,GK,90,40,32,40,0,0,0,36,0,0,,0,0,25,140,79,20,20,100.0,0,0,09/19/20,Fulham,Leeds United
+276,Anthony Martial,9.0,fr FRA,FW,90,48,1,2,13,37,12,46,1,5,20.0,1,0,36,179,83,51,34,66.7,3,3,09/19/20,Manchester Utd,Crystal Palace
+277,Marcus Rashford,10.0,eng ENG,"LW,LM",90,62,1,5,16,44,5,62,3,4,75.0,3,1,47,275,149,64,51,79.7,0,3,09/19/20,Manchester Utd,Crystal Palace
+278,Daniel James,21.0,wal WAL,RW,45,31,1,3,9,20,2,31,0,0,,0,0,22,137,78,31,27,87.1,0,1,09/19/20,Manchester Utd,Crystal Palace
+279,Mason Greenwood,11.0,eng ENG,"RW,RM,FW",45,29,0,2,8,20,3,26,0,0,,0,0,21,159,85,33,22,66.7,0,0,09/19/20,Manchester Utd,Crystal Palace
+280,Bruno Fernandes,18.0,pt POR,"AM,DM",90,123,1,8,52,69,2,111,1,2,50.0,1,0,76,391,264,106,93,87.7,3,2,09/19/20,Manchester Utd,Crystal Palace
+281,Scott McTominay,39.0,sco SCO,"DM,RB",90,76,2,18,34,27,5,73,1,1,100.0,1,0,56,278,150,58,56,96.6,2,1,09/19/20,Manchester Utd,Crystal Palace
+282,Paul Pogba,6.0,fr FRA,DM,66,65,3,13,31,23,1,65,1,1,100.0,1,0,42,198,82,50,45,90.0,0,3,09/19/20,Manchester Utd,Crystal Palace
+283,Donny van de Beek,34.0,nl NED,DM,24,27,0,2,5,20,3,26,0,0,,0,0,17,31,19,27,22,81.5,0,1,09/19/20,Manchester Utd,Crystal Palace
+284,Luke Shaw,23.0,eng ENG,LB,90,99,2,13,42,53,1,86,4,5,80.0,4,2,67,447,287,72,66,91.7,1,1,09/19/20,Manchester Utd,Crystal Palace
+285,Harry Maguire,5.0,eng ENG,CB,90,99,8,33,58,15,1,95,0,0,,0,0,63,410,265,70,69,98.6,0,0,09/19/20,Manchester Utd,Crystal Palace
+286,Victor Lindelof,2.0,se SWE,CB,90,99,11,40,59,4,1,97,0,0,,0,0,71,479,256,69,68,98.6,0,0,09/19/20,Manchester Utd,Crystal Palace
+287,Timothy Fosu-Mensah,24.0,nl NED,RB,80,85,1,16,38,37,4,81,0,0,,0,0,61,313,177,66,64,97.0,1,2,09/19/20,Manchester Utd,Crystal Palace
+288,Odion Ighalo,25.0,ng NGA,FW,10,5,0,0,1,4,2,5,0,0,,0,0,5,6,2,10,5,50.0,1,3,09/19/20,Manchester Utd,Crystal Palace
+289,David de Gea,1.0,es ESP,GK,90,25,16,25,0,0,0,18,0,0,,0,0,10,40,15,12,12,100.0,0,0,09/19/20,Manchester Utd,Crystal Palace
+290,Wilfried Zaha,11.0,ci CIV,FW,90,41,0,4,18,24,4,40,0,2,0.0,0,0,25,321,271,46,27,58.7,5,3,09/19/20,Crystal Palace,Manchester Utd
+291,Jordan Ayew,9.0,gh GHA,FW,80,22,0,5,13,10,3,22,3,4,75.0,3,0,20,218,150,38,15,39.5,4,3,09/19/20,Crystal Palace,Manchester Utd
+292,Michy Batshuayi,23.0,be BEL,FW,10,9,1,5,4,1,0,9,0,0,,0,0,5,13,8,7,4,57.1,0,0,09/19/20,Crystal Palace,Manchester Utd
+293,Jeffrey Schlupp,15.0,gh GHA,LM,74,36,2,12,11,16,5,35,5,6,83.3,5,0,22,217,158,21,16,76.2,0,4,09/19/20,Crystal Palace,Manchester Utd
+294,Eberechi Eze,25.0,eng ENG,LM,16,13,0,5,4,7,1,13,0,0,,0,0,10,151,125,9,8,88.9,1,3,09/19/20,Crystal Palace,Manchester Utd
+295,Andros Townsend,10.0,eng ENG,RM,90,46,1,16,17,17,3,43,1,1,100.0,1,0,26,205,133,28,21,75.0,0,1,09/19/20,Crystal Palace,Manchester Utd
+296,James McCarthy,22.0,ie IRL,DM,87,40,5,20,17,6,0,37,2,2,100.0,2,0,19,62,8,12,12,100.0,0,0,09/19/20,Crystal Palace,Manchester Utd
+297,Luka Milivojevic,4.0,rs SRB,DM,3,6,0,4,1,1,0,6,1,1,100.0,1,0,2,9,0,1,1,100.0,0,0,09/19/20,Crystal Palace,Manchester Utd
+298,James McArthur,18.0,sco SCO,DM,90,43,7,27,16,3,1,40,0,0,,0,0,10,92,37,9,9,100.0,0,1,09/19/20,Crystal Palace,Manchester Utd
+299,Tyrick Mitchell,27.0,eng ENG,LB,90,28,3,11,9,8,0,21,0,0,,0,0,13,61,25,10,9,90.0,0,0,09/19/20,Crystal Palace,Manchester Utd
+300,Mamadou Sakho,12.0,fr FRA,CB,90,28,10,16,12,0,0,24,0,0,,0,0,8,39,20,9,9,100.0,0,0,09/19/20,Crystal Palace,Manchester Utd
+301,Cheikhou Kouyate,8.0,sn SEN,CB,90,31,11,24,6,1,1,30,0,0,,0,0,11,44,12,8,8,100.0,1,0,09/19/20,Crystal Palace,Manchester Utd
+302,Joel Ward,2.0,eng ENG,RB,90,45,12,28,11,7,0,38,0,0,,0,0,11,41,13,10,9,90.0,1,0,09/19/20,Crystal Palace,Manchester Utd
+303,Vicente Guaita,31.0,es ESP,GK,90,20,15,20,0,0,0,11,0,0,,0,0,4,10,2,7,7,100.0,0,0,09/19/20,Crystal Palace,Manchester Utd
+304,Alexandre Lacazette,9.0,fr FRA,FW,76,39,1,5,18,17,8,37,1,2,50.0,1,0,24,90,32,37,30,81.1,2,1,09/19/20,Arsenal,West Ham
+305,Eddie Nketiah,30.0,eng ENG,FW,14,7,0,0,3,5,3,7,0,0,,0,0,4,22,10,10,6,60.0,1,0,09/19/20,Arsenal,West Ham
+306,Pierre-Emerick Aubameyang,14.0,ga GAB,LW,90,40,0,3,15,23,5,40,1,1,100.0,1,0,31,186,85,52,32,61.5,1,2,09/19/20,Arsenal,West Ham
+307,Willian,12.0,br BRA,RW,63,51,2,7,24,23,4,48,1,2,50.0,1,0,32,242,138,41,35,85.4,0,0,09/19/20,Arsenal,West Ham
+308,Nicolas Pepe,19.0,ci CIV,RW,27,18,0,3,4,14,1,14,0,0,,0,0,9,94,64,9,8,88.9,2,2,09/19/20,Arsenal,West Ham
+309,Granit Xhaka,34.0,ch SUI,CM,90,129,3,27,98,15,0,127,0,1,0.0,0,0,99,535,258,115,113,98.3,1,0,09/19/20,Arsenal,West Ham
+310,Dani Ceballos,8.0,es ESP,CM,90,118,8,28,78,25,1,114,1,1,100.0,1,0,82,730,343,92,88,95.7,1,0,09/19/20,Arsenal,West Ham
+311,Bukayo Saka,7.0,eng ENG,WB,88,55,1,6,32,21,7,52,1,2,50.0,1,0,37,236,138,54,40,74.1,3,1,09/19/20,Arsenal,West Ham
+312,David Luiz,23.0,br BRA,CB,2,2,0,1,1,0,0,2,0,0,,0,0,2,5,3,2,2,100.0,0,0,09/19/20,Arsenal,West Ham
+313,Hector Bellerin,2.0,es ESP,WB,90,56,3,15,25,19,1,50,1,2,50.0,1,0,36,123,61,41,36,87.8,0,0,09/19/20,Arsenal,West Ham
+314,Sead Kolasinac,31.0,ba BIH,CB,90,66,1,14,36,18,1,62,0,0,,0,0,51,170,113,52,50,96.2,1,0,09/19/20,Arsenal,West Ham
+315,Gabriel Magalhaes,6.0,br BRA,CB,90,94,14,54,46,1,1,92,0,0,,0,0,66,337,237,72,72,100.0,0,0,09/19/20,Arsenal,West Ham
+316,Rob Holding,16.0,eng ENG,CB,90,82,9,43,44,0,0,81,0,0,,0,0,57,222,123,65,62,95.4,0,0,09/19/20,Arsenal,West Ham
+317,Bernd Leno,1.0,de GER,GK,90,37,27,35,3,0,0,28,0,0,,0,0,18,89,36,18,18,100.0,0,0,09/19/20,Arsenal,West Ham
+318,Michail Antonio,30.0,eng ENG,FW,90,37,0,0,21,18,5,34,1,1,100.0,1,0,21,130,91,45,28,62.2,6,1,09/19/20,West Ham,Arsenal
+319,Pablo Fornals,18.0,es ESP,LW,87,37,0,5,22,12,0,36,1,1,100.0,1,0,30,156,82,39,30,76.9,1,1,09/19/20,West Ham,Arsenal
+320,Sebastien Haller,22.0,fr FRA,"LW,FW",3,3,0,1,1,2,0,3,0,0,,0,0,1,10,0,4,3,75.0,0,0,09/19/20,West Ham,Arsenal
+321,Jarrod Bowen,20.0,eng ENG,RW,82,38,0,7,15,22,5,35,0,0,,0,0,25,305,209,27,21,77.8,2,1,09/19/20,West Ham,Arsenal
+322,Andriy Yarmolenko,7.0,ua UKR,"RW,RM",8,7,0,0,3,5,1,7,0,0,,0,0,6,79,63,5,5,100.0,0,0,09/19/20,West Ham,Arsenal
+323,Declan Rice,41.0,eng ENG,DM,90,59,8,19,34,8,1,58,0,0,,0,0,27,156,89,40,39,97.5,0,0,09/19/20,West Ham,Arsenal
+324,Tomas Soucek,28.0,cz CZE,DM,90,39,2,8,23,8,4,38,0,0,,0,0,11,39,10,30,24,80.0,0,0,09/19/20,West Ham,Arsenal
+325,Arthur Masuaku,26.0,cd COD,WB,89,60,4,12,34,20,1,58,3,4,75.0,3,0,43,201,144,45,41,91.1,0,1,09/19/20,West Ham,Arsenal
+326,Felipe Anderson,8.0,br BRA,LM,1,3,0,0,1,2,1,3,0,0,,0,0,3,11,1,3,3,100.0,0,0,09/19/20,West Ham,Arsenal
+327,Ryan Fredericks,24.0,eng ENG,WB,90,49,4,18,23,10,2,43,0,0,,0,0,23,109,68,23,21,91.3,0,0,09/19/20,West Ham,Arsenal
+328,Aaron Cresswell,3.0,eng ENG,CB,90,87,9,34,39,17,0,67,1,1,100.0,1,0,48,152,73,52,52,100.0,0,0,09/19/20,West Ham,Arsenal
+329,Angelo Ogbonna,21.0,it ITA,CB,90,43,11,24,21,3,1,43,0,0,,0,0,23,191,70,31,29,93.5,0,0,09/19/20,West Ham,Arsenal
+330,Issa Diop,23.0,fr FRA,CB,90,37,7,23,15,0,0,35,1,1,100.0,1,0,17,67,25,22,21,95.5,0,1,09/19/20,West Ham,Arsenal
+331,Åukasz FabiaÅski,1.0,pl POL,GK,90,33,27,33,0,0,0,24,0,0,,0,0,19,75,43,18,18,100.0,0,0,09/19/20,West Ham,Arsenal
+332,Danny Ings,9.0,eng ENG,FW,90,30,0,0,12,20,4,28,0,1,0.0,0,0,16,114,76,38,20,52.6,1,1,09/20/20,Southampton,Tottenham
+333,Che Adams,10.0,eng ENG,FW,79,28,0,0,14,15,5,28,1,1,100.0,1,0,21,122,44,44,24,54.5,0,4,09/20/20,Southampton,Tottenham
+334,Shane Long,7.0,ie IRL,FW,11,7,0,0,3,4,1,7,0,0,,0,0,3,11,0,4,4,100.0,1,0,09/20/20,Southampton,Tottenham
+335,Moussa Djenepo,12.0,ml MLI,LM,90,39,0,4,9,29,5,39,3,6,50.0,4,0,34,209,152,32,24,75.0,3,2,09/20/20,Southampton,Tottenham
+336,Stuart Armstrong,17.0,sco SCO,RM,67,40,2,7,20,15,2,38,2,2,100.0,2,0,22,201,101,34,29,85.3,2,0,09/20/20,Southampton,Tottenham
+337,Nathan Tella,23.0,eng ENG,RM,23,7,0,2,2,3,1,7,1,1,100.0,1,0,8,53,38,6,5,83.3,0,0,09/20/20,Southampton,Tottenham
+338,Oriol Romeu,6.0,es ESP,DM,54,33,0,3,26,6,0,32,0,0,,0,0,18,84,35,21,19,90.5,2,1,09/20/20,Southampton,Tottenham
+339,William Smallbone,20.0,ie IRL,DM,36,28,0,5,21,3,1,28,0,0,,0,0,20,59,17,23,23,100.0,1,0,09/20/20,Southampton,Tottenham
+340,James Ward-Prowse,8.0,eng ENG,DM,90,76,0,15,43,22,1,66,0,0,,0,0,32,165,99,44,42,95.5,1,0,09/20/20,Southampton,Tottenham
+341,Ryan Bertrand,3.0,eng ENG,LB,90,72,1,10,44,19,2,60,0,0,,0,0,29,82,30,38,36,94.7,0,0,09/20/20,Southampton,Tottenham
+342,Jan Bednarek,35.0,pl POL,CB,90,70,3,28,46,3,0,68,0,0,,0,0,42,343,203,42,42,100.0,0,0,09/20/20,Southampton,Tottenham
+343,Jack Stephens,5.0,eng ENG,CB,90,60,4,25,35,1,0,58,0,0,,0,0,37,268,201,35,35,100.0,1,0,09/20/20,Southampton,Tottenham
+344,Kyle Walker-Peters,2.0,eng ENG,RB,90,61,2,20,36,8,0,54,1,1,100.0,1,0,39,250,133,37,37,100.0,0,2,09/20/20,Southampton,Tottenham
+345,Alex McCarthy,1.0,eng ENG,GK,90,34,20,34,0,0,0,28,0,0,,0,0,22,62,14,22,22,100.0,0,0,09/20/20,Southampton,Tottenham
+346,Harry Kane,10.0,eng ENG,FW,83,25,3,6,13,8,2,23,1,2,50.0,1,0,12,93,29,32,15,46.9,1,2,09/20/20,Tottenham,Southampton
+347,Steven Bergwijn,23.0,nl NED,FW,7,5,0,1,3,2,0,5,0,0,,0,0,2,31,24,5,4,80.0,0,0,09/20/20,Tottenham,Southampton
+348,Son Heung-Min,7.0,kr KOR,LW,90,38,0,5,17,18,5,35,1,1,100.0,1,0,24,176,118,42,25,59.5,0,4,09/20/20,Tottenham,Southampton
+349,Lucas Moura,27.0,br BRA,RW,60,19,0,6,12,3,0,19,1,2,50.0,1,0,11,56,44,16,10,62.5,3,1,09/20/20,Tottenham,Southampton
+350,Erik Lamela,11.0,ar ARG,RW,30,13,0,2,7,6,2,13,0,0,,0,0,9,51,43,13,12,92.3,1,0,09/20/20,Tottenham,Southampton
+351,Tanguy Ndombele,28.0,fr FRA,CM,45,27,0,5,19,3,0,26,1,1,100.0,1,0,18,108,50,21,19,90.5,0,0,09/20/20,Tottenham,Southampton
+352,Giovani Lo Celso,18.0,ar ARG,CM,45,36,0,4,24,10,1,35,2,2,100.0,2,0,27,119,61,30,29,96.7,0,2,09/20/20,Tottenham,Southampton
+353,Pierre-Emile Hojbjerg,5.0,dk DEN,CM,90,62,2,24,40,0,0,59,1,1,100.0,1,0,37,105,30,39,39,100.0,1,1,09/20/20,Tottenham,Southampton
+354,Harry Winks,8.0,eng ENG,DM,90,58,4,30,28,2,0,56,0,0,,0,0,25,74,31,41,40,97.6,0,0,09/20/20,Tottenham,Southampton
+355,Ben Davies,33.0,wal WAL,LB,90,53,2,7,37,11,0,43,1,1,100.0,1,0,25,69,46,37,34,91.9,0,0,09/20/20,Tottenham,Southampton
+356,Eric Dier,15.0,eng ENG,CB,90,63,13,46,20,0,0,62,0,0,,0,0,32,252,154,42,41,97.6,0,0,09/20/20,Tottenham,Southampton
+357,Davinson Sanchez,6.0,co COL,CB,90,59,7,41,21,0,0,58,0,0,,0,0,23,136,41,32,32,100.0,2,0,09/20/20,Tottenham,Southampton
+358,Matt Doherty,2.0,ie IRL,RB,90,66,3,36,25,5,1,47,0,0,,0,0,13,25,16,34,29,85.3,1,2,09/20/20,Tottenham,Southampton
+359,Hugo Lloris,1.0,fr FRA,GK,90,29,26,29,0,0,0,16,0,0,,0,0,7,25,15,7,7,100.0,0,0,09/20/20,Tottenham,Southampton
+360,Callum Wilson,13.0,eng ENG,FW,90,19,0,1,5,14,5,16,1,1,100.0,1,0,14,98,61,31,13,41.9,3,2,09/20/20,Newcastle Utd,Brighton
+361,Andy Carroll,7.0,eng ENG,FW,45,20,2,3,11,6,1,20,0,0,,0,0,7,39,31,19,11,57.9,0,0,09/20/20,Newcastle Utd,Brighton
+362,Miguel Almiron,24.0,py PAR,FW,45,24,1,4,5,18,1,23,0,0,,0,0,19,131,82,20,17,85.0,1,0,09/20/20,Newcastle Utd,Brighton
+363,Allan Saint-Maximin,10.0,fr FRA,LM,32,11,0,1,8,3,0,11,1,3,33.3,1,0,10,66,26,8,5,62.5,1,0,09/20/20,Newcastle Utd,Brighton
+364,Ryan Fraser,21.0,sco SCO,"RM,LM",58,31,2,6,7,20,1,27,0,0,,0,0,20,96,61,24,19,79.2,0,1,09/20/20,Newcastle Utd,Brighton
+365,Jonjo Shelvey,8.0,eng ENG,CM,71,61,1,18,32,19,1,52,0,0,,0,0,37,206,73,44,42,95.5,0,0,09/20/20,Newcastle Utd,Brighton
+366,Joelinton,9.0,br BRA,CM,19,9,0,1,6,3,0,8,0,0,,0,0,7,19,1,7,7,100.0,0,0,09/20/20,Newcastle Utd,Brighton
+367,Jeff Hendrick,16.0,ie IRL,"RM,LM",90,29,0,6,12,12,0,28,0,0,,0,0,21,101,62,29,22,75.9,0,0,09/20/20,Newcastle Utd,Brighton
+368,Isaac Hayden,14.0,eng ENG,DM,90,57,0,13,33,13,1,57,0,1,0.0,0,0,38,165,79,39,39,100.0,0,1,09/20/20,Newcastle Utd,Brighton
+369,Jamal Lewis,15.0,nir NIR,LB,90,42,0,14,20,9,0,34,0,0,,0,0,23,121,42,27,22,81.5,0,1,09/20/20,Newcastle Utd,Brighton
+370,Federico Fernandez,18.0,ar ARG,CB,90,44,5,31,16,0,0,40,0,0,,0,0,27,140,32,27,26,96.3,1,0,09/20/20,Newcastle Utd,Brighton
+371,Jamaal Lascelles,6.0,eng ENG,CB,90,65,6,35,30,1,1,64,0,0,,0,0,41,161,46,42,42,100.0,0,0,09/20/20,Newcastle Utd,Brighton
+372,Javier Manquillo,19.0,es ESP,RB,90,55,1,18,25,18,0,46,1,1,100.0,1,0,41,216,119,38,35,92.1,1,0,09/20/20,Newcastle Utd,Brighton
+373,Karl Darlow,26.0,eng ENG,GK,90,26,25,26,0,0,0,16,0,0,,0,0,10,55,34,9,8,88.9,0,0,09/20/20,Newcastle Utd,Brighton
+374,Aaron Connolly,7.0,ie IRL,FW,89,24,0,2,13,11,3,23,1,1,100.0,1,0,15,115,53,37,15,40.5,2,3,09/20/20,Brighton,Newcastle Utd
+375,Alireza Jahanbakhsh,16.0,ir IRN,FW,1,3,0,0,1,2,1,3,0,0,,0,0,3,27,21,3,3,100.0,0,0,09/20/20,Brighton,Newcastle Utd
+376,Neal Maupay,9.0,fr FRA,LW,90,38,1,6,22,13,3,37,0,0,,0,0,24,221,118,42,29,69.0,0,2,09/20/20,Brighton,Newcastle Utd
+377,Leandro Trossard,11.0,be BEL,RW,90,43,1,4,18,24,2,40,0,0,,0,0,32,231,144,31,28,90.3,2,2,09/20/20,Brighton,Newcastle Utd
+378,Steven Alzate,17.0,co COL,CM,90,50,1,11,29,14,1,50,1,1,100.0,1,0,38,251,164,42,40,95.2,1,2,09/20/20,Brighton,Newcastle Utd
+379,Yves Bissouma,8.0,ml MLI,CM,88,62,4,22,29,16,0,61,1,1,100.0,1,0,46,361,180,43,43,100.0,4,0,09/20/20,Brighton,Newcastle Utd
+380,Solly March,20.0,eng ENG,WB,77,54,1,16,26,16,0,48,0,1,0.0,0,0,27,213,86,40,35,87.5,0,0,09/20/20,Brighton,Newcastle Utd
+381,Adam Lallana,14.0,eng ENG,WB,13,18,4,8,6,4,0,18,0,1,0.0,0,0,11,54,13,12,11,91.7,0,0,09/20/20,Brighton,Newcastle Utd
+382,Tariq Lamptey,2.0,eng ENG,WB,57,39,3,11,14,15,4,30,1,1,100.0,1,0,18,137,98,25,19,76.0,0,1,09/20/20,Brighton,Newcastle Utd
+383,Dan Burn,33.0,eng ENG,WB,33,20,0,2,12,8,0,19,0,0,,0,0,9,60,16,11,11,100.0,0,0,09/20/20,Brighton,Newcastle Utd
+384,Adam Webster,4.0,eng ENG,CB,90,60,2,35,25,2,0,58,0,0,,0,0,34,238,114,43,42,97.7,0,0,09/20/20,Brighton,Newcastle Utd
+385,Lewis Dunk,5.0,eng ENG,CB,90,60,13,40,22,2,0,56,0,0,,0,0,34,173,73,36,35,97.2,0,0,09/20/20,Brighton,Newcastle Utd
+386,Ben White,3.0,eng ENG,CB,90,60,7,32,21,12,0,57,0,0,,0,0,38,215,121,45,44,97.8,0,0,09/20/20,Brighton,Newcastle Utd
+387,Mathew Ryan,1.0,au AUS,GK,90,44,36,44,0,0,0,36,0,0,,0,0,30,138,40,28,28,100.0,0,0,09/20/20,Brighton,Newcastle Utd
+388,Kai Havertz,29.0,de GER,FW,45,23,0,4,16,4,0,22,0,1,0.0,0,0,16,33,21,30,16,53.3,1,1,09/20/20,Chelsea,Liverpool
+389,Fikayo Tomori,14.0,eng ENG,CB,45,41,19,36,6,0,0,40,0,0,,0,0,21,90,38,21,21,100.0,0,0,09/20/20,Chelsea,Liverpool
+390,Timo Werner,11.0,de GER,LW,90,42,0,10,22,12,4,39,5,10,50.0,7,1,38,325,229,40,28,70.0,0,0,09/20/20,Chelsea,Liverpool
+391,Mason Mount,19.0,eng ENG,RW,90,49,1,17,29,9,1,48,1,3,33.3,1,0,36,201,111,50,34,68.0,1,1,09/20/20,Chelsea,Liverpool
+392,Mateo Kovacic,17.0,hr CRO,CM,78,66,2,31,33,4,0,66,2,2,100.0,2,0,61,256,90,59,55,93.2,0,0,09/20/20,Chelsea,Liverpool
+393,Tammy Abraham,9.0,eng ENG,"FW,CM",12,8,2,3,5,1,1,8,0,0,,0,0,3,15,10,8,6,75.0,0,0,09/20/20,Chelsea,Liverpool
+394,N'Golo Kante,7.0,fr FRA,CM,90,55,3,23,30,5,2,55,4,6,66.7,4,1,42,225,123,44,35,79.5,1,3,09/20/20,Chelsea,Liverpool
+395,Jorginho,5.0,it ITA,DM,78,62,10,36,25,3,2,61,0,0,,0,0,44,78,21,45,45,100.0,1,0,09/20/20,Chelsea,Liverpool
+396,Ross Barkley,8.0,eng ENG,"CM,DM",12,5,0,3,2,0,0,5,1,1,100.0,1,0,5,26,9,4,3,75.0,1,0,09/20/20,Chelsea,Liverpool
+397,Marcos Alonso,3.0,es ESP,LB,90,59,6,35,24,7,1,57,1,2,50.0,1,0,47,317,231,46,42,91.3,0,2,09/20/20,Chelsea,Liverpool
+398,Kurt Zouma,15.0,fr FRA,CB,90,62,26,53,10,1,1,60,0,0,,0,0,48,132,49,48,48,100.0,0,0,09/20/20,Chelsea,Liverpool
+399,Andreas Christensen,4.0,dk DEN,"CB,FW,DM",44,47,10,29,21,0,0,46,0,0,,0,0,37,109,32,37,37,100.0,0,1,09/20/20,Chelsea,Liverpool
+400,Reece James,24.0,eng ENG,RB,90,65,6,38,21,7,1,58,1,2,50.0,1,0,39,124,40,42,38,90.5,0,1,09/20/20,Chelsea,Liverpool
+401,Kepa Arrizabalaga,1.0,es ESP,GK,90,54,54,54,0,0,0,44,0,0,,0,0,37,129,82,31,31,100.0,0,0,09/20/20,Chelsea,Liverpool
+402,Roberto Firmino,9.0,br BRA,FW,85,42,0,0,13,29,8,41,1,1,100.0,1,0,22,92,28,44,34,77.3,2,1,09/20/20,Liverpool,Chelsea
+403,Takumi Minamino,18.0,jp JPN,FW,5,2,0,0,0,2,1,2,0,0,,0,0,2,7,2,2,2,100.0,0,1,09/20/20,Liverpool,Chelsea
+404,Sadio Mane,10.0,sn SEN,LW,90,61,0,1,16,47,7,60,1,2,50.0,1,0,42,239,130,57,49,86.0,1,4,09/20/20,Liverpool,Chelsea
+405,Mohamed Salah,11.0,eg EGY,RW,90,74,0,0,32,46,8,73,2,4,50.0,2,0,57,321,141,83,65,78.3,2,1,09/20/20,Liverpool,Chelsea
+406,Georginio Wijnaldum,5.0,nl NED,CM,90,57,0,2,31,26,3,57,1,2,50.0,1,0,38,121,50,55,47,85.5,1,2,09/20/20,Liverpool,Chelsea
+407,Naby Keita,8.0,gn GUI,CM,63,54,0,4,43,11,1,52,2,2,100.0,2,0,37,150,58,47,42,89.4,1,1,09/20/20,Liverpool,Chelsea
+408,James Milner,7.0,eng ENG,CM,27,50,0,1,34,16,3,49,0,0,,0,0,37,112,47,46,45,97.8,1,0,09/20/20,Liverpool,Chelsea
+409,Jordan Henderson,14.0,eng ENG,DM,45,50,0,7,41,7,0,49,0,0,,0,0,30,203,97,41,40,97.6,0,0,09/20/20,Liverpool,Chelsea
+410,Thiago,6.0,es ESP,DM,45,89,1,4,58,28,0,88,0,1,0.0,0,0,61,205,72,79,78,98.7,1,0,09/20/20,Liverpool,Chelsea
+411,Andrew Robertson,26.0,sco SCO,LB,90,118,2,13,62,50,4,101,2,2,100.0,2,0,78,333,217,96,88,91.7,0,1,09/20/20,Liverpool,Chelsea
+412,Virgil van Dijk,4.0,nl NED,CB,90,86,2,22,65,3,2,85,0,0,,0,0,59,201,108,72,71,98.6,1,0,09/20/20,Liverpool,Chelsea
+413,Fabinho,3.0,br BRA,CB,90,91,2,36,61,0,0,90,0,0,,0,0,62,321,178,70,70,100.0,0,0,09/20/20,Liverpool,Chelsea
+414,Trent Alexander-Arnold,66.0,eng ENG,RB,90,96,1,15,44,39,4,80,1,1,100.0,1,0,61,254,144,66,61,92.4,0,1,09/20/20,Liverpool,Chelsea
+415,Alisson,1.0,br BRA,GK,90,26,19,25,1,0,0,23,0,0,,0,0,11,23,12,13,13,100.0,0,0,09/20/20,Liverpool,Chelsea
+416,Jamie Vardy,9.0,eng ENG,FW,90,18,0,0,9,9,4,15,1,2,50.0,1,0,15,87,38,14,14,100.0,2,0,09/20/20,Leicester City,Burnley
+417,Harvey Barnes,15.0,eng ENG,LM,89,48,0,1,18,34,10,48,1,2,50.0,1,0,43,359,271,43,43,100.0,3,1,09/20/20,Leicester City,Burnley
+418,Wes Morgan,5.0,jm JAM,LM,1,1,0,0,1,0,0,1,0,0,,0,0,1,0,0,1,1,100.0,0,0,09/20/20,Leicester City,Burnley
+419,Dennis Praet,26.0,be BEL,CM,82,58,0,5,17,37,5,58,2,2,100.0,2,0,45,170,88,44,44,100.0,1,2,09/20/20,Leicester City,Burnley
+420,Marc Albrighton,11.0,eng ENG,CM,8,4,1,1,1,2,2,4,0,0,,0,0,2,1,0,4,3,75.0,0,0,09/20/20,Leicester City,Burnley
+421,Youri Tielemans,8.0,be BEL,CM,90,101,3,19,48,39,1,87,0,0,,0,0,72,217,99,72,72,100.0,1,2,09/20/20,Leicester City,Burnley
+422,Ayoze Perez,17.0,es ESP,RM,61,35,1,12,14,11,6,35,2,4,50.0,2,0,23,93,58,25,24,96.0,2,0,09/20/20,Leicester City,Burnley
+423,James Maddison,10.0,eng ENG,RM,29,23,0,2,7,15,1,19,0,0,,0,0,20,118,61,17,17,100.0,3,1,09/20/20,Leicester City,Burnley
+424,Nampalys Mendy,24.0,fr FRA,DM,90,95,2,22,57,20,0,94,0,1,0.0,0,0,77,248,119,77,77,100.0,0,1,09/20/20,Leicester City,Burnley
+425,James Justin,2.0,eng ENG,LB,90,84,2,18,34,37,5,75,0,1,0.0,0,0,56,343,217,60,60,100.0,0,2,09/20/20,Leicester City,Burnley
+426,Caglar Soyuncu,4.0,tr TUR,CB,90,79,10,42,36,3,1,75,0,0,,0,0,48,228,90,51,51,100.0,0,0,09/20/20,Leicester City,Burnley
+427,Wilfred Ndidi,25.0,ng NGA,CB,90,68,8,43,30,1,0,67,0,0,,0,0,38,255,115,38,38,100.0,0,1,09/20/20,Leicester City,Burnley
+428,Timothy Castagne,27.0,be BEL,RB,90,76,2,25,32,21,4,71,0,0,,0,0,54,205,94,58,58,100.0,0,0,09/20/20,Leicester City,Burnley
+429,Kasper Schmeichel,1.0,dk DEN,GK,90,48,46,48,0,0,0,35,0,0,,0,0,25,83,38,27,27,100.0,0,0,09/20/20,Leicester City,Burnley
+430,Chris Wood,9.0,nz NZL,FW,90,19,0,1,9,10,5,19,0,0,,0,0,12,80,52,20,16,80.0,0,3,09/20/20,Burnley,Leicester City
+431,Jay Rodriguez,19.0,eng ENG,FW,69,27,3,3,11,13,5,27,1,2,50.0,1,0,13,53,14,20,19,95.0,3,1,09/20/20,Burnley,Leicester City
+432,Matej Vydra,27.0,cz CZE,FW,21,9,0,0,3,6,2,9,3,5,60.0,3,1,11,66,34,9,9,100.0,0,1,09/20/20,Burnley,Leicester City
+433,Dwight McNeil,11.0,eng ENG,"LM,RM",90,36,0,2,25,13,2,34,4,6,66.7,4,0,32,308,95,29,27,93.1,0,3,09/20/20,Burnley,Leicester City
+434,Robbie Brady,12.0,ie IRL,RM,39,19,4,10,6,4,1,19,0,0,,0,0,9,54,28,7,6,85.7,0,0,09/20/20,Burnley,Leicester City
+435,Erik Pieters,23.0,nl NED,"RM,LM",51,20,2,8,8,6,2,20,0,0,,0,0,9,61,33,9,9,100.0,0,1,09/20/20,Burnley,Leicester City
+436,Josh Brownhill,8.0,eng ENG,DM,90,50,2,7,33,12,0,49,0,0,,0,0,24,62,25,29,27,93.1,0,0,09/20/20,Burnley,Leicester City
+437,Ashley Westwood,18.0,eng ENG,DM,90,70,4,13,46,14,0,60,0,0,,0,0,30,100,45,42,42,100.0,0,1,09/20/20,Burnley,Leicester City
+438,Charlie Taylor,3.0,eng ENG,LB,90,65,7,25,25,19,1,53,1,1,100.0,1,0,27,221,87,29,27,93.1,2,0,09/20/20,Burnley,Leicester City
+439,Jimmy Dunne,34.0,ie IRL,CB,90,40,12,22,12,6,5,39,0,0,,0,0,9,56,2,17,16,94.1,0,0,09/20/20,Burnley,Leicester City
+440,Kevin Long,28.0,ie IRL,CB,90,26,7,19,7,1,1,26,0,0,,0,0,7,19,6,9,9,100.0,0,0,09/20/20,Burnley,Leicester City
+441,Phil Bardsley,26.0,sco SCO,RB,90,43,6,17,15,12,1,36,1,1,100.0,1,0,15,79,49,18,18,100.0,0,0,09/20/20,Burnley,Leicester City
+442,Nick Pope,1.0,eng ENG,GK,90,23,19,22,1,0,0,15,0,0,,0,0,7,43,34,6,6,100.0,0,0,09/20/20,Burnley,Leicester City
+443,Ollie Watkins,11.0,eng ENG,FW,90,27,0,2,7,20,7,26,0,1,0.0,0,0,17,82,61,58,24,41.4,1,2,09/21/20,Aston Villa,Sheffield Utd
+444,Jack Grealish,10.0,eng ENG,"LW,LM",90,75,0,1,24,52,16,71,1,1,100.0,1,0,67,474,326,76,66,86.8,0,4,09/21/20,Aston Villa,Sheffield Utd
+445,Trezeguet,17.0,eg EGY,"RW,RM",90,48,1,6,18,28,6,48,1,1,100.0,1,0,33,196,132,48,34,70.8,4,0,09/21/20,Aston Villa,Sheffield Utd
+446,John McGinn,7.0,sco SCO,CM,90,55,0,4,24,30,8,55,0,1,0.0,0,0,38,234,138,43,38,88.4,1,0,09/21/20,Aston Villa,Sheffield Utd
+447,Conor Hourihane,14.0,ie IRL,CM,61,67,1,6,21,40,1,54,0,0,,0,0,43,106,55,54,51,94.4,0,0,09/21/20,Aston Villa,Sheffield Utd
+448,Keinan Davis,39.0,eng ENG,FW,29,18,1,2,5,12,3,18,0,0,,0,0,14,55,24,23,15,65.2,0,3,09/21/20,Aston Villa,Sheffield Utd
+449,Douglas Luiz,6.0,br BRA,"DM,CM",90,96,2,14,62,34,1,96,1,1,100.0,1,0,85,520,361,87,84,96.6,0,0,09/21/20,Aston Villa,Sheffield Utd
+450,Matt Targett,18.0,eng ENG,LB,90,80,4,16,23,44,1,74,0,0,,0,0,55,153,85,63,60,95.2,0,0,09/21/20,Aston Villa,Sheffield Utd
+451,Tyrone Mings,5.0,eng ENG,CB,90,80,13,42,37,7,2,75,1,1,100.0,1,0,45,297,155,42,42,100.0,0,0,09/21/20,Aston Villa,Sheffield Utd
+452,Ezri Konsa Ngoyo,4.0,eng ENG,CB,90,43,8,25,15,3,1,42,0,0,,0,0,28,103,14,23,22,95.7,0,0,09/21/20,Aston Villa,Sheffield Utd
+453,Matthew Cash,2.0,eng ENG,RB,90,85,3,21,43,29,0,76,0,0,,0,0,63,406,242,62,61,98.4,1,0,09/21/20,Aston Villa,Sheffield Utd
+454,Emiliano MartÃ­nez,26.0,ar ARG,GK,90,36,31,36,0,0,0,32,0,0,,0,0,27,55,42,22,22,100.0,0,0,09/21/20,Aston Villa,Sheffield Utd
+455,David McGoldrick,17.0,ie IRL,FW,30,10,1,2,4,4,0,9,0,0,,0,0,4,18,16,17,8,47.1,0,0,09/21/20,Sheffield Utd,Aston Villa
+456,Ethan Ampadu,22.0,wal WAL,CB,60,17,8,11,2,4,0,17,0,0,,0,0,5,34,31,6,6,100.0,0,0,09/21/20,Sheffield Utd,Aston Villa
+457,Oliver Burke,14.0,sco SCO,FW,90,14,1,5,7,4,1,13,0,0,,0,0,9,73,49,49,9,18.4,3,1,09/21/20,Sheffield Utd,Aston Villa
+458,John Fleck,4.0,sco SCO,"LM,CM",62,15,1,11,4,2,0,15,1,2,50.0,2,0,9,92,66,11,7,63.6,0,0,09/21/20,Sheffield Utd,Aston Villa
+459,Ben Osborn,23.0,eng ENG,LM,28,17,0,5,7,5,1,15,0,0,,0,0,11,55,34,15,11,73.3,1,2,09/21/20,Sheffield Utd,Aston Villa
+460,John Lundstram,7.0,eng ENG,"CM,RM",90,43,2,14,14,20,1,38,2,4,50.0,2,0,22,164,96,23,22,95.7,0,1,09/21/20,Sheffield Utd,Aston Villa
+461,Sander Berge,8.0,no NOR,"CM,DM",90,35,6,14,19,5,4,35,0,0,,0,0,18,207,146,24,19,79.2,4,0,09/21/20,Sheffield Utd,Aston Villa
+462,Enda Stevens,3.0,ie IRL,"LB,WB",90,38,6,13,24,3,0,28,2,2,100.0,2,0,14,130,69,14,11,78.6,0,1,09/21/20,Sheffield Utd,Aston Villa
+463,George Baldock,2.0,eng ENG,"RB,WB",90,40,6,15,13,13,1,34,1,1,100.0,1,0,19,186,105,14,13,92.9,0,1,09/21/20,Sheffield Utd,Aston Villa
+464,Jack O'Connell,5.0,eng ENG,CB,90,34,11,21,14,0,0,33,0,0,,0,0,10,55,14,11,11,100.0,0,0,09/21/20,Sheffield Utd,Aston Villa
+465,John Egan,12.0,ie IRL,"DM,CM,CB",11,5,0,2,3,0,0,5,0,0,,0,0,4,23,17,4,4,100.0,0,0,09/21/20,Sheffield Utd,Aston Villa
+466,Chris Basham,6.0,eng ENG,"RM,CB",67,29,11,15,11,3,2,29,0,0,,0,0,8,44,24,17,9,52.9,0,0,09/21/20,Sheffield Utd,Aston Villa
+467,Oliver McBurnie,9.0,sco SCO,"FW,RM",23,17,0,1,9,7,1,17,0,0,,0,0,6,20,16,26,14,53.8,3,1,09/21/20,Sheffield Utd,Aston Villa
+468,Aaron Ramsdale,1.0,eng ENG,GK,90,35,30,35,0,0,0,11,0,0,,0,0,8,83,56,2,2,100.0,0,0,09/21/20,Sheffield Utd,Aston Villa
+469,Daniel Podence,10.0,pt POR,"FW,LW,AM",90,34,0,3,19,13,4,31,1,2,50.0,1,1,24,115,73,36,24,66.7,2,1,09/21/20,Wolves,Manchester City
+470,Raul Jimenez,9.0,mx MEX,FW,90,31,2,6,17,10,6,30,0,1,0.0,0,0,19,144,52,39,23,59.0,1,2,09/21/20,Wolves,Manchester City
+471,Pedro Neto,7.0,pt POR,"CM,RW",77,38,0,3,24,15,1,35,2,3,66.7,2,1,32,241,139,39,30,76.9,2,1,09/21/20,Wolves,Manchester City
+472,Fabio Silva,17.0,pt POR,FW,13,3,0,1,3,0,0,2,0,0,,0,0,1,3,3,4,1,25.0,0,1,09/21/20,Wolves,Manchester City
+473,Joao Moutinho,28.0,pt POR,"CM,DM",77,36,2,9,25,3,0,33,0,1,0.0,0,0,22,64,16,30,22,73.3,0,0,09/21/20,Wolves,Manchester City
+474,Leander Dendoncker,32.0,be BEL,DM,13,2,0,2,0,0,0,2,0,0,,0,0,1,0,0,2,1,50.0,0,0,09/21/20,Wolves,Manchester City
+475,Ruben Neves,8.0,pt POR,DM,90,67,2,16,51,4,1,65,0,0,,0,0,38,127,41,48,41,85.4,1,0,09/21/20,Wolves,Manchester City
+476,Marcal,5.0,br BRA,WB,7,6,0,4,1,1,0,6,0,0,,0,0,3,7,0,3,3,100.0,0,0,09/21/20,Wolves,Manchester City
+477,Ruben Vinagre,29.0,pt POR,WB,83,45,0,17,23,9,0,38,3,6,50.0,3,0,32,275,168,29,25,86.2,0,1,09/21/20,Wolves,Manchester City
+478,Adama Traore,37.0,es ESP,WB,90,61,2,11,39,15,3,55,9,11,81.8,9,0,45,409,296,51,39,76.5,3,2,09/21/20,Wolves,Manchester City
+479,Romain Saiss,27.0,ma MAR,CB,90,57,10,34,24,1,0,57,0,2,0.0,0,0,36,162,78,34,34,100.0,1,1,09/21/20,Wolves,Manchester City
+480,Conor Coady,16.0,eng ENG,CB,90,47,8,35,16,0,0,45,1,2,50.0,1,0,32,157,77,26,25,96.2,0,0,09/21/20,Wolves,Manchester City
+481,Willy Boly,15.0,fr FRA,CB,90,51,7,28,24,2,1,51,0,0,,0,0,24,81,34,26,24,92.3,0,1,09/21/20,Wolves,Manchester City
+482,Rui PatrÃ­cio,11.0,pt POR,GK,90,30,28,30,0,0,0,19,0,0,,0,0,10,53,24,6,6,100.0,0,0,09/21/20,Wolves,Manchester City
+483,Gabriel Jesus,9.0,br BRA,FW,90,48,1,3,19,29,3,47,2,4,50.0,2,0,41,183,101,73,39,53.4,2,3,09/21/20,Manchester City,Wolves
+484,Raheem Sterling,7.0,eng ENG,LW,80,54,0,3,30,22,7,53,1,3,33.3,1,0,46,202,116,55,43,78.2,3,5,09/21/20,Manchester City,Wolves
+485,Ferran Torres,21.0,es ESP,LW,10,2,0,0,1,2,0,2,0,1,0.0,0,0,2,31,18,4,2,50.0,0,0,09/21/20,Manchester City,Wolves
+486,Phil Foden,47.0,eng ENG,RW,90,61,0,10,19,33,4,61,4,7,57.1,5,0,59,233,102,69,55,79.7,0,1,09/21/20,Manchester City,Wolves
+487,Kevin De Bruyne,17.0,be BEL,AM,90,94,1,7,49,46,8,84,2,3,66.7,2,0,77,456,328,78,68,87.2,1,1,09/21/20,Manchester City,Wolves
+488,Rodrigo,16.0,es ESP,CM,90,102,1,21,75,10,0,102,2,2,100.0,2,0,81,275,107,75,74,98.7,0,1,09/21/20,Manchester City,Wolves
+489,Fernandinho,25.0,br BRA,CM,90,101,7,18,72,15,1,100,0,1,0.0,1,0,85,268,131,83,83,100.0,0,0,09/21/20,Manchester City,Wolves
+490,Benjamin Mendy,22.0,fr FRA,LB,90,82,4,22,48,18,0,71,1,1,100.0,1,0,51,267,195,55,49,89.1,0,2,09/21/20,Manchester City,Wolves
+491,Nathan Ake,6.0,nl NED,CB,90,57,1,26,34,1,0,56,0,0,,0,0,44,253,97,45,44,97.8,0,0,09/21/20,Manchester City,Wolves
+492,John Stones,5.0,eng ENG,CB,90,78,11,44,37,1,0,77,0,0,,0,0,63,255,89,65,65,100.0,0,0,09/21/20,Manchester City,Wolves
+493,Kyle Walker,2.0,eng ENG,RB,90,110,3,27,70,26,1,100,3,6,50.0,3,0,86,501,338,87,83,95.4,0,3,09/21/20,Manchester City,Wolves
+494,Ederson,31.0,br BRA,GK,90,36,34,36,0,0,0,28,0,0,,0,0,27,112,68,23,23,100.0,0,0,09/21/20,Manchester City,Wolves
+495,Aaron Connolly,7.0,ie IRL,FW,74,16,0,1,8,9,3,15,0,0,,0,0,10,130,89,30,12,40.0,4,2,09/26/20,Brighton,Manchester Utd
+496,Alireza Jahanbakhsh,16.0,ir IRN,"RW,FW",16,19,0,1,5,15,2,19,2,2,100.0,2,0,17,76,62,16,15,93.8,1,0,09/26/20,Brighton,Manchester Utd
+497,Neal Maupay,9.0,fr FRA,LW,90,48,1,4,18,32,11,44,1,1,100.0,1,0,30,222,75,38,24,63.2,1,3,09/26/20,Brighton,Manchester Utd
+498,Leandro Trossard,11.0,be BEL,"RW,FW",90,46,0,2,16,32,4,41,2,2,100.0,2,0,35,218,104,43,36,83.7,0,1,09/26/20,Brighton,Manchester Utd
+499,Steven Alzate,17.0,co COL,DM,90,68,1,19,27,27,1,66,4,5,80.0,4,0,55,298,110,50,49,98.0,3,3,09/26/20,Brighton,Manchester Utd
+500,Adam Lallana,14.0,eng ENG,DM,74,44,1,14,23,10,0,43,0,0,,0,0,22,84,27,28,27,96.4,0,1,09/26/20,Brighton,Manchester Utd
+501,Pascal Gross,13.0,de GER,DM,16,22,0,1,10,13,1,18,0,0,,0,0,13,71,32,17,15,88.2,0,0,09/26/20,Brighton,Manchester Utd
+502,Solly March,20.0,eng ENG,WB,90,82,1,17,25,44,9,71,1,1,100.0,1,0,56,396,206,53,49,92.5,0,3,09/26/20,Brighton,Manchester Utd
+503,Tariq Lamptey,2.0,eng ENG,WB,90,55,3,18,24,17,0,48,1,3,33.3,1,0,40,251,153,46,39,84.8,0,1,09/26/20,Brighton,Manchester Utd
+504,Adam Webster,4.0,eng ENG,CB,90,60,3,42,17,6,1,59,0,0,,0,0,39,301,152,44,44,100.0,0,1,09/26/20,Brighton,Manchester Utd
+505,Lewis Dunk,5.0,eng ENG,CB,90,68,19,50,19,2,0,67,0,0,,0,0,47,327,143,51,50,98.0,0,0,09/26/20,Brighton,Manchester Utd
+506,Ben White,3.0,eng ENG,CB,90,73,8,37,29,12,1,70,1,1,100.0,1,0,44,206,121,55,55,100.0,0,0,09/26/20,Brighton,Manchester Utd
+507,Mathew Ryan,1.0,au AUS,GK,90,37,29,37,0,0,0,29,0,0,,0,0,21,63,10,27,27,100.0,0,0,09/26/20,Brighton,Manchester Utd
+508,Anthony Martial,9.0,fr FRA,FW,89,29,1,2,13,19,7,28,2,2,100.0,2,0,26,175,109,38,22,57.9,2,3,09/26/20,Manchester Utd,Brighton
+509,Donny van de Beek,34.0,nl NED,FW,1,4,0,0,1,3,1,4,0,0,,0,0,2,3,1,4,3,75.0,0,0,09/26/20,Manchester Utd,Brighton
+510,Marcus Rashford,10.0,eng ENG,"LW,FW",90,34,0,3,15,18,3,34,0,0,,0,0,22,131,94,46,30,65.2,3,1,09/26/20,Manchester Utd,Brighton
+511,Mason Greenwood,11.0,eng ENG,RW,82,38,0,8,19,15,2,38,3,6,50.0,3,0,28,198,125,30,27,90.0,3,2,09/26/20,Manchester Utd,Brighton
+512,Eric Bailly,3.0,ci CIV,CB,8,6,1,5,1,0,0,6,0,0,,0,0,2,11,5,2,2,100.0,0,0,09/26/20,Manchester Utd,Brighton
+513,Bruno Fernandes,18.0,pt POR,AM,90,68,2,21,23,26,2,62,1,4,25.0,2,0,35,169,119,44,42,95.5,0,0,09/26/20,Manchester Utd,Brighton
+514,Nemanja Matic,31.0,rs SRB,DM,90,76,5,28,44,12,1,74,3,3,100.0,3,0,57,394,257,58,56,96.6,0,0,09/26/20,Manchester Utd,Brighton
+515,Paul Pogba,6.0,fr FRA,DM,64,41,2,16,26,0,0,38,1,1,100.0,1,0,29,113,69,30,30,100.0,2,2,09/26/20,Manchester Utd,Brighton
+516,Fred,17.0,br BRA,DM,26,18,2,6,11,3,0,17,1,1,100.0,1,0,13,81,66,12,12,100.0,0,1,09/26/20,Manchester Utd,Brighton
+517,Luke Shaw,23.0,eng ENG,"LB,WB",90,57,4,15,27,22,1,52,1,1,100.0,1,0,38,304,202,40,37,92.5,0,0,09/26/20,Manchester Utd,Brighton
+518,Harry Maguire,5.0,eng ENG,CB,90,56,13,30,27,1,1,55,0,0,,0,0,29,116,45,41,40,97.6,0,1,09/26/20,Manchester Utd,Brighton
+519,Victor Lindelof,2.0,se SWE,CB,90,62,16,38,25,0,0,61,0,0,,0,0,30,119,47,37,36,97.3,0,0,09/26/20,Manchester Utd,Brighton
+520,Aaron Wan-Bissaka,29.0,eng ENG,"RB,WB",90,56,3,26,22,10,0,49,0,1,0.0,0,0,32,102,32,31,30,96.8,1,3,09/26/20,Manchester Utd,Brighton
+521,David de Gea,1.0,es ESP,GK,90,24,24,24,0,0,0,11,0,0,,0,0,6,29,7,5,5,100.0,0,0,09/26/20,Manchester Utd,Brighton
+522,Wilfried Zaha,11.0,ci CIV,"FW,LM",90,39,0,2,14,26,7,39,1,2,50.0,1,0,30,265,158,38,26,68.4,1,3,09/26/20,Crystal Palace,Everton
+523,Jordan Ayew,9.0,gh GHA,FW,81,36,2,5,19,13,1,34,1,2,50.0,1,0,22,127,40,39,26,66.7,3,3,09/26/20,Crystal Palace,Everton
+524,Christian Benteke,20.0,be BEL,FW,9,2,0,0,0,2,2,2,0,0,,0,0,1,0,0,5,2,40.0,1,0,09/26/20,Crystal Palace,Everton
+525,Eberechi Eze,25.0,eng ENG,LM,74,50,0,3,27,27,2,47,3,4,75.0,3,0,41,316,176,40,34,85.0,1,1,09/26/20,Crystal Palace,Everton
+526,Michy Batshuayi,23.0,be BEL,FW,16,8,0,1,5,2,1,8,0,0,,0,0,4,21,7,7,5,71.4,2,2,09/26/20,Crystal Palace,Everton
+527,James McArthur,18.0,sco SCO,CM,87,63,4,19,42,6,1,61,0,0,,0,0,36,185,78,41,38,92.7,1,2,09/26/20,Crystal Palace,Everton
+528,Jairo Riedewald,44.0,nl NED,CM,3,3,0,0,2,1,0,3,0,0,,0,0,2,10,0,3,2,66.7,0,0,09/26/20,Crystal Palace,Everton
+529,James McCarthy,22.0,ie IRL,CM,90,56,1,10,39,9,0,55,0,0,,0,0,20,90,37,31,31,100.0,1,0,09/26/20,Crystal Palace,Everton
+530,Andros Townsend,10.0,eng ENG,RM,90,57,1,9,23,33,1,49,3,4,75.0,3,0,36,262,125,35,26,74.3,3,4,09/26/20,Crystal Palace,Everton
+531,Tyrick Mitchell,27.0,eng ENG,LB,90,55,2,19,21,17,1,49,0,1,0.0,0,0,32,126,76,33,31,93.9,3,0,09/26/20,Crystal Palace,Everton
+532,Mamadou Sakho,12.0,fr FRA,CB,90,40,8,25,17,2,1,39,0,0,,0,0,19,148,87,29,26,89.7,0,0,09/26/20,Crystal Palace,Everton
+533,Cheikhou Kouyate,8.0,sn SEN,CB,90,48,4,26,18,4,3,46,1,1,100.0,1,0,19,108,38,28,25,89.3,0,0,09/26/20,Crystal Palace,Everton
+534,Joel Ward,2.0,eng ENG,RB,90,54,4,19,23,15,0,44,2,2,100.0,2,0,24,99,60,25,20,80.0,2,0,09/26/20,Crystal Palace,Everton
+535,Vicente Guaita,31.0,es ESP,GK,90,18,15,18,0,0,0,11,0,0,,0,0,3,7,2,6,6,100.0,0,0,09/26/20,Crystal Palace,Everton
+536,Dominic Calvert-Lewin,9.0,eng ENG,FW,90,33,1,1,15,17,4,32,0,0,,0,0,16,53,8,44,23,52.3,4,6,09/26/20,Everton,Crystal Palace
+537,Richarlison,7.0,br BRA,LW,89,56,1,11,29,20,4,54,3,5,60.0,3,1,38,285,133,45,38,84.4,1,2,09/26/20,Everton,Crystal Palace
+538,Tom Davies,26.0,eng ENG,LW,1,3,0,1,1,1,0,3,0,0,,0,0,2,7,0,2,2,100.0,0,2,09/26/20,Everton,Crystal Palace
+539,James Rodriguez,19.0,co COL,RW,85,66,0,6,39,22,1,58,4,6,66.7,5,1,41,178,55,57,49,86.0,2,2,09/26/20,Everton,Crystal Palace
+540,Alex Iwobi,17.0,ng NGA,RW,5,5,1,2,2,1,0,5,0,0,,0,0,4,24,4,3,3,100.0,0,1,09/26/20,Everton,Crystal Palace
+541,Andre Gomes,21.0,pt POR,CM,75,43,1,7,33,4,0,43,1,2,50.0,1,0,33,153,84,31,31,100.0,0,2,09/26/20,Everton,Crystal Palace
+542,Gylfi Sigurdsson,10.0,is ISL,CM,15,11,0,2,7,3,0,11,0,0,,0,0,9,38,13,8,8,100.0,0,0,09/26/20,Everton,Crystal Palace
+543,Abdoulaye Doucoure,16.0,fr FRA,CM,90,62,1,17,40,8,1,62,1,2,50.0,1,0,39,200,99,57,51,89.5,1,0,09/26/20,Everton,Crystal Palace
+544,Allan,6.0,br BRA,DM,90,55,7,19,33,5,0,55,1,1,100.0,1,0,24,82,37,37,36,97.3,1,0,09/26/20,Everton,Crystal Palace
+545,Lucas Digne,12.0,fr FRA,LB,90,99,8,35,39,26,2,83,0,2,0.0,0,0,40,173,103,58,50,86.2,0,1,09/26/20,Everton,Crystal Palace
+546,Michael Keane,5.0,eng ENG,CB,90,72,8,43,30,2,1,71,0,0,,0,0,46,312,194,58,58,100.0,0,0,09/26/20,Everton,Crystal Palace
+547,Yerry Mina,13.0,co COL,CB,90,65,16,53,16,0,0,62,0,0,,0,0,37,194,118,48,48,100.0,0,0,09/26/20,Everton,Crystal Palace
+548,Seamus Coleman,23.0,ie IRL,RB,90,71,7,23,42,13,1,57,0,4,0.0,0,0,37,237,146,45,40,88.9,0,1,09/26/20,Everton,Crystal Palace
+549,Jordan Pickford,1.0,eng ENG,GK,90,35,31,35,0,0,0,25,0,0,,0,0,16,111,44,16,16,100.0,0,0,09/26/20,Everton,Crystal Palace
+550,Callum Robinson,7.0,ie IRL,FW,65,14,0,1,4,10,2,13,2,2,100.0,2,0,7,49,38,15,9,60.0,2,0,09/26/20,West Brom,Chelsea
+551,Hal Robson-Kanu,4.0,wal WAL,FW,25,17,1,2,6,9,3,16,1,2,50.0,1,0,13,78,47,15,12,80.0,3,1,09/26/20,West Brom,Chelsea
+552,Grady Diangana,11.0,eng ENG,AM,73,36,2,10,12,16,2,36,0,3,0.0,0,0,24,202,99,31,27,87.1,2,3,09/26/20,West Brom,Chelsea
+553,Matt Phillips,10.0,sco SCO,AM,17,9,2,6,1,2,0,8,0,0,,0,0,6,23,10,4,3,75.0,0,1,09/26/20,West Brom,Chelsea
+554,Matheus Pereira,12.0,br BRA,AM,89,62,3,15,26,25,1,55,3,5,60.0,3,0,31,199,122,36,32,88.9,0,4,09/26/20,West Brom,Chelsea
+555,Sam Field,28.0,eng ENG,AM,1,1,1,1,0,0,0,1,0,0,,0,0,0,0,0,0,0,,0,0,09/26/20,West Brom,Chelsea
+556,Romaine Sawyers,19.0,kn SKN,CM,90,40,1,13,22,7,0,36,1,1,100.0,1,0,18,91,42,16,15,93.8,0,0,09/26/20,West Brom,Chelsea
+557,Jake Livermore,8.0,eng ENG,CM,90,29,4,10,19,1,0,29,0,0,,0,0,13,48,20,10,10,100.0,0,0,09/26/20,West Brom,Chelsea
+558,Conor Townsend,14.0,eng ENG,WB,90,39,4,14,17,10,1,35,1,1,100.0,1,0,20,87,62,25,24,96.0,0,0,09/26/20,West Brom,Chelsea
+559,Darnell Furlong,2.0,eng ENG,WB,90,50,6,15,19,19,2,42,0,1,0.0,0,0,16,127,80,23,19,82.6,1,0,09/26/20,West Brom,Chelsea
+560,Dara O'Shea,27.0,ie IRL,CB,90,38,11,27,12,0,0,34,1,1,100.0,1,0,12,70,42,12,12,100.0,0,1,09/26/20,West Brom,Chelsea
+561,Kyle Bartley,5.0,eng ENG,CB,90,25,17,22,2,1,1,25,0,0,,0,0,3,14,2,4,4,100.0,0,0,09/26/20,West Brom,Chelsea
+562,Semi Ajayi,6.0,ng NGA,CB,90,27,6,21,7,0,0,24,1,2,50.0,1,0,7,42,32,7,7,100.0,0,0,09/26/20,West Brom,Chelsea
+563,Sam Johnstone,1.0,eng ENG,GK,90,33,29,33,0,0,0,21,0,0,,0,0,8,47,22,8,8,100.0,0,0,09/26/20,West Brom,Chelsea
+564,Tammy Abraham,9.0,eng ENG,FW,90,29,2,5,10,14,7,28,0,1,0.0,0,0,10,50,10,21,19,90.5,0,0,09/26/20,Chelsea,West Brom
+565,Timo Werner,11.0,de GER,"LW,WB",90,59,0,3,21,37,10,59,0,2,0.0,0,0,41,185,93,57,49,86.0,1,6,09/26/20,Chelsea,West Brom
+566,Mason Mount,19.0,eng ENG,"RW,CM",90,80,1,6,33,49,5,75,1,1,100.0,1,0,53,386,214,63,58,92.1,1,0,09/26/20,Chelsea,West Brom
+567,Kai Havertz,29.0,de GER,"AM,CM",90,70,0,7,27,40,5,68,0,1,0.0,0,0,52,257,87,65,59,90.8,1,2,09/26/20,Chelsea,West Brom
+568,Mateo Kovacic,17.0,hr CRO,CM,45,64,1,15,45,9,0,63,0,0,,0,0,52,395,254,52,51,98.1,1,0,09/26/20,Chelsea,West Brom
+569,Callum Hudson-Odoi,20.0,eng ENG,"RW,WB",45,45,0,2,15,31,3,44,1,1,100.0,1,0,39,254,197,43,42,97.7,0,0,09/26/20,Chelsea,West Brom
+570,N'Golo Kante,7.0,fr FRA,"CM,DM",90,112,2,23,78,22,1,107,2,2,100.0,2,0,72,447,258,84,83,98.8,1,3,09/26/20,Chelsea,West Brom
+571,Marcos Alonso,3.0,es ESP,LB,45,41,0,11,20,12,0,38,0,0,,0,0,22,122,86,26,22,84.6,1,0,09/26/20,Chelsea,West Brom
+572,Cesar Azpilicueta,28.0,es ESP,"LB,CB",45,71,2,18,43,18,0,66,0,0,,0,0,44,319,261,50,48,96.0,0,1,09/26/20,Chelsea,West Brom
+573,Thiago Silva,6.0,br BRA,CB,72,89,7,34,62,2,0,88,0,0,,0,0,71,397,294,74,74,100.0,2,0,09/26/20,Chelsea,West Brom
+574,Olivier Giroud,18.0,fr FRA,"FW,CB",18,9,0,1,3,6,2,9,0,0,,0,0,5,9,4,6,6,100.0,1,0,09/26/20,Chelsea,West Brom
+575,Andreas Christensen,4.0,dk DEN,CB,90,125,10,44,82,5,0,125,0,0,,0,0,88,445,306,99,99,100.0,1,0,09/26/20,Chelsea,West Brom
+576,Reece James,24.0,eng ENG,"RB,CB",90,133,2,20,67,59,1,120,0,0,,0,0,100,520,329,110,107,97.3,0,0,09/26/20,Chelsea,West Brom
+577,Willy Caballero,13.0,ar ARG,GK,90,26,21,26,1,0,0,19,0,0,,0,0,12,77,20,15,15,100.0,0,0,09/26/20,Chelsea,West Brom
+578,Matej Vydra,27.0,cz CZE,FW,90,25,0,1,10,14,3,25,0,1,0.0,1,0,10,34,10,69,19,27.5,1,2,09/26/20,Burnley,Southampton
+579,Chris Wood,9.0,nz NZL,FW,90,27,0,0,15,13,3,26,0,0,,0,0,11,41,9,71,25,35.2,4,1,09/26/20,Burnley,Southampton
+580,Dwight McNeil,11.0,eng ENG,LM,90,66,0,8,34,28,2,60,2,4,50.0,2,0,49,333,165,57,50,87.7,1,3,09/26/20,Burnley,Southampton
+581,Josh Brownhill,8.0,eng ENG,RM,90,53,0,11,28,16,5,50,0,0,,0,0,22,68,34,38,27,71.1,2,1,09/26/20,Burnley,Southampton
+582,Dale Stephens,16.0,eng ENG,DM,90,68,1,14,44,14,3,68,1,1,100.0,1,0,34,148,73,42,38,90.5,0,3,09/26/20,Burnley,Southampton
+583,Ashley Westwood,18.0,eng ENG,DM,90,94,1,18,57,26,0,83,0,1,0.0,0,0,56,231,119,68,63,92.6,0,1,09/26/20,Burnley,Southampton
+584,Charlie Taylor,3.0,eng ENG,LB,90,87,1,26,45,26,0,76,0,0,,0,0,46,373,175,64,60,93.8,0,0,09/26/20,Burnley,Southampton
+585,Jimmy Dunne,34.0,ie IRL,CB,90,66,7,41,23,4,3,66,0,0,,0,0,34,176,20,39,36,92.3,0,0,09/26/20,Burnley,Southampton
+586,Kevin Long,28.0,ie IRL,CB,90,72,7,37,33,2,2,71,0,0,,0,0,31,113,31,39,36,92.3,0,0,09/26/20,Burnley,Southampton
+587,Phil Bardsley,26.0,sco SCO,RB,90,85,3,19,53,18,1,67,0,0,,0,0,37,192,69,44,40,90.9,0,1,09/26/20,Burnley,Southampton
+588,Nick Pope,1.0,eng ENG,GK,90,38,35,38,0,0,0,31,0,0,,0,0,20,135,66,24,24,100.0,0,0,09/26/20,Burnley,Southampton
+589,Danny Ings,9.0,eng ENG,FW,90,50,2,11,29,12,4,50,3,3,100.0,3,0,29,185,104,62,29,46.8,5,2,09/26/20,Southampton,Burnley
+590,Che Adams,10.0,eng ENG,FW,76,31,3,4,13,14,3,31,0,0,,0,0,9,13,3,60,23,38.3,4,1,09/26/20,Southampton,Burnley
+591,Michael Obafemi,14.0,ie IRL,FW,14,6,1,3,4,0,0,6,0,0,,0,0,4,4,2,9,3,33.3,1,0,09/26/20,Southampton,Burnley
+592,Moussa Djenepo,12.0,ml MLI,LM,76,46,1,6,30,15,0,46,1,2,50.0,1,0,33,130,58,47,31,66.0,5,1,09/26/20,Southampton,Burnley
+593,Nathan Tella,23.0,eng ENG,LM,14,9,0,1,8,1,0,9,0,0,,0,0,6,70,45,10,6,60.0,2,2,09/26/20,Southampton,Burnley
+594,Oriol Romeu,6.0,es ESP,CM,90,89,2,14,73,6,0,89,0,0,,0,0,53,296,109,58,58,100.0,0,0,09/26/20,Southampton,Burnley
+595,James Ward-Prowse,8.0,eng ENG,CM,90,62,1,13,46,6,0,61,0,0,,0,0,30,94,30,44,39,88.6,0,0,09/26/20,Southampton,Burnley
+596,Stuart Armstrong,17.0,sco SCO,RM,90,59,1,9,33,21,5,57,0,2,0.0,0,0,35,283,170,52,39,75.0,5,4,09/26/20,Southampton,Burnley
+597,Ryan Bertrand,3.0,eng ENG,LB,90,78,3,18,42,22,2,61,0,0,,0,0,42,175,70,54,48,88.9,1,0,09/26/20,Southampton,Burnley
+598,Jannik Vestergaard,4.0,dk DEN,CB,90,67,11,32,37,2,0,62,1,1,100.0,1,0,26,132,55,24,24,100.0,0,0,09/26/20,Southampton,Burnley
+599,Jan Bednarek,35.0,pl POL,CB,90,56,13,34,22,1,1,56,0,0,,0,0,17,80,42,21,20,95.2,0,0,09/26/20,Southampton,Burnley
+600,Kyle Walker-Peters,2.0,eng ENG,RB,90,59,1,17,39,7,0,43,0,1,0.0,0,0,27,90,45,33,31,93.9,0,0,09/26/20,Southampton,Burnley
+601,Alex McCarthy,1.0,eng ENG,GK,90,36,29,36,0,0,0,28,1,1,100.0,1,0,20,97,55,16,16,100.0,0,0,09/26/20,Southampton,Burnley
+602,Oliver Burke,14.0,sco SCO,FW,73,27,0,1,14,14,5,26,0,0,,0,0,16,175,114,24,17,70.8,1,1,09/27/20,Sheffield Utd,Leeds United
+603,Billy Sharp,10.0,eng ENG,FW,17,9,0,1,4,4,2,8,0,1,0.0,0,0,7,43,30,10,6,60.0,2,0,09/27/20,Sheffield Utd,Leeds United
+604,David McGoldrick,17.0,ie IRL,FW,73,30,1,2,11,18,3,30,1,2,50.0,2,0,17,81,39,38,22,57.9,5,1,09/27/20,Sheffield Utd,Leeds United
+605,Oliver McBurnie,9.0,sco SCO,FW,17,10,1,1,6,3,2,10,0,0,,0,0,6,44,35,13,8,61.5,0,0,09/27/20,Sheffield Utd,Leeds United
+606,Ben Osborn,23.0,eng ENG,CM,90,50,0,11,24,20,4,47,0,0,,0,0,30,194,106,45,32,71.1,0,3,09/27/20,Sheffield Utd,Leeds United
+607,John Lundstram,7.0,eng ENG,CM,63,35,0,4,16,16,4,32,1,1,100.0,1,0,21,112,40,29,25,86.2,0,0,09/27/20,Sheffield Utd,Leeds United
+608,Oliver Norwood,16.0,nir NIR,CM,27,16,1,5,10,1,0,15,0,0,,0,0,6,26,7,10,9,90.0,0,1,09/27/20,Sheffield Utd,Leeds United
+609,Sander Berge,8.0,no NOR,DM,90,45,0,7,36,12,1,43,1,1,100.0,1,0,29,427,285,31,28,90.3,1,1,09/27/20,Sheffield Utd,Leeds United
+610,Enda Stevens,3.0,ie IRL,WB,90,51,5,19,23,11,1,50,1,3,33.3,1,0,28,140,71,27,24,88.9,0,1,09/27/20,Sheffield Utd,Leeds United
+611,George Baldock,2.0,eng ENG,WB,90,51,0,8,22,24,3,39,2,3,66.7,2,0,24,182,111,30,24,80.0,2,0,09/27/20,Sheffield Utd,Leeds United
+612,Jack Robinson,19.0,eng ENG,CB,90,46,5,26,19,3,3,43,1,1,100.0,1,0,18,73,15,20,19,95.0,1,0,09/27/20,Sheffield Utd,Leeds United
+613,Ethan Ampadu,22.0,wal WAL,CB,90,49,12,29,21,2,1,48,0,0,,0,0,26,199,142,26,26,100.0,2,0,09/27/20,Sheffield Utd,Leeds United
+614,Chris Basham,6.0,eng ENG,CB,90,41,7,17,19,10,3,41,1,1,100.0,1,0,21,243,163,20,18,90.0,1,2,09/27/20,Sheffield Utd,Leeds United
+615,Aaron Ramsdale,1.0,eng ENG,GK,90,44,41,44,0,0,0,29,0,0,,0,0,14,85,43,10,10,100.0,0,0,09/27/20,Sheffield Utd,Leeds United
+616,Tyler Roberts,11.0,wal WAL,FW,45,21,0,2,9,10,2,21,0,0,,0,0,12,56,18,23,17,73.9,0,1,09/27/20,Leeds United,Sheffield Utd
+617,Rodrigo Moreno,20.0,es ESP,FW,44,39,1,7,14,19,5,39,0,0,,0,0,25,141,63,37,32,86.5,1,2,09/27/20,Leeds United,Sheffield Utd
+618,Ezgjan Alioski,10.0,mk MKD,FW,1,4,0,1,2,1,0,4,0,0,,0,0,0,0,0,3,3,100.0,0,0,09/27/20,Leeds United,Sheffield Utd
+619,Patrick Bamford,9.0,eng ENG,FW,90,28,0,1,12,15,6,25,0,2,0.0,1,0,16,44,28,45,18,40.0,4,1,09/27/20,Leeds United,Sheffield Utd
+620,Stuart Dallas,15.0,nir NIR,CM,90,82,2,19,46,23,2,75,0,0,,0,0,58,412,226,63,58,92.1,1,2,09/27/20,Leeds United,Sheffield Utd
+621,Mateusz Klich,43.0,pl POL,CM,90,59,2,2,25,36,1,55,0,1,0.0,1,0,35,276,144,51,41,80.4,1,3,09/27/20,Leeds United,Sheffield Utd
+622,Kalvin Phillips,23.0,eng ENG,DM,90,70,1,17,38,19,0,65,1,1,100.0,1,0,39,172,62,49,48,98.0,1,1,09/27/20,Leeds United,Sheffield Utd
+623,Jack Harrison,22.0,eng ENG,WB,90,72,1,12,28,36,4,66,3,3,100.0,3,0,52,397,220,53,46,86.8,2,3,09/27/20,Leeds United,Sheffield Utd
+624,Helder Costa,17.0,pt POR,WB,65,29,1,8,12,12,3,28,0,1,0.0,0,0,20,165,138,25,20,80.0,1,4,09/27/20,Leeds United,Sheffield Utd
+625,Ian Poveda-Ocampo,7.0,eng ENG,WB,25,11,0,0,2,11,3,11,0,0,,0,0,9,146,100,11,9,81.8,0,2,09/27/20,Leeds United,Sheffield Utd
+626,Liam Cooper,6.0,sco SCO,CB,90,96,12,60,40,2,1,90,0,0,,0,0,57,269,131,66,66,100.0,0,1,09/27/20,Leeds United,Sheffield Utd
+627,Robin Koch,5.0,de GER,CB,90,85,16,57,29,0,0,83,0,0,,0,0,56,265,121,63,63,100.0,0,0,09/27/20,Leeds United,Sheffield Utd
+628,Luke Ayling,2.0,eng ENG,CB,90,108,6,45,58,21,1,93,3,3,100.0,3,0,75,591,412,77,73,94.8,0,1,09/27/20,Leeds United,Sheffield Utd
+629,Illan Meslier,1.0,fr FRA,GK,90,44,36,44,0,0,0,33,0,0,,0,0,21,115,66,17,17,100.0,0,0,09/27/20,Leeds United,Sheffield Utd
+630,Harry Kane,10.0,eng ENG,FW,90,38,0,0,13,28,13,38,0,0,,0,0,22,167,111,42,26,61.9,0,7,09/27/20,Tottenham,Newcastle Utd
+631,Son Heung-Min,7.0,kr KOR,LW,45,23,0,0,7,19,3,19,1,1,100.0,1,0,17,140,75,26,16,61.5,1,0,09/27/20,Tottenham,Newcastle Utd
+632,Steven Bergwijn,23.0,nl NED,LW,45,33,0,3,15,18,1,31,1,1,100.0,1,0,24,111,63,31,26,83.9,1,1,09/27/20,Tottenham,Newcastle Utd
+633,Lucas Moura,27.0,br BRA,RW,78,58,2,5,18,39,8,56,2,3,66.7,2,0,40,225,125,50,44,88.0,2,0,09/27/20,Tottenham,Newcastle Utd
+634,Erik Lamela,11.0,ar ARG,RW,12,10,0,0,5,5,0,7,1,1,100.0,1,0,7,53,17,7,7,100.0,0,0,09/27/20,Tottenham,Newcastle Utd
+635,Giovani Lo Celso,18.0,ar ARG,AM,76,66,0,2,33,33,3,60,2,3,66.7,2,1,53,190,91,57,50,87.7,1,2,09/27/20,Tottenham,Newcastle Utd
+636,Tanguy Ndombele,28.0,fr FRA,AM,14,23,0,0,8,15,1,22,1,1,100.0,1,0,18,56,18,22,21,95.5,0,1,09/27/20,Tottenham,Newcastle Utd
+637,Harry Winks,8.0,eng ENG,DM,90,101,3,15,74,14,0,101,0,0,,0,0,75,316,138,89,87,97.8,0,3,09/27/20,Tottenham,Newcastle Utd
+638,Pierre-Emile Hojbjerg,5.0,dk DEN,DM,90,119,5,22,84,17,0,119,1,2,50.0,1,0,87,311,166,96,96,100.0,1,0,09/27/20,Tottenham,Newcastle Utd
+639,Ben Davies,33.0,wal WAL,LB,90,64,4,12,37,19,1,53,0,0,,0,0,39,126,64,41,40,97.6,0,0,09/27/20,Tottenham,Newcastle Utd
+640,Eric Dier,15.0,eng ENG,CB,90,73,7,29,43,2,1,72,0,0,,0,0,45,225,163,49,49,100.0,0,0,09/27/20,Tottenham,Newcastle Utd
+641,Davinson Sanchez,6.0,co COL,CB,90,72,8,29,45,4,2,71,0,0,,0,0,47,260,155,56,55,98.2,0,0,09/27/20,Tottenham,Newcastle Utd
+642,Matt Doherty,2.0,ie IRL,RB,90,95,5,16,42,43,4,87,1,3,33.3,1,0,62,339,209,69,68,98.6,2,0,09/27/20,Tottenham,Newcastle Utd
+643,Hugo Lloris,1.0,fr FRA,GK,90,13,10,13,0,0,0,8,0,0,,0,0,7,22,17,5,5,100.0,0,0,09/27/20,Tottenham,Newcastle Utd
+644,Callum Wilson,13.0,eng ENG,FW,90,14,0,0,6,9,3,13,0,0,,0,0,5,42,28,26,12,46.2,4,0,09/27/20,Newcastle Utd,Tottenham
+645,Joelinton,9.0,br BRA,LW,90,40,2,8,25,14,2,40,2,3,66.7,2,0,24,244,162,29,26,89.7,1,0,09/27/20,Newcastle Utd,Tottenham
+646,Miguel Almiron,24.0,py PAR,RW,76,41,1,11,11,22,3,41,1,1,100.0,1,0,25,162,84,33,26,78.8,1,1,09/27/20,Newcastle Utd,Tottenham
+647,Andy Carroll,7.0,eng ENG,RW,14,9,0,0,3,6,3,9,0,0,,0,0,2,27,0,12,9,75.0,1,0,09/27/20,Newcastle Utd,Tottenham
+648,Jeff Hendrick,16.0,ie IRL,CM,73,30,2,14,13,3,0,30,0,0,,0,0,15,62,14,21,20,95.2,1,0,09/27/20,Newcastle Utd,Tottenham
+649,Jacob Murphy,23.0,eng ENG,"WB,CM",17,12,1,4,6,3,0,11,1,3,33.3,1,0,10,59,46,7,6,85.7,0,1,09/27/20,Newcastle Utd,Tottenham
+650,Jonjo Shelvey,8.0,eng ENG,CM,90,43,1,13,22,10,2,38,2,2,100.0,2,0,24,144,60,29,27,93.1,1,0,09/27/20,Newcastle Utd,Tottenham
+651,Matt Ritchie,11.0,sco SCO,WB,68,44,2,16,18,11,1,34,0,0,,0,0,23,105,53,24,24,100.0,0,2,09/27/20,Newcastle Utd,Tottenham
+652,Jamal Lewis,15.0,nir NIR,WB,22,6,0,0,4,3,0,6,0,0,,0,0,4,10,2,4,4,100.0,0,0,09/27/20,Newcastle Utd,Tottenham
+653,Javier Manquillo,19.0,es ESP,"WB,CB",90,53,3,19,20,14,1,48,0,0,,0,0,27,150,74,37,32,86.5,2,3,09/27/20,Newcastle Utd,Tottenham
+654,Federico Fernandez,18.0,ar ARG,CB,90,43,5,25,18,1,1,38,0,0,,0,0,20,81,17,24,23,95.8,1,0,09/27/20,Newcastle Utd,Tottenham
+655,Jamaal Lascelles,6.0,eng ENG,CB,90,43,12,26,15,2,0,42,1,1,100.0,1,0,20,78,36,18,18,100.0,0,0,09/27/20,Newcastle Utd,Tottenham
+656,Isaac Hayden,14.0,eng ENG,"CB,CM",90,45,5,27,17,2,0,44,0,0,,0,0,24,70,23,28,27,96.4,1,1,09/27/20,Newcastle Utd,Tottenham
+657,Karl Darlow,26.0,eng ENG,GK,90,42,39,41,1,0,0,33,0,0,,0,0,16,106,65,11,11,100.0,0,0,09/27/20,Newcastle Utd,Tottenham
+658,Raheem Sterling,7.0,eng ENG,"FW,LW,AM",90,41,0,0,16,26,6,38,1,2,50.0,1,0,29,167,88,52,30,57.7,2,6,09/27/20,Manchester City,Leicester City
+659,Phil Foden,47.0,eng ENG,LW,63,20,0,2,7,11,0,19,1,1,100.0,1,0,10,39,10,29,15,51.7,0,2,09/27/20,Manchester City,Leicester City
+660,Ferran Torres,21.0,es ESP,"RW,LW",27,25,0,0,6,19,0,23,2,4,50.0,2,0,19,123,75,22,20,90.9,1,1,09/27/20,Manchester City,Leicester City
+661,Riyad Mahrez,26.0,dz ALG,"RW,CM",90,66,0,1,20,51,4,63,0,0,,0,0,46,267,104,62,54,87.1,1,2,09/27/20,Manchester City,Leicester City
+662,Kevin De Bruyne,17.0,be BEL,"AM,CM,DM",90,77,0,3,30,54,7,74,2,4,50.0,2,1,56,458,328,68,62,91.2,2,1,09/27/20,Manchester City,Leicester City
+663,Rodrigo,16.0,es ESP,DM,90,91,1,10,67,17,1,89,3,3,100.0,3,0,60,329,156,67,65,97.0,1,0,09/27/20,Manchester City,Leicester City
+664,Fernandinho,25.0,br BRA,DM,50,78,0,4,72,13,1,73,0,0,,0,0,57,371,283,65,64,98.5,0,0,09/27/20,Manchester City,Leicester City
+665,Liam Delap,48.0,eng ENG,"FW,DM",40,11,0,1,7,3,1,7,0,0,,0,0,6,7,1,16,7,43.8,2,1,09/27/20,Manchester City,Leicester City
+666,Benjamin Mendy,22.0,fr FRA,LB,90,75,0,9,34,37,0,69,0,0,,0,0,43,145,79,64,60,93.8,2,1,09/27/20,Manchester City,Leicester City
+667,Nathan Ake,6.0,nl NED,CB,90,110,3,19,90,10,1,108,0,0,,0,0,83,482,326,89,89,100.0,0,0,09/27/20,Manchester City,Leicester City
+668,Eric Garcia,50.0,es ESP,CB,90,100,4,12,89,5,0,100,0,0,,0,0,77,555,342,86,84,97.7,0,0,09/27/20,Manchester City,Leicester City
+669,Kyle Walker,2.0,eng ENG,RB,90,103,3,18,59,41,1,93,2,2,100.0,2,0,64,491,319,78,75,96.2,0,1,09/27/20,Manchester City,Leicester City
+670,Ederson,31.0,br BRA,GK,90,19,15,19,0,0,0,17,0,0,,0,0,5,29,23,7,7,100.0,0,0,09/27/20,Manchester City,Leicester City
+671,Jamie Vardy,9.0,eng ENG,FW,84,18,2,4,8,6,3,14,0,0,,0,0,2,5,1,26,10,38.5,4,0,09/27/20,Leicester City,Manchester City
+672,Kelechi Iheanacho,14.0,ng NGA,FW,6,3,0,0,2,1,0,2,0,0,,0,0,0,0,0,2,1,50.0,0,0,09/27/20,Leicester City,Manchester City
+673,Harvey Barnes,15.0,eng ENG,LW,90,26,0,8,12,12,2,26,1,2,50.0,1,0,21,262,215,33,20,60.6,0,3,09/27/20,Leicester City,Manchester City
+674,Dennis Praet,26.0,be BEL,RW,68,25,2,8,14,4,0,25,1,2,50.0,2,0,16,59,29,21,14,66.7,1,3,09/27/20,Leicester City,Manchester City
+675,James Maddison,10.0,eng ENG,RW,22,9,0,5,1,3,1,9,1,1,100.0,1,0,7,54,34,5,5,100.0,0,1,09/27/20,Leicester City,Manchester City
+676,Nampalys Mendy,24.0,fr FRA,DM,90,37,7,21,17,0,0,36,1,1,100.0,1,0,20,81,24,19,18,94.7,3,0,09/27/20,Leicester City,Manchester City
+677,Youri Tielemans,8.0,be BEL,DM,90,44,1,20,19,11,1,38,3,3,100.0,3,0,25,119,72,25,25,100.0,0,1,09/27/20,Leicester City,Manchester City
+678,James Justin,2.0,eng ENG,"WB,CB",90,45,5,25,14,7,1,43,1,2,50.0,1,0,23,143,99,23,21,91.3,1,0,09/27/20,Leicester City,Manchester City
+679,Timothy Castagne,27.0,be BEL,WB,90,34,2,11,12,12,2,32,0,1,0.0,0,0,18,92,69,23,19,82.6,0,1,09/27/20,Leicester City,Manchester City
+680,Caglar Soyuncu,4.0,tr TUR,CB,90,32,6,17,16,1,0,32,0,0,,0,0,17,142,89,20,19,95.0,0,0,09/27/20,Leicester City,Manchester City
+681,Jonny Evans,6.0,nir NIR,CB,79,31,11,24,7,1,0,31,0,0,,0,0,16,53,15,16,16,100.0,0,1,09/27/20,Leicester City,Manchester City
+682,Christian Fuchs,28.0,at AUT,"WB,CB",11,9,0,5,4,0,0,9,0,0,,0,0,2,6,0,7,4,57.1,1,0,09/27/20,Leicester City,Manchester City
+683,Daniel Amartey,18.0,gh GHA,CB,90,37,8,20,17,1,0,35,0,0,,0,0,12,36,6,21,19,90.5,0,1,09/27/20,Leicester City,Manchester City
+684,Kasper Schmeichel,1.0,dk DEN,GK,90,47,39,46,1,0,0,25,0,0,,0,0,18,128,83,15,15,100.0,0,0,09/27/20,Leicester City,Manchester City
+685,Michail Antonio,30.0,eng ENG,FW,87,45,2,3,25,23,6,43,6,7,85.7,6,0,44,296,187,54,35,64.8,5,4,09/27/20,West Ham,Wolves
+686,Sebastien Haller,22.0,fr FRA,FW,3,8,0,0,2,6,1,8,0,0,,0,0,6,11,7,8,7,87.5,1,0,09/27/20,West Ham,Wolves
+687,Pablo Fornals,18.0,es ESP,AM,90,37,0,2,31,5,1,36,1,4,25.0,1,0,28,148,82,41,26,63.4,1,0,09/27/20,West Ham,Wolves
+688,Jarrod Bowen,20.0,eng ENG,AM,87,30,0,2,18,13,5,30,2,4,50.0,2,0,23,228,98,39,19,48.7,1,2,09/27/20,West Ham,Wolves
+689,Mark Noble,16.0,eng ENG,AM,3,6,0,0,4,2,0,6,0,0,,0,0,5,55,6,8,6,75.0,1,0,09/27/20,West Ham,Wolves
+690,Declan Rice,41.0,eng ENG,DM,90,59,3,9,44,10,1,58,5,5,100.0,5,0,47,344,169,34,33,97.1,0,1,09/27/20,West Ham,Wolves
+691,Tomas Soucek,28.0,cz CZE,DM,90,49,2,10,31,9,4,48,0,0,,0,0,22,81,26,36,31,86.1,0,1,09/27/20,West Ham,Wolves
+692,Arthur Masuaku,26.0,cd COD,WB,90,67,2,20,42,9,1,62,3,5,60.0,3,1,46,283,206,46,42,91.3,1,1,09/27/20,West Ham,Wolves
+693,Ryan Fredericks,24.0,eng ENG,WB,48,38,3,11,18,11,0,32,1,1,100.0,1,0,18,124,63,20,18,90.0,0,0,09/27/20,West Ham,Wolves
+694,Ben Johnson,31.0,eng ENG,WB,42,19,1,4,11,6,0,17,0,0,,0,0,12,81,57,11,10,90.9,0,1,09/27/20,West Ham,Wolves
+695,Aaron Cresswell,3.0,eng ENG,CB,90,51,10,23,25,4,0,42,0,0,,0,0,28,88,39,29,29,100.0,0,0,09/27/20,West Ham,Wolves
+696,Angelo Ogbonna,21.0,it ITA,CB,90,36,8,26,9,1,1,36,1,1,100.0,1,0,22,105,37,19,18,94.7,0,0,09/27/20,West Ham,Wolves
+697,Fabian Balbuena,4.0,py PAR,CB,90,37,5,24,16,2,0,36,0,0,,0,0,21,150,38,22,21,95.5,0,0,09/27/20,West Ham,Wolves
+698,Åukasz FabiaÅski,1.0,pl POL,GK,90,30,28,30,0,0,0,19,0,0,,0,0,14,56,36,10,10,100.0,0,0,09/27/20,West Ham,Wolves
+699,Raul Jimenez,9.0,mx MEX,FW,90,50,1,4,29,18,6,49,3,5,60.0,4,0,33,159,85,60,42,70.0,3,3,09/27/20,Wolves,West Ham
+700,Pedro Neto,7.0,pt POR,LW,90,58,0,4,31,31,5,54,5,10,50.0,6,0,50,559,417,61,47,77.0,5,3,09/27/20,Wolves,West Ham
+701,Adama Traore,37.0,es ESP,RW,61,39,0,0,23,23,0,39,9,11,81.8,9,0,40,389,237,43,36,83.7,1,2,09/27/20,Wolves,West Ham
+702,Fabio Silva,17.0,pt POR,RW,29,26,0,1,16,12,3,24,1,3,33.3,1,0,18,91,40,26,22,84.6,2,2,09/27/20,Wolves,West Ham
+703,Joao Moutinho,28.0,pt POR,CM,72,86,0,14,65,17,0,82,0,0,,0,0,66,345,206,75,71,94.7,1,0,09/27/20,Wolves,West Ham
+704,Vitinha,20.0,pt POR,CM,18,26,0,1,23,5,0,26,2,2,100.0,2,0,22,162,92,24,21,87.5,1,0,09/27/20,Wolves,West Ham
+705,Ruben Neves,8.0,pt POR,CM,90,120,6,15,87,25,1,115,0,0,,0,0,81,355,184,95,93,97.9,0,0,09/27/20,Wolves,West Ham
+706,Ruben Vinagre,29.0,pt POR,WB,90,75,3,22,37,21,0,66,0,1,0.0,1,0,35,214,142,51,43,84.3,1,1,09/27/20,Wolves,West Ham
+707,Nelson Semedo,22.0,pt POR,WB,72,63,0,8,37,21,4,52,6,7,85.7,6,0,50,257,118,48,44,91.7,1,0,09/27/20,Wolves,West Ham
+708,Ki-Jana Hoever,2.0,nl NED,WB,18,21,0,1,16,6,1,19,0,0,,0,0,12,37,28,16,15,93.8,0,0,09/27/20,Wolves,West Ham
+709,Romain Saiss,27.0,ma MAR,CB,90,81,5,31,51,1,0,81,0,0,,0,0,49,296,168,55,55,100.0,0,0,09/27/20,Wolves,West Ham
+710,Conor Coady,16.0,eng ENG,CB,90,48,4,27,26,0,0,48,1,1,100.0,1,1,30,177,95,36,36,100.0,0,0,09/27/20,Wolves,West Ham
+711,Willy Boly,15.0,fr FRA,CB,90,54,3,17,37,0,0,54,0,0,,0,0,34,130,64,42,40,95.2,0,0,09/27/20,Wolves,West Ham
+712,Rui PatrÃ­cio,11.0,pt POR,GK,90,23,23,23,0,0,0,16,0,0,,0,0,10,46,24,5,5,100.0,0,0,09/27/20,Wolves,West Ham
+713,Aleksandar Mitrovic,9.0,rs SRB,FW,90,33,0,0,16,17,13,29,0,1,0.0,0,0,12,16,2,50,22,44.0,4,1,09/28/20,Fulham,Aston Villa
+714,Ivan Cavaleiro,17.0,pt POR,AM,90,62,0,2,25,37,8,58,4,7,57.1,4,0,53,412,206,57,45,78.9,6,5,09/28/20,Fulham,Aston Villa
+715,Bobby De Cordova-Reid,14.0,jm JAM,AM,77,32,0,1,17,15,7,32,2,4,50.0,2,0,26,92,49,37,26,70.3,2,1,09/28/20,Fulham,Aston Villa
+716,Neeskens Kebano,7.0,cd COD,AM,13,11,0,0,2,9,0,10,0,0,,0,0,10,43,25,13,10,76.9,0,1,09/28/20,Fulham,Aston Villa
+717,Tom Cairney,10.0,sco SCO,DM,90,95,2,18,60,24,0,93,2,3,66.7,2,0,79,444,264,81,79,97.5,1,0,09/28/20,Fulham,Aston Villa
+718,Andre-Frank Zambo Anguissa,29.0,cm CMR,DM,90,82,2,15,52,18,1,81,4,6,66.7,4,0,63,323,175,61,57,93.4,1,0,09/28/20,Fulham,Aston Villa
+719,Joe Bryan,23.0,eng ENG,WB,90,78,2,15,38,32,2,63,3,3,100.0,3,0,46,315,196,51,44,86.3,1,0,09/28/20,Fulham,Aston Villa
+720,Kenny Tete,2.0,nl NED,WB,38,31,1,2,13,17,1,28,0,1,0.0,0,0,24,141,85,27,23,85.2,0,0,09/28/20,Fulham,Aston Villa
+721,Aboubakar Kamara,47.0,fr FRA,WB,52,42,1,3,19,24,1,41,1,1,100.0,1,1,33,237,160,33,29,87.9,1,0,09/28/20,Fulham,Aston Villa
+722,Tim Ream,13.0,us USA,CB,90,56,9,37,22,0,0,55,0,1,0.0,0,0,40,168,104,41,41,100.0,0,0,09/28/20,Fulham,Aston Villa
+723,Michael Hector,3.0,jm JAM,CB,57,52,9,34,23,1,0,48,0,0,,0,0,33,177,125,36,36,100.0,0,0,09/28/20,Fulham,Aston Villa
+724,Maxime Le Marchand,20.0,fr FRA,CB,33,27,7,16,13,1,0,26,0,0,,0,0,18,105,82,20,19,95.0,0,0,09/28/20,Fulham,Aston Villa
+725,Denis Odoi,4.0,be BEL,CB,90,82,5,39,40,11,0,78,0,0,,0,0,49,182,100,48,46,95.8,0,1,09/28/20,Fulham,Aston Villa
+726,Alphonse Areola,1.0,fr FRA,GK,90,23,22,23,0,0,0,14,0,0,,0,0,9,50,33,7,7,100.0,0,0,09/28/20,Fulham,Aston Villa
+727,Ollie Watkins,11.0,eng ENG,FW,90,34,0,1,18,17,6,34,2,2,100.0,2,0,23,109,58,50,29,58.0,4,2,09/28/20,Aston Villa,Fulham
+728,Jack Grealish,10.0,eng ENG,LW,90,56,2,15,24,26,7,55,3,4,75.0,3,0,43,443,291,46,37,80.4,1,2,09/28/20,Aston Villa,Fulham
+729,Trezeguet,17.0,eg EGY,RW,83,28,2,9,6,15,4,27,2,2,100.0,2,0,13,122,84,18,8,44.4,1,0,09/28/20,Aston Villa,Fulham
+730,Bertrand Traore,15.0,bf BFA,RW,7,6,0,4,1,1,1,6,1,1,100.0,1,0,6,24,10,3,3,100.0,0,0,09/28/20,Aston Villa,Fulham
+731,Conor Hourihane,14.0,ie IRL,CM,75,31,2,8,11,12,2,25,0,0,,0,0,12,20,3,18,14,77.8,0,0,09/28/20,Aston Villa,Fulham
+732,Jacob Ramsey,41.0,eng ENG,CM,15,6,1,2,3,1,0,6,0,0,,0,0,5,15,9,5,4,80.0,0,0,09/28/20,Aston Villa,Fulham
+733,John McGinn,7.0,sco SCO,CM,90,33,2,6,11,18,4,30,2,2,100.0,2,0,22,122,63,23,17,73.9,0,1,09/28/20,Aston Villa,Fulham
+734,Douglas Luiz,6.0,br BRA,DM,86,31,3,9,19,4,0,29,0,1,0.0,0,0,16,60,28,13,12,92.3,0,0,09/28/20,Aston Villa,Fulham
+735,Marvelous Nakamba,19.0,zw ZIM,DM,4,6,1,3,2,1,0,5,0,0,,0,0,3,1,0,3,3,100.0,0,1,09/28/20,Aston Villa,Fulham
+736,Matt Targett,18.0,eng ENG,LB,90,62,4,26,29,10,0,50,0,0,,0,0,23,32,11,34,30,88.2,0,0,09/28/20,Aston Villa,Fulham
+737,Tyrone Mings,5.0,eng ENG,CB,90,48,18,34,13,2,2,46,0,0,,0,0,19,90,41,26,25,96.2,0,0,09/28/20,Aston Villa,Fulham
+738,Ezri Konsa Ngoyo,4.0,eng ENG,CB,90,31,13,26,6,0,0,30,0,0,,0,0,14,63,18,13,12,92.3,0,0,09/28/20,Aston Villa,Fulham
+739,Matthew Cash,2.0,eng ENG,RB,90,48,9,25,22,5,1,42,0,0,,0,0,19,133,91,22,18,81.8,1,3,09/28/20,Aston Villa,Fulham
+740,Emiliano MartÃ­nez,26.0,ar ARG,GK,90,41,38,41,0,0,0,28,0,0,,0,0,23,73,30,16,16,100.0,0,0,09/28/20,Aston Villa,Fulham
+741,Roberto Firmino,9.0,br BRA,FW,89,52,0,1,35,18,3,50,0,1,0.0,0,0,39,165,73,59,44,74.6,1,3,09/28/20,Liverpool,Arsenal
+742,Takumi Minamino,18.0,jp JPN,FW,1,1,0,0,1,0,0,1,0,0,,0,0,0,0,0,1,1,100.0,0,0,09/28/20,Liverpool,Arsenal
+743,Sadio Mane,10.0,sn SEN,LW,79,54,0,0,19,39,10,53,1,2,50.0,1,0,49,345,168,53,39,73.6,1,3,09/28/20,Liverpool,Arsenal
+744,Diogo Jota,20.0,pt POR,LW,11,16,0,0,5,11,5,16,0,0,,0,0,12,91,74,11,11,100.0,2,2,09/28/20,Liverpool,Arsenal
+745,Mohamed Salah,11.0,eg EGY,RW,90,50,1,1,22,29,4,48,1,2,50.0,1,0,36,173,93,55,40,72.7,3,1,09/28/20,Liverpool,Arsenal
+746,Georginio Wijnaldum,5.0,nl NED,CM,90,64,0,3,48,14,1,62,0,0,,0,0,56,270,76,61,57,93.4,1,1,09/28/20,Liverpool,Arsenal
+747,Naby Keita,8.0,gn GUI,CM,78,54,0,4,33,21,5,54,1,1,100.0,1,0,42,219,146,47,44,93.6,1,3,09/28/20,Liverpool,Arsenal
+748,James Milner,7.0,eng ENG,CM,12,11,0,1,9,1,0,11,0,0,,0,0,8,11,6,9,9,100.0,0,1,09/28/20,Liverpool,Arsenal
+749,Fabinho,3.0,br BRA,DM,90,82,0,12,61,14,0,81,0,0,,0,0,44,210,122,64,61,95.3,0,2,09/28/20,Liverpool,Arsenal
+750,Andrew Robertson,26.0,sco SCO,LB,90,121,3,15,64,45,5,106,0,0,,0,0,76,230,105,91,88,96.7,2,0,09/28/20,Liverpool,Arsenal
+751,Virgil van Dijk,4.0,nl NED,CB,90,133,10,62,76,4,1,132,0,0,,0,0,108,331,149,118,116,98.3,0,0,09/28/20,Liverpool,Arsenal
+752,Joseph Gomez,12.0,eng ENG,CB,90,127,7,46,86,3,0,124,2,2,100.0,2,0,97,349,194,101,101,100.0,0,1,09/28/20,Liverpool,Arsenal
+753,Trent Alexander-Arnold,66.0,eng ENG,RB,90,103,1,19,48,36,2,84,1,1,100.0,1,0,58,175,87,64,60,93.8,0,0,09/28/20,Liverpool,Arsenal
+754,Alisson,1.0,br BRA,GK,90,45,32,45,0,0,0,40,0,0,,0,0,28,62,31,33,33,100.0,0,0,09/28/20,Liverpool,Arsenal
+755,Alexandre Lacazette,9.0,fr FRA,FW,72,22,2,4,13,6,5,19,0,0,,0,0,9,49,28,15,9,60.0,1,1,09/28/20,Arsenal,Liverpool
+756,Eddie Nketiah,30.0,eng ENG,LW,18,2,0,0,2,0,0,2,0,0,,0,0,0,0,0,7,1,14.3,0,0,09/28/20,Arsenal,Liverpool
+757,Pierre-Emerick Aubameyang,14.0,ga GAB,"LW,FW",90,27,0,6,14,10,2,26,0,1,0.0,0,0,14,136,91,39,22,56.4,0,0,09/28/20,Arsenal,Liverpool
+758,Willian,12.0,br BRA,RW,67,14,1,4,6,4,0,14,0,0,,0,0,11,69,37,18,11,61.1,0,2,09/28/20,Arsenal,Liverpool
+759,Nicolas Pepe,19.0,ci CIV,RW,23,10,0,2,4,5,1,8,0,1,0.0,0,0,6,51,46,9,5,55.6,0,1,09/28/20,Arsenal,Liverpool
+760,Granit Xhaka,34.0,ch SUI,DM,59,40,8,21,18,3,0,40,0,1,0.0,0,0,20,57,36,24,24,100.0,1,1,09/28/20,Arsenal,Liverpool
+761,Dani Ceballos,8.0,es ESP,DM,31,23,2,15,10,3,0,22,0,0,,0,0,15,130,78,14,12,85.7,0,1,09/28/20,Arsenal,Liverpool
+762,Mohamed Elneny,25.0,eg EGY,DM,90,42,6,23,20,2,1,42,1,1,100.0,1,0,26,157,61,29,26,89.7,1,1,09/28/20,Arsenal,Liverpool
+763,Ainsley Maitland-Niles,15.0,eng ENG,WB,90,46,2,19,25,7,2,46,0,1,0.0,0,0,23,187,123,34,26,76.5,2,1,09/28/20,Arsenal,Liverpool
+764,Hector Bellerin,2.0,es ESP,WB,90,48,5,28,15,7,1,41,2,2,100.0,2,0,22,163,119,24,21,87.5,0,0,09/28/20,Arsenal,Liverpool
+765,Kieran Tierney,3.0,sco SCO,CB,90,73,11,47,25,5,0,67,0,0,,0,0,33,151,92,41,39,95.1,1,0,09/28/20,Arsenal,Liverpool
+766,David Luiz,23.0,br BRA,CB,90,72,27,61,13,0,0,71,0,0,,0,0,43,231,112,51,50,98.0,0,0,09/28/20,Arsenal,Liverpool
+767,Rob Holding,16.0,eng ENG,CB,90,60,22,54,8,0,0,58,0,0,,0,0,35,182,82,35,34,97.1,1,0,09/28/20,Arsenal,Liverpool
+768,Bernd Leno,1.0,de GER,GK,90,43,38,43,0,0,0,31,0,0,,0,0,20,39,6,19,19,100.0,0,0,09/28/20,Arsenal,Liverpool
+769,Tammy Abraham,9.0,eng ENG,FW,90,31,0,2,15,14,6,29,0,2,0.0,0,0,15,82,21,28,19,67.9,1,0,10/03/20,Chelsea,Crystal Palace
+770,Timo Werner,11.0,de GER,LW,90,51,0,3,24,26,3,50,0,0,,0,0,35,161,60,61,43,70.5,2,2,10/03/20,Chelsea,Crystal Palace
+771,Callum Hudson-Odoi,20.0,eng ENG,RW,82,50,0,1,18,34,3,49,0,0,,0,0,40,303,189,47,40,85.1,2,1,10/03/20,Chelsea,Crystal Palace
+772,Christian Pulisic,10.0,us USA,RW,8,8,2,7,0,1,0,8,0,0,,0,0,4,41,24,2,2,100.0,0,0,10/03/20,Chelsea,Crystal Palace
+773,Kai Havertz,29.0,de GER,AM,90,69,4,7,38,31,2,68,1,3,33.3,1,0,54,463,226,58,48,82.8,5,2,10/03/20,Chelsea,Crystal Palace
+774,Jorginho,5.0,it ITA,DM,90,82,4,16,59,13,4,80,1,1,100.0,1,0,60,250,139,65,65,100.0,1,2,10/03/20,Chelsea,Crystal Palace
+775,N'Golo Kante,7.0,fr FRA,DM,82,64,0,19,34,16,0,64,1,1,100.0,1,0,40,223,130,51,46,90.2,1,0,10/03/20,Chelsea,Crystal Palace
+776,Mateo Kovacic,17.0,hr CRO,DM,8,11,0,4,7,1,0,11,0,0,,0,0,11,81,26,11,11,100.0,0,0,10/03/20,Chelsea,Crystal Palace
+777,Ben Chilwell,21.0,eng ENG,LB,90,112,3,22,57,42,2,94,1,1,100.0,1,0,67,373,216,78,73,93.6,1,1,10/03/20,Chelsea,Crystal Palace
+778,Kurt Zouma,15.0,fr FRA,CB,90,113,13,52,65,2,2,111,0,0,,0,0,87,388,191,95,95,100.0,0,0,10/03/20,Chelsea,Crystal Palace
+779,Thiago Silva,6.0,br BRA,CB,90,123,17,62,68,2,1,121,0,0,,0,0,94,393,261,101,101,100.0,0,0,10/03/20,Chelsea,Crystal Palace
+780,Cesar Azpilicueta,28.0,es ESP,RB,90,107,2,26,57,25,1,98,0,1,0.0,0,0,82,218,123,90,89,98.9,0,1,10/03/20,Chelsea,Crystal Palace
+781,Edouard Mendy,16.0,sn SEN,GK,90,26,24,26,0,0,0,21,0,0,,0,0,16,52,12,17,17,100.0,0,0,10/03/20,Chelsea,Crystal Palace
+782,Jordan Ayew,9.0,gh GHA,FW,90,33,1,6,18,9,4,28,1,4,25.0,2,0,22,84,44,48,21,43.8,2,3,10/03/20,Crystal Palace,Chelsea
+783,Wilfried Zaha,11.0,ci CIV,FW,90,26,0,1,9,17,2,26,0,1,0.0,0,0,22,107,38,30,20,66.7,2,3,10/03/20,Crystal Palace,Chelsea
+784,Eberechi Eze,25.0,eng ENG,LM,90,38,1,9,22,16,1,37,3,3,100.0,3,0,38,246,138,34,30,88.2,1,1,10/03/20,Crystal Palace,Chelsea
+785,James McCarthy,22.0,ie IRL,CM,66,24,2,7,14,4,0,24,1,1,100.0,1,0,15,67,42,13,13,100.0,0,0,10/03/20,Crystal Palace,Chelsea
+786,Luka Milivojevic,4.0,rs SRB,CM,24,24,3,3,17,4,0,21,1,1,100.0,1,0,14,48,17,15,14,93.3,0,0,10/03/20,Crystal Palace,Chelsea
+787,James McArthur,18.0,sco SCO,CM,71,42,2,12,27,5,1,40,1,1,100.0,1,0,26,105,63,21,21,100.0,0,2,10/03/20,Crystal Palace,Chelsea
+788,Jairo Riedewald,44.0,nl NED,CM,19,10,1,1,9,0,0,10,0,0,,0,0,7,42,14,8,7,87.5,0,0,10/03/20,Crystal Palace,Chelsea
+789,Andros Townsend,10.0,eng ENG,RM,90,40,1,6,20,22,0,36,1,1,100.0,1,0,27,286,193,31,28,90.3,3,0,10/03/20,Crystal Palace,Chelsea
+790,Tyrick Mitchell,27.0,eng ENG,LB,90,41,1,16,18,8,0,35,0,0,,0,0,21,52,22,22,21,95.5,1,1,10/03/20,Crystal Palace,Chelsea
+791,Mamadou Sakho,12.0,fr FRA,CB,90,35,7,18,16,2,1,30,0,0,,0,0,19,74,40,17,17,100.0,0,1,10/03/20,Crystal Palace,Chelsea
+792,Cheikhou Kouyate,8.0,sn SEN,CB,90,36,6,19,11,6,3,35,1,2,50.0,1,0,17,62,14,16,16,100.0,1,0,10/03/20,Crystal Palace,Chelsea
+793,Joel Ward,2.0,eng ENG,RB,90,60,5,15,37,12,1,42,0,1,0.0,0,0,21,101,51,23,21,91.3,1,0,10/03/20,Crystal Palace,Chelsea
+794,Vicente Guaita,31.0,es ESP,GK,90,24,20,24,0,0,0,12,0,0,,0,0,7,61,39,5,5,100.0,0,0,10/03/20,Crystal Palace,Chelsea
+795,Dominic Calvert-Lewin,9.0,eng ENG,FW,90,37,1,1,17,19,5,34,1,2,50.0,1,0,20,130,23,36,27,75.0,2,3,10/03/20,Everton,Brighton
+796,Richarlison,7.0,br BRA,LW,24,10,0,1,5,6,0,10,1,2,50.0,1,0,9,60,25,10,7,70.0,0,1,10/03/20,Everton,Brighton
+797,Alex Iwobi,17.0,ng NGA,LW,66,36,4,8,16,15,2,36,0,1,0.0,0,0,27,150,89,29,25,86.2,3,5,10/03/20,Everton,Brighton
+798,James Rodriguez,19.0,co COL,RW,77,67,2,8,36,24,3,62,3,4,75.0,3,0,49,235,86,53,49,92.5,1,2,10/03/20,Everton,Brighton
+799,Theo Walcott,11.0,eng ENG,RW,13,2,0,1,1,1,0,2,0,0,,0,0,2,74,73,5,2,40.0,1,0,10/03/20,Everton,Brighton
+800,Gylfi Sigurdsson,10.0,is ISL,CM,90,51,3,16,20,15,3,50,0,0,,0,0,22,65,28,30,29,96.7,2,1,10/03/20,Everton,Brighton
+801,Abdoulaye Doucoure,16.0,fr FRA,CM,90,67,0,19,41,13,1,63,0,0,,0,0,40,151,102,51,49,96.1,4,3,10/03/20,Everton,Brighton
+802,Tom Davies,26.0,eng ENG,"DM,RB",90,64,4,20,39,5,0,62,0,0,,0,0,39,106,50,46,44,95.7,0,1,10/03/20,Everton,Brighton
+803,Lucas Digne,12.0,fr FRA,LB,90,70,4,26,34,17,3,60,1,2,50.0,1,0,40,207,107,50,44,88.0,1,2,10/03/20,Everton,Brighton
+804,Michael Keane,5.0,eng ENG,CB,90,62,15,33,32,0,0,61,0,0,,0,0,45,237,148,48,48,100.0,0,1,10/03/20,Everton,Brighton
+805,Yerry Mina,13.0,co COL,CB,90,57,7,33,25,3,2,56,0,0,,0,0,33,152,66,36,36,100.0,0,0,10/03/20,Everton,Brighton
+806,Seamus Coleman,23.0,ie IRL,RB,57,45,3,15,22,10,1,43,3,3,100.0,3,0,33,245,99,30,27,90.0,0,3,10/03/20,Everton,Brighton
+807,Fabian Delph,8.0,eng ENG,DM,33,25,5,12,12,2,0,25,0,0,,0,0,16,64,21,18,17,94.4,0,0,10/03/20,Everton,Brighton
+808,Jordan Pickford,1.0,eng ENG,GK,90,35,31,35,0,0,0,23,0,0,,0,0,15,113,51,13,13,100.0,0,0,10/03/20,Everton,Brighton
+809,Aaron Connolly,7.0,ie IRL,FW,65,13,0,0,6,8,3,10,0,1,0.0,0,0,6,78,46,22,7,31.8,2,1,10/03/20,Brighton,Everton
+810,Adam Lallana,14.0,eng ENG,"WB,FW",25,25,0,0,7,19,5,21,1,1,100.0,1,0,17,69,36,21,19,90.5,1,0,10/03/20,Brighton,Everton
+811,Neal Maupay,9.0,fr FRA,"LW,FW",90,40,0,5,16,21,6,39,0,0,,0,0,26,122,43,45,28,62.2,2,5,10/03/20,Brighton,Everton
+812,Leandro Trossard,11.0,be BEL,"RW,LW",90,51,0,2,12,39,6,45,1,1,100.0,1,0,32,189,70,48,35,72.9,0,2,10/03/20,Brighton,Everton
+813,Steven Alzate,17.0,co COL,DM,81,71,4,13,41,19,1,71,0,1,0.0,0,0,56,203,69,66,62,93.9,2,0,10/03/20,Brighton,Everton
+814,Pascal Gross,13.0,de GER,DM,9,18,0,3,12,6,0,17,0,0,,0,0,17,127,69,16,15,93.8,1,0,10/03/20,Brighton,Everton
+815,Yves Bissouma,8.0,ml MLI,DM,90,94,0,15,56,32,0,91,4,6,66.7,5,0,80,425,185,73,70,95.9,2,2,10/03/20,Brighton,Everton
+816,Solly March,20.0,eng ENG,"WB,RW",90,67,2,12,19,39,4,59,4,4,100.0,4,0,51,442,257,54,43,79.6,0,4,10/03/20,Brighton,Everton
+817,Tariq Lamptey,2.0,eng ENG,WB,45,30,2,8,15,11,0,27,0,0,,0,0,18,147,116,24,20,83.3,4,0,10/03/20,Brighton,Everton
+818,Joel Veltman,34.0,nl NED,WB,45,67,2,15,27,28,1,62,1,1,100.0,1,0,36,145,63,40,40,100.0,0,1,10/03/20,Brighton,Everton
+819,Adam Webster,4.0,eng ENG,CB,90,81,6,32,41,18,4,79,0,0,,0,0,55,319,211,61,61,100.0,0,1,10/03/20,Brighton,Everton
+820,Lewis Dunk,5.0,eng ENG,CB,90,69,10,41,29,6,0,67,0,0,,0,0,46,332,193,51,51,100.0,0,0,10/03/20,Brighton,Everton
+821,Ben White,3.0,eng ENG,CB,90,92,6,42,50,8,0,91,3,4,75.0,3,0,75,441,241,70,70,100.0,0,0,10/03/20,Brighton,Everton
+822,Mathew Ryan,1.0,au AUS,GK,90,28,23,28,0,0,0,23,0,0,,0,0,21,56,25,19,19,100.0,0,0,10/03/20,Brighton,Everton
+823,Patrick Bamford,9.0,eng ENG,FW,90,22,4,5,7,10,6,20,1,2,50.0,1,0,11,92,64,25,14,56.0,1,0,10/03/20,Leeds United,Manchester City
+824,Ezgjan Alioski,10.0,mk MKD,LM,45,24,0,6,16,4,1,23,1,1,100.0,1,0,14,95,67,19,14,73.7,1,0,10/03/20,Leeds United,Manchester City
+825,Ian Poveda-Ocampo,7.0,eng ENG,"LM,RM",45,18,0,6,12,4,0,17,2,2,100.0,2,0,14,163,133,17,11,64.7,1,0,10/03/20,Leeds United,Manchester City
+826,Mateusz Klich,43.0,pl POL,CM,76,40,1,8,19,15,3,40,1,3,33.3,3,0,29,151,89,33,31,93.9,1,1,10/03/20,Leeds United,Manchester City
+827,Leif Davis,24.0,eng ENG,"LB,CM",14,8,1,5,2,2,0,8,0,0,,0,0,4,21,9,8,6,75.0,0,0,10/03/20,Leeds United,Manchester City
+828,Tyler Roberts,11.0,wal WAL,CM,55,16,0,1,7,9,0,16,0,0,,0,0,12,59,18,17,12,70.6,0,2,10/03/20,Leeds United,Manchester City
+829,Rodrigo Moreno,20.0,es ESP,CM,35,24,1,5,10,10,5,24,2,3,66.7,2,0,23,185,125,22,17,77.3,1,2,10/03/20,Leeds United,Manchester City
+830,Helder Costa,17.0,pt POR,"RM,LM",90,39,3,12,17,13,4,39,1,2,50.0,1,0,29,206,100,40,29,72.5,3,3,10/03/20,Leeds United,Manchester City
+831,Kalvin Phillips,23.0,eng ENG,DM,90,61,4,26,28,11,0,52,2,4,50.0,2,1,38,123,42,38,35,92.1,2,1,10/03/20,Leeds United,Manchester City
+832,Stuart Dallas,15.0,nir NIR,"LB,CM",90,70,4,27,32,15,1,65,0,0,,0,0,41,242,153,45,41,91.1,0,0,10/03/20,Leeds United,Manchester City
+833,Liam Cooper,6.0,sco SCO,CB,90,73,10,57,16,2,0,70,0,0,,0,0,50,261,99,49,48,98.0,0,0,10/03/20,Leeds United,Manchester City
+834,Robin Koch,5.0,de GER,CB,90,68,19,49,21,1,0,63,0,0,,0,0,44,305,206,53,51,96.2,0,0,10/03/20,Leeds United,Manchester City
+835,Luke Ayling,2.0,eng ENG,RB,90,61,9,25,27,11,4,49,3,3,100.0,3,0,27,136,81,35,31,88.6,1,0,10/03/20,Leeds United,Manchester City
+836,Illan Meslier,1.0,fr FRA,GK,90,58,52,58,0,0,0,43,0,0,,0,0,34,172,94,35,35,100.0,0,0,10/03/20,Leeds United,Manchester City
+837,Riyad Mahrez,26.0,dz ALG,"FW,RW",76,51,0,5,19,29,2,44,3,5,60.0,3,0,31,209,84,46,35,76.1,2,4,10/03/20,Manchester City,Leeds United
+838,Fernandinho,25.0,br BRA,"CM,RW",14,11,0,0,10,2,0,11,1,1,100.0,1,0,8,67,40,6,6,100.0,0,0,10/03/20,Manchester City,Leeds United
+839,Raheem Sterling,7.0,eng ENG,"LW,FW",90,44,0,3,11,32,13,41,6,10,60.0,6,0,45,363,209,47,34,72.3,2,3,10/03/20,Manchester City,Leeds United
+840,Ferran Torres,21.0,es ESP,RW,64,31,0,3,13,18,3,31,1,4,25.0,1,0,28,163,75,33,25,75.8,0,3,10/03/20,Manchester City,Leeds United
+841,Bernardo Silva,20.0,pt POR,"RW,CM",26,20,0,1,11,11,2,19,2,2,100.0,2,0,18,188,104,15,12,80.0,1,0,10/03/20,Manchester City,Leeds United
+842,Phil Foden,47.0,eng ENG,"CM,LW",90,52,0,5,21,30,10,52,7,12,58.3,7,1,45,356,216,49,45,91.8,2,2,10/03/20,Manchester City,Leeds United
+843,Kevin De Bruyne,17.0,be BEL,"CM,AM",90,66,2,8,30,35,5,54,1,3,33.3,2,0,37,307,209,45,41,91.1,0,3,10/03/20,Manchester City,Leeds United
+844,Rodrigo,16.0,es ESP,"DM,CM",90,54,4,19,30,11,2,54,0,0,,0,0,38,303,185,37,36,97.3,1,0,10/03/20,Manchester City,Leeds United
+845,Benjamin Mendy,22.0,fr FRA,LB,70,37,2,7,23,11,1,31,4,5,80.0,4,0,23,228,191,19,17,89.5,0,0,10/03/20,Manchester City,Leeds United
+846,Nathan Ake,6.0,nl NED,LB,20,11,0,2,6,3,2,11,0,0,,0,0,7,26,0,7,6,85.7,1,0,10/03/20,Manchester City,Leeds United
+847,Aymeric Laporte,14.0,fr FRA,CB,90,43,6,22,26,2,1,42,0,0,,0,0,26,319,238,30,29,96.7,0,0,10/03/20,Manchester City,Leeds United
+848,Ruben Dias,3.0,pt POR,CB,90,42,9,21,20,4,2,42,0,0,,0,0,25,135,75,28,27,96.4,0,0,10/03/20,Manchester City,Leeds United
+849,Kyle Walker,2.0,eng ENG,RB,90,60,1,15,37,14,1,41,3,5,60.0,3,0,28,247,169,30,25,83.3,0,0,10/03/20,Manchester City,Leeds United
+850,Ederson,31.0,br BRA,GK,90,36,31,36,0,0,0,26,0,0,,0,0,17,88,71,14,14,100.0,0,0,10/03/20,Manchester City,Leeds United
+851,Callum Wilson,13.0,eng ENG,FW,90,24,0,2,13,13,5,23,1,1,100.0,1,0,16,123,84,46,14,30.4,4,1,10/03/20,Newcastle Utd,Burnley
+852,Joelinton,9.0,br BRA,FW,89,55,4,6,31,21,5,54,1,1,100.0,1,0,41,236,117,65,42,64.6,3,2,10/03/20,Newcastle Utd,Burnley
+853,Sean Longstaff,36.0,eng ENG,FW,1,1,0,0,0,1,0,1,0,0,,0,0,1,20,17,0,0,,0,0,10/03/20,Newcastle Utd,Burnley
+854,Allan Saint-Maximin,10.0,fr FRA,LM,72,35,0,2,22,23,4,35,3,4,75.0,3,0,35,465,355,43,30,69.8,1,2,10/03/20,Newcastle Utd,Burnley
+855,Ryan Fraser,21.0,sco SCO,LM,18,15,1,3,3,9,1,14,0,0,,0,0,13,52,27,14,11,78.6,0,1,10/03/20,Newcastle Utd,Burnley
+856,Jeff Hendrick,16.0,ie IRL,RM,90,48,2,8,32,12,1,48,0,1,0.0,1,0,33,215,102,41,26,63.4,2,2,10/03/20,Newcastle Utd,Burnley
+857,Isaac Hayden,14.0,eng ENG,DM,90,45,1,9,29,10,1,44,0,0,,0,0,28,117,43,34,24,70.6,0,0,10/03/20,Newcastle Utd,Burnley
+858,Jonjo Shelvey,8.0,eng ENG,DM,90,71,4,18,42,15,0,64,2,2,100.0,2,0,45,163,62,47,45,95.7,1,1,10/03/20,Newcastle Utd,Burnley
+859,Jamal Lewis,15.0,nir NIR,LB,90,50,2,25,18,11,2,43,0,1,0.0,0,0,36,192,87,33,29,87.9,0,1,10/03/20,Newcastle Utd,Burnley
+860,Federico Fernandez,18.0,ar ARG,CB,90,60,14,51,11,0,0,59,0,0,,0,0,30,95,18,30,29,96.7,0,1,10/03/20,Newcastle Utd,Burnley
+861,Fabian Schar,5.0,ch SUI,CB,54,35,2,24,11,1,0,33,0,0,,0,0,23,112,51,24,24,100.0,0,0,10/03/20,Newcastle Utd,Burnley
+862,Javier Manquillo,19.0,es ESP,RB,36,20,0,6,7,9,1,15,0,0,,0,0,13,101,56,15,13,86.7,1,0,10/03/20,Newcastle Utd,Burnley
+863,Emil Krafth,17.0,se SWE,"RB,CB",90,61,4,28,23,15,0,54,0,1,0.0,0,0,32,199,113,33,28,84.8,0,0,10/03/20,Newcastle Utd,Burnley
+864,Karl Darlow,26.0,eng ENG,GK,90,48,43,48,0,0,0,35,0,0,,0,0,20,120,84,16,16,100.0,0,0,10/03/20,Newcastle Utd,Burnley
+865,Chris Wood,9.0,nz NZL,FW,90,36,0,2,20,15,7,33,1,1,100.0,1,0,20,62,17,60,28,46.7,5,2,10/03/20,Burnley,Newcastle Utd
+866,Ashley Barnes,10.0,at AUT,FW,76,32,0,3,14,17,7,32,0,1,0.0,0,0,21,104,58,43,26,60.5,4,1,10/03/20,Burnley,Newcastle Utd
+867,Matej Vydra,27.0,cz CZE,FW,14,4,0,0,2,2,1,4,0,0,,0,0,4,12,4,8,3,37.5,1,0,10/03/20,Burnley,Newcastle Utd
+868,Dwight McNeil,11.0,eng ENG,LM,90,68,1,16,46,19,2,62,0,0,,0,0,46,392,205,49,45,91.8,3,1,10/03/20,Burnley,Newcastle Utd
+869,Dale Stephens,16.0,eng ENG,CM,67,37,2,8,25,5,0,36,0,0,,0,0,21,86,41,24,22,91.7,0,1,10/03/20,Burnley,Newcastle Utd
+870,Johann Gudmundsson,7.0,is ISL,RM,23,16,0,1,12,3,0,16,0,0,,0,0,14,86,25,17,14,82.4,0,0,10/03/20,Burnley,Newcastle Utd
+871,Ashley Westwood,18.0,eng ENG,CM,90,77,2,25,41,15,1,71,0,0,,0,0,52,260,134,56,54,96.4,0,0,10/03/20,Burnley,Newcastle Utd
+872,Josh Brownhill,8.0,eng ENG,"RM,CM",90,55,1,13,28,20,4,52,0,0,,0,0,25,113,66,28,23,82.1,0,0,10/03/20,Burnley,Newcastle Utd
+873,Charlie Taylor,3.0,eng ENG,LB,90,70,3,22,33,22,1,60,1,1,100.0,1,0,40,307,116,43,41,95.3,0,0,10/03/20,Burnley,Newcastle Utd
+874,James Tarkowski,5.0,eng ENG,CB,90,56,6,31,20,8,7,56,0,0,,0,0,26,160,47,35,33,94.3,1,0,10/03/20,Burnley,Newcastle Utd
+875,Kevin Long,28.0,ie IRL,CB,90,39,4,26,12,1,1,38,0,0,,0,0,21,62,31,24,22,91.7,0,0,10/03/20,Burnley,Newcastle Utd
+876,Phil Bardsley,26.0,sco SCO,RB,90,64,3,25,31,13,0,53,1,1,100.0,1,1,35,175,89,37,36,97.3,1,1,10/03/20,Burnley,Newcastle Utd
+877,Nick Pope,1.0,eng ENG,GK,90,32,27,31,1,0,0,22,0,0,,0,0,11,76,48,16,15,93.8,1,0,10/03/20,Burnley,Newcastle Utd
+878,Jamie Vardy,9.0,eng ENG,FW,90,27,0,0,10,17,7,23,2,2,100.0,2,1,17,159,78,45,20,44.4,3,1,10/04/20,Leicester City,West Ham
+879,Harvey Barnes,15.0,eng ENG,LW,90,41,0,1,18,32,7,41,1,3,33.3,1,0,35,326,190,55,30,54.5,4,0,10/04/20,Leicester City,West Ham
+880,Ayoze Perez,17.0,es ESP,RW,63,32,0,4,18,13,0,32,0,0,,0,0,26,123,95,40,26,65.0,4,0,10/04/20,Leicester City,West Ham
+881,Kelechi Iheanacho,14.0,ng NGA,RW,27,17,0,0,6,11,3,17,1,1,100.0,1,0,15,56,31,23,16,69.6,1,0,10/04/20,Leicester City,West Ham
+882,Nampalys Mendy,24.0,fr FRA,DM,88,108,1,10,79,23,0,108,1,3,33.3,1,1,93,534,284,92,90,97.8,1,1,10/04/20,Leicester City,West Ham
+883,Hamza Choudhury,20.0,eng ENG,DM,2,10,0,1,8,1,0,10,0,0,,0,0,9,51,35,9,9,100.0,0,0,10/04/20,Leicester City,West Ham
+884,Youri Tielemans,8.0,be BEL,"DM,CM",90,121,2,13,82,32,0,112,1,3,33.3,2,1,94,408,246,104,97,93.3,1,0,10/04/20,Leicester City,West Ham
+885,James Justin,2.0,eng ENG,"WB,LB",90,72,1,11,37,26,2,63,2,3,66.7,2,0,49,191,108,54,46,85.2,2,1,10/04/20,Leicester City,West Ham
+886,Timothy Castagne,27.0,be BEL,"WB,RB",90,92,1,12,48,36,2,85,3,3,100.0,3,0,63,182,79,70,62,88.6,0,1,10/04/20,Leicester City,West Ham
+887,Caglar Soyuncu,4.0,tr TUR,CB,90,96,9,52,54,0,0,92,0,0,,0,0,60,449,327,66,63,95.5,0,0,10/04/20,Leicester City,West Ham
+888,Jonny Evans,6.0,nir NIR,CB,90,85,7,42,47,0,0,81,0,0,,0,0,60,279,164,65,62,95.4,0,0,10/04/20,Leicester City,West Ham
+889,Daniel Amartey,18.0,gh GHA,CB,54,50,4,25,25,3,0,48,1,1,100.0,1,0,42,124,38,38,37,97.4,0,0,10/04/20,Leicester City,West Ham
+890,Cengiz Under,19.0,tr TUR,CM,36,25,0,0,8,20,2,24,2,4,50.0,2,0,22,164,86,26,21,80.8,4,1,10/04/20,Leicester City,West Ham
+891,Kasper Schmeichel,1.0,dk DEN,GK,90,33,28,33,1,0,0,28,0,0,,0,0,22,99,48,19,19,100.0,0,0,10/04/20,Leicester City,West Ham
+892,Michail Antonio,30.0,eng ENG,FW,87,31,0,0,17,16,7,31,0,0,,0,0,18,162,104,42,25,59.5,6,0,10/04/20,West Ham,Leicester City
+893,Sebastien Haller,22.0,fr FRA,FW,3,5,0,0,3,2,0,5,0,0,,0,0,2,5,4,6,4,66.7,1,0,10/04/20,West Ham,Leicester City
+894,Pablo Fornals,18.0,es ESP,CM,90,40,0,9,24,9,4,39,0,1,0.0,0,0,25,192,122,31,25,80.6,1,3,10/04/20,West Ham,Leicester City
+895,Jarrod Bowen,20.0,eng ENG,CM,87,31,1,8,13,13,4,29,0,0,,0,0,24,198,107,22,18,81.8,0,1,10/04/20,West Ham,Leicester City
+896,Mark Noble,16.0,eng ENG,CM,3,1,0,0,1,0,0,1,0,0,,0,0,1,4,1,1,1,100.0,0,0,10/04/20,West Ham,Leicester City
+897,Declan Rice,41.0,eng ENG,DM,90,39,2,16,20,6,1,39,1,1,100.0,1,0,28,257,145,23,23,100.0,0,1,10/04/20,West Ham,Leicester City
+898,Tomas Soucek,28.0,cz CZE,DM,90,41,4,13,21,8,2,40,0,1,0.0,0,0,19,116,36,22,21,95.5,0,0,10/04/20,West Ham,Leicester City
+899,Arthur Masuaku,26.0,cd COD,WB,90,41,6,17,21,7,0,40,3,3,100.0,3,0,33,211,120,29,27,93.1,2,3,10/04/20,West Ham,Leicester City
+900,Vladimir Coufal,5.0,cz CZE,WB,90,50,6,25,20,8,0,41,0,0,,0,0,21,147,73,19,17,89.5,0,1,10/04/20,West Ham,Leicester City
+901,Aaron Cresswell,3.0,eng ENG,CB,90,56,7,24,27,7,0,47,0,0,,0,0,25,127,70,26,26,100.0,0,0,10/04/20,West Ham,Leicester City
+902,Angelo Ogbonna,21.0,it ITA,CB,90,32,10,21,12,1,1,32,0,0,,0,0,18,95,30,13,13,100.0,0,0,10/04/20,West Ham,Leicester City
+903,Fabian Balbuena,4.0,py PAR,CB,90,42,8,21,20,2,2,39,0,0,,0,0,18,61,30,16,15,93.8,0,0,10/04/20,West Ham,Leicester City
+904,Åukasz FabiaÅski,1.0,pl POL,GK,90,31,27,31,0,0,0,22,0,0,,0,0,21,136,56,14,14,100.0,0,0,10/04/20,West Ham,Leicester City
+905,Danny Ings,9.0,eng ENG,FW,90,39,0,1,17,22,5,39,0,1,0.0,1,0,22,67,46,46,30,65.2,2,0,10/04/20,Southampton,West Brom
+906,Che Adams,10.0,eng ENG,FW,83,36,1,1,17,20,3,36,2,3,66.7,2,0,27,163,71,54,29,53.7,3,5,10/04/20,Southampton,West Brom
+907,Shane Long,7.0,ie IRL,FW,7,7,0,0,2,5,0,7,0,0,,0,0,4,30,0,12,5,41.7,1,2,10/04/20,Southampton,West Brom
+908,Moussa Djenepo,12.0,ml MLI,LM,54,19,0,1,13,5,3,19,2,2,100.0,2,0,14,55,30,20,13,65.0,3,0,10/04/20,Southampton,West Brom
+909,Nathan Redmond,11.0,eng ENG,LM,36,21,0,0,11,12,2,21,1,2,50.0,1,0,13,108,60,19,12,63.2,0,2,10/04/20,Southampton,West Brom
+910,Stuart Armstrong,17.0,sco SCO,RM,90,54,0,7,31,21,2,53,0,3,0.0,0,0,31,253,108,56,41,73.2,2,3,10/04/20,Southampton,West Brom
+911,Oriol Romeu,6.0,es ESP,DM,90,82,2,20,55,14,1,81,0,0,,0,0,43,255,122,57,53,93.0,1,1,10/04/20,Southampton,West Brom
+912,James Ward-Prowse,8.0,eng ENG,DM,90,77,1,17,51,11,0,70,0,0,,0,0,28,87,46,53,48,90.6,1,0,10/04/20,Southampton,West Brom
+913,Ryan Bertrand,3.0,eng ENG,LB,90,76,2,18,37,26,3,55,1,1,100.0,1,0,36,108,53,46,39,84.8,0,0,10/04/20,Southampton,West Brom
+914,Jannik Vestergaard,4.0,dk DEN,CB,90,67,2,33,38,1,0,66,0,0,,0,0,44,390,216,43,43,100.0,1,1,10/04/20,Southampton,West Brom
+915,Jan Bednarek,35.0,pl POL,CB,90,67,3,40,35,2,1,66,0,0,,0,0,44,445,292,44,44,100.0,0,0,10/04/20,Southampton,West Brom
+916,Kyle Walker-Peters,2.0,eng ENG,RB,90,85,3,17,58,24,2,71,5,6,83.3,5,0,61,555,377,56,52,92.9,0,1,10/04/20,Southampton,West Brom
+917,Alex McCarthy,1.0,eng ENG,GK,90,51,36,51,0,0,0,44,0,0,,0,0,29,139,63,31,31,100.0,0,0,10/04/20,Southampton,West Brom
+918,Callum Robinson,7.0,ie IRL,FW,59,19,1,1,6,12,2,18,0,0,,0,0,9,17,1,30,15,50.0,6,1,10/04/20,West Brom,Southampton
+919,Hal Robson-Kanu,4.0,wal WAL,FW,31,7,1,1,0,6,0,7,0,0,,0,0,5,34,18,14,5,35.7,1,2,10/04/20,West Brom,Southampton
+920,Grady Diangana,11.0,eng ENG,LW,90,42,1,4,20,21,1,42,2,4,50.0,2,0,29,222,157,45,26,57.8,2,3,10/04/20,West Brom,Southampton
+921,Kyle Edwards,21.0,eng ENG,RW,45,15,0,2,11,4,1,15,0,2,0.0,0,0,11,69,51,17,11,64.7,1,0,10/04/20,West Brom,Southampton
+922,Sam Field,28.0,eng ENG,DM,45,36,3,13,23,2,0,36,1,2,50.0,2,0,12,30,15,11,11,100.0,0,0,10/04/20,West Brom,Southampton
+923,Matheus Pereira,12.0,br BRA,"RW,AM",90,52,0,8,22,22,1,43,3,6,50.0,4,1,30,113,64,33,24,72.7,2,2,10/04/20,West Brom,Southampton
+924,Romaine Sawyers,19.0,kn SKN,DM,63,30,0,10,14,7,0,27,0,1,0.0,1,0,19,109,38,20,17,85.0,0,2,10/04/20,West Brom,Southampton
+925,Filip Krovinovic,17.0,hr CRO,DM,27,8,0,1,7,1,0,8,0,0,,0,0,7,23,14,10,7,70.0,0,0,10/04/20,West Brom,Southampton
+926,Jake Livermore,8.0,eng ENG,"DM,AM",90,34,1,8,25,1,0,32,0,2,0.0,0,0,11,34,7,17,15,88.2,0,2,10/04/20,West Brom,Southampton
+927,Conor Townsend,14.0,eng ENG,LB,90,63,4,18,33,15,1,53,2,3,66.7,2,0,36,153,67,38,36,94.7,4,1,10/04/20,West Brom,Southampton
+928,Kyle Bartley,5.0,eng ENG,CB,90,44,10,28,16,1,1,43,0,0,,0,0,18,80,15,13,13,100.0,1,0,10/04/20,West Brom,Southampton
+929,Semi Ajayi,6.0,ng NGA,CB,90,41,7,25,16,0,0,38,0,1,0.0,0,0,21,108,44,24,23,95.8,0,0,10/04/20,West Brom,Southampton
+930,Dara O'Shea,27.0,ie IRL,RB,90,61,2,20,37,6,2,50,1,2,50.0,1,0,25,98,46,35,28,80.0,1,1,10/04/20,West Brom,Southampton
+931,Sam Johnstone,1.0,eng ENG,GK,90,40,32,40,0,0,0,28,0,0,,0,0,15,88,65,14,14,100.0,0,0,10/04/20,West Brom,Southampton
+932,Eddie Nketiah,30.0,eng ENG,FW,57,18,1,2,8,8,2,17,1,1,100.0,1,0,9,49,16,21,14,66.7,3,0,10/04/20,Arsenal,Sheffield Utd
+933,Nicolas Pepe,19.0,ci CIV,RW,33,16,0,3,7,6,3,16,1,1,100.0,1,0,13,61,55,18,13,72.2,0,1,10/04/20,Arsenal,Sheffield Utd
+934,Pierre-Emerick Aubameyang,14.0,ga GAB,"LW,FW",90,39,2,5,14,25,3,38,0,0,,0,0,24,227,125,52,33,63.5,1,0,10/04/20,Arsenal,Sheffield Utd
+935,Willian,12.0,br BRA,"RW,CM,LW",90,70,2,12,30,32,0,67,0,0,,0,0,38,293,178,63,56,88.9,3,1,10/04/20,Arsenal,Sheffield Utd
+936,Bukayo Saka,7.0,eng ENG,"CM,LW",86,46,2,7,19,25,2,44,2,3,66.7,2,0,29,232,121,45,39,86.7,0,1,10/04/20,Arsenal,Sheffield Utd
+937,Ainsley Maitland-Niles,15.0,eng ENG,CM,4,3,2,2,1,0,0,3,0,0,,0,0,0,0,0,1,0,0.0,0,0,10/04/20,Arsenal,Sheffield Utd
+938,Mohamed Elneny,25.0,eg EGY,CM,90,93,5,25,61,11,0,92,0,0,,0,0,72,348,195,77,75,97.4,1,0,10/04/20,Arsenal,Sheffield Utd
+939,Dani Ceballos,8.0,es ESP,DM,80,91,9,20,64,14,0,89,2,3,66.7,2,2,58,399,200,77,74,96.1,0,1,10/04/20,Arsenal,Sheffield Utd
+940,Granit Xhaka,34.0,ch SUI,DM,10,6,2,5,2,0,0,6,0,0,,0,0,2,12,7,3,3,100.0,0,0,10/04/20,Arsenal,Sheffield Utd
+941,Kieran Tierney,3.0,sco SCO,LB,90,99,3,18,47,46,1,89,0,1,0.0,0,0,66,348,252,79,77,97.5,0,0,10/04/20,Arsenal,Sheffield Utd
+942,Gabriel Magalhaes,6.0,br BRA,CB,90,104,9,45,66,0,0,101,0,0,,0,0,77,471,276,85,85,100.0,0,0,10/04/20,Arsenal,Sheffield Utd
+943,David Luiz,23.0,br BRA,CB,90,103,11,54,53,0,0,101,0,0,,0,0,64,422,249,83,81,97.6,0,0,10/04/20,Arsenal,Sheffield Utd
+944,Hector Bellerin,2.0,es ESP,RB,90,78,0,19,43,16,2,69,2,4,50.0,2,1,47,193,107,55,49,89.1,1,1,10/04/20,Arsenal,Sheffield Utd
+945,Bernd Leno,1.0,de GER,GK,90,48,38,47,1,0,0,35,0,0,,0,0,27,71,40,33,32,97.0,0,0,10/04/20,Arsenal,Sheffield Utd
+946,David McGoldrick,17.0,ie IRL,"FW,RW",90,42,0,6,23,18,2,40,0,1,0.0,0,0,21,152,94,43,32,74.4,1,0,10/04/20,Sheffield Utd,Arsenal
+947,Oliver Burke,14.0,sco SCO,FW,55,21,0,2,10,12,4,21,0,1,0.0,0,0,11,129,94,18,12,66.7,0,3,10/04/20,Sheffield Utd,Arsenal
+948,Oliver McBurnie,9.0,sco SCO,FW,35,11,0,0,3,8,0,11,0,0,,0,0,4,20,12,14,10,71.4,1,0,10/04/20,Sheffield Utd,Arsenal
+949,Ben Osborn,23.0,eng ENG,CM,62,28,1,3,13,15,0,27,0,0,,0,0,12,95,80,20,17,85.0,1,0,10/04/20,Sheffield Utd,Arsenal
+950,John Fleck,4.0,sco SCO,"CM,AM",28,15,0,1,5,10,0,13,0,0,,0,0,10,29,9,11,9,81.8,1,0,10/04/20,Sheffield Utd,Arsenal
+951,John Lundstram,7.0,eng ENG,"CM,DM",90,54,0,7,34,17,1,49,0,0,,0,0,32,228,80,47,39,83.0,2,0,10/04/20,Sheffield Utd,Arsenal
+952,Sander Berge,8.0,no NOR,DM,90,58,3,10,34,17,1,58,1,1,100.0,1,0,43,248,142,48,46,95.8,2,0,10/04/20,Sheffield Utd,Arsenal
+953,Enda Stevens,3.0,ie IRL,"WB,LB",90,61,3,11,25,26,2,58,0,0,,0,0,32,89,39,42,37,88.1,1,0,10/04/20,Sheffield Utd,Arsenal
+954,George Baldock,2.0,eng ENG,"WB,RB",90,38,3,11,10,19,0,36,0,1,0.0,0,0,23,116,55,23,22,95.7,1,0,10/04/20,Sheffield Utd,Arsenal
+955,Jack Robinson,19.0,eng ENG,CB,90,62,5,15,32,18,0,54,0,0,,0,0,39,162,64,38,35,92.1,0,0,10/04/20,Sheffield Utd,Arsenal
+956,John Egan,12.0,ie IRL,CB,90,35,7,22,14,2,1,35,0,0,,0,0,17,134,77,22,20,90.9,0,0,10/04/20,Sheffield Utd,Arsenal
+957,Chris Basham,6.0,eng ENG,CB,75,40,6,21,14,5,3,38,0,0,,0,0,19,53,20,19,19,100.0,1,0,10/04/20,Sheffield Utd,Arsenal
+958,Billy Sharp,10.0,eng ENG,"LW,CB",15,6,0,0,2,5,1,6,0,0,,0,0,5,92,73,12,6,50.0,0,0,10/04/20,Sheffield Utd,Arsenal
+959,Aaron Ramsdale,1.0,eng ENG,GK,90,32,29,31,0,1,1,26,0,0,,0,0,13,46,34,18,18,100.0,1,0,10/04/20,Sheffield Utd,Arsenal
+960,Daniel Podence,10.0,pt POR,FW,70,27,0,1,12,15,0,25,1,1,100.0,1,0,21,118,52,28,22,78.6,1,0,10/04/20,Wolves,Fulham
+961,Joao Moutinho,28.0,pt POR,FW,20,13,1,3,6,4,0,11,0,0,,0,0,6,15,6,7,7,100.0,0,0,10/04/20,Wolves,Fulham
+962,Raul Jimenez,9.0,mx MEX,FW,90,34,0,1,16,20,4,33,0,2,0.0,0,0,25,187,125,37,26,70.3,2,2,10/04/20,Wolves,Fulham
+963,Pedro Neto,7.0,pt POR,CM,81,54,0,2,28,28,4,49,0,1,0.0,0,0,41,247,156,51,41,80.4,3,3,10/04/20,Wolves,Fulham
+964,Adama Traore,37.0,es ESP,CM,9,4,0,0,3,1,0,4,0,0,,0,0,2,8,4,2,2,100.0,0,1,10/04/20,Wolves,Fulham
+965,Leander Dendoncker,32.0,be BEL,CM,90,46,0,8,23,16,6,46,0,0,,0,0,28,137,65,37,34,91.9,0,0,10/04/20,Wolves,Fulham
+966,Ruben Neves,8.0,pt POR,DM,90,69,3,12,53,10,0,65,0,0,,0,0,49,204,102,53,50,94.3,1,1,10/04/20,Wolves,Fulham
+967,Romain Saiss,27.0,ma MAR,WB,90,68,3,19,34,16,1,60,3,4,75.0,3,0,47,214,121,49,49,100.0,0,0,10/04/20,Wolves,Fulham
+968,Nelson Semedo,22.0,pt POR,WB,77,62,3,13,23,28,3,49,1,2,50.0,1,0,39,188,68,45,41,91.1,0,0,10/04/20,Wolves,Fulham
+969,Ki-Jana Hoever,2.0,nl NED,WB,13,9,1,6,3,0,0,8,0,0,,0,0,3,3,0,5,2,40.0,0,1,10/04/20,Wolves,Fulham
+970,Maximilian Kilman,49.0,eng ENG,CB,90,67,5,33,37,3,0,67,0,1,0.0,0,0,46,297,161,52,51,98.1,0,0,10/04/20,Wolves,Fulham
+971,Conor Coady,16.0,eng ENG,CB,90,68,12,45,32,0,0,67,0,0,,0,0,52,351,187,55,55,100.0,0,0,10/04/20,Wolves,Fulham
+972,Willy Boly,15.0,fr FRA,CB,90,62,8,29,33,2,1,61,0,0,,0,0,48,186,92,45,45,100.0,0,0,10/04/20,Wolves,Fulham
+973,Rui PatrÃ­cio,11.0,pt POR,GK,90,23,21,23,0,0,0,15,0,0,,0,0,6,23,15,7,7,100.0,0,0,10/04/20,Wolves,Fulham
+974,Aleksandar Mitrovic,9.0,rs SRB,FW,90,27,1,4,12,12,7,25,0,0,,0,0,11,47,27,36,18,50.0,2,1,10/04/20,Fulham,Wolves
+975,Joe Bryan,23.0,eng ENG,LW,66,31,3,7,11,14,0,28,0,0,,0,0,13,61,44,19,14,73.7,1,0,10/04/20,Fulham,Wolves
+976,Aboubakar Kamara,47.0,fr FRA,"RW,LW",24,18,0,0,7,12,2,18,1,1,100.0,1,0,14,95,61,19,16,84.2,1,1,10/04/20,Fulham,Wolves
+977,Ivan Cavaleiro,17.0,pt POR,RW,66,26,0,3,11,12,1,25,0,0,,0,0,18,116,41,28,22,78.6,0,2,10/04/20,Fulham,Wolves
+978,Ademola Lookman,19.0,eng ENG,"LW,RW",24,22,0,2,12,11,1,21,5,5,100.0,5,0,25,161,101,19,18,94.7,0,1,10/04/20,Fulham,Wolves
+979,Bobby De Cordova-Reid,14.0,jm JAM,AM,80,37,0,5,23,11,0,37,0,0,,0,0,26,137,37,37,30,81.1,1,0,10/04/20,Fulham,Wolves
+980,Neeskens Kebano,7.0,cd COD,AM,10,8,0,0,2,7,2,7,0,0,,0,0,4,41,12,6,5,83.3,1,1,10/04/20,Fulham,Wolves
+981,Andre-Frank Zambo Anguissa,29.0,cm CMR,CM,90,74,2,17,49,15,2,69,2,3,66.7,2,0,50,240,82,48,46,95.8,2,4,10/04/20,Fulham,Wolves
+982,Tom Cairney,10.0,sco SCO,CM,90,90,0,22,48,26,1,88,1,2,50.0,1,0,73,349,129,80,77,96.3,0,0,10/04/20,Fulham,Wolves
+983,Antonee Robinson,33.0,us USA,LB,90,87,4,25,48,29,1,79,1,3,33.3,1,0,55,536,404,61,57,93.4,1,1,10/04/20,Fulham,Wolves
+984,Maxime Le Marchand,20.0,fr FRA,CB,90,65,11,43,20,3,0,64,0,0,,0,0,42,163,65,50,50,100.0,0,0,10/04/20,Fulham,Wolves
+985,Tim Ream,13.0,us USA,CB,90,62,9,40,27,0,0,62,0,0,,0,0,42,214,95,48,47,97.9,0,0,10/04/20,Fulham,Wolves
+986,Ola Aina,34.0,ng NGA,RB,90,96,2,27,53,24,0,86,0,0,,0,0,64,402,276,74,72,97.3,1,2,10/04/20,Fulham,Wolves
+987,Alphonse Areola,1.0,fr FRA,GK,90,28,25,28,0,0,0,22,0,0,,0,0,14,76,52,10,10,100.0,0,0,10/04/20,Fulham,Wolves
+988,Anthony Martial,9.0,fr FRA,FW,27,15,1,1,6,10,2,15,0,0,,0,0,11,100,80,16,14,87.5,0,2,10/04/20,Manchester Utd,Tottenham
+989,Marcus Rashford,10.0,eng ENG,LW,90,35,0,2,19,18,2,31,2,3,66.7,2,0,21,220,136,40,24,60.0,0,3,10/04/20,Manchester Utd,Tottenham
+990,Mason Greenwood,11.0,eng ENG,RW,67,28,0,6,17,11,0,27,2,3,66.7,3,0,27,160,111,31,20,64.5,1,1,10/04/20,Manchester Utd,Tottenham
+991,Donny van de Beek,34.0,nl NED,RW,23,12,0,3,6,5,2,12,0,1,0.0,0,0,8,71,35,14,9,64.3,0,0,10/04/20,Manchester Utd,Tottenham
+992,Bruno Fernandes,18.0,pt POR,AM,45,34,0,2,15,17,4,29,0,1,0.0,0,0,20,100,43,31,27,87.1,0,2,10/04/20,Manchester Utd,Tottenham
+993,Fred,17.0,br BRA,AM,45,30,0,6,25,4,0,29,2,3,66.7,3,0,22,147,92,27,22,81.5,0,0,10/04/20,Manchester Utd,Tottenham
+994,Paul Pogba,6.0,fr FRA,CM,90,67,1,9,43,20,1,65,3,5,60.0,3,0,47,231,128,53,48,90.6,5,3,10/04/20,Manchester Utd,Tottenham
+995,Nemanja Matic,31.0,rs SRB,CM,45,37,0,8,26,11,0,35,0,0,,0,0,25,209,131,32,29,90.6,0,1,10/04/20,Manchester Utd,Tottenham
+996,Scott McTominay,39.0,sco SCO,CM,45,30,1,12,14,5,0,30,1,2,50.0,1,0,22,109,37,26,22,84.6,1,0,10/04/20,Manchester Utd,Tottenham
+997,Luke Shaw,23.0,eng ENG,LB,90,53,4,17,21,18,0,43,3,4,75.0,3,0,33,170,99,39,32,82.1,0,3,10/04/20,Manchester Utd,Tottenham
+998,Harry Maguire,5.0,eng ENG,CB,90,55,12,31,25,3,0,54,0,0,,0,0,36,238,129,36,36,100.0,0,1,10/04/20,Manchester Utd,Tottenham
+999,Eric Bailly,3.0,ci CIV,CB,90,46,9,31,14,2,1,45,1,1,100.0,1,0,22,139,64,24,24,100.0,0,0,10/04/20,Manchester Utd,Tottenham
+1000,Aaron Wan-Bissaka,29.0,eng ENG,RB,90,64,2,19,30,18,1,55,1,1,100.0,1,0,34,194,109,38,35,92.1,1,0,10/04/20,Manchester Utd,Tottenham
+1001,David de Gea,1.0,es ESP,GK,90,24,23,24,0,0,0,18,0,0,,0,0,11,70,25,11,11,100.0,0,0,10/04/20,Manchester Utd,Tottenham
+1002,Harry Kane,10.0,eng ENG,FW,90,40,0,0,21,22,5,38,0,1,0.0,0,0,26,206,86,45,30,66.7,0,0,10/04/20,Tottenham,Manchester Utd
+1003,Son Heung-Min,7.0,kr KOR,LW,72,42,0,0,22,22,5,39,1,1,100.0,1,0,25,140,76,44,33,75.0,1,1,10/04/20,Tottenham,Manchester Utd
+1004,Ben Davies,33.0,wal WAL,"LB,LW",18,28,2,10,19,2,1,27,1,1,100.0,1,0,20,104,67,19,19,100.0,0,0,10/04/20,Tottenham,Manchester Utd
+1005,Erik Lamela,11.0,ar ARG,RW,45,22,0,5,7,13,2,20,1,1,100.0,1,0,16,132,70,16,13,81.3,1,0,10/04/20,Tottenham,Manchester Utd
+1006,Lucas Moura,27.0,br BRA,RW,45,21,0,0,15,9,0,21,1,3,33.3,1,1,14,114,75,21,17,81.0,1,0,10/04/20,Tottenham,Manchester Utd
+1007,Tanguy Ndombele,28.0,fr FRA,CM,68,67,0,9,36,24,5,66,1,2,50.0,1,0,44,234,133,51,48,94.1,3,2,10/04/20,Tottenham,Manchester Utd
+1008,Dele Alli,20.0,eng ENG,CM,22,25,0,9,14,7,1,24,0,0,,0,0,15,96,43,18,16,88.9,0,0,10/04/20,Tottenham,Manchester Utd
+1009,Moussa Sissoko,17.0,fr FRA,CM,90,75,5,17,54,9,1,75,1,1,100.0,1,0,53,183,57,65,60,92.3,1,0,10/04/20,Tottenham,Manchester Utd
+1010,Pierre-Emile Hojbjerg,5.0,dk DEN,DM,90,110,1,30,78,10,0,109,0,0,,0,0,90,450,214,99,99,100.0,1,0,10/04/20,Tottenham,Manchester Utd
+1011,Sergio Reguilon,3.0,es ESP,"LB,LW",90,88,1,19,45,28,2,80,3,4,75.0,3,1,60,235,129,70,65,92.9,2,4,10/04/20,Tottenham,Manchester Utd
+1012,Eric Dier,15.0,eng ENG,CB,90,89,13,55,40,0,0,87,0,0,,0,0,69,243,112,75,75,100.0,0,1,10/04/20,Tottenham,Manchester Utd
+1013,Davinson Sanchez,6.0,co COL,CB,90,93,14,53,45,1,1,91,0,0,,0,0,73,377,168,78,78,100.0,0,1,10/04/20,Tottenham,Manchester Utd
+1014,Serge Aurier,24.0,ci CIV,RB,90,87,3,25,47,19,4,82,1,1,100.0,1,0,63,238,149,64,62,96.9,0,1,10/04/20,Tottenham,Manchester Utd
+1015,Hugo Lloris,1.0,fr FRA,GK,90,24,23,24,0,0,0,18,0,0,,0,0,12,44,16,10,10,100.0,0,0,10/04/20,Tottenham,Manchester Utd
+1016,Ollie Watkins,11.0,eng ENG,FW,90,43,0,3,25,18,7,41,1,1,100.0,1,0,24,190,118,42,33,78.6,4,4,10/04/20,Aston Villa,Liverpool
+1017,Jack Grealish,10.0,eng ENG,LW,90,49,0,6,24,23,7,49,0,4,0.0,1,0,36,260,182,41,36,87.8,0,0,10/04/20,Aston Villa,Liverpool
+1018,Trezeguet,17.0,eg EGY,RW,86,40,3,11,20,16,3,40,1,3,33.3,1,0,26,230,172,35,27,77.1,2,1,10/04/20,Aston Villa,Liverpool
+1019,Bertrand Traore,15.0,bf BFA,RW,4,5,0,0,0,5,3,5,2,2,100.0,2,0,7,79,50,5,5,100.0,0,2,10/04/20,Aston Villa,Liverpool
+1020,Ross Barkley,20.0,eng ENG,AM,90,47,1,8,17,25,7,43,3,4,75.0,3,0,33,300,209,32,28,87.5,1,3,10/04/20,Aston Villa,Liverpool
+1021,John McGinn,7.0,sco SCO,DM,90,47,5,12,27,9,2,47,4,5,80.0,4,0,27,95,38,20,20,100.0,0,2,10/04/20,Aston Villa,Liverpool
+1022,Douglas Luiz,6.0,br BRA,DM,79,32,3,14,17,2,0,31,1,2,50.0,1,0,12,52,36,8,7,87.5,0,0,10/04/20,Aston Villa,Liverpool
+1023,Marvelous Nakamba,19.0,zw ZIM,DM,11,6,0,2,3,1,0,6,0,0,,0,0,4,22,0,4,4,100.0,0,0,10/04/20,Aston Villa,Liverpool
+1024,Matt Targett,18.0,eng ENG,LB,90,36,5,17,19,4,0,24,1,1,100.0,1,0,13,35,28,11,9,81.8,0,0,10/04/20,Aston Villa,Liverpool
+1025,Tyrone Mings,5.0,eng ENG,CB,90,34,9,22,12,2,1,33,1,1,100.0,1,0,18,169,43,11,10,90.9,0,1,10/04/20,Aston Villa,Liverpool
+1026,Ezri Konsa Ngoyo,4.0,eng ENG,CB,90,21,8,14,7,0,0,20,0,0,,0,0,4,19,2,4,4,100.0,0,0,10/04/20,Aston Villa,Liverpool
+1027,Matthew Cash,2.0,eng ENG,RB,79,46,6,23,19,5,2,39,0,0,,0,0,14,83,21,11,11,100.0,1,0,10/04/20,Aston Villa,Liverpool
+1028,Ahmed El Mohamady,27.0,eg EGY,RB,11,10,1,2,3,6,3,10,0,0,,0,0,3,16,1,7,7,100.0,0,0,10/04/20,Aston Villa,Liverpool
+1029,Emiliano MartÃ­nez,26.0,ar ARG,GK,90,33,28,33,0,0,0,25,0,0,,0,0,17,92,63,12,12,100.0,0,0,10/04/20,Aston Villa,Liverpool
+1030,Roberto Firmino,9.0,br BRA,FW,67,38,0,1,24,16,5,32,4,4,100.0,4,0,28,147,93,31,24,77.4,4,0,10/04/20,Liverpool,Aston Villa
+1031,James Milner,7.0,eng ENG,CM,23,23,3,7,14,6,1,22,0,0,,0,0,14,69,40,14,14,100.0,0,0,10/04/20,Liverpool,Aston Villa
+1032,Diogo Jota,20.0,pt POR,LW,90,60,0,3,20,39,11,60,3,4,75.0,4,0,46,250,178,62,52,83.9,6,2,10/04/20,Liverpool,Aston Villa
+1033,Mohamed Salah,11.0,eg EGY,RW,90,51,0,4,25,26,6,51,3,4,75.0,3,0,43,244,147,57,42,73.7,1,6,10/04/20,Liverpool,Aston Villa
+1034,Georginio Wijnaldum,5.0,nl NED,"CM,DM",90,60,4,11,35,16,1,59,0,0,,0,0,41,203,97,47,45,95.7,0,1,10/04/20,Liverpool,Aston Villa
+1035,Naby Keita,8.0,gn GUI,CM,45,40,0,4,23,16,4,38,0,0,,0,0,27,111,62,30,30,100.0,0,3,10/04/20,Liverpool,Aston Villa
+1036,Takumi Minamino,18.0,jp JPN,"CM,FW",45,26,0,2,16,8,4,25,2,3,66.7,2,0,19,122,49,26,20,76.9,1,0,10/04/20,Liverpool,Aston Villa
+1037,Fabinho,3.0,br BRA,"DM,CB",90,83,7,26,47,11,0,80,0,1,0.0,0,0,42,146,71,67,66,98.5,1,1,10/04/20,Liverpool,Aston Villa
+1038,Andrew Robertson,26.0,sco SCO,LB,90,109,5,24,45,44,7,91,2,3,66.7,2,0,64,315,238,76,73,96.1,3,1,10/04/20,Liverpool,Aston Villa
+1039,Virgil van Dijk,4.0,nl NED,CB,90,90,11,46,45,0,0,89,0,0,,0,0,58,193,75,68,67,98.5,0,0,10/04/20,Liverpool,Aston Villa
+1040,Joseph Gomez,12.0,eng ENG,CB,60,65,10,32,36,1,0,65,0,0,,0,0,46,226,152,49,48,98.0,0,1,10/04/20,Liverpool,Aston Villa
+1041,Curtis Jones,17.0,eng ENG,CM,30,21,2,7,14,5,0,21,1,1,100.0,1,0,17,99,73,20,17,85.0,0,1,10/04/20,Liverpool,Aston Villa
+1042,Trent Alexander-Arnold,66.0,eng ENG,RB,90,83,2,31,33,24,1,67,1,1,100.0,1,0,47,191,102,55,49,89.1,1,0,10/04/20,Liverpool,Aston Villa
+1043,AdriÃ¡n,13.0,es ESP,GK,90,37,33,37,0,0,0,31,0,0,,0,0,17,66,42,17,17,100.0,0,0,10/04/20,Liverpool,Aston Villa
+1044,Dominic Calvert-Lewin,9.0,eng ENG,FW,90,38,2,2,9,28,6,36,0,1,0.0,0,0,21,123,59,50,30,60.0,2,3,10/17/20,Everton,Liverpool
+1045,Richarlison,7.0,br BRA,LW,89,32,3,9,11,15,3,32,0,0,,0,0,24,199,149,40,23,57.5,3,1,10/17/20,Everton,Liverpool
+1046,James Rodriguez,19.0,co COL,RW,90,55,0,6,32,21,0,51,3,3,100.0,3,0,47,223,100,47,41,87.2,2,1,10/17/20,Everton,Liverpool
+1047,Andre Gomes,21.0,pt POR,CM,71,38,2,8,23,9,0,37,0,2,0.0,0,0,31,128,54,28,26,92.9,1,3,10/17/20,Everton,Liverpool
+1048,Gylfi Sigurdsson,10.0,is ISL,CM,19,4,0,1,3,0,0,4,0,0,,0,0,2,3,0,3,3,100.0,0,0,10/17/20,Everton,Liverpool
+1049,Abdoulaye Doucoure,16.0,fr FRA,CM,77,44,1,13,19,12,1,43,0,0,,0,0,31,111,51,31,28,90.3,2,0,10/17/20,Everton,Liverpool
+1050,Alex Iwobi,17.0,ng NGA,CM,13,5,0,1,1,3,0,5,0,0,,0,0,3,22,9,3,2,66.7,0,0,10/17/20,Everton,Liverpool
+1051,Allan,6.0,br BRA,DM,90,33,1,12,24,2,0,30,0,2,0.0,0,0,21,85,53,19,19,100.0,0,2,10/17/20,Everton,Liverpool
+1052,Lucas Digne,12.0,fr FRA,LB,90,69,8,28,25,17,0,61,1,1,100.0,1,0,30,128,61,35,32,91.4,1,1,10/17/20,Everton,Liverpool
+1053,Michael Keane,5.0,eng ENG,CB,90,61,13,40,21,1,1,59,0,0,,0,0,34,125,57,35,35,100.0,0,1,10/17/20,Everton,Liverpool
+1054,Yerry Mina,13.0,co COL,CB,90,51,11,34,17,1,1,50,0,0,,0,0,33,148,75,31,31,100.0,0,0,10/17/20,Everton,Liverpool
+1055,Seamus Coleman,23.0,ie IRL,RB,30,18,2,11,7,1,0,16,0,0,,0,0,10,45,11,12,11,91.7,0,1,10/17/20,Everton,Liverpool
+1056,Ben Godfrey,22.0,eng ENG,RB,60,26,6,11,15,2,0,24,1,2,50.0,1,0,15,105,64,10,10,100.0,1,2,10/17/20,Everton,Liverpool
+1057,Jordan Pickford,1.0,eng ENG,GK,90,44,43,44,0,0,0,28,0,0,,0,0,18,69,40,15,15,100.0,0,0,10/17/20,Everton,Liverpool
+1058,Roberto Firmino,9.0,br BRA,FW,77,33,1,4,17,17,5,32,2,2,100.0,2,0,23,151,102,42,22,52.4,1,0,10/17/20,Liverpool,Everton
+1059,Diogo Jota,20.0,pt POR,FW,13,10,0,0,3,9,3,9,1,1,100.0,1,0,9,91,74,8,8,100.0,0,0,10/17/20,Liverpool,Everton
+1060,Sadio Mane,10.0,sn SEN,LW,90,63,1,7,30,33,9,62,2,4,50.0,2,1,42,226,144,66,49,74.2,8,0,10/17/20,Liverpool,Everton
+1061,Mohamed Salah,11.0,eg EGY,RW,90,54,0,3,23,30,9,54,0,4,0.0,1,0,41,182,105,73,48,65.8,8,3,10/17/20,Liverpool,Everton
+1062,Thiago,6.0,es ESP,CM,90,86,2,11,56,22,1,83,4,4,100.0,4,0,70,251,164,61,60,98.4,2,0,10/17/20,Liverpool,Everton
+1063,Jordan Henderson,14.0,eng ENG,CM,90,75,0,9,42,24,5,72,0,1,0.0,0,0,49,202,104,61,54,88.5,0,0,10/17/20,Liverpool,Everton
+1064,Fabinho,3.0,br BRA,DM,89,58,3,11,40,8,1,57,0,1,0.0,0,0,36,154,91,40,37,92.5,0,0,10/17/20,Liverpool,Everton
+1065,Georginio Wijnaldum,5.0,nl NED,DM,1,5,1,2,3,2,0,5,0,0,,0,0,2,29,8,3,3,100.0,0,0,10/17/20,Liverpool,Everton
+1066,Andrew Robertson,26.0,sco SCO,LB,90,69,2,15,27,32,4,63,1,1,100.0,1,0,54,319,246,51,48,94.1,2,0,10/17/20,Liverpool,Everton
+1067,Virgil van Dijk,4.0,nl NED,CB,10,2,0,0,2,0,0,2,0,0,,0,0,1,16,4,2,1,50.0,0,0,10/17/20,Liverpool,Everton
+1068,Joseph Gomez,12.0,eng ENG,CB,80,47,9,30,20,0,0,46,0,0,,0,0,27,114,73,28,28,100.0,0,0,10/17/20,Liverpool,Everton
+1069,Joel Matip,32.0,cm CMR,CB,90,55,5,29,27,1,1,51,0,0,,0,0,31,156,97,33,31,93.9,0,0,10/17/20,Liverpool,Everton
+1070,Trent Alexander-Arnold,66.0,eng ENG,RB,90,74,1,18,43,16,0,60,1,3,33.3,1,0,43,180,109,49,44,89.8,0,0,10/17/20,Liverpool,Everton
+1071,AdriÃ¡n,13.0,es ESP,GK,90,32,31,32,0,0,0,21,0,0,,0,0,12,44,23,11,10,90.9,0,0,10/17/20,Liverpool,Everton
+1072,Timo Werner,11.0,de GER,FW,89,32,0,0,18,18,7,29,2,3,66.7,2,1,19,218,180,41,25,61.0,3,0,10/17/20,Chelsea,Southampton
+1073,Tammy Abraham,9.0,eng ENG,FW,1,1,0,0,1,0,0,0,0,0,,0,0,0,0,0,1,0,0.0,0,0,10/17/20,Chelsea,Southampton
+1074,Mason Mount,19.0,eng ENG,LW,71,35,0,3,16,17,7,35,1,2,50.0,1,1,20,70,24,28,24,85.7,0,3,10/17/20,Chelsea,Southampton
+1075,Hakim Ziyech,22.0,ma MAR,RW,19,20,0,0,10,11,0,17,0,1,0.0,1,1,14,42,22,16,15,93.8,1,0,10/17/20,Chelsea,Southampton
+1076,Christian Pulisic,10.0,us USA,"RW,LW",86,45,2,10,19,20,5,44,2,4,50.0,2,1,26,149,119,39,30,76.9,3,3,10/17/20,Chelsea,Southampton
+1077,Reece James,24.0,eng ENG,LW,4,4,0,0,3,1,0,4,0,0,,0,0,2,12,0,4,4,100.0,0,0,10/17/20,Chelsea,Southampton
+1078,Kai Havertz,29.0,de GER,AM,90,71,1,8,39,28,5,71,1,4,25.0,2,0,53,344,171,70,62,88.6,5,7,10/17/20,Chelsea,Southampton
+1079,N'Golo Kante,7.0,fr FRA,DM,90,64,2,19,34,15,2,63,0,0,,0,0,32,152,57,43,41,95.3,0,1,10/17/20,Chelsea,Southampton
+1080,Jorginho,5.0,it ITA,DM,90,72,1,27,42,7,0,70,0,0,,0,0,38,163,100,47,47,100.0,0,1,10/17/20,Chelsea,Southampton
+1081,Ben Chilwell,21.0,eng ENG,LB,90,104,4,45,42,24,3,91,1,1,100.0,1,0,60,286,180,72,70,97.2,3,3,10/17/20,Chelsea,Southampton
+1082,Kurt Zouma,15.0,fr FRA,CB,90,87,20,55,32,2,2,86,0,0,,0,0,42,164,67,57,57,100.0,0,0,10/17/20,Chelsea,Southampton
+1083,Andreas Christensen,4.0,dk DEN,CB,90,72,17,47,25,1,1,72,0,0,,0,0,40,181,73,50,50,100.0,0,0,10/17/20,Chelsea,Southampton
+1084,Cesar Azpilicueta,28.0,es ESP,RB,90,97,1,45,40,17,1,82,0,0,,0,0,42,226,136,59,58,98.3,0,0,10/17/20,Chelsea,Southampton
+1085,Kepa Arrizabalaga,1.0,es ESP,GK,90,35,34,35,0,0,0,27,0,0,,0,0,13,58,30,17,17,100.0,2,0,10/17/20,Chelsea,Southampton
+1086,Danny Ings,9.0,eng ENG,FW,90,28,0,1,10,17,5,27,2,5,40.0,2,0,18,73,12,38,18,47.4,3,0,10/17/20,Southampton,Chelsea
+1087,Che Adams,10.0,eng ENG,FW,85,32,0,0,12,21,4,30,1,1,100.0,1,0,19,57,16,44,25,56.8,5,1,10/17/20,Southampton,Chelsea
+1088,Shane Long,7.0,ie IRL,FW,5,2,0,1,2,0,0,2,0,0,,0,0,2,15,0,5,2,40.0,0,1,10/17/20,Southampton,Chelsea
+1089,Nathan Redmond,11.0,eng ENG,LM,76,39,0,3,19,19,0,39,1,3,33.3,1,0,26,133,66,41,31,75.6,0,1,10/17/20,Southampton,Chelsea
+1090,Nathan Tella,23.0,eng ENG,LM,14,12,0,1,5,8,0,12,0,0,,0,0,7,86,53,9,7,77.8,2,0,10/17/20,Southampton,Chelsea
+1091,Oriol Romeu,6.0,es ESP,CM,86,68,3,19,41,13,0,67,1,1,100.0,1,0,32,202,102,39,39,100.0,0,0,10/17/20,Southampton,Chelsea
+1092,Ibrahima Diallo,27.0,fr FRA,CM,4,4,0,0,4,0,0,4,0,0,,0,0,1,1,0,1,1,100.0,0,0,10/17/20,Southampton,Chelsea
+1093,James Ward-Prowse,8.0,eng ENG,CM,90,83,0,13,54,21,1,75,0,0,,0,0,38,228,106,52,49,94.2,0,0,10/17/20,Southampton,Chelsea
+1094,Theo Walcott,32.0,eng ENG,RM,90,43,0,1,20,24,5,43,2,2,100.0,2,0,27,189,127,42,28,66.7,3,2,10/17/20,Southampton,Chelsea
+1095,Ryan Bertrand,3.0,eng ENG,LB,90,81,2,10,39,34,1,63,0,0,,0,0,43,196,85,52,50,96.2,2,3,10/17/20,Southampton,Chelsea
+1096,Jannik Vestergaard,4.0,dk DEN,CB,90,72,8,32,39,4,2,71,0,0,,0,0,39,278,130,50,47,94.0,0,0,10/17/20,Southampton,Chelsea
+1097,Jan Bednarek,35.0,pl POL,CB,90,71,8,36,34,1,0,70,0,0,,0,0,48,256,135,47,47,100.0,0,0,10/17/20,Southampton,Chelsea
+1098,Kyle Walker-Peters,2.0,eng ENG,RB,90,78,9,17,46,21,2,66,0,2,0.0,0,0,44,280,138,50,44,88.0,4,0,10/17/20,Southampton,Chelsea
+1099,Alex McCarthy,1.0,eng ENG,GK,90,41,36,41,0,0,0,30,0,0,,0,0,25,111,52,26,26,100.0,0,0,10/17/20,Southampton,Chelsea
+1100,Sergio Aguero,10.0,ar ARG,FW,64,28,0,1,9,19,4,27,0,1,0.0,0,1,19,122,83,29,24,82.8,1,0,10/17/20,Manchester City,Arsenal
+1101,Ilkay Gundogan,8.0,de GER,"CM,FW",26,22,0,0,17,7,0,19,0,0,,0,0,11,35,24,19,18,94.7,0,0,10/17/20,Manchester City,Arsenal
+1102,Raheem Sterling,7.0,eng ENG,FW,90,70,1,3,35,38,7,70,1,1,100.0,1,0,57,323,183,73,66,90.4,1,5,10/17/20,Manchester City,Arsenal
+1103,Bernardo Silva,20.0,pt POR,"CM,FW",90,86,3,18,51,26,3,84,2,2,100.0,2,0,59,502,296,76,71,93.4,0,0,10/17/20,Manchester City,Arsenal
+1104,Joao Cancelo,27.0,pt POR,CM,90,60,1,9,27,25,2,55,3,4,75.0,3,0,39,169,112,39,35,89.7,0,3,10/17/20,Manchester City,Arsenal
+1105,Rodrigo,16.0,es ESP,DM,90,84,6,16,66,4,1,84,1,1,100.0,1,0,67,324,124,68,66,97.1,0,0,10/17/20,Manchester City,Arsenal
+1106,Phil Foden,47.0,eng ENG,WB,88,61,1,3,17,42,6,59,2,3,66.7,2,0,38,157,103,60,51,85.0,0,3,10/17/20,Manchester City,Arsenal
+1107,Fernandinho,25.0,br BRA,WB,2,1,0,0,1,0,0,1,0,0,,0,0,0,0,0,1,1,100.0,0,0,10/17/20,Manchester City,Arsenal
+1108,Riyad Mahrez,26.0,dz ALG,WB,90,62,1,4,28,31,6,57,3,4,75.0,3,0,45,233,101,60,47,78.3,1,4,10/17/20,Manchester City,Arsenal
+1109,Nathan Ake,6.0,nl NED,CB,90,76,2,13,50,14,0,71,0,0,,0,0,58,156,53,67,65,97.0,0,1,10/17/20,Manchester City,Arsenal
+1110,Ruben Dias,3.0,pt POR,CB,90,107,13,47,71,1,0,106,1,2,50.0,1,0,77,520,230,79,79,100.0,1,0,10/17/20,Manchester City,Arsenal
+1111,Kyle Walker,2.0,eng ENG,CB,90,74,3,21,48,9,0,72,0,0,,0,0,48,257,45,55,55,100.0,0,1,10/17/20,Manchester City,Arsenal
+1112,Ederson,31.0,br BRA,GK,90,50,48,50,0,0,0,35,0,0,,0,0,29,99,68,28,28,100.0,0,0,10/17/20,Manchester City,Arsenal
+1113,Willian,12.0,br BRA,"FW,RW",68,32,0,2,18,12,0,23,0,0,,0,0,17,78,15,24,16,66.7,2,0,10/17/20,Arsenal,Manchester City
+1114,Alexandre Lacazette,9.0,fr FRA,FW,22,5,0,0,5,2,0,5,0,0,,0,0,3,32,28,7,3,42.9,0,0,10/17/20,Arsenal,Manchester City
+1115,Pierre-Emerick Aubameyang,14.0,ga GAB,LW,90,26,1,3,9,14,2,26,0,1,0.0,0,0,15,74,44,46,21,45.7,2,2,10/17/20,Arsenal,Manchester City
+1116,Nicolas Pepe,19.0,ci CIV,"RW,FW",82,22,0,2,11,9,4,21,1,4,25.0,1,0,11,74,37,29,17,58.6,1,0,10/17/20,Arsenal,Manchester City
+1117,Eddie Nketiah,30.0,eng ENG,RW,8,5,0,1,1,3,0,5,1,2,50.0,1,0,5,22,6,6,5,83.3,1,0,10/17/20,Arsenal,Manchester City
+1118,Dani Ceballos,8.0,es ESP,DM,90,54,3,17,35,7,0,51,0,1,0.0,0,0,36,268,105,39,39,100.0,0,0,10/17/20,Arsenal,Manchester City
+1119,Granit Xhaka,34.0,ch SUI,DM,82,43,2,14,30,3,0,41,0,0,,0,0,33,183,113,30,30,100.0,0,2,10/17/20,Arsenal,Manchester City
+1120,Thomas Partey,18.0,gh GHA,DM,8,13,1,5,8,1,0,12,0,0,,0,0,8,56,34,7,7,100.0,0,1,10/17/20,Arsenal,Manchester City
+1121,Bukayo Saka,7.0,eng ENG,WB,90,55,3,10,32,18,4,54,4,6,66.7,4,0,40,257,158,43,38,88.4,2,1,10/17/20,Arsenal,Manchester City
+1122,Hector Bellerin,2.0,es ESP,WB,90,45,2,20,21,7,0,40,0,0,,0,0,24,141,79,27,25,92.6,1,1,10/17/20,Arsenal,Manchester City
+1123,Kieran Tierney,3.0,sco SCO,CB,90,77,6,35,35,16,1,69,0,3,0.0,0,0,47,310,205,48,47,97.9,1,0,10/17/20,Arsenal,Manchester City
+1124,Gabriel Magalhaes,6.0,br BRA,CB,90,81,19,60,22,2,2,80,0,0,,0,0,61,320,167,63,63,100.0,0,0,10/17/20,Arsenal,Manchester City
+1125,David Luiz,23.0,br BRA,CB,90,69,16,44,25,4,1,65,1,1,100.0,1,0,45,279,149,50,50,100.0,0,0,10/17/20,Arsenal,Manchester City
+1126,Bernd Leno,1.0,de GER,GK,90,53,42,53,0,0,0,48,0,0,,0,0,34,109,59,39,39,100.0,0,0,10/17/20,Arsenal,Manchester City
+1127,Callum Wilson,13.0,eng ENG,FW,90,37,0,4,23,16,5,33,1,2,50.0,2,0,27,160,102,41,25,61.0,5,2,10/17/20,Newcastle Utd,Manchester Utd
+1128,Allan Saint-Maximin,10.0,fr FRA,LM,90,37,0,7,22,13,2,37,7,8,87.5,8,0,40,288,173,36,28,77.8,2,5,10/17/20,Newcastle Utd,Manchester Utd
+1129,Jeff Hendrick,16.0,ie IRL,CM,87,38,3,15,21,3,0,37,1,1,100.0,1,0,16,86,57,24,21,87.5,0,0,10/17/20,Newcastle Utd,Manchester Utd
+1130,Miguel Almiron,24.0,py PAR,CM,3,8,0,0,6,2,1,7,0,0,,0,0,4,21,18,6,4,66.7,0,1,10/17/20,Newcastle Utd,Manchester Utd
+1131,Jonjo Shelvey,8.0,eng ENG,CM,90,61,1,12,41,11,3,59,1,1,100.0,1,0,32,205,104,46,45,97.8,0,0,10/17/20,Newcastle Utd,Manchester Utd
+1132,Joelinton,9.0,br BRA,RM,71,34,1,11,19,8,1,34,1,3,33.3,2,0,21,115,47,29,18,62.1,1,4,10/17/20,Newcastle Utd,Manchester Utd
+1133,Ryan Fraser,21.0,sco SCO,RM,19,7,0,3,2,2,1,7,0,0,,0,0,4,44,34,10,6,60.0,1,0,10/17/20,Newcastle Utd,Manchester Utd
+1134,Isaac Hayden,14.0,eng ENG,DM,48,21,0,12,9,1,0,19,0,0,,0,0,9,33,16,5,5,100.0,0,1,10/17/20,Newcastle Utd,Manchester Utd
+1135,Fabian Schar,5.0,ch SUI,DM,42,33,2,15,19,2,0,32,0,0,,0,0,21,120,58,23,22,95.7,1,1,10/17/20,Newcastle Utd,Manchester Utd
+1136,Jamal Lewis,15.0,nir NIR,LB,90,49,6,24,18,9,1,40,1,1,100.0,1,0,22,118,44,21,20,95.2,0,2,10/17/20,Newcastle Utd,Manchester Utd
+1137,Federico Fernandez,18.0,ar ARG,CB,90,45,8,28,17,0,0,44,0,0,,0,0,17,54,13,26,26,100.0,0,0,10/17/20,Newcastle Utd,Manchester Utd
+1138,Jamaal Lascelles,6.0,eng ENG,CB,90,47,14,35,13,0,0,46,0,0,,0,0,14,48,17,27,26,96.3,0,0,10/17/20,Newcastle Utd,Manchester Utd
+1139,Emil Krafth,17.0,se SWE,RB,90,55,9,26,19,10,2,43,0,1,0.0,0,0,15,47,29,25,22,88.0,0,0,10/17/20,Newcastle Utd,Manchester Utd
+1140,Karl Darlow,26.0,eng ENG,GK,90,41,38,41,0,0,0,27,0,0,,0,0,9,43,24,10,10,100.0,0,0,10/17/20,Newcastle Utd,Manchester Utd
+1141,Marcus Rashford,10.0,eng ENG,FW,90,48,0,3,13,34,16,48,2,4,50.0,2,0,31,250,181,50,39,78.0,2,3,10/17/20,Manchester Utd,Newcastle Utd
+1142,Daniel James,21.0,wal WAL,LW,75,53,0,6,19,34,6,53,1,1,100.0,1,0,41,291,152,48,44,91.7,0,1,10/17/20,Manchester Utd,Newcastle Utd
+1143,Donny van de Beek,34.0,nl NED,"CM,LW",15,14,0,3,6,5,0,14,1,1,100.0,1,0,5,24,4,15,13,86.7,0,0,10/17/20,Manchester Utd,Newcastle Utd
+1144,Juan Mata,8.0,es ESP,RW,89,71,0,2,37,37,5,68,0,0,,0,0,53,352,200,65,60,92.3,1,2,10/17/20,Manchester Utd,Newcastle Utd
+1145,Nemanja Matic,31.0,rs SRB,"RW,CM",1,6,0,2,3,1,0,6,0,0,,0,0,2,8,3,4,3,75.0,0,0,10/17/20,Manchester Utd,Newcastle Utd
+1146,Bruno Fernandes,18.0,pt POR,"AM,LW",90,107,1,13,48,54,3,98,2,4,50.0,2,0,63,280,185,88,76,86.4,0,0,10/17/20,Manchester Utd,Newcastle Utd
+1147,Fred,17.0,br BRA,DM,68,61,0,12,36,14,0,58,2,2,100.0,2,0,37,127,59,44,43,97.7,0,1,10/17/20,Manchester Utd,Newcastle Utd
+1148,Paul Pogba,6.0,fr FRA,"CM,DM",22,28,1,5,17,9,0,28,1,1,100.0,1,0,20,134,88,21,20,95.2,0,1,10/17/20,Manchester Utd,Newcastle Utd
+1149,Scott McTominay,39.0,sco SCO,DM,90,63,1,20,39,11,0,63,1,1,100.0,1,0,37,235,144,47,45,95.7,0,1,10/17/20,Manchester Utd,Newcastle Utd
+1150,Luke Shaw,23.0,eng ENG,LB,90,96,3,22,47,33,4,85,0,2,0.0,0,0,54,271,167,66,61,92.4,0,0,10/17/20,Manchester Utd,Newcastle Utd
+1151,Harry Maguire,5.0,eng ENG,CB,90,90,7,55,39,7,3,87,0,0,,0,0,56,411,246,63,62,98.4,0,0,10/17/20,Manchester Utd,Newcastle Utd
+1152,Victor Lindelof,2.0,se SWE,CB,90,56,9,38,22,1,0,56,0,0,,0,0,34,337,182,38,38,100.0,0,0,10/17/20,Manchester Utd,Newcastle Utd
+1153,Aaron Wan-Bissaka,29.0,eng ENG,RB,90,67,3,15,26,29,5,60,0,1,0.0,0,0,35,162,91,40,36,90.0,1,2,10/17/20,Manchester Utd,Newcastle Utd
+1154,David de Gea,1.0,es ESP,GK,90,21,20,21,0,0,0,20,0,0,,0,0,11,35,5,15,15,100.0,0,0,10/17/20,Manchester Utd,Newcastle Utd
+1155,David McGoldrick,17.0,ie IRL,FW,63,28,0,2,15,11,4,28,0,0,,0,0,17,60,29,28,22,78.6,0,1,10/18/20,Sheffield Utd,Fulham
+1156,Rhian Brewster,24.0,eng ENG,"FW,LW",27,8,0,1,4,5,0,8,0,0,,0,0,4,36,26,9,7,77.8,2,2,10/18/20,Sheffield Utd,Fulham
+1157,Oliver McBurnie,9.0,sco SCO,FW,90,44,2,4,20,21,5,43,1,2,50.0,1,0,16,99,63,35,27,77.1,0,1,10/18/20,Sheffield Utd,Fulham
+1158,John Lundstram,7.0,eng ENG,CM,90,43,1,7,31,8,0,42,1,1,100.0,1,0,28,196,99,39,35,89.7,0,0,10/18/20,Sheffield Utd,Fulham
+1159,Sander Berge,8.0,no NOR,CM,90,45,2,6,23,23,3,45,1,1,100.0,1,0,34,445,306,31,29,93.5,4,2,10/18/20,Sheffield Utd,Fulham
+1160,Oliver Norwood,16.0,nir NIR,DM,90,75,2,12,50,13,0,68,0,0,,0,0,36,140,49,57,56,98.2,0,2,10/18/20,Sheffield Utd,Fulham
+1161,Max Lowe,13.0,eng ENG,WB,18,6,0,0,4,2,0,6,0,0,,0,0,4,10,4,3,3,100.0,0,0,10/18/20,Sheffield Utd,Fulham
+1162,Jack Robinson,19.0,eng ENG,"CB,WB",72,51,5,16,32,5,0,44,0,0,,0,0,25,127,50,27,27,100.0,0,0,10/18/20,Sheffield Utd,Fulham
+1163,George Baldock,2.0,eng ENG,"WB,RB",90,39,1,11,14,17,0,32,0,0,,0,0,18,171,87,27,23,85.2,2,0,10/18/20,Sheffield Utd,Fulham
+1164,Enda Stevens,3.0,ie IRL,"WB,CB,LB",90,58,3,13,34,13,2,57,1,2,50.0,1,0,37,218,133,39,35,89.7,0,1,10/18/20,Sheffield Utd,Fulham
+1165,John Egan,12.0,ie IRL,CB,90,41,7,16,24,3,1,41,0,0,,0,0,17,114,75,23,23,100.0,1,0,10/18/20,Sheffield Utd,Fulham
+1166,Chris Basham,6.0,eng ENG,CB,80,51,3,18,27,7,1,50,1,1,100.0,1,0,29,116,92,29,27,93.1,0,0,10/18/20,Sheffield Utd,Fulham
+1167,Billy Sharp,10.0,eng ENG,RW,10,3,0,0,1,2,1,2,0,0,,0,0,2,26,2,4,2,50.0,0,0,10/18/20,Sheffield Utd,Fulham
+1168,Aaron Ramsdale,1.0,eng ENG,GK,90,28,25,27,1,0,0,20,0,0,,0,0,6,60,36,10,10,100.0,0,0,10/18/20,Sheffield Utd,Fulham
+1169,Aleksandar Mitrovic,9.0,rs SRB,FW,90,35,0,3,16,17,6,31,1,1,100.0,1,0,17,106,48,47,28,59.6,2,3,10/18/20,Fulham,Sheffield Utd
+1170,Ademola Lookman,19.0,eng ENG,LW,90,59,1,4,34,31,4,58,2,5,40.0,3,2,43,535,299,46,44,95.7,3,3,10/18/20,Fulham,Sheffield Utd
+1171,Ivan Cavaleiro,17.0,pt POR,RW,90,46,0,5,25,18,4,43,2,3,66.7,2,0,35,171,35,42,34,81.0,2,1,10/18/20,Fulham,Sheffield Utd
+1172,Ruben Loftus-Cheek,15.0,eng ENG,AM,80,60,1,7,46,15,3,60,0,0,,0,0,43,342,218,61,53,86.9,4,2,10/18/20,Fulham,Sheffield Utd
+1173,Mario Lemina,18.0,ga GAB,"DM,AM",10,9,0,0,7,2,0,9,2,2,100.0,2,0,8,47,28,8,8,100.0,0,0,10/18/20,Fulham,Sheffield Utd
+1174,Andre-Frank Zambo Anguissa,29.0,cm CMR,"DM,AM",90,83,2,18,57,17,3,81,1,2,50.0,1,0,56,430,240,72,66,91.7,0,0,10/18/20,Fulham,Sheffield Utd
+1175,Tom Cairney,10.0,sco SCO,DM,90,97,2,18,58,25,1,95,2,2,100.0,2,0,74,357,140,85,80,94.1,2,0,10/18/20,Fulham,Sheffield Utd
+1176,Antonee Robinson,33.0,us USA,LB,90,55,3,19,19,19,0,42,0,0,,0,0,23,163,107,30,26,86.7,3,0,10/18/20,Fulham,Sheffield Utd
+1177,Tim Ream,13.0,us USA,CB,90,65,13,41,28,0,0,65,1,1,100.0,1,0,39,203,106,44,43,97.7,0,0,10/18/20,Fulham,Sheffield Utd
+1178,Tosin Adarabioyo,16.0,eng ENG,CB,90,61,11,44,15,2,2,60,0,0,,0,0,38,177,95,48,47,97.9,0,0,10/18/20,Fulham,Sheffield Utd
+1179,Ola Aina,34.0,ng NGA,RB,90,93,5,35,55,9,0,87,0,0,,0,0,54,224,161,66,65,98.5,1,0,10/18/20,Fulham,Sheffield Utd
+1180,Alphonse Areola,1.0,fr FRA,GK,90,32,31,32,0,0,0,24,0,0,,0,0,14,81,44,14,14,100.0,0,0,10/18/20,Fulham,Sheffield Utd
+1181,Wilfried Zaha,11.0,ci CIV,FW,90,39,0,3,21,17,3,37,0,2,0.0,0,0,26,177,90,40,29,72.5,4,5,10/18/20,Crystal Palace,Brighton
+1182,Michy Batshuayi,23.0,be BEL,FW,82,21,1,3,12,6,1,21,0,0,,0,0,11,36,15,35,14,40.0,2,4,10/18/20,Crystal Palace,Brighton
+1183,Luka Milivojevic,4.0,rs SRB,FW,8,3,0,2,1,0,0,3,0,0,,0,0,0,0,0,0,0,,0,0,10/18/20,Crystal Palace,Brighton
+1184,Jeffrey Schlupp,15.0,gh GHA,LM,87,43,2,10,28,8,0,42,3,4,75.0,4,0,22,186,117,33,22,66.7,1,2,10/18/20,Crystal Palace,Brighton
+1185,Christian Benteke,20.0,be BEL,LM,3,3,0,0,2,1,1,3,1,1,100.0,1,0,2,3,3,5,3,60.0,0,1,10/18/20,Crystal Palace,Brighton
+1186,James McArthur,18.0,sco SCO,CM,90,40,1,12,29,4,1,39,0,0,,0,0,23,135,50,25,22,88.0,0,0,10/18/20,Crystal Palace,Brighton
+1187,Jairo Riedewald,44.0,nl NED,CM,90,38,5,18,18,5,0,37,1,1,100.0,1,0,24,163,97,17,16,94.1,1,1,10/18/20,Crystal Palace,Brighton
+1188,Andros Townsend,10.0,eng ENG,RM,90,32,1,11,15,11,0,29,1,1,100.0,1,0,20,232,149,19,13,68.4,2,2,10/18/20,Crystal Palace,Brighton
+1189,Tyrick Mitchell,27.0,eng ENG,LB,90,56,3,21,29,10,0,51,1,1,100.0,1,0,30,139,79,35,34,97.1,0,0,10/18/20,Crystal Palace,Brighton
+1190,Gary Cahill,24.0,eng ENG,CB,90,41,10,30,13,0,0,38,0,0,,0,0,14,70,30,19,19,100.0,0,0,10/18/20,Crystal Palace,Brighton
+1191,Cheikhou Kouyate,8.0,sn SEN,CB,90,32,7,21,11,0,0,31,0,0,,0,0,11,58,18,12,12,100.0,0,0,10/18/20,Crystal Palace,Brighton
+1192,Joel Ward,2.0,eng ENG,RB,90,38,2,19,14,7,0,30,0,0,,0,0,14,86,60,18,17,94.4,0,1,10/18/20,Crystal Palace,Brighton
+1193,Vicente Guaita,31.0,es ESP,GK,90,36,33,36,0,0,0,13,0,0,,0,0,6,22,19,4,4,100.0,0,0,10/18/20,Crystal Palace,Brighton
+1194,Neal Maupay,9.0,fr FRA,FW,90,30,0,2,9,19,10,27,2,2,100.0,2,0,21,93,42,28,21,75.0,2,4,10/18/20,Brighton,Crystal Palace
+1195,Leandro Trossard,11.0,be BEL,LW,77,41,0,4,14,26,2,37,2,5,40.0,2,0,35,214,111,38,30,78.9,1,5,10/18/20,Brighton,Crystal Palace
+1196,Aaron Connolly,7.0,ie IRL,LW,13,4,0,0,0,4,1,4,0,0,,0,0,3,23,15,5,4,80.0,2,0,10/18/20,Brighton,Crystal Palace
+1197,Adam Lallana,14.0,eng ENG,RW,77,27,0,7,9,14,1,26,1,2,50.0,1,0,23,128,89,30,21,70.0,0,0,10/18/20,Brighton,Crystal Palace
+1198,Alexis Mac Allister,10.0,ar ARG,RW,13,12,0,2,2,8,0,11,0,1,0.0,0,0,5,25,4,4,3,75.0,0,1,10/18/20,Brighton,Crystal Palace
+1199,Yves Bissouma,8.0,ml MLI,CM,90,73,1,12,44,21,2,72,2,4,50.0,2,0,58,313,131,54,53,98.1,0,1,10/18/20,Brighton,Crystal Palace
+1200,Ben White,3.0,eng ENG,DM,90,70,2,8,47,16,2,69,2,2,100.0,2,0,48,182,71,44,43,97.7,0,2,10/18/20,Brighton,Crystal Palace
+1201,Solly March,20.0,eng ENG,WB,90,66,0,6,29,35,5,55,1,3,33.3,1,0,46,387,227,49,41,83.7,2,1,10/18/20,Brighton,Crystal Palace
+1202,Tariq Lamptey,2.0,eng ENG,WB,90,81,2,14,37,42,5,65,1,1,100.0,1,0,55,441,314,65,51,78.5,3,2,10/18/20,Brighton,Crystal Palace
+1203,Dan Burn,33.0,eng ENG,CB,81,77,6,21,49,13,1,72,0,0,,0,0,52,354,199,60,55,91.7,0,0,10/18/20,Brighton,Crystal Palace
+1204,Pascal Gross,13.0,de GER,CB,9,10,0,1,6,3,0,8,0,0,,0,0,7,25,6,7,7,100.0,0,0,10/18/20,Brighton,Crystal Palace
+1205,Lewis Dunk,5.0,eng ENG,CB,89,88,1,39,49,5,4,86,0,0,,0,0,64,381,176,67,67,100.0,1,0,10/18/20,Brighton,Crystal Palace
+1206,Adam Webster,4.0,eng ENG,CB,90,87,6,34,53,9,0,86,0,0,,0,0,60,521,346,67,67,100.0,0,0,10/18/20,Brighton,Crystal Palace
+1207,Mathew Ryan,1.0,au AUS,GK,90,33,25,33,1,0,0,28,0,0,,0,0,26,92,42,25,25,100.0,0,0,10/18/20,Brighton,Crystal Palace
+1208,Harry Kane,10.0,eng ENG,FW,90,64,5,13,38,17,2,61,1,2,50.0,1,1,39,304,210,64,46,71.9,4,1,10/18/20,Tottenham,West Ham
+1209,Son Heung-Min,7.0,kr KOR,LW,79,45,1,9,18,25,4,43,3,3,100.0,3,2,32,235,187,50,36,72.0,2,0,10/18/20,Tottenham,West Ham
+1210,Lucas Moura,27.0,br BRA,LW,11,1,0,1,1,0,0,1,0,0,,0,0,1,33,22,2,0,0.0,0,0,10/18/20,Tottenham,West Ham
+1211,Steven Bergwijn,23.0,nl NED,RW,71,32,0,2,20,13,1,32,2,4,50.0,2,0,26,112,49,40,26,65.0,3,2,10/18/20,Tottenham,West Ham
+1212,Gareth Bale,9.0,wal WAL,RW,19,11,0,1,6,4,1,8,1,2,50.0,1,0,4,35,26,8,5,62.5,0,0,10/18/20,Tottenham,West Ham
+1213,Tanguy Ndombele,28.0,fr FRA,AM,72,55,2,13,34,11,1,54,3,3,100.0,3,0,46,170,79,42,39,92.9,0,2,10/18/20,Tottenham,West Ham
+1214,Harry Winks,8.0,eng ENG,AM,18,10,2,4,6,0,0,10,0,0,,0,0,4,13,3,3,3,100.0,0,0,10/18/20,Tottenham,West Ham
+1215,Pierre-Emile Hojbjerg,5.0,dk DEN,CM,90,78,6,22,53,8,1,76,0,1,0.0,0,1,57,173,78,58,58,100.0,1,0,10/18/20,Tottenham,West Ham
+1216,Moussa Sissoko,17.0,fr FRA,CM,90,55,5,18,35,5,0,55,0,0,,0,0,36,110,52,37,37,100.0,0,1,10/18/20,Tottenham,West Ham
+1217,Sergio Reguilon,3.0,es ESP,LB,90,63,3,21,31,15,0,58,0,1,0.0,0,0,40,216,95,42,39,92.9,0,1,10/18/20,Tottenham,West Ham
+1218,Davinson Sanchez,6.0,co COL,CB,90,67,12,48,21,0,0,66,0,0,,0,0,40,176,81,39,39,100.0,0,0,10/18/20,Tottenham,West Ham
+1219,Toby Alderweireld,4.0,be BEL,CB,90,56,10,37,21,0,0,53,0,0,,0,0,28,109,57,32,32,100.0,0,0,10/18/20,Tottenham,West Ham
+1220,Serge Aurier,24.0,ci CIV,RB,90,82,8,32,36,16,2,76,0,1,0.0,1,0,43,136,76,46,45,97.8,1,1,10/18/20,Tottenham,West Ham
+1221,Hugo Lloris,1.0,fr FRA,GK,90,35,34,35,0,0,0,23,0,0,,0,0,14,63,26,17,17,100.0,0,0,10/18/20,Tottenham,West Ham
+1222,Michail Antonio,30.0,eng ENG,FW,76,33,0,1,10,23,8,32,4,8,50.0,4,0,25,176,99,41,27,65.9,3,5,10/18/20,West Ham,Tottenham
+1223,Andriy Yarmolenko,7.0,ua UKR,FW,14,3,0,0,2,2,0,3,0,0,,0,0,3,36,3,7,3,42.9,0,0,10/18/20,West Ham,Tottenham
+1224,Pablo Fornals,18.0,es ESP,AM,76,38,0,3,17,21,3,34,1,2,50.0,1,0,24,185,105,31,27,87.1,0,0,10/18/20,West Ham,Tottenham
+1225,Manuel Lanzini,10.0,ar ARG,AM,14,11,0,0,6,6,0,11,0,0,,0,0,9,66,34,11,7,63.6,0,0,10/18/20,West Ham,Tottenham
+1226,Jarrod Bowen,20.0,eng ENG,AM,90,40,0,1,13,29,4,37,1,3,33.3,1,0,31,306,77,41,30,73.2,1,3,10/18/20,West Ham,Tottenham
+1227,Declan Rice,41.0,eng ENG,DM,90,71,0,13,47,20,1,70,1,1,100.0,1,0,49,343,204,52,48,92.3,2,0,10/18/20,West Ham,Tottenham
+1228,Tomas Soucek,28.0,cz CZE,DM,90,44,1,8,26,14,3,43,1,3,33.3,1,0,28,149,77,37,31,83.8,0,1,10/18/20,West Ham,Tottenham
+1229,Arthur Masuaku,26.0,cd COD,WB,89,97,1,16,49,45,3,83,5,9,55.6,5,0,71,539,380,72,66,91.7,0,3,10/18/20,West Ham,Tottenham
+1230,Robert Snodgrass,11.0,sco SCO,WB,1,2,0,0,0,2,0,2,0,0,,0,0,2,7,0,1,1,100.0,0,0,10/18/20,West Ham,Tottenham
+1231,Vladimir Coufal,5.0,cz CZE,WB,90,52,2,11,27,17,2,45,0,0,,0,0,28,172,102,29,28,96.6,1,1,10/18/20,West Ham,Tottenham
+1232,Aaron Cresswell,3.0,eng ENG,CB,90,77,4,22,38,20,1,65,0,2,0.0,2,1,43,146,50,49,49,100.0,0,0,10/18/20,West Ham,Tottenham
+1233,Angelo Ogbonna,21.0,it ITA,CB,90,56,5,26,31,5,1,56,0,0,,0,0,28,218,89,30,29,96.7,0,0,10/18/20,West Ham,Tottenham
+1234,Fabian Balbuena,4.0,py PAR,CB,90,52,5,27,24,6,1,50,0,0,,0,0,25,129,88,30,29,96.7,0,0,10/18/20,West Ham,Tottenham
+1235,Åukasz FabiaÅski,1.0,pl POL,GK,90,23,21,23,0,0,0,19,0,0,,0,0,13,112,64,8,8,100.0,0,0,10/18/20,West Ham,Tottenham
+1236,Kelechi Iheanacho,14.0,ng NGA,FW,70,21,1,2,13,9,0,21,2,3,66.7,2,0,16,114,60,30,17,56.7,2,0,10/18/20,Leicester City,Aston Villa
+1237,Islam Slimani,13.0,dz ALG,FW,20,13,0,0,7,7,2,12,0,0,,0,0,6,31,16,17,12,70.6,1,0,10/18/20,Leicester City,Aston Villa
+1238,Harvey Barnes,15.0,eng ENG,LM,90,37,2,9,16,17,4,36,2,6,33.3,2,0,28,284,208,42,27,64.3,0,0,10/18/20,Leicester City,Aston Villa
+1239,Dennis Praet,26.0,be BEL,CM,67,23,0,1,11,11,1,22,0,0,,0,0,17,46,28,23,16,69.6,1,2,10/18/20,Leicester City,Aston Villa
+1240,James Maddison,10.0,eng ENG,CM,23,15,0,1,6,11,4,15,0,2,0.0,0,0,14,86,64,15,11,73.3,1,0,10/18/20,Leicester City,Aston Villa
+1241,Youri Tielemans,8.0,be BEL,CM,90,60,3,15,29,18,0,54,0,1,0.0,0,1,30,135,68,35,33,94.3,0,0,10/18/20,Leicester City,Aston Villa
+1242,Ayoze Perez,17.0,es ESP,RM,90,42,0,6,20,19,6,42,2,6,33.3,2,0,30,177,108,36,25,69.4,2,0,10/18/20,Leicester City,Aston Villa
+1243,Nampalys Mendy,24.0,fr FRA,DM,77,46,1,9,26,13,0,46,0,0,,0,0,32,130,59,33,30,90.9,1,0,10/18/20,Leicester City,Aston Villa
+1244,Hamza Choudhury,20.0,eng ENG,DM,13,11,0,3,4,4,0,11,0,0,,0,0,7,12,0,7,7,100.0,0,0,10/18/20,Leicester City,Aston Villa
+1245,James Justin,2.0,eng ENG,LB,90,58,10,23,22,13,0,49,1,2,50.0,1,0,23,84,53,34,28,82.4,1,1,10/18/20,Leicester City,Aston Villa
+1246,Jonny Evans,6.0,nir NIR,CB,90,64,12,48,22,0,0,60,0,0,,0,0,35,162,94,42,42,100.0,0,0,10/18/20,Leicester City,Aston Villa
+1247,Wesley Fofana,3.0,fr FRA,CB,90,56,12,30,26,1,0,55,0,0,,0,0,28,186,97,29,26,89.7,1,1,10/18/20,Leicester City,Aston Villa
+1248,Timothy Castagne,27.0,be BEL,RB,90,74,5,23,30,22,6,66,1,2,50.0,1,0,44,147,96,46,41,89.1,1,0,10/18/20,Leicester City,Aston Villa
+1249,Kasper Schmeichel,1.0,dk DEN,GK,90,43,35,42,1,0,0,34,0,0,,0,0,26,108,78,24,24,100.0,0,0,10/18/20,Leicester City,Aston Villa
+1250,Ollie Watkins,11.0,eng ENG,FW,90,29,1,1,10,20,6,29,2,3,66.7,3,0,22,123,81,59,23,39.0,4,2,10/18/20,Aston Villa,Leicester City
+1251,Jack Grealish,10.0,eng ENG,LW,90,46,0,2,20,32,11,44,12,13,92.3,12,0,47,507,269,48,36,75.0,2,4,10/18/20,Aston Villa,Leicester City
+1252,Ross Barkley,20.0,eng ENG,AM,90,52,3,15,23,22,4,51,1,2,50.0,1,0,42,233,97,41,35,85.4,3,5,10/18/20,Aston Villa,Leicester City
+1253,Trezeguet,17.0,eg EGY,RW,80,38,4,13,13,16,5,38,3,3,100.0,3,1,25,121,75,27,18,66.7,1,1,10/18/20,Aston Villa,Leicester City
+1254,Bertrand Traore,15.0,bf BFA,RW,10,12,0,0,6,9,2,11,0,0,,0,0,10,109,33,12,11,91.7,0,1,10/18/20,Aston Villa,Leicester City
+1255,John McGinn,7.0,sco SCO,CM,90,41,2,6,17,21,2,36,1,1,100.0,1,0,33,160,74,30,22,73.3,0,3,10/18/20,Aston Villa,Leicester City
+1256,Douglas Luiz,6.0,br BRA,CM,90,44,5,12,30,5,1,44,0,0,,0,0,25,217,148,28,26,92.9,0,0,10/18/20,Aston Villa,Leicester City
+1257,Matt Targett,18.0,eng ENG,LB,90,70,3,15,34,23,1,56,0,0,,0,0,23,85,44,32,29,90.6,1,0,10/18/20,Aston Villa,Leicester City
+1258,Tyrone Mings,5.0,eng ENG,CB,90,55,11,39,21,2,1,54,1,1,100.0,1,0,36,228,112,43,41,95.3,0,0,10/18/20,Aston Villa,Leicester City
+1259,Ezri Konsa Ngoyo,4.0,eng ENG,CB,90,53,5,28,25,4,2,52,0,0,,0,0,33,223,141,34,33,97.1,0,0,10/18/20,Aston Villa,Leicester City
+1260,Matthew Cash,2.0,eng ENG,RB,90,63,7,21,34,11,1,55,0,0,,0,0,33,178,77,35,33,94.3,1,1,10/18/20,Aston Villa,Leicester City
+1261,Emiliano MartÃ­nez,26.0,ar ARG,GK,90,43,37,43,0,0,0,30,0,0,,0,0,24,76,49,21,21,100.0,0,0,10/18/20,Aston Villa,Leicester City
+1262,Karlan Grant,29.0,eng ENG,FW,72,23,2,3,11,11,4,22,0,0,,0,0,9,75,42,34,17,50.0,1,0,10/19/20,West Brom,Burnley
+1263,Callum Robinson,7.0,ie IRL,FW,18,6,0,0,3,4,0,6,0,1,0.0,0,0,2,33,19,15,4,26.7,1,1,10/19/20,West Brom,Burnley
+1264,Grady Diangana,11.0,eng ENG,LM,90,48,0,2,21,27,3,47,2,3,66.7,2,0,37,209,145,63,42,66.7,3,6,10/19/20,West Brom,Burnley
+1265,Filip Krovinovic,17.0,hr CRO,CM,78,66,0,5,48,15,1,64,0,0,,0,0,45,220,117,60,53,88.3,0,1,10/19/20,West Brom,Burnley
+1266,Romaine Sawyers,19.0,kn SKN,CM,12,10,0,3,8,1,0,9,0,0,,0,0,3,31,26,7,6,85.7,0,1,10/19/20,West Brom,Burnley
+1267,Conor Gallagher,18.0,eng ENG,CM,90,55,3,10,35,13,2,55,3,4,75.0,3,1,34,260,104,41,36,87.8,0,3,10/19/20,West Brom,Burnley
+1268,Matheus Pereira,12.0,br BRA,RM,87,56,0,4,28,31,2,44,0,2,0.0,1,0,30,256,133,44,35,79.5,2,0,10/19/20,West Brom,Burnley
+1269,Matt Phillips,10.0,sco SCO,RM,3,4,0,0,3,2,1,4,1,1,100.0,1,0,3,37,24,5,3,60.0,0,0,10/19/20,West Brom,Burnley
+1270,Jake Livermore,8.0,eng ENG,DM,90,45,2,12,30,4,1,45,0,0,,0,0,30,140,68,31,30,96.8,1,0,10/19/20,West Brom,Burnley
+1271,Conor Townsend,14.0,eng ENG,LB,90,74,3,18,45,14,2,65,0,0,,0,0,42,124,87,56,53,94.6,1,2,10/19/20,West Brom,Burnley
+1272,Ahmed Hegazi,26.0,eg EGY,CB,90,68,17,48,24,0,0,68,0,0,,0,0,32,165,62,32,32,100.0,1,0,10/19/20,West Brom,Burnley
+1273,Branislav Ivanovic,20.0,rs SRB,CB,90,63,14,35,25,5,4,62,0,0,,0,0,22,101,32,28,27,96.4,0,1,10/19/20,West Brom,Burnley
+1274,Darnell Furlong,2.0,eng ENG,RB,90,84,2,23,43,25,4,69,1,1,100.0,1,0,45,319,204,49,43,87.8,1,0,10/19/20,West Brom,Burnley
+1275,Sam Johnstone,1.0,eng ENG,GK,90,45,43,45,0,0,0,34,0,0,,0,0,19,136,72,16,16,100.0,0,0,10/19/20,West Brom,Burnley
+1276,Chris Wood,9.0,nz NZL,FW,90,34,0,0,12,24,9,34,0,1,0.0,0,0,20,88,28,62,30,48.4,2,3,10/19/20,Burnley,West Brom
+1277,Ashley Barnes,10.0,at AUT,FW,76,24,2,2,9,14,2,24,0,0,,0,0,14,48,30,37,18,48.6,2,1,10/19/20,Burnley,West Brom
+1278,Jay Rodriguez,19.0,eng ENG,FW,14,4,0,0,3,1,0,4,0,0,,0,0,2,5,1,10,4,40.0,1,0,10/19/20,Burnley,West Brom
+1279,Dwight McNeil,11.0,eng ENG,LM,90,59,0,8,29,31,5,53,6,7,85.7,6,0,46,485,268,43,36,83.7,1,3,10/19/20,Burnley,West Brom
+1280,Johann Gudmundsson,7.0,is ISL,RM,68,24,0,3,12,9,1,23,0,2,0.0,0,0,12,91,46,18,14,77.8,0,0,10/19/20,Burnley,West Brom
+1281,Robbie Brady,12.0,ie IRL,RM,22,15,0,1,8,7,0,14,0,0,,0,0,9,44,18,14,11,78.6,0,0,10/19/20,Burnley,West Brom
+1282,Josh Brownhill,8.0,eng ENG,DM,90,53,1,8,39,8,0,53,1,1,100.0,1,0,17,87,38,32,30,93.8,0,2,10/19/20,Burnley,West Brom
+1283,Ashley Westwood,18.0,eng ENG,DM,90,62,4,13,38,13,0,54,0,0,,0,0,26,103,35,41,35,85.4,0,0,10/19/20,Burnley,West Brom
+1284,Charlie Taylor,3.0,eng ENG,LB,90,70,5,18,40,16,0,60,1,2,50.0,1,0,34,280,121,36,34,94.4,1,2,10/19/20,Burnley,West Brom
+1285,James Tarkowski,5.0,eng ENG,CB,90,42,6,25,15,2,2,42,0,0,,0,0,14,49,8,17,15,88.2,1,1,10/19/20,Burnley,West Brom
+1286,Kevin Long,28.0,ie IRL,CB,90,36,2,20,16,0,0,35,0,0,,0,0,15,51,16,19,18,94.7,0,0,10/19/20,Burnley,West Brom
+1287,Erik Pieters,23.0,nl NED,RB,90,51,2,22,20,11,0,41,2,3,66.7,2,0,21,120,53,19,19,100.0,0,0,10/19/20,Burnley,West Brom
+1288,Nick Pope,1.0,eng ENG,GK,90,40,37,40,0,0,0,29,0,0,,0,0,15,137,78,12,12,100.0,0,0,10/19/20,Burnley,West Brom
+1289,Patrick Bamford,9.0,eng ENG,FW,90,14,0,1,4,9,4,12,0,0,,0,0,8,6,1,33,10,30.3,2,0,10/19/20,Leeds United,Wolves
+1290,Jack Harrison,22.0,eng ENG,LM,81,57,0,7,18,36,4,57,2,3,66.7,2,0,48,304,188,50,44,88.0,2,2,10/19/20,Leeds United,Wolves
+1291,Raphinha,18.0,br BRA,LM,9,11,0,1,4,6,3,9,0,0,,0,0,7,30,14,6,6,100.0,0,0,10/19/20,Leeds United,Wolves
+1292,Rodrigo Moreno,20.0,es ESP,CM,90,42,0,2,19,24,6,42,3,3,100.0,3,0,37,200,60,55,38,69.1,1,2,10/19/20,Leeds United,Wolves
+1293,Mateusz Klich,43.0,pl POL,CM,90,73,0,9,41,27,5,71,0,0,,0,0,55,305,132,58,51,87.9,0,2,10/19/20,Leeds United,Wolves
+1294,Helder Costa,17.0,pt POR,RM,70,31,1,1,13,20,5,31,2,6,33.3,3,0,24,198,131,29,23,79.3,0,1,10/19/20,Leeds United,Wolves
+1295,Ian Poveda-Ocampo,7.0,eng ENG,RM,20,9,0,1,2,6,1,9,1,1,100.0,1,1,8,37,16,13,7,53.8,0,0,10/19/20,Leeds United,Wolves
+1296,Kalvin Phillips,23.0,eng ENG,"DM,CB",90,90,2,23,50,20,0,79,0,0,,0,0,67,275,103,69,67,97.1,0,1,10/19/20,Leeds United,Wolves
+1297,Stuart Dallas,15.0,nir NIR,LB,90,83,3,26,42,19,1,74,0,1,0.0,0,0,55,255,140,53,50,94.3,0,0,10/19/20,Leeds United,Wolves
+1298,Pascal Struijk,21.0,nl NED,CB,74,55,7,24,33,1,0,52,0,0,,0,0,40,237,68,37,37,100.0,1,0,10/19/20,Leeds United,Wolves
+1299,Pablo Hernandez,19.0,es ESP,"CB,DM",16,31,0,2,17,15,2,30,1,1,100.0,1,0,26,117,75,30,27,90.0,0,0,10/19/20,Leeds United,Wolves
+1300,Robin Koch,5.0,de GER,CB,90,79,9,41,45,4,1,79,0,0,,0,0,53,453,284,51,50,98.0,0,1,10/19/20,Leeds United,Wolves
+1301,Luke Ayling,2.0,eng ENG,RB,90,94,5,26,44,32,3,86,0,0,,0,0,75,442,309,72,68,94.4,0,2,10/19/20,Leeds United,Wolves
+1302,Illan Meslier,1.0,fr FRA,GK,90,33,28,33,0,0,0,23,0,0,,0,0,19,65,18,16,16,100.0,0,0,10/19/20,Leeds United,Wolves
+1303,Daniel Podence,10.0,pt POR,FW,64,21,0,2,12,8,1,21,0,1,0.0,0,0,18,103,68,23,16,69.6,2,0,10/19/20,Wolves,Leeds United
+1304,Adama Traore,37.0,es ESP,FW,26,7,0,3,4,2,0,7,1,2,50.0,1,0,8,141,116,8,5,62.5,1,0,10/19/20,Wolves,Leeds United
+1305,Raul Jimenez,9.0,mx MEX,FW,90,42,3,5,25,15,5,42,3,5,60.0,4,0,29,201,67,38,32,84.2,2,2,10/19/20,Wolves,Leeds United
+1306,Pedro Neto,7.0,pt POR,CM,88,43,1,8,22,20,4,40,6,11,54.5,6,0,38,434,265,39,32,82.1,5,2,10/19/20,Wolves,Leeds United
+1307,Marcal,5.0,br BRA,CM,2,3,0,2,1,0,0,3,0,0,,0,0,1,0,0,1,1,100.0,0,0,10/19/20,Wolves,Leeds United
+1308,Leander Dendoncker,32.0,be BEL,CM,90,49,7,14,24,11,2,48,2,2,100.0,2,0,22,94,28,37,32,86.5,1,1,10/19/20,Wolves,Leeds United
+1309,Joao Moutinho,28.0,pt POR,DM,81,38,0,9,24,7,0,34,0,1,0.0,0,0,21,75,31,20,18,90.0,1,0,10/19/20,Wolves,Leeds United
+1310,Ruben Neves,8.0,pt POR,DM,9,9,3,6,2,2,1,9,0,0,,0,0,4,49,42,4,4,100.0,0,0,10/19/20,Wolves,Leeds United
+1311,Romain Saiss,27.0,ma MAR,WB,90,34,4,18,11,5,1,23,0,0,,0,0,9,27,10,12,10,83.3,0,0,10/19/20,Wolves,Leeds United
+1312,Nelson Semedo,22.0,pt POR,WB,90,53,8,23,23,11,0,36,4,6,66.7,4,0,22,184,75,13,12,92.3,0,0,10/19/20,Wolves,Leeds United
+1313,Maximilian Kilman,49.0,eng ENG,CB,90,32,9,26,11,0,0,30,1,1,100.0,1,0,15,184,125,9,9,100.0,0,0,10/19/20,Wolves,Leeds United
+1314,Conor Coady,16.0,eng ENG,CB,90,27,8,19,8,0,0,25,0,0,,0,0,17,118,27,12,12,100.0,0,0,10/19/20,Wolves,Leeds United
+1315,Willy Boly,15.0,fr FRA,CB,90,36,5,21,15,2,0,35,0,0,,0,0,20,102,50,17,17,100.0,0,0,10/19/20,Wolves,Leeds United
+1316,Rui PatrÃ­cio,11.0,pt POR,GK,90,31,28,31,0,0,0,15,0,0,,0,0,11,40,36,6,6,100.0,0,0,10/19/20,Wolves,Leeds United
