@@ -90,7 +90,7 @@ def driver(config_file, first_week_string, override):
         if override:
             new_df.to_csv(master_file)
         else:
-            with open(master_file) as f:
+            with open(master_file, 'a') as f:
                 f.write('\n')
             new_df.to_csv(master_file, mode='a', header=False)
 

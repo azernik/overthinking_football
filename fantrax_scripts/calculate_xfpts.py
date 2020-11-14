@@ -79,30 +79,37 @@ def driver(rules_config_file, weekly_results_file, fbref_expected_table_file, cs
     rules_dict = yaml.load(open(rules_config_file, 'r'), Loader=yaml.SafeLoader)
 
     weekly_results_df = pd.read_csv(weekly_results_file)
+    print("weekly fantrax data size: ", weekly_results_df.shape)
     fbref_weekly_df = pd.read_csv(fbref_expected_table_file)
-
+    print("weekly fbref data size: ", fbref_weekly_df.shape)
     
     cs_df = get_relevant_cs_df(cs_data_file)
+    print("clean sheet xg match data size: ", cs_df.shape)
+    print(cs_df.tail())
 
     #print(cs_df)
     #sys.exit()
     ## trim to the minute limit
     weekly_results_df = weekly_results_df.loc[(weekly_results_df['Min'] >= minute_requirement) & (weekly_results_df['SubOn'] == 0) & (weekly_results_df['GP'] == 1)]
-    print(weekly_results_df.head())
+    print("fantrax weekly results size post filter: ", weekly_results_df.shape)
     ## get grouped summary df
     season_results_df = weekly_results_df.groupby(['Player', 'Team', 'Position']).size().reset_index(name='valid_starts')
-    print(season_results_df.head())
+    print("fantrax weekly results grouped size: ", season_results_df.shape)
     #sys.exit()
     #print(season_results_df)
 
     ## next merge the fantrax weekly data with the weekly fbref data
+    #fix the date format of the fantrax weekly data
+    dates = convert_dates(list(fbref_weekly_df['Date']))
+    fbref_weekly_df['Date'] = dates
 
     fbref_data_merged_df = pd.merge(fbref_weekly_df, cs_df, on=['Team', 'Date'])
-    print(fbref_data_merged_df.head())
+    print("weekly fbref data merged with cs data size: ",fbref_data_merged_df.shape)
+    print(fbref_weekly_df.tail())
     #sys.exit()
 
     final_df = pd.merge(weekly_results_df, fbref_data_merged_df, on = ['Player', 'game_week'])
-    print(final_df.head())
+    print("Size of the final df: ",final_df.shape)
 
     calculate_xfpts(final_df, rules_dict)
     final_df.to_csv('~/Desktop/weekly_xfpts.20_21.csv')
@@ -199,6 +206,7 @@ def get_relevant_cs_df(cs_data_file):
     df = pd.read_csv(cs_data_file)
     #print(set(df['Date']))
     dates = convert_dates(list(df['Date']))
+    #dates = list(df['Date'])
     cs_dict = {'Team': list(df['Home']) + list(df['Away']),
                 'xG_against': list(df['xG.1']) + list(df['xG']),
                 'game_week': list(df['Wk']) + list(df['Wk']),
