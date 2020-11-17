@@ -1,7 +1,7 @@
 ---
 name_conversion_file: /Users/wbone/Desktop/overthinking_football/overthinking_football/data/fbref/premier_league/20_21/player_fantrax_fbref_conversion_dict.v3.json
 team_id_file: /Users/wbone/Desktop/overthinking_football/overthinking_football/data/fbref/premier_league/17_18/team_id.csv
-match_url_file: /Users/wbone/Desktop/overthinking_football/overthinking_football/data/fbref/premier_league/17_18/matches_2021_epl.txt
+match_url_file: /Users/wbone/Desktop/overthinking_football/overthinking_football/data/fbref/premier_league/17_18/matches_1718_epl.txt
 fbref_tables:
   summary: /Users/wbone/Desktop/overthinking_football/overthinking_football/data/fbref/premier_league/17_18/master.name_cleaned.summary_table.csv
   defense: /Users/wbone/Desktop/overthinking_football/overthinking_football/data/fbref/premier_league/17_18/master.name_cleaned.defense_table.csv
