@@ -80,6 +80,7 @@ def driver(weekly_xfpts_csv, season_long_xfpts_csv, output_file):
                       3: [50, 40, 60]}
 
     player_pwas_dict = {}
+    player_dict = {}
     for group in list(fwd_group_dict.keys()):
 
         ## FWDS
@@ -127,13 +128,13 @@ def driver(weekly_xfpts_csv, season_long_xfpts_csv, output_file):
 
             # MID
             mid_missing_formation = formation[:]
-            mid_missing_formation[0] -= 1
+            mid_missing_formation[1] -= 1 #NOTE should be 1 instead of 0?
             ww_mid_included_avg_game = get_game_results(starter_score_dict, mid_missing_formation, num_sample, ww_score_dict['M'])
             ww_mid_avg_game = ww_mid_avg_game + ww_mid_included_avg_game
 
             # FWD
             fwd_missing_formation = formation[:]
-            fwd_missing_formation[0] -= 1
+            fwd_missing_formation[2] -= 1 #NOTE should be 2 instead of 0?
             ww_fwd_included_avg_game = get_game_results(starter_score_dict, fwd_missing_formation, num_sample, ww_score_dict['F'])
             ww_fwd_avg_game = ww_fwd_avg_game + ww_fwd_included_avg_game
 
@@ -160,7 +161,7 @@ def driver(weekly_xfpts_csv, season_long_xfpts_csv, output_file):
 
         ## Next cycle through each player
         ## For all players SAMPLING procedure
-        player_dict = {}
+        #player_dict = {}
         for index, row in xfpts_df.iterrows():
             print(index)
             
@@ -225,18 +226,27 @@ def driver(weekly_xfpts_csv, season_long_xfpts_csv, output_file):
             pwas = win_percentage - 0.5
             games_missed = 38 - games
             try:
+                print(row)
                 player_dict[player][3] += pwas
                 player_dict[player][4] += ww_pwas
+                #print(pwas)
+                #print(ww_pwas)
+
             except KeyError:
                 player_dict[player] = [pos, games, games_missed, pwas, ww_pwas]
+               # print(player_dict[player])
 
     ## Finally clean up player dict
     final_player_dict = {}
     for player in player_dict:
         total_groups = len(list(fwd_group_dict.keys()))
+        #print(total_groups)
         pos, games, games_missed, pwas, ww_pwas = player_dict[player]
+        print(player_dict[player])
         avg_pwas = pwas / float(total_groups)
+        print(avg_pwas)
         avg_ww_pwas = ww_pwas / float(total_groups)
+        print(avg_ww_pwas)
         pwar = avg_pwas - avg_ww_pwas
         final_player_dict[player] = [pos, \
                                      games, \
