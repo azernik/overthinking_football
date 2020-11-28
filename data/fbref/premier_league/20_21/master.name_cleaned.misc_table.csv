@@ -2135,3 +2135,275 @@
 264,Ezri Konsa Ngoyo,4.0,eng ENG,CB,23-016,90,0,0,0,0,1,0,0,0,0,0,0,0,8,3,1,75.0,11/08/20,Aston Villa,Arsenal
 265,Matthew Cash,2.0,eng ENG,RB,23-093,90,0,0,0,1,0,0,1,0,1,0,0,0,8,4,1,80.0,11/08/20,Aston Villa,Arsenal
 266,Emiliano MartÃ­nez,26.0,ar ARG,GK,28-067,90,0,0,0,0,0,0,0,0,0,0,0,0,4,0,0,,11/08/20,Aston Villa,Arsenal
+
+0,Joelinton,9.0,br BRA,FW,24-099,90,0,0,0,1,5,1,1,0,0,0,0,0,6,2,8,20.0,11/21/20,Newcastle Utd,Chelsea
+1,Allan Saint-Maximin,10.0,fr FRA,LW,23-254,73,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,,11/21/20,Newcastle Utd,Chelsea
+2,Andy Carroll,7.0,eng ENG,LW,31-320,17,0,0,0,0,0,1,0,0,0,0,0,0,0,3,5,37.5,11/21/20,Newcastle Utd,Chelsea
+3,Jacob Murphy,23.0,eng ENG,"RW,WB",25-271,90,1,0,0,3,1,0,2,1,0,0,0,0,11,0,1,0.0,11/21/20,Newcastle Utd,Chelsea
+4,Isaac Hayden,14.0,eng ENG,DM,25-244,90,1,0,0,4,0,0,0,4,0,0,0,0,7,0,0,,11/21/20,Newcastle Utd,Chelsea
+5,Sean Longstaff,36.0,eng ENG,DM,23-022,90,0,0,0,0,1,0,0,1,0,0,0,0,12,0,0,,11/21/20,Newcastle Utd,Chelsea
+6,Jamal Lewis,15.0,nir NIR,WB,22-301,90,0,0,0,1,0,0,3,0,3,0,0,0,6,0,0,,11/21/20,Newcastle Utd,Chelsea
+7,Javier Manquillo,19.0,es ESP,WB,26-200,64,0,0,0,0,0,0,0,0,0,0,0,0,6,1,3,25.0,11/21/20,Newcastle Utd,Chelsea
+8,Miguel Almiron,24.0,py PAR,"RW,WB",26-285,26,0,0,0,0,2,0,1,0,0,0,0,0,5,0,0,,11/21/20,Newcastle Utd,Chelsea
+9,Ciaran Clark,2.0,ie IRL,CB,31-056,90,0,0,0,1,0,0,0,0,0,0,0,0,8,2,0,100.0,11/21/20,Newcastle Utd,Chelsea
+10,Jamaal Lascelles,6.0,eng ENG,CB,27-010,45,0,0,0,0,2,0,0,1,1,0,0,0,5,3,0,100.0,11/21/20,Newcastle Utd,Chelsea
+11,Fabian Schar,5.0,ch SUI,CB,28-337,45,0,0,0,1,1,0,1,0,0,0,0,0,6,0,3,0.0,11/21/20,Newcastle Utd,Chelsea
+12,Federico Fernandez,18.0,ar ARG,CB,31-274,90,0,0,0,0,0,0,2,0,0,0,0,1,6,0,1,0.0,11/21/20,Newcastle Utd,Chelsea
+13,Karl Darlow,26.0,eng ENG,GK,30-044,90,0,0,0,0,0,0,0,0,0,0,0,0,3,0,0,,11/21/20,Newcastle Utd,Chelsea
+14,Tammy Abraham,9.0,eng ENG,FW,23-050,90,0,0,0,4,2,0,0,1,0,0,0,0,4,4,4,50.0,11/21/20,Chelsea,Newcastle Utd
+15,Timo Werner,11.0,de GER,LW,24-260,75,0,0,0,0,0,1,1,0,1,0,0,0,3,0,1,0.0,11/21/20,Chelsea,Newcastle Utd
+16,Callum Hudson-Odoi,20.0,eng ENG,LW,20-014,15,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,,11/21/20,Chelsea,Newcastle Utd
+17,Hakim Ziyech,22.0,ma MAR,RW,27-247,86,0,0,0,1,1,0,2,1,0,0,0,0,6,0,1,0.0,11/21/20,Chelsea,Newcastle Utd
+18,Olivier Giroud,18.0,fr FRA,RW,34-052,4,0,0,0,0,0,1,0,0,0,0,0,0,0,1,0,100.0,11/21/20,Chelsea,Newcastle Utd
+19,Mason Mount,19.0,eng ENG,CM,21-316,90,0,0,0,0,2,0,2,0,0,0,0,0,11,0,0,,11/21/20,Chelsea,Newcastle Utd
+20,Mateo Kovacic,17.0,hr CRO,CM,26-199,90,0,0,0,1,1,0,1,0,0,0,0,0,5,0,1,0.0,11/21/20,Chelsea,Newcastle Utd
+21,N'Golo Kante,7.0,fr FRA,DM,29-237,90,0,0,0,1,0,0,0,2,2,0,0,0,14,0,1,0.0,11/21/20,Chelsea,Newcastle Utd
+22,Ben Chilwell,21.0,eng ENG,LB,23-336,81,0,0,0,1,2,0,2,0,2,0,0,0,6,2,0,100.0,11/21/20,Chelsea,Newcastle Utd
+23,Emerson,33.0,it ITA,LB,26-110,9,0,0,0,1,0,0,0,0,1,0,0,0,0,0,0,,11/21/20,Chelsea,Newcastle Utd
+24,Antonio Rudiger,2.0,de GER,CB,27-263,90,0,0,0,1,0,0,0,0,0,0,0,0,7,3,1,75.0,11/21/20,Chelsea,Newcastle Utd
+25,Kurt Zouma,15.0,fr FRA,CB,26-025,90,0,0,0,1,1,0,0,0,0,0,0,0,13,8,2,80.0,11/21/20,Chelsea,Newcastle Utd
+26,Reece James,24.0,eng ENG,RB,20-349,90,0,0,0,1,1,0,2,1,0,0,0,0,10,3,0,100.0,11/21/20,Chelsea,Newcastle Utd
+27,Edouard Mendy,16.0,sn SEN,GK,28-265,90,0,0,0,0,0,0,0,0,0,0,0,0,6,0,0,,11/21/20,Chelsea,Newcastle Utd
+28,Ollie Watkins,11.0,eng ENG,FW,24-327,90,0,0,0,0,0,0,1,0,1,0,0,0,0,1,3,25.0,11/21/20,Aston Villa,Brighton
+29,Jack Grealish,10.0,eng ENG,"LW,AM",25-072,90,1,0,0,1,7,0,4,1,1,0,0,0,14,1,1,50.0,11/21/20,Aston Villa,Brighton
+30,Trezeguet,17.0,eg EGY,"RW,LW",26-051,90,0,0,0,1,1,1,3,1,1,0,0,0,7,2,2,50.0,11/21/20,Aston Villa,Brighton
+31,Ross Barkley,20.0,eng ENG,AM,26-352,4,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,,11/21/20,Aston Villa,Brighton
+32,Bertrand Traore,15.0,bf BFA,AM,25-076,69,0,0,0,1,3,1,5,0,0,0,0,0,0,0,2,0.0,11/21/20,Aston Villa,Brighton
+33,Anwar El Ghazi,21.0,nl NED,"RW,AM",25-202,17,0,0,0,0,0,0,4,0,0,0,0,0,0,0,0,,11/21/20,Aston Villa,Brighton
+34,John McGinn,7.0,sco SCO,CM,26-034,90,0,0,0,1,3,0,2,0,0,0,0,0,12,0,2,0.0,11/21/20,Aston Villa,Brighton
+35,Douglas Luiz,6.0,br BRA,CM,22-196,74,0,0,0,0,1,0,0,0,0,0,0,0,7,1,1,50.0,11/21/20,Aston Villa,Brighton
+36,Conor Hourihane,14.0,ie IRL,CM,29-293,16,0,0,0,0,0,0,2,0,0,0,0,0,1,0,0,,11/21/20,Aston Villa,Brighton
+37,Matt Targett,18.0,eng ENG,LB,25-064,90,1,0,0,1,1,0,2,0,1,0,0,0,8,0,0,,11/21/20,Aston Villa,Brighton
+38,Tyrone Mings,5.0,eng ENG,CB,27-253,90,0,0,0,1,1,0,0,0,1,0,0,0,14,3,1,75.0,11/21/20,Aston Villa,Brighton
+39,Ezri Konsa Ngoyo,4.0,eng ENG,CB,23-029,90,0,0,0,0,1,0,0,1,0,0,0,0,10,2,2,50.0,11/21/20,Aston Villa,Brighton
+40,Matthew Cash,2.0,eng ENG,RB,23-106,90,0,0,0,0,1,0,5,2,1,0,0,0,14,1,1,50.0,11/21/20,Aston Villa,Brighton
+41,Emiliano MartÃ­nez,26.0,ar ARG,GK,28-080,90,0,0,0,0,0,0,0,0,0,0,0,0,8,0,0,,11/21/20,Aston Villa,Brighton
+42,Neal Maupay,9.0,fr FRA,FW,24-099,79,0,0,0,3,2,0,0,1,0,0,0,0,3,1,1,50.0,11/21/20,Brighton,Aston Villa
+43,Dan Burn,33.0,eng ENG,FW,28-196,11,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,50.0,11/21/20,Brighton,Aston Villa
+44,Danny Welbeck,18.0,eng ENG,FW,29-361,90,0,0,0,1,0,0,0,0,2,0,0,0,3,1,2,33.3,11/21/20,Brighton,Aston Villa
+45,Adam Lallana,14.0,eng ENG,AM,32-195,45,0,0,0,0,0,0,0,1,1,0,0,0,1,0,1,0.0,11/21/20,Brighton,Aston Villa
+46,Joel Veltman,34.0,nl NED,AM,28-311,45,0,0,0,0,0,0,0,2,3,0,0,0,2,0,2,0.0,11/21/20,Brighton,Aston Villa
+47,Pascal Gross,13.0,de GER,DM,29-159,89,0,0,0,3,1,0,3,1,0,0,0,0,6,3,1,75.0,11/21/20,Brighton,Aston Villa
+48,Jayson Molumby,49.0,ie IRL,DM,21-107,1,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,,11/21/20,Brighton,Aston Villa
+49,Yves Bissouma,8.0,ml MLI,DM,24-083,90,1,0,0,4,1,0,0,3,2,0,0,0,10,4,0,100.0,11/21/20,Brighton,Aston Villa
+50,Solly March,20.0,eng ENG,WB,26-124,90,0,0,0,1,0,0,5,0,5,0,0,0,3,0,1,0.0,11/21/20,Brighton,Aston Villa
+51,Tariq Lamptey,2.0,eng ENG,WB,20-052,89,2,1,1,4,2,0,5,4,1,0,0,0,8,0,0,,11/21/20,Brighton,Aston Villa
+52,Adam Webster,4.0,eng ENG,CB,25-322,90,0,0,0,0,0,0,0,2,0,0,0,0,9,2,1,66.7,11/21/20,Brighton,Aston Villa
+53,Lewis Dunk,5.0,eng ENG,CB,29-000,90,0,0,0,0,0,0,0,2,0,0,0,0,5,2,0,100.0,11/21/20,Brighton,Aston Villa
+54,Ben White,3.0,eng ENG,CB,23-044,90,0,0,0,2,0,0,0,3,0,0,0,0,3,1,1,50.0,11/21/20,Brighton,Aston Villa
+55,Mathew Ryan,1.0,au AUS,GK,28-227,90,0,0,0,0,0,0,0,0,0,0,0,0,3,0,0,,11/21/20,Brighton,Aston Villa
+56,Harry Kane,10.0,eng ENG,FW,27-116,90,1,0,0,2,6,1,0,0,2,0,0,0,4,0,2,0.0,11/21/20,Tottenham,Manchester City
+57,Steven Bergwijn,23.0,nl NED,LW,23-044,72,0,0,0,1,2,0,0,0,0,0,0,0,4,0,0,,11/21/20,Tottenham,Manchester City
+58,Lucas Moura,27.0,br BRA,LW,28-100,18,0,0,0,0,1,0,0,1,1,0,0,0,1,0,1,0.0,11/21/20,Tottenham,Manchester City
+59,Son Heung-Min,7.0,kr KOR,RW,28-136,90,0,0,0,0,2,0,1,0,0,0,0,0,4,1,2,33.3,11/21/20,Tottenham,Manchester City
+60,Tanguy Ndombele,28.0,fr FRA,AM,23-329,64,0,0,0,0,0,0,0,0,2,0,0,0,2,0,1,0.0,11/21/20,Tottenham,Manchester City
+61,Giovani Lo Celso,18.0,ar ARG,AM,24-226,26,0,0,0,0,1,0,0,1,1,0,0,0,2,0,0,,11/21/20,Tottenham,Manchester City
+62,Pierre-Emile Hojbjerg,5.0,dk DEN,DM,25-108,90,0,0,0,4,1,0,0,0,5,0,0,0,8,1,1,50.0,11/21/20,Tottenham,Manchester City
+63,Moussa Sissoko,17.0,fr FRA,DM,31-097,90,1,0,0,1,0,0,0,2,1,0,0,0,8,1,1,50.0,11/21/20,Tottenham,Manchester City
+64,Sergio Reguilon,3.0,es ESP,LB,23-341,90,0,0,0,1,2,0,1,1,5,0,0,0,7,0,0,,11/21/20,Tottenham,Manchester City
+65,Eric Dier,15.0,eng ENG,CB,26-311,90,0,0,0,1,0,0,0,1,1,0,0,0,4,2,1,66.7,11/21/20,Tottenham,Manchester City
+66,Toby Alderweireld,4.0,be BEL,CB,31-264,80,0,0,0,1,0,0,0,1,1,0,0,0,3,1,0,100.0,11/21/20,Tottenham,Manchester City
+67,Joe Rodon,14.0,wal WAL,CB,23-030,10,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,,11/21/20,Tottenham,Manchester City
+68,Serge Aurier,24.0,ci CIV,RB,27-333,90,0,0,0,2,1,0,0,2,4,0,0,0,7,2,2,50.0,11/21/20,Tottenham,Manchester City
+69,Hugo Lloris,1.0,fr FRA,GK,33-331,90,0,0,0,0,0,0,0,0,0,0,0,0,3,0,0,,11/21/20,Tottenham,Manchester City
+70,Gabriel Jesus,9.0,br BRA,FW,23-232,90,0,0,0,2,4,2,0,1,2,0,0,0,5,0,1,0.0,11/21/20,Manchester City,Tottenham
+71,Ferran Torres,21.0,es ESP,"LW,RW",20-266,90,1,0,0,1,0,0,3,0,1,0,0,0,5,1,2,33.3,11/21/20,Manchester City,Tottenham
+72,Riyad Mahrez,26.0,dz ALG,RW,29-274,71,0,0,0,3,0,0,2,0,2,0,0,0,2,0,0,,11/21/20,Manchester City,Tottenham
+73,Raheem Sterling,7.0,eng ENG,"LW,RW",25-349,19,0,0,0,0,1,0,0,1,0,0,0,0,1,0,0,,11/21/20,Manchester City,Tottenham
+74,Bernardo Silva,20.0,pt POR,CM,26-103,71,0,0,0,1,1,0,1,1,0,0,0,0,6,2,2,50.0,11/21/20,Manchester City,Tottenham
+75,Phil Foden,47.0,eng ENG,CM,20-177,19,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,,11/21/20,Manchester City,Tottenham
+76,Kevin De Bruyne,17.0,be BEL,CM,29-146,90,0,0,0,1,4,0,4,0,0,0,0,0,7,0,0,,11/21/20,Manchester City,Tottenham
+77,Rodrigo,16.0,es ESP,DM,24-152,90,0,0,0,0,0,0,0,0,4,0,0,0,15,2,0,100.0,11/21/20,Manchester City,Tottenham
+78,Joao Cancelo,27.0,pt POR,LB,26-178,90,0,0,0,3,0,0,1,2,0,0,0,0,14,1,0,100.0,11/21/20,Manchester City,Tottenham
+79,Aymeric Laporte,14.0,fr FRA,CB,26-178,90,0,0,0,2,1,0,0,1,1,0,0,0,16,3,3,50.0,11/21/20,Manchester City,Tottenham
+80,Ruben Dias,3.0,pt POR,CB,23-191,90,1,0,0,3,2,0,0,0,0,0,0,0,15,2,0,100.0,11/21/20,Manchester City,Tottenham
+81,Kyle Walker,2.0,eng ENG,RB,30-177,90,0,0,0,3,0,0,1,1,4,0,0,0,15,0,0,,11/21/20,Manchester City,Tottenham
+82,Ederson,31.0,br BRA,GK,27-096,90,0,0,0,0,0,0,0,0,0,0,0,0,3,0,0,,11/21/20,Manchester City,Tottenham
+83,Anthony Martial,9.0,fr FRA,"FW,LW",24-352,90,0,0,0,0,2,0,2,0,0,0,0,0,5,4,1,80.0,11/21/20,Manchester Utd,West Brom
+84,Marcus Rashford,10.0,eng ENG,"LW,RW",23-021,78,0,0,0,2,2,0,1,0,0,0,0,0,3,0,0,,11/21/20,Manchester Utd,West Brom
+85,Donny van de Beek,34.0,nl NED,RW,23-217,12,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,,11/21/20,Manchester Utd,West Brom
+86,Juan Mata,8.0,es ESP,RW,32-207,62,0,0,0,0,1,0,2,0,0,0,0,0,2,0,0,,11/21/20,Manchester Utd,West Brom
+87,Edinson Cavani,7.0,uy URU,"FW,RW",33-281,28,1,0,0,1,1,1,1,1,0,0,0,0,2,1,0,100.0,11/21/20,Manchester Utd,West Brom
+88,Bruno Fernandes,18.0,pt POR,AM,26-074,90,0,0,0,1,3,0,0,0,0,0,0,0,11,1,0,100.0,11/21/20,Manchester Utd,West Brom
+89,Fred,17.0,br BRA,CM,27-261,83,0,0,0,2,3,0,1,1,1,0,0,0,13,0,0,,11/21/20,Manchester Utd,West Brom
+90,Scott McTominay,39.0,sco SCO,CM,23-349,7,0,0,0,0,1,0,0,0,0,0,0,0,1,0,0,,11/21/20,Manchester Utd,West Brom
+91,Nemanja Matic,31.0,rs SRB,CM,32-112,90,0,0,0,2,1,0,0,0,3,0,0,0,15,3,0,100.0,11/21/20,Manchester Utd,West Brom
+92,Alex Telles,27.0,br BRA,LB,27-342,90,0,0,0,1,2,0,2,2,0,0,0,0,14,2,0,100.0,11/21/20,Manchester Utd,West Brom
+93,Harry Maguire,5.0,eng ENG,CB,27-261,90,0,0,0,2,0,0,0,3,0,0,0,0,14,4,2,66.7,11/21/20,Manchester Utd,West Brom
+94,Victor Lindelof,2.0,se SWE,CB,26-127,90,0,0,0,0,0,0,0,0,0,0,0,0,11,1,0,100.0,11/21/20,Manchester Utd,West Brom
+95,Aaron Wan-Bissaka,29.0,eng ENG,RB,22-361,90,0,0,0,1,0,0,2,1,2,0,0,0,19,2,0,100.0,11/21/20,Manchester Utd,West Brom
+96,David de Gea,1.0,es ESP,GK,30-014,90,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,,11/21/20,Manchester Utd,West Brom
+97,Karlan Grant,29.0,eng ENG,FW,23-064,61,0,0,0,0,1,0,1,0,0,0,0,0,4,0,6,0.0,11/21/20,West Brom,Manchester Utd
+98,Callum Robinson,7.0,ie IRL,FW,25-293,29,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,,11/21/20,West Brom,Manchester Utd
+99,Grady Diangana,11.0,eng ENG,AM,22-216,61,0,0,0,1,0,1,0,0,1,0,0,0,4,0,2,0.0,11/21/20,West Brom,Manchester Utd
+100,Hal Robson-Kanu,4.0,wal WAL,AM,31-184,29,0,0,0,2,0,0,0,0,0,0,0,0,1,0,0,,11/21/20,West Brom,Manchester Utd
+101,Matheus Pereira,12.0,br BRA,AM,24-200,90,0,0,0,5,3,1,2,2,0,0,0,0,12,0,0,,11/21/20,West Brom,Manchester Utd
+102,Conor Gallagher,18.0,eng ENG,CM,20-289,90,1,0,0,1,2,0,0,1,2,0,0,0,9,0,2,0.0,11/21/20,West Brom,Manchester Utd
+103,Romaine Sawyers,19.0,kn SKN,CM,29-019,90,0,0,0,1,1,0,0,1,3,0,0,0,11,0,0,,11/21/20,West Brom,Manchester Utd
+104,Conor Townsend,14.0,eng ENG,WB,27-262,90,0,0,0,0,1,0,0,4,1,0,0,0,3,0,1,0.0,11/21/20,West Brom,Manchester Utd
+105,Darnell Furlong,2.0,eng ENG,WB,25-021,90,0,0,0,3,2,0,1,1,0,0,1,0,11,1,3,25.0,11/21/20,West Brom,Manchester Utd
+106,Kyle Bartley,5.0,eng ENG,CB,29-183,90,0,0,0,1,0,0,0,1,0,0,0,0,6,1,0,100.0,11/21/20,West Brom,Manchester Utd
+107,Branislav Ivanovic,20.0,rs SRB,CB,36-273,78,0,0,0,1,1,0,0,0,1,0,0,0,7,1,2,33.3,11/21/20,West Brom,Manchester Utd
+108,Filip Krovinovic,17.0,hr CRO,CB,25-084,12,0,0,0,1,0,0,0,0,2,0,0,0,2,0,1,0.0,11/21/20,West Brom,Manchester Utd
+109,Semi Ajayi,6.0,ng NGA,CB,27-012,90,0,0,0,3,0,0,0,5,4,0,0,0,11,0,1,0.0,11/21/20,West Brom,Manchester Utd
+110,Sam Johnstone,1.0,eng ENG,GK,27-241,90,0,0,0,0,0,0,0,0,0,0,0,0,5,0,0,,11/21/20,West Brom,Manchester Utd
+111,Ivan Cavaleiro,17.0,pt POR,"FW,LW",27-035,90,0,0,0,2,0,1,1,0,0,0,0,0,6,0,3,0.0,11/22/20,Fulham,Everton
+112,Ademola Lookman,19.0,eng ENG,"LW,RW",23-033,90,0,0,0,0,0,0,4,0,2,0,0,0,4,0,2,0.0,11/22/20,Fulham,Everton
+113,Bobby De Cordova-Reid,14.0,jm JAM,RW,27-294,57,1,0,0,0,0,0,2,0,0,0,0,0,0,0,0,,11/22/20,Fulham,Everton
+114,Ruben Loftus-Cheek,15.0,eng ENG,"AM,RW",24-304,33,0,0,0,2,3,0,0,0,0,1,0,0,4,1,1,50.0,11/22/20,Fulham,Everton
+115,Tom Cairney,10.0,sco SCO,AM,29-307,57,0,0,0,0,1,1,0,0,1,0,0,0,3,1,1,50.0,11/22/20,Fulham,Everton
+116,Aleksandar Mitrovic,9.0,rs SRB,"FW,AM",26-067,33,0,0,0,0,0,0,0,0,0,0,0,0,2,1,3,25.0,11/22/20,Fulham,Everton
+117,Mario Lemina,18.0,ga GAB,DM,27-082,68,0,0,0,1,0,0,0,1,0,0,0,0,3,0,0,,11/22/20,Fulham,Everton
+118,Andre-Frank Zambo Anguissa,29.0,cm CMR,DM,25-006,22,0,0,0,2,0,0,0,0,2,0,0,0,7,0,0,,11/22/20,Fulham,Everton
+119,Harrison Reed,21.0,eng ENG,DM,25-300,90,0,0,0,3,0,0,0,1,1,0,0,0,17,0,1,0.0,11/22/20,Fulham,Everton
+120,Antonee Robinson,33.0,us USA,LB,23-106,90,1,0,0,1,0,0,4,1,0,0,0,0,10,0,1,0.0,11/22/20,Fulham,Everton
+121,Tosin Adarabioyo,16.0,eng ENG,CB,23-059,90,0,0,0,0,0,0,0,0,0,0,0,0,15,3,1,75.0,11/22/20,Fulham,Everton
+122,Joachim Andersen,5.0,dk DEN,CB,24-175,90,0,0,0,2,2,0,0,1,0,0,0,0,20,5,0,100.0,11/22/20,Fulham,Everton
+123,Ola Aina,34.0,ng NGA,RB,24-045,90,0,0,0,1,2,0,2,2,2,0,0,0,9,1,3,25.0,11/22/20,Fulham,Everton
+124,Alphonse Areola,1.0,fr FRA,GK,27-269,90,0,0,0,0,0,0,0,0,0,0,0,0,5,0,0,,11/22/20,Fulham,Everton
+125,Dominic Calvert-Lewin,9.0,eng ENG,FW,23-251,90,0,0,0,2,3,2,1,0,1,0,0,0,4,5,7,41.7,11/22/20,Everton,Fulham
+126,Richarlison,7.0,br BRA,LW,23-196,75,0,0,0,0,3,1,1,0,2,0,0,0,9,0,0,,11/22/20,Everton,Fulham
+127,Gylfi Sigurdsson,10.0,is ISL,LW,31-075,15,0,0,0,1,0,0,0,0,0,0,0,0,3,0,0,,11/22/20,Everton,Fulham
+128,James Rodriguez,19.0,co COL,RW,29-133,73,0,0,0,1,1,0,2,1,2,0,0,0,6,0,0,,11/22/20,Everton,Fulham
+129,Tom Davies,26.0,eng ENG,RW,22-145,17,0,0,0,0,1,0,1,1,0,0,0,0,4,0,0,,11/22/20,Everton,Fulham
+130,Allan,6.0,br BRA,DM,29-319,90,0,0,0,3,1,0,0,3,1,0,0,0,15,0,0,,11/22/20,Everton,Fulham
+131,Abdoulaye Doucoure,16.0,fr FRA,DM,27-326,90,0,0,0,0,1,0,1,5,2,0,0,0,14,0,1,0.0,11/22/20,Everton,Fulham
+132,Lucas Digne,12.0,fr FRA,WB,27-125,90,0,0,0,1,2,0,4,0,2,0,0,0,7,3,0,100.0,11/22/20,Everton,Fulham
+133,Alex Iwobi,17.0,ng NGA,WB,24-203,90,0,0,0,0,1,0,5,3,1,0,0,0,11,0,0,,11/22/20,Everton,Fulham
+134,Michael Keane,5.0,eng ENG,CB,27-316,90,0,0,0,1,0,0,0,2,0,0,0,0,16,5,2,71.4,11/22/20,Everton,Fulham
+135,Yerry Mina,13.0,co COL,CB,26-060,90,0,0,0,0,0,0,0,0,2,0,0,0,3,0,1,0.0,11/22/20,Everton,Fulham
+136,Ben Godfrey,22.0,eng ENG,CB,22-312,90,0,0,0,1,0,0,0,1,0,0,1,0,9,3,1,75.0,11/22/20,Everton,Fulham
+137,Jordan Pickford,1.0,eng ENG,GK,26-260,90,0,0,0,0,0,0,0,0,0,0,0,0,6,0,0,,11/22/20,Everton,Fulham
+138,David McGoldrick,17.0,ie IRL,"FW,AM",32-359,90,0,0,0,2,0,2,1,3,0,0,0,0,8,0,2,0.0,11/22/20,Sheffield Utd,West Ham
+139,Oliver McBurnie,9.0,sco SCO,FW,24-171,90,0,0,0,1,1,0,0,1,0,0,0,0,3,8,8,50.0,11/22/20,Sheffield Utd,West Ham
+140,John Fleck,4.0,sco SCO,"CM,DM",29-090,90,0,0,0,0,1,0,0,1,0,0,0,0,12,2,0,100.0,11/22/20,Sheffield Utd,West Ham
+141,Sander Berge,8.0,no NOR,"CM,DM",22-282,90,0,0,0,0,0,0,2,0,4,0,0,0,6,1,3,25.0,11/22/20,Sheffield Utd,West Ham
+142,Oliver Norwood,16.0,nir NIR,DM,29-224,64,0,0,0,0,0,0,1,2,0,0,0,0,14,0,1,0.0,11/22/20,Sheffield Utd,West Ham
+143,Rhian Brewster,24.0,eng ENG,"FW,DM",20-235,26,0,0,0,1,0,1,1,0,1,0,0,0,2,0,2,0.0,11/22/20,Sheffield Utd,West Ham
+144,Max Lowe,13.0,eng ENG,WB,23-195,90,0,0,0,1,2,0,5,1,4,0,0,0,7,2,2,50.0,11/22/20,Sheffield Utd,West Ham
+145,George Baldock,2.0,eng ENG,WB,27-258,90,0,0,0,0,0,0,2,1,0,0,0,0,12,1,1,50.0,11/22/20,Sheffield Utd,West Ham
+146,Ethan Ampadu,22.0,wal WAL,CB,20-069,61,0,0,0,1,1,1,0,0,1,0,0,0,4,2,5,28.6,11/22/20,Sheffield Utd,West Ham
+147,Jack Robinson,19.0,eng ENG,CB,27-082,29,0,0,0,1,0,0,1,1,0,0,0,0,3,0,3,0.0,11/22/20,Sheffield Utd,West Ham
+148,John Egan,12.0,ie IRL,CB,28-033,90,0,0,0,0,1,0,0,2,2,0,0,0,11,4,2,66.7,11/22/20,Sheffield Utd,West Ham
+149,Chris Basham,6.0,eng ENG,CB,32-125,75,0,0,0,0,0,0,2,1,0,0,0,0,12,2,2,50.0,11/22/20,Sheffield Utd,West Ham
+150,John Lundstram,7.0,eng ENG,CB,26-278,15,0,0,0,0,0,0,0,0,0,0,0,0,3,1,0,100.0,11/22/20,Sheffield Utd,West Ham
+151,Aaron Ramsdale,1.0,eng ENG,GK,22-192,90,0,0,0,0,0,0,0,0,0,0,0,0,4,0,0,,11/22/20,Sheffield Utd,West Ham
+152,Sebastien Haller,22.0,ci CIV,FW,26-153,90,0,0,0,1,1,2,1,0,1,0,0,0,6,11,6,64.7,11/22/20,West Ham,Sheffield Utd
+153,Pablo Fornals,18.0,es ESP,AM,24-274,75,0,0,0,0,0,0,1,0,0,0,0,0,4,0,1,0.0,11/22/20,West Ham,Sheffield Utd
+154,Manuel Lanzini,10.0,ar ARG,AM,27-281,15,0,0,0,0,0,0,0,0,0,0,0,0,3,0,0,,11/22/20,West Ham,Sheffield Utd
+155,Jarrod Bowen,20.0,eng ENG,AM,23-338,89,0,0,0,0,2,0,2,1,0,0,0,0,8,2,5,28.6,11/22/20,West Ham,Sheffield Utd
+156,Mark Noble,16.0,eng ENG,AM,33-198,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,,11/22/20,West Ham,Sheffield Utd
+157,Tomas Soucek,28.0,cz CZE,DM,25-269,90,0,0,0,1,0,0,0,0,0,0,0,0,16,7,2,77.8,11/22/20,West Ham,Sheffield Utd
+158,Declan Rice,41.0,eng ENG,DM,21-313,90,0,0,0,1,1,0,1,2,4,0,0,0,11,1,0,100.0,11/22/20,West Ham,Sheffield Utd
+159,Arthur Masuaku,26.0,cd COD,WB,27-015,90,0,0,0,0,0,0,1,1,0,0,0,0,9,1,3,25.0,11/22/20,West Ham,Sheffield Utd
+160,Vladimir Coufal,5.0,cz CZE,WB,28-092,90,0,0,0,2,0,0,3,1,2,0,0,0,10,1,2,33.3,11/22/20,West Ham,Sheffield Utd
+161,Aaron Cresswell,3.0,eng ENG,CB,30-343,90,0,0,0,0,2,0,0,0,0,0,0,0,10,0,2,0.0,11/22/20,West Ham,Sheffield Utd
+162,Angelo Ogbonna,21.0,it ITA,CB,32-183,90,0,0,0,1,0,0,0,0,0,0,0,0,14,6,0,100.0,11/22/20,West Ham,Sheffield Utd
+163,Fabian Balbuena,4.0,py PAR,CB,29-091,90,0,0,0,0,1,0,1,1,1,0,0,0,9,2,2,50.0,11/22/20,West Ham,Sheffield Utd
+164,Åukasz FabiaÅski,1.0,pl POL,GK,35-218,90,0,0,0,0,0,0,0,0,0,0,0,0,4,0,0,,11/22/20,West Ham,Sheffield Utd
+165,Patrick Bamford,9.0,eng ENG,FW,27-078,90,0,0,0,0,1,0,0,0,0,0,0,0,1,3,0,100.0,11/22/20,Leeds United,Arsenal
+166,Jack Harrison,22.0,eng ENG,LM,24-002,79,0,0,0,1,1,0,5,0,1,0,0,0,8,1,1,50.0,11/22/20,Leeds United,Arsenal
+167,Ian Poveda-Ocampo,7.0,eng ENG,RM,20-287,11,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,,11/22/20,Leeds United,Arsenal
+168,Stuart Dallas,15.0,nir NIR,"CM,RB",29-217,90,1,0,0,1,0,0,2,1,0,0,0,0,11,1,0,100.0,11/22/20,Leeds United,Arsenal
+169,Mateusz Klich,43.0,pl POL,CM,30-162,90,0,0,0,0,0,0,2,0,1,0,0,0,9,0,0,,11/22/20,Leeds United,Arsenal
+170,Raphinha,18.0,br BRA,"RM,LM",23-344,90,0,0,0,1,0,0,2,1,1,0,0,0,6,0,0,,11/22/20,Leeds United,Arsenal
+171,Kalvin Phillips,23.0,eng ENG,DM,24-356,90,1,0,0,2,2,0,2,3,0,0,0,0,13,0,2,0.0,11/22/20,Leeds United,Arsenal
+172,Ezgjan Alioski,10.0,mk MKD,LB,28-284,90,0,0,0,0,3,0,2,4,2,0,0,0,9,0,4,0.0,11/22/20,Leeds United,Arsenal
+173,Liam Cooper,6.0,sco SCO,CB,29-084,90,1,0,0,3,1,0,0,5,0,0,0,0,19,6,2,75.0,11/22/20,Leeds United,Arsenal
+174,Robin Koch,5.0,de GER,CB,24-128,90,0,0,0,1,0,0,1,2,1,0,0,0,9,0,1,0.0,11/22/20,Leeds United,Arsenal
+175,Luke Ayling,2.0,eng ENG,RB,29-089,69,0,0,0,0,0,0,4,1,2,0,0,0,7,2,2,50.0,11/22/20,Leeds United,Arsenal
+176,Rodrigo Moreno,20.0,es ESP,CM,29-261,21,0,0,0,0,0,0,0,0,1,0,0,0,1,1,0,100.0,11/22/20,Leeds United,Arsenal
+177,Illan Meslier,1.0,fr FRA,GK,20-265,90,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,,11/22/20,Leeds United,Arsenal
+178,Pierre-Emerick Aubameyang,14.0,ga GAB,FW,31-157,90,0,0,0,0,1,2,0,0,0,0,0,0,2,2,3,40.0,11/22/20,Arsenal,Leeds United
+179,Willian,12.0,br BRA,LW,32-105,45,0,0,0,0,0,0,0,1,0,0,0,0,5,0,1,0.0,11/22/20,Arsenal,Leeds United
+180,Reiss Nelson,24.0,eng ENG,"RW,LW",20-348,45,0,0,0,1,1,0,2,0,0,0,0,0,2,0,0,,11/22/20,Arsenal,Leeds United
+181,Nicolas Pepe,19.0,ci CIV,"RW,AM",25-177,50,0,1,0,3,1,0,1,1,1,0,0,0,2,3,3,50.0,11/22/20,Arsenal,Leeds United
+182,Joseph Willock,28.0,eng ENG,AM,21-094,56,0,0,0,2,0,0,1,1,1,0,0,0,4,2,0,100.0,11/22/20,Arsenal,Leeds United
+183,Bukayo Saka,7.0,eng ENG,LW,19-078,33,0,0,0,0,0,0,2,1,0,0,0,0,3,2,1,66.7,11/22/20,Arsenal,Leeds United
+184,Ainsley Maitland-Niles,15.0,eng ENG,LW,23-085,1,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,,11/22/20,Arsenal,Leeds United
+185,Granit Xhaka,34.0,ch SUI,CM,28-056,90,0,0,0,0,1,0,0,1,0,0,0,0,6,0,0,,11/22/20,Arsenal,Leeds United
+186,Dani Ceballos,8.0,es ESP,CM,24-107,90,0,0,0,1,3,0,0,2,3,0,0,0,13,0,1,0.0,11/22/20,Arsenal,Leeds United
+187,Kieran Tierney,3.0,sco SCO,LB,23-170,90,0,0,0,0,1,0,2,0,0,0,0,0,12,0,1,0.0,11/22/20,Arsenal,Leeds United
+188,Gabriel Magalhaes,6.0,br BRA,CB,22-339,90,0,0,0,0,1,0,0,1,0,0,0,0,7,1,0,100.0,11/22/20,Arsenal,Leeds United
+189,Rob Holding,16.0,eng ENG,CB,25-063,90,0,0,0,1,0,0,0,0,0,0,0,0,11,0,3,0.0,11/22/20,Arsenal,Leeds United
+190,Hector Bellerin,2.0,es ESP,RB,25-248,90,0,0,0,0,0,0,0,1,0,0,0,0,15,2,1,66.7,11/22/20,Arsenal,Leeds United
+191,Bernd Leno,1.0,de GER,GK,28-263,90,0,0,0,0,0,0,0,0,0,0,0,0,7,0,0,,11/22/20,Arsenal,Leeds United
+192,Roberto Firmino,9.0,br BRA,FW,29-051,90,0,0,0,0,0,0,0,0,0,0,0,0,8,3,6,33.3,11/22/20,Liverpool,Leicester City
+193,Sadio Mane,10.0,sn SEN,LW,28-226,88,0,0,0,4,1,2,0,1,1,0,0,0,4,3,3,50.0,11/22/20,Liverpool,Leicester City
+194,Takumi Minamino,18.0,jp JPN,LW,25-311,2,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,,11/22/20,Liverpool,Leicester City
+195,Diogo Jota,20.0,pt POR,RW,23-354,88,0,0,0,1,0,0,3,0,0,0,0,0,4,0,3,0.0,11/22/20,Liverpool,Leicester City
+196,Divock Origi,27.0,be BEL,RW,25-218,2,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,,11/22/20,Liverpool,Leicester City
+197,Naby Keita,8.0,gn GUI,CM,25-286,52,0,0,0,2,0,0,0,1,0,0,0,0,7,0,1,0.0,11/22/20,Liverpool,Leicester City
+198,Neco Williams,76.0,wal WAL,RB,19-223,38,0,0,0,0,0,0,0,2,1,0,0,0,2,0,0,,11/22/20,Liverpool,Leicester City
+199,Curtis Jones,17.0,eng ENG,CM,19-297,90,0,0,0,2,1,0,0,3,1,0,0,0,9,0,2,0.0,11/22/20,Liverpool,Leicester City
+200,Georginio Wijnaldum,5.0,nl NED,DM,30-011,90,0,0,0,1,1,0,0,2,0,0,0,0,11,1,1,50.0,11/22/20,Liverpool,Leicester City
+201,Andrew Robertson,26.0,sco SCO,LB,26-256,90,0,0,0,2,1,0,6,0,1,0,0,0,12,2,0,100.0,11/22/20,Liverpool,Leicester City
+202,Fabinho,3.0,br BRA,CB,27-030,90,0,0,0,0,1,0,0,4,0,0,0,0,4,0,1,0.0,11/22/20,Liverpool,Leicester City
+203,Joel Matip,32.0,cm CMR,CB,29-106,90,0,0,0,1,0,0,0,2,2,0,0,0,9,6,1,85.7,11/22/20,Liverpool,Leicester City
+204,James Milner,7.0,eng ENG,"RB,CM",34-323,90,0,0,0,1,1,0,3,1,1,0,0,0,12,1,4,20.0,11/22/20,Liverpool,Leicester City
+205,Alisson,1.0,br BRA,GK,28-051,90,0,0,0,0,0,0,0,0,0,0,0,0,8,0,0,,11/22/20,Liverpool,Leicester City
+206,Jamie Vardy,9.0,eng ENG,FW,33-316,90,0,0,0,0,1,1,2,1,0,0,0,0,2,2,3,40.0,11/22/20,Leicester City,Liverpool
+207,Harvey Barnes,15.0,eng ENG,AM,22-349,61,0,0,0,0,0,0,0,0,0,0,0,0,3,4,2,66.7,11/22/20,Leicester City,Liverpool
+208,Cengiz Under,19.0,tr TUR,AM,23-131,29,0,0,0,0,0,0,2,2,1,0,0,0,1,0,2,0.0,11/22/20,Leicester City,Liverpool
+209,James Maddison,10.0,eng ENG,AM,23-365,90,0,0,0,0,5,0,0,3,2,0,0,0,4,0,0,,11/22/20,Leicester City,Liverpool
+210,Nampalys Mendy,24.0,fr FRA,DM,28-152,90,1,0,0,1,3,0,0,0,0,0,0,0,7,2,1,66.7,11/22/20,Leicester City,Liverpool
+211,Youri Tielemans,8.0,be BEL,DM,23-199,90,0,0,0,0,2,0,0,0,0,0,0,0,13,3,0,100.0,11/22/20,Leicester City,Liverpool
+212,James Justin,2.0,eng ENG,WB,22-273,90,1,0,0,3,0,0,2,1,0,0,0,0,5,2,0,100.0,11/22/20,Leicester City,Liverpool
+213,Marc Albrighton,11.0,eng ENG,WB,31-004,90,0,0,0,0,1,0,3,1,2,0,0,0,11,0,2,0.0,11/22/20,Leicester City,Liverpool
+214,Christian Fuchs,28.0,at AUT,CB,34-229,61,0,0,0,0,0,0,0,1,0,0,0,0,7,3,0,100.0,11/22/20,Leicester City,Liverpool
+215,Dennis Praet,26.0,be BEL,CB,26-192,29,0,0,0,0,0,0,2,1,0,0,0,0,1,0,2,0.0,11/22/20,Leicester City,Liverpool
+216,Jonny Evans,6.0,nir NIR,CB,32-324,90,0,0,0,1,0,0,0,1,0,0,0,1,10,2,1,66.7,11/22/20,Leicester City,Liverpool
+217,Wesley Fofana,3.0,fr FRA,CB,19-341,90,0,0,0,1,2,0,0,4,2,0,0,0,8,4,3,57.1,11/22/20,Leicester City,Liverpool
+218,Kasper Schmeichel,1.0,dk DEN,GK,34-017,90,0,0,0,0,1,0,0,0,0,0,0,0,5,0,0,,11/22/20,Leicester City,Liverpool
+219,Jay Rodriguez,19.0,eng ENG,FW,31-117,90,1,0,0,3,3,1,1,1,0,0,0,0,7,2,4,33.3,11/23/20,Burnley,Crystal Palace
+220,Chris Wood,9.0,nz NZL,FW,28-352,90,0,0,0,0,1,1,0,0,0,0,0,0,2,6,6,50.0,11/23/20,Burnley,Crystal Palace
+221,Dwight McNeil,11.0,eng ENG,LM,21-001,90,0,0,0,0,0,0,1,1,0,0,0,0,9,1,1,50.0,11/23/20,Burnley,Crystal Palace
+222,Johann Gudmundsson,7.0,is ISL,RM,30-027,66,0,0,0,1,0,1,0,0,1,0,0,0,4,0,1,0.0,11/23/20,Burnley,Crystal Palace
+223,Robbie Brady,12.0,ie IRL,RM,28-314,17,0,0,0,0,1,0,0,0,0,0,0,0,2,1,0,100.0,11/23/20,Burnley,Crystal Palace
+224,Erik Pieters,23.0,nl NED,RM,32-108,7,0,0,0,2,0,0,0,0,1,0,0,0,0,0,0,,11/23/20,Burnley,Crystal Palace
+225,Josh Brownhill,8.0,eng ENG,DM,24-340,90,0,0,0,1,0,0,0,1,1,0,0,0,12,2,2,50.0,11/23/20,Burnley,Crystal Palace
+226,Ashley Westwood,18.0,eng ENG,DM,30-236,90,0,0,0,1,1,0,2,2,0,0,0,0,7,0,1,0.0,11/23/20,Burnley,Crystal Palace
+227,Charlie Taylor,3.0,eng ENG,LB,27-066,90,0,0,0,1,0,0,1,1,0,0,0,0,8,1,1,50.0,11/23/20,Burnley,Crystal Palace
+228,Ben Mee,6.0,eng ENG,CB,31-061,90,0,0,0,0,1,0,0,1,0,0,0,0,17,5,2,71.4,11/23/20,Burnley,Crystal Palace
+229,James Tarkowski,5.0,eng ENG,CB,28-004,90,0,0,0,2,1,0,0,2,1,0,0,0,15,10,3,76.9,11/23/20,Burnley,Crystal Palace
+230,Matthew Lowton,2.0,eng ENG,RB,31-167,90,1,0,0,2,0,0,0,3,1,0,0,0,7,0,0,,11/23/20,Burnley,Crystal Palace
+231,Nick Pope,1.0,eng ENG,GK,28-218,90,0,0,0,0,0,0,0,0,0,0,0,0,5,0,0,,11/23/20,Burnley,Crystal Palace
+232,Jordan Ayew,9.0,gh GHA,FW,29-073,76,0,0,0,1,1,0,0,0,1,0,0,0,3,1,7,12.5,11/23/20,Crystal Palace,Burnley
+233,Christian Benteke,20.0,be BEL,FW,29-356,14,0,0,0,1,1,0,0,0,0,0,0,0,1,3,1,75.0,11/23/20,Crystal Palace,Burnley
+234,Michy Batshuayi,23.0,be BEL,FW,27-052,90,0,0,0,2,0,1,2,0,0,0,0,0,4,1,6,14.3,11/23/20,Crystal Palace,Burnley
+235,Eberechi Eze,25.0,eng ENG,LM,22-147,90,0,0,0,0,6,0,1,0,0,0,0,0,9,0,0,,11/23/20,Crystal Palace,Burnley
+236,Andros Townsend,10.0,eng ENG,RM,29-130,90,0,0,0,0,2,0,8,1,1,0,0,0,13,0,1,0.0,11/23/20,Crystal Palace,Burnley
+237,James McArthur,18.0,sco SCO,DM,33-047,90,0,0,0,3,1,0,0,0,0,0,0,0,15,3,2,60.0,11/23/20,Crystal Palace,Burnley
+238,Jairo Riedewald,44.0,nl NED,DM,24-075,66,0,0,0,0,0,0,1,0,0,0,0,0,8,0,0,,11/23/20,Crystal Palace,Burnley
+239,Jeffrey Schlupp,15.0,gh GHA,DM,27-336,24,0,0,0,0,1,0,0,0,0,0,0,0,2,1,1,50.0,11/23/20,Crystal Palace,Burnley
+240,Patrick van Aanholt,3.0,nl NED,LB,30-086,90,0,0,0,0,0,1,3,1,1,0,0,0,6,0,0,,11/23/20,Crystal Palace,Burnley
+241,Scott Dann,6.0,eng ENG,CB,33-283,90,0,0,0,1,1,0,0,0,2,0,0,0,19,3,6,33.3,11/23/20,Crystal Palace,Burnley
+242,Cheikhou Kouyate,8.0,sn SEN,CB,30-338,90,0,0,0,1,0,0,0,1,2,0,0,0,18,9,2,81.8,11/23/20,Crystal Palace,Burnley
+243,Nathaniel Clyne,17.0,eng ENG,RB,29-232,90,0,0,0,0,0,0,0,0,1,0,0,0,15,0,2,0.0,11/23/20,Crystal Palace,Burnley
+244,Vicente Guaita,31.0,es ESP,GK,33-318,90,0,0,0,0,0,0,0,0,0,0,0,0,9,0,0,,11/23/20,Crystal Palace,Burnley
+245,Raul Jimenez,9.0,mx MEX,FW,29-202,90,0,0,0,1,3,1,0,2,0,0,0,0,7,0,3,0.0,11/23/20,Wolves,Southampton
+246,Daniel Podence,10.0,pt POR,"LW,AM",25-033,84,0,0,0,1,1,0,1,0,0,0,0,0,5,1,1,50.0,11/23/20,Wolves,Southampton
+247,Vitinha,20.0,pt POR,AM,20-284,6,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,,11/23/20,Wolves,Southampton
+248,Adama Traore,37.0,es ESP,RW,24-303,90,1,0,0,3,6,0,5,1,3,0,0,0,2,3,2,60.0,11/23/20,Wolves,Southampton
+249,Joao Moutinho,28.0,pt POR,"CM,DM",34-076,90,0,0,0,0,1,0,7,2,2,0,0,0,7,1,1,50.0,11/23/20,Wolves,Southampton
+250,Leander Dendoncker,32.0,be BEL,"CM,DM",25-222,90,0,0,0,2,0,1,0,0,1,0,0,0,12,3,4,42.9,11/23/20,Wolves,Southampton
+251,Ruben Neves,8.0,pt POR,DM,23-255,69,1,0,0,2,0,0,0,0,3,0,0,0,12,2,0,100.0,11/23/20,Wolves,Southampton
+252,Pedro Neto,7.0,pt POR,"LW,DM",20-259,21,0,0,0,0,0,0,3,0,0,0,0,0,2,0,0,,11/23/20,Wolves,Southampton
+253,Rayan Ait-Nouri,3.0,fr FRA,LB,19-170,90,0,0,0,3,1,0,2,0,2,0,0,0,14,1,2,33.3,11/23/20,Wolves,Southampton
+254,Willy Boly,15.0,ci CIV,CB,29-294,90,0,0,0,0,0,0,0,1,1,0,0,0,17,6,1,85.7,11/23/20,Wolves,Southampton
+255,Maximilian Kilman,49.0,eng ENG,CB,23-184,90,0,0,0,2,0,0,0,2,1,0,0,0,9,4,0,100.0,11/23/20,Wolves,Southampton
+256,Nelson Semedo,22.0,pt POR,RB,27-007,90,0,0,0,0,1,0,1,3,2,0,0,0,17,2,1,66.7,11/23/20,Wolves,Southampton
+257,Rui PatrÃ­cio,11.0,pt POR,GK,32-282,90,0,0,0,0,0,0,0,0,0,0,0,0,2,0,0,,11/23/20,Wolves,Southampton
+258,Che Adams,10.0,eng ENG,FW,24-133,90,0,0,0,1,3,0,2,1,1,0,0,0,3,1,6,14.3,11/23/20,Southampton,Wolves
+259,Theo Walcott,32.0,eng ENG,"FW,LM",31-252,90,0,0,0,0,3,1,1,0,1,0,0,0,5,0,2,0.0,11/23/20,Southampton,Wolves
+260,Moussa Djenepo,12.0,ml MLI,LM,22-161,78,0,0,0,2,2,0,1,1,2,0,0,0,8,0,2,0.0,11/23/20,Southampton,Wolves
+261,Shane Long,7.0,ie IRL,"FW,LM",33-306,12,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0.0,11/23/20,Southampton,Wolves
+262,Stuart Armstrong,17.0,sco SCO,RM,28-238,89,0,0,0,1,0,0,1,0,2,0,0,0,4,0,1,0.0,11/23/20,Southampton,Wolves
+263,Ibrahima Diallo,27.0,fr FRA,RM,21-260,1,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,,11/23/20,Southampton,Wolves
+264,Oriol Romeu,6.0,es ESP,DM,29-060,90,0,0,0,2,1,0,0,1,0,0,0,0,13,4,1,80.0,11/23/20,Southampton,Wolves
+265,James Ward-Prowse,8.0,eng ENG,DM,26-022,90,0,0,0,2,2,0,1,0,1,0,0,0,18,2,3,40.0,11/23/20,Southampton,Wolves
+266,Ryan Bertrand,3.0,eng ENG,LB,31-110,90,0,0,0,1,1,0,4,1,4,0,0,0,11,4,2,66.7,11/23/20,Southampton,Wolves
+267,Jannik Vestergaard,4.0,dk DEN,CB,28-112,90,0,0,0,2,0,0,0,0,1,0,0,0,6,4,2,66.7,11/23/20,Southampton,Wolves
+268,Jan Bednarek,35.0,pl POL,CB,24-225,90,0,0,0,1,1,0,0,0,1,0,0,0,11,0,2,0.0,11/23/20,Southampton,Wolves
+269,Kyle Walker-Peters,2.0,eng ENG,RB,23-224,90,0,0,0,1,1,0,0,2,1,0,0,0,11,0,1,0.0,11/23/20,Southampton,Wolves
+270,Alex McCarthy,1.0,eng ENG,GK,30-356,90,0,0,0,0,0,0,0,0,0,0,0,0,3,0,0,,11/23/20,Southampton,Wolves
