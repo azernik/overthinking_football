@@ -17,6 +17,7 @@ import random
 import cProfile
 import time
 import getopt
+import pdb
 
 def help(exit_code = 1):
     print("""-----------------------------------------------------------------
