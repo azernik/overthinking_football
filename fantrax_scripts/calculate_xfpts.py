@@ -76,6 +76,8 @@ def main(argv):
 
 def driver(rules_config_file, weekly_results_file, fbref_expected_table_file, cs_data_file, minute_requirement, output_file):
 
+    games_played_requirement = 3
+
     rules_dict = yaml.load(open(rules_config_file, 'r'), Loader=yaml.SafeLoader)
 
     weekly_results_df = pd.read_csv(weekly_results_file)
@@ -100,7 +102,9 @@ def driver(rules_config_file, weekly_results_file, fbref_expected_table_file, cs
 
     ## next merge the fantrax weekly data with the weekly fbref data
     #fix the date format of the fantrax weekly data
+
     dates = convert_dates(list(fbref_weekly_df['Date']))
+    print(dates)
     fbref_weekly_df['Date'] = dates
 
     fbref_data_merged_df = pd.merge(fbref_weekly_df, cs_df, on=['Team', 'Date'])
@@ -115,6 +119,9 @@ def driver(rules_config_file, weekly_results_file, fbref_expected_table_file, cs
     final_df.to_csv('~/Desktop/weekly_xfpts.20_21.csv')
     # get grouped df
     season_xfpts_df = group_final_df(final_df)
+
+    ## trim players to min game requirement
+    season_xfpts_df = season_xfpts_df.loc[season_xfpts_df['Valid_starts'] >= games_played_requirement]
     #print(season_xfpts_df)
 
     season_xfpts_df.to_csv('~/Desktop/season_xfpts.20_21.csv')
@@ -185,6 +192,10 @@ def calculate_xfpts(final_df, rules_dict):
                     scaled_points = point_value * float(row['xCS'])
                 elif scoring_category == 'GAD':
                     scaled_points = point_value * float(row['xGA'])
+                # elif scoring_category == 'OG':
+                #     scaled_points = 0
+                # elif scoring_category == 'RC':
+                #     scaled_points = 0
                 xfpts += scaled_points
             else:
                 xfpts += raw_points
@@ -220,7 +231,7 @@ def get_relevant_cs_df(cs_data_file):
 def convert_dates(dates):
     converted_dates = []
     for date in dates:
-        date_list = date.split('/')
+        date_list = str(date).split('/')
         new_date_string = ''
         count = 0
         for date_item in date_list:
